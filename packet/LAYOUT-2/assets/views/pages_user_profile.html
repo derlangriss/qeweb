@@ -1,10 +1,10 @@
 <!-- start: BREADCRUMB -->
 <div class="breadcrumb-wrapper">
-    <h4 class="mainTitle no-margin" translate="sidebar.nav.pages.USERPROFILE">USER PROFILE</h4>
-
-    <div ncy-breadcrumb class="pull-right"></div>
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.pages.USERPROFILE">
+        USER PROFILE
+    </h4>
 </div>
-<!-- end: BREADCRUMB -->
+<!-- end: BREADCRUMB --> 
 <!-- start: USER PROFILE -->
 <div class="container-fluid container-fullw bg-white">
     <div class="row">
@@ -19,93 +19,120 @@
                             <div class="col-md-4">
                                 <div class="user-left">
                                     <div class="center">
-                                        <h4>{{userInfo.firstName}} {{userInfo.lastName}}</h4>
-                                        <div flow-init="{singleFile:true}" flow-name="obj.flow" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+                                        <h4>
+                                            {{userInfo.firstName}} {{userInfo.lastName}}
+                                        </h4>
+                                        <div flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="upload()" flow-init="" flow-name="obj.flow">
                                             <div class="user-image">
                                                 <div class="thumbnail">
-                                                    <img src="assets/images/default-user.png" alt="" ng-if="!obj.flow.files.length && noImage">
-                                                    <img ng-src="{{userInfo.avatar}}" alt="" ng-if="!obj.flow.files.length && !noImage">
-                                                    <img flow-img="obj.flow.files[0]" ng-if="obj.flow.files.length">
+                                                    <img alt="" ng-if="!obj.flow.files.length && noImage" src="assets/images/default-user.png">
+                                                        <img alt="" ng-if="!obj.flow.files.length && !noImage" ng-src="{{userInfo.avatar}}">
+                                                            <img flow-img="obj.flow.files[0]" ng-if="obj.flow.files.length">
+                                                            </img>
+                                                        </img>
+                                                    </img>
                                                 </div>
                                                 <div class="user-image-buttons" ng-if="obj.flow.files.length">
                                                     <span class="btn btn-primary btn-file">
-					                                    <i class="fa fa-pencil"></i>
-					                                    <input type="file" flow-btn />
-					                                </span>
-                                                    <span class="btn btn-danger" ng-click="obj.flow.cancel()"> <i class="fa fa-times"></i> </span>
+                                                        <i class="fa fa-pencil">
+                                                        </i>
+                                                        <input flow-btn="" type="file"/>
+                                                    </span>
+                                                    <span class="btn btn-danger" ng-click="obj.flow.cancel()">
+                                                        <i class="fa fa-times">
+                                                        </i>
+                                                    </span>
                                                 </div>
                                                 <div class="user-image-buttons" ng-if="!obj.flow.files.length">
                                                     <span class="btn btn-primary btn-file">
-					                                    <i class="fa fa-pencil"></i>
-					                                    <input type="file" flow-btn />
-					                                </span>
-                                                    <span class="btn btn-danger" ng-if="!noImage" ng-click="removeImage()"><i class="fa fa-times"></i></span>
+                                                        <i class="fa fa-pencil">
+                                                        </i>
+                                                        <input flow-btn="" type="file"/>
+                                                    </span>
+                                                    <span class="btn btn-danger" ng-click="removeImage()" ng-if="!noImage">
+                                                        <i class="fa fa-times">
+                                                        </i>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
                                         <hr>
-                                        <div class="social-icons block">
-                                            <ul>
-                                                <li data-placement="top" data-original-title="Twitter" class="social-twitter tooltips">
-                                                    <a href="#" target="_blank">
-                                                        Twitter
-                                                    </a>
-                                                </li>
-                                                <li data-placement="top" data-original-title="Facebook" class="social-facebook tooltips">
-                                                    <a href="#" target="_blank">
-                                                        Facebook
-                                                    </a>
-                                                </li>
-                                                <li data-placement="top" data-original-title="Google" class="social-google tooltips">
-                                                    <a href="#" target="_blank">
-                                                        Google+
-                                                    </a>
-                                                </li>
-                                                <li data-placement="top" data-original-title="LinkedIn" class="social-linkedin tooltips">
-                                                    <a href="#" target="_blank">
-                                                        LinkedIn
-                                                    </a>
-                                                </li>
-                                                <li data-placement="top" data-original-title="Github" class="social-github tooltips">
-                                                    <a href="#" target="_blank">
-                                                        Github
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <hr>
+                                            <div class="social-icons block">
+                                                <ul>
+                                                    <li class="social-twitter tooltips" data-original-title="Twitter" data-placement="top">
+                                                        <a href="#" target="_blank">
+                                                            Twitter
+                                                        </a>
+                                                    </li>
+                                                    <li class="social-facebook tooltips" data-original-title="Facebook" data-placement="top">
+                                                        <a href="#" target="_blank">
+                                                            Facebook
+                                                        </a>
+                                                    </li>
+                                                    <li class="social-google tooltips" data-original-title="Google" data-placement="top">
+                                                        <a href="#" target="_blank">
+                                                            Google+
+                                                        </a>
+                                                    </li>
+                                                    <li class="social-linkedin tooltips" data-original-title="LinkedIn" data-placement="top">
+                                                        <a href="#" target="_blank">
+                                                            LinkedIn
+                                                        </a>
+                                                    </li>
+                                                    <li class="social-github tooltips" data-original-title="Github" data-placement="top">
+                                                        <a href="#" target="_blank">
+                                                            Github
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <hr>
+                                            </hr>
+                                        </hr>
                                     </div>
                                     <table class="table table-condensed">
                                         <thead>
                                             <tr>
-                                                <th colspan="3">Contact Information</th>
+                                                <th colspan="3">
+                                                    Contact Information
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>url</td>
                                                 <td>
-                                                    <a href="#">
+                                                    url
+                                                </td>
+                                                <td>
+                                                    <a href="">
                                                         {{userInfo.url}}
                                                     </a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>email:</td>
                                                 <td>
-                                                    <a href>
+                                                    email:
+                                                </td>
+                                                <td>
+                                                    <a href="">
                                                         {{userInfo.email}}
                                                     </a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>phone:</td>
-                                                <td>{{userInfo.phone}}</td>
+                                                <td>
+                                                    phone:
+                                                </td>
+                                                <td>
+                                                    {{userInfo.phone}}
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>skye</td>
                                                 <td>
-                                                    <a href>
+                                                    skye
+                                                </td>
+                                                <td>
+                                                    <a href="">
                                                         {{userInfo.skype}}
                                                     </a>
                                                 </td>
@@ -115,24 +142,40 @@
                                     <table class="table table-condensed">
                                         <thead>
                                             <tr>
-                                                <th colspan="3">General information</th>
+                                                <th colspan="3">
+                                                    General information
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Position</td>
-                                                <td>UI Designer</td>
+                                                <td>
+                                                    Position
+                                                </td>
+                                                <td>
+                                                    UI Designer
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Last Logged In</td>
-                                                <td>56 min</td>
+                                                <td>
+                                                    Last Logged In
+                                                </td>
+                                                <td>
+                                                    56 min
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Position</td>
-                                                <td>Senior Marketing Manager</td>
+                                                <td>
+                                                    Position
+                                                </td>
+                                                <td>
+                                                    Senior Marketing Manager
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Supervisor</td>
+                                                <td>
+                                                    Supervisor
+                                                </td>
                                                 <td>
                                                     <a href="#">
                                                         Kenneth Ross
@@ -140,21 +183,33 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Status</td>
-                                                <td><span class="label label-sm label-info">Administrator</span></td>
+                                                <td>
+                                                    Status
+                                                </td>
+                                                <td>
+                                                    <span class="label label-sm label-info">
+                                                        Administrator
+                                                    </span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <table class="table table-condensed">
                                         <thead>
                                             <tr>
-                                                <th colspan="3">Additional information</th>
+                                                <th colspan="3">
+                                                    Additional information
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Groups</td>
-                                                <td>New company web site development, HR Management</td>
+                                                <td>
+                                                    Groups
+                                                </td>
+                                                <td>
+                                                    New company web site development, HR Management
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -169,35 +224,45 @@
                                 <div class="row space20">
                                     <div class="col-sm-3">
                                         <button class="btn btn-icon margin-bottom-5 margin-bottom-5 btn-block">
-                                            <i class="ti-layers-alt block text-primary text-extra-large margin-bottom-10"></i>
+                                            <i class="ti-layers-alt block text-primary text-extra-large margin-bottom-10">
+                                            </i>
                                             Projects
                                         </button>
                                     </div>
                                     <div class="col-sm-3">
                                         <button class="btn btn-icon margin-bottom-5 btn-block">
-                                            <i class="ti-comments block text-primary text-extra-large margin-bottom-10"></i>
-                                            Messages <span class="badge badge-danger"> 23 </span>
+                                            <i class="ti-comments block text-primary text-extra-large margin-bottom-10">
+                                            </i>
+                                            Messages
+                                            <span class="badge badge-danger">
+                                                23
+                                            </span>
                                         </button>
                                     </div>
                                     <div class="col-sm-3">
                                         <button class="btn btn-icon margin-bottom-5 btn-block">
-                                            <i class="ti-calendar block text-primary text-extra-large margin-bottom-10"></i>
+                                            <i class="ti-calendar block text-primary text-extra-large margin-bottom-10">
+                                            </i>
                                             Calendar
                                         </button>
                                     </div>
                                     <div class="col-sm-3">
                                         <button class="btn btn-icon margin-bottom-5 btn-block">
-                                            <i class="ti-flag block text-primary text-extra-large margin-bottom-10"></i>
+                                            <i class="ti-flag block text-primary text-extra-large margin-bottom-10">
+                                            </i>
                                             Notifications
                                         </button>
                                     </div>
                                 </div>
                                 <div class="panel panel-white" id="activities">
                                     <div class="panel-heading border-light">
-                                        <h4 class="panel-title text-primary">Recent Activities</h4>
-                                        <paneltool class="panel-tools" tool-collapse="tool-collapse" tool-refresh="load1" tool-dismiss="tool-dismiss"></paneltool>
+                                        <h4 class="panel-title text-primary">
+                                            Recent Activities
+                                        </h4>
+                                        <paneltool class="panel-tools" tool-collapse="tool-collapse" tool-dismiss="tool-dismiss" tool-refresh="load1">
+                                        </paneltool>
                                     </div>
-                                    <div uib-collapse="activities" ng-init="activities=false" class="panel-wrapper">
+                                    <div class="panel-wrapper" ng-init="activities=false" uib-collapse="activities">
                                         <div class="panel-body">
                                             <ul class="timeline-xs">
                                                 <li class="timeline-item success">
@@ -206,7 +271,7 @@
                                                             2 minutes ago
                                                         </div>
                                                         <p>
-                                                            <a class="text-info" href>
+                                                            <a class="text-info" href="">
                                                                 Steven
                                                             </a>
                                                             has completed his account.
@@ -240,7 +305,7 @@
                                                         </div>
                                                         <p>
                                                             Contacted
-                                                            <a class="text-info" href>
+                                                            <a class="text-info" href="">
                                                                 Microsoft
                                                             </a>
                                                             for license upgrades.
@@ -264,7 +329,7 @@
                                                         </div>
                                                         <p>
                                                             Lunch with
-                                                            <a class="text-info" href>
+                                                            <a class="text-info" href="">
                                                                 Nicole
                                                             </a>
                                                             .
@@ -288,7 +353,7 @@
                                                         </div>
                                                         <p>
                                                             New User Registration
-                                                            <a class="text-info" href>
+                                                            <a class="text-info" href="">
                                                                 more details
                                                             </a>
                                                             .
@@ -301,18 +366,24 @@
                                 </div>
                                 <div class="panel panel-white space20">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title">Recent Tweets</h4>
+                                        <h4 class="panel-title">
+                                            Recent Tweets
+                                        </h4>
                                     </div>
                                     <div class="panel-body">
                                         <ul class="ltwt">
                                             <li class="ltwt_tweet">
                                                 <p class="ltwt_tweet_text">
-                                                    <a href class="text-info">
+                                                    <a class="text-info" href="">
                                                         @Shakespeare
                                                     </a>
                                                     Some are born great, some achieve greatness, and some have greatness thrust upon them.
                                                 </p>
-                                                <span class="block text-light"><i class="fa fa-fw fa-clock-o"></i> 2 minuts ago</span>
+                                                <span class="block text-light">
+                                                    <i class="fa fa-fw fa-clock-o">
+                                                    </i>
+                                                    2 minuts ago
+                                                </span>
                                             </li>
                                         </ul>
                                     </div>
@@ -322,8 +393,8 @@
                     </uib-tab>
                     <!-- end: TAB OVERVIEW -->
                     <!-- start: TAB EDIT ACCOUNT -->
-                    <uib-tab heading="Edit Account" active="editActive">
-                        <form action="#" role="form" id="form">
+                    <uib-tab active="editActive" heading="Edit Account">
+                        <form action="#" id="form" role="form">
                             <fieldset>
                                 <legend>
                                     Account Info
@@ -334,31 +405,36 @@
                                             <label class="control-label">
                                                 First Name
                                             </label>
-                                            <input type="text" placeholder="Enter your first name" class="form-control" name="firstname" ng-model="userInfo.firstName">
+                                            <input class="form-control" name="firstname" ng-model="userInfo.firstName" placeholder="Enter your first name" type="text">
+                                            </input>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">
                                                 Last Name
                                             </label>
-                                            <input type="text" placeholder="Enter your last name" class="form-control" name="lastname" ng-model="userInfo.lastName">
+                                            <input class="form-control" name="lastname" ng-model="userInfo.lastName" placeholder="Enter your last name" type="text">
+                                            </input>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">
                                                 Email Address
                                             </label>
-                                            <input type="email" placeholder="email address" class="form-control" name="email" ng-model="userInfo.email">
+                                            <input class="form-control" name="email" ng-model="userInfo.email" placeholder="email address" type="email">
+                                            </input>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">
                                                 Phone
                                             </label>
-                                            <input type="text" placeholder="phone number" class="form-control" name="phone" ng-model="userInfo.phone">
+                                            <input class="form-control" name="phone" ng-model="userInfo.phone" placeholder="phone number" type="text">
+                                            </input>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">
                                                 Url
                                             </label>
-                                            <input type="text" placeholder="Enter Url" class="form-control" name="url" ng-model="userInfo.url">
+                                            <input class="form-control" name="url" ng-model="userInfo.url" placeholder="Enter Url" type="text">
+                                            </input>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -367,14 +443,16 @@
                                                 Gender
                                             </label>
                                             <div class="clip-radio radio-primary">
-                                                <input type="radio" id="us-female" name="gender" value="female" ng-model="userInfo.gender">
-                                                <label for="us-female">
-                                                    Female
-                                                </label>
-                                                <input type="radio" id="us-male" name="gender" value="male" ng-model="userInfo.gender">
-                                                <label for="us-male">
-                                                    Male
-                                                </label>
+                                                <input id="us-female" name="gender" ng-model="userInfo.gender" type="radio" value="female">
+                                                    <label for="us-female">
+                                                        Female
+                                                    </label>
+                                                    <input id="us-male" name="gender" ng-model="userInfo.gender" type="radio" value="male">
+                                                        <label for="us-male">
+                                                            Male
+                                                        </label>
+                                                    </input>
+                                                </input>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -383,7 +461,8 @@
                                                     <label class="control-label">
                                                         Zip Code
                                                     </label>
-                                                    <input class="form-control" placeholder="enter a zip code" type="text" name="zipcode" ng-model="userInfo.zipCode">
+                                                    <input class="form-control" name="zipcode" ng-model="userInfo.zipCode" placeholder="enter a zip code" type="text">
+                                                    </input>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
@@ -391,35 +470,8 @@
                                                     <label class="control-label">
                                                         City
                                                     </label>
-                                                    <input class="form-control" placeholder="enter your city" type="text" name="city" ng-model="userInfo.city">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>
-                                                Image Upload
-                                            </label>
-                                            <div flow-init flow-object="obj.flow">
-                                                <div class="user-image">
-                                                    <div class="thumbnail margin-bottom-5">
-                                                        <img src="assets/images/default-user.png" alt="" ng-if="!obj.flow.files.length && noImage">
-                                                        <img ng-src="{{userInfo.avatar}}" alt="" ng-if="!obj.flow.files.length && !noImage">
-                                                        <img flow-img="obj.flow.files[0]" ng-if="obj.flow.files.length">
-                                                    </div>
-                                                </div>
-                                                <div class="user-image-buttons-edit" ng-if="obj.flow.files.length">
-                                                    <span class="btn btn-primary btn-file">
-					                                    <i class="fa fa-pencil"></i>
-					                                    <input type="file" flow-btn />
-					                                </span>
-                                                    <span class="btn btn-danger" ng-click="obj.flow.cancel()"> <i class="fa fa-times"></i></span>
-                                                </div>
-                                                <div class="user-image-buttons-edit" ng-if="!obj.flow.files.length">
-                                                    <span class="btn btn-primary btn-file">
-					                                    <i class="fa fa-pencil"></i>
-					                                    <input type="file" flow-btn />
-					                                </span>
-                                                    <span class="btn btn-danger" ng-if="!noImage" ng-click="removeImage()"><i class="fa fa-times"></i> </span>
+                                                    <input class="form-control" name="city" ng-model="userInfo.city" placeholder="enter your city" type="text">
+                                                    </input>
                                                 </div>
                                             </div>
                                         </div>
@@ -437,8 +489,10 @@
                                                 Twitter
                                             </label>
                                             <span class="input-icon">
-                                                <input class="form-control" type="text" placeholder="Twitter" name="twitter" ng-model="userInfo.twitter">
-                                                <i class="fa fa-twitter"></i>
+                                                <input class="form-control" name="twitter" ng-model="userInfo.twitter" placeholder="Twitter" type="text">
+                                                    <i class="fa fa-twitter">
+                                                    </i>
+                                                </input>
                                             </span>
                                         </div>
                                         <div class="form-group">
@@ -446,8 +500,10 @@
                                                 Facebook
                                             </label>
                                             <span class="input-icon">
-                                                <input class="form-control" type="text" placeholder="Facebook" name="facebook" ng-model="userInfo.facebook">
-                                                <i class="fa fa-facebook"></i>
+                                                <input class="form-control" name="facebook" ng-model="userInfo.facebook" placeholder="Facebook" type="text">
+                                                    <i class="fa fa-facebook">
+                                                    </i>
+                                                </input>
                                             </span>
                                         </div>
                                         <div class="form-group">
@@ -455,8 +511,10 @@
                                                 Google Plus
                                             </label>
                                             <span class="input-icon">
-                                                <input class="form-control" type="text" placeholder="Google Plus" name="google" ng-model="userInfo.google">
-                                                <i class="fa fa-google-plus"></i>
+                                                <input class="form-control" name="google" ng-model="userInfo.google" placeholder="Google Plus" type="text">
+                                                    <i class="fa fa-google-plus">
+                                                    </i>
+                                                </input>
                                             </span>
                                         </div>
                                     </div>
@@ -466,8 +524,10 @@
                                                 Github
                                             </label>
                                             <span class="input-icon">
-                                                <input class="form-control" type="text" placeholder="Github" name="github" ng-model="userInfo.github">
-                                                <i class="fa fa-github"></i>
+                                                <input class="form-control" name="github" ng-model="userInfo.github" placeholder="Github" type="text">
+                                                    <i class="fa fa-github">
+                                                    </i>
+                                                </input>
                                             </span>
                                         </div>
                                         <div class="form-group">
@@ -475,8 +535,10 @@
                                                 Linkedin
                                             </label>
                                             <span class="input-icon">
-                                                <input class="form-control" type="text" placeholder="Linkedin" name="linkedin" ng-model="userInfo.linkedin">
-                                                <i class="fa fa-linkedin"></i>
+                                                <input class="form-control" name="linkedin" ng-model="userInfo.linkedin" placeholder="Linkedin" type="text">
+                                                    <i class="fa fa-linkedin">
+                                                    </i>
+                                                </input>
                                             </span>
                                         </div>
                                         <div class="form-group">
@@ -484,8 +546,10 @@
                                                 Skype
                                             </label>
                                             <span class="input-icon">
-                                                <input class="form-control" type="text" placeholder="Skype" name="skype" ng-model="userInfo.skype">
-                                                <i class="fa fa-skype"></i>
+                                                <input class="form-control" name="skype" ng-model="userInfo.skype" placeholder="Skype" type="text">
+                                                    <i class="fa fa-skype">
+                                                    </i>
+                                                </input>
                                             </span>
                                         </div>
                                     </div>
@@ -499,91 +563,173 @@
                         <table class="table" id="projects">
                             <thead>
                                 <tr>
-                                    <th>Project Name</th>
-                                    <th class="hidden-xs">Client</th>
-                                    <th>Proj Comp</th>
-                                    <th class="hidden-xs">%Comp</th>
-                                    <th class="hidden-xs center">Priority</th>
+                                    <th>
+                                        Project Name
+                                    </th>
+                                    <th class="hidden-xs">
+                                        Client
+                                    </th>
+                                    <th>
+                                        Proj Comp
+                                    </th>
+                                    <th class="hidden-xs">
+                                        %Comp
+                                    </th>
+                                    <th class="hidden-xs center">
+                                        Priority
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>IT Help Desk</td>
-                                    <td class="hidden-xs">Master Company</td>
-                                    <td>11 november 2014</td>
+                                    <td>
+                                        IT Help Desk
+                                    </td>
+                                    <td class="hidden-xs">
+                                        Master Company
+                                    </td>
+                                    <td>
+                                        11 november 2014
+                                    </td>
                                     <td class="hidden-xs">
                                         <div class="progress active progress-xs">
-                                            <div style="width: 70%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" role="progressbar" class="progress-bar progress-bar-warning">
-                                                <span class="sr-only"> 70% Complete (danger)</span>
+                                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="progress-bar progress-bar-warning" role="progressbar" style="width: 70%">
+                                                <span class="sr-only">
+                                                    70% Complete (danger)
+                                                </span>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="center hidden-xs"><span class="label label-danger">Critical</span></td>
+                                    <td class="center hidden-xs">
+                                        <span class="label label-danger">
+                                            Critical
+                                        </span>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>PM New Product Dev</td>
-                                    <td class="hidden-xs">Brand Company</td>
-                                    <td>12 june 2014</td>
+                                    <td>
+                                        PM New Product Dev
+                                    </td>
+                                    <td class="hidden-xs">
+                                        Brand Company
+                                    </td>
+                                    <td>
+                                        12 june 2014
+                                    </td>
                                     <td class="hidden-xs">
                                         <div class="progress active progress-xs">
-                                            <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-info">
-                                                <span class="sr-only"> 40% Complete</span>
+                                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" class="progress-bar progress-bar-info" role="progressbar" style="width: 40%">
+                                                <span class="sr-only">
+                                                    40% Complete
+                                                </span>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="center hidden-xs"><span class="label label-warning">High</span></td>
+                                    <td class="center hidden-xs">
+                                        <span class="label label-warning">
+                                            High
+                                        </span>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>ClipTheme Web Site</td>
-                                    <td class="hidden-xs">Internal</td>
-                                    <td>11 november 2014</td>
+                                    <td>
+                                        ClipTheme Web Site
+                                    </td>
+                                    <td class="hidden-xs">
+                                        Internal
+                                    </td>
+                                    <td>
+                                        11 november 2014
+                                    </td>
                                     <td class="hidden-xs">
                                         <div class="progress active progress-xs">
-                                            <div style="width: 90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class="progress-bar progress-bar-success">
-                                                <span class="sr-only"> 90% Complete</span>
+                                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" class="progress-bar progress-bar-success" role="progressbar" style="width: 90%">
+                                                <span class="sr-only">
+                                                    90% Complete
+                                                </span>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="center hidden-xs"><span class="label label-success">Normal</span></td>
+                                    <td class="center hidden-xs">
+                                        <span class="label label-success">
+                                            Normal
+                                        </span>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>Local Ad</td>
-                                    <td class="hidden-xs">UI Fab</td>
-                                    <td>15 april 2014</td>
+                                    <td>
+                                        Local Ad
+                                    </td>
+                                    <td class="hidden-xs">
+                                        UI Fab
+                                    </td>
+                                    <td>
+                                        15 april 2014
+                                    </td>
                                     <td class="hidden-xs">
                                         <div class="progress active progress-xs">
-                                            <div style="width: 50%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar" class="progress-bar progress-bar-warning">
-                                                <span class="sr-only"> 50% Complete</span>
+                                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" class="progress-bar progress-bar-warning" role="progressbar" style="width: 50%">
+                                                <span class="sr-only">
+                                                    50% Complete
+                                                </span>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="center hidden-xs"><span class="label label-success">Normal</span></td>
+                                    <td class="center hidden-xs">
+                                        <span class="label label-success">
+                                            Normal
+                                        </span>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>Design new theme</td>
-                                    <td class="hidden-xs">Internal</td>
-                                    <td>2 october 2014</td>
+                                    <td>
+                                        Design new theme
+                                    </td>
+                                    <td class="hidden-xs">
+                                        Internal
+                                    </td>
+                                    <td>
+                                        2 october 2014
+                                    </td>
                                     <td class="hidden-xs">
                                         <div class="progress active progress-xs">
-                                            <div style="width: 20%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" role="progressbar" class="progress-bar progress-bar-success">
-                                                <span class="sr-only"> 20% Complete (warning)</span>
+                                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" class="progress-bar progress-bar-success" role="progressbar" style="width: 20%">
+                                                <span class="sr-only">
+                                                    20% Complete (warning)
+                                                </span>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="center hidden-xs"><span class="label label-danger">Critical</span></td>
+                                    <td class="center hidden-xs">
+                                        <span class="label label-danger">
+                                            Critical
+                                        </span>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>IT Help Desk</td>
-                                    <td class="hidden-xs">Designer TM</td>
-                                    <td>6 december 2014</td>
+                                    <td>
+                                        IT Help Desk
+                                    </td>
+                                    <td class="hidden-xs">
+                                        Designer TM
+                                    </td>
+                                    <td>
+                                        6 december 2014
+                                    </td>
                                     <td class="hidden-xs">
                                         <div class="progress active progress-xs">
-                                            <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
-                                                <span class="sr-only"> 40% Complete (warning)</span>
+                                            <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" class="progress-bar progress-bar-warning" role="progressbar" style="width: 40%">
+                                                <span class="sr-only">
+                                                    40% Complete (warning)
+                                                </span>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="center hidden-xs"><span class="label label-warning">High</span></td>
+                                    <td class="center hidden-xs">
+                                        <span class="label label-warning">
+                                            High
+                                        </span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

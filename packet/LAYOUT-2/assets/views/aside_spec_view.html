@@ -1,0 +1,446 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">
+        General Information
+        <span class="text-bold">
+            ID: {{specimens_id}}
+        </span>
+    </h4>
+</div>
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row space20">
+                            <div class="panel-body">
+                                <!-- end: EMAIL READER -->
+                                <div class="">
+                                    <ul class="nav nav-tabs" id="myTab">
+                                        <div class="liner">
+                                        </div>
+                                        <li ng-class="{ active: isSet(1) }">
+                                            <a aria-expanded="false" data-toggle="tab" ng-click="setTab(1)" title="Specimens Details">
+                                                <span class="round-tabs four">
+                                                    Specimens Info
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li ng-class="{ active: isSet(2) }">
+                                            <a aria-expanded="true" data-toggle="tab" ng-click="setTab(2)" title="Collection Info">
+                                                <span class="round-tabs four">
+                                                    Collection Info
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li ng-class="{ active: isSet(3) }">
+                                            <a aria-expanded="false" data-toggle="tab" ng-click="setTab(3)" title="Museum Info">
+                                                <span class="round-tabs four">
+                                                    Museum Info
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li ng-class="{ active: isSet(4) }">
+                                            <a aria-expanded="false" data-toggle="tab" ng-click="setTab(4)" title="Picture">
+                                                <span class="round-tabs four">
+                                                    Picture
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="margin-left-0">
+                                    <div class="tab-content">
+                                        <div class="tab-pane no-padding" id="ss" ng-class="{ active: isSet(1) }">
+                                            <div class="animate-show-hide " ng-show="isSet(1)">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="margin-top-20">
+                                                            <div class="row">
+                                                                <div class="col-sm-12 no-border">
+                                                                    <div class="panel panel-primary no-border">
+                                                                        <div class="panel-heading no-border">
+                                                                            <h4 class="panel-title">
+                                                                                {{specimens_full_number}}
+                                                                            </h4>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="panel panel-white no-radius no-border">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="panel panel-white no-border">
+                                                                                    <div class="panel-body">
+                                                                                        <div class="row">
+                                                                                            <div class="col-sm-6 col-md-6">
+                                                                                                <a class="thumbnail" href="#">
+                                                                                                    <img alt="" src="assets/images/lion-565820_640.jpg">
+                                                                                                    </img>
+                                                                                                </a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-12">
+                                                                            <div>
+                                                                                <table class="table table-condensed">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th colspan="3">
+                                                                                                Taxa Details
+                                                                                            </th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                torder
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{torder_name}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                family
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{family_name}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                genus
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{genus_name}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                species
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{species_name}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <table class="table table-condensed">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th colspan="3">
+                                                                                                Report
+                                                                                            </th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                Date Report
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{sreport_date}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane no-padding" id="video" ng-class="{ active: isSet(2) }">
+                                            <div class="animate-show-hide " ng-show="isSet(2)">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="margin-top-20">
+                                                            <div class="row">
+                                                                <div class="col-sm-12 no-border">
+                                                                    <div class="panel panel-primary no-border">
+                                                                        <div class="panel-heading no-border">
+                                                                            <h4 class="panel-title">
+                                                                                {{coll_full_id}}
+                                                                            </h4>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="panel panel-white no-radius no-border">
+                                                                        <div class="col-md-12">
+                                                                            <div>
+                                                                                <table class="table table-condensed">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th colspan="3">
+                                                                                                Date Collection
+                                                                                            </th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                Start Date
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{coll_start_date}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                End Date
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{coll_end_date}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <table class="table table-condensed">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th colspan="3">
+                                                                                                Location Coordinate
+                                                                                            </th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                lattitude
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="">
+                                                                                                    {{coll_lat_d}}° {{coll_lat_m}}' {{coll_lat_s}}"
+                                                                                                </a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                longitude
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="">
+                                                                                                    {{coll_long_d}}° {{coll_long_m}}' {{coll_long_s}}"
+                                                                                                </a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                MASL
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{coll_masl}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <table class="table table-condensed">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th colspan="3">
+                                                                                                Location Adminstrative
+                                                                                            </th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                Amphur
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{amphur_en}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                Province
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{province_en}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                Locality
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{coll_locality}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                Specific Locality
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="#">
+                                                                                                    {{coll_specific_locality}}
+                                                                                                </a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                Status
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <span class="label label-sm label-info">
+                                                                                                    Administrator
+                                                                                                </span>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <table class="table table-condensed">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th colspan="3">
+                                                                                                Collection Details
+                                                                                            </th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                Collection Method
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{collmethod}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class="col-md-4">
+                                                                                                Donation
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{donation}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <table class="table table-condensed">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th colspan="3">
+                                                                                                Collector List
+                                                                                            </th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr ng-repeat-start="d in collectorlist">
+                                                                                            <td class="col-md-4">
+                                                                                                <span class="badge badge-info">
+                                                                                                    {{d.queue}}
+                                                                                                </span>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{d.collector_firstname_en}} {{d.collector_lastname_en}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr ng-repeat-end="">
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane no-padding" id="ss" ng-class="{ active: isSet(3) }">
+                                            <div class="animate-show-hide " ng-show="isSet(3)">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="margin-top-20">
+                                                            <div class="row">
+                                                                <div class="col-sm-12 no-border">
+                                                                    <div class="panel panel-primary no-border">
+                                                                        <div class="panel-heading no-border">
+                                                                            <h4 class="panel-title">
+                                                                                Museum Information
+                                                                            </h4>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="panel panel-white no-radius no-border">
+                                                                        <table class="table table-condensed">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th colspan="3">
+                                                                                        Museum Info
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="col-md-4">
+                                                                                        Row
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <a href="">
+                                                                                            {{rcabinet}}
+                                                                                        </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="col-md-4">
+                                                                                        Cabinet
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <a href="">
+                                                                                            {{cabinet}}
+                                                                                        </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="col-md-4">
+                                                                                        Locker
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        {{sub_cabinet}}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="col-md-4">
+                                                                                        Drawer
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        {{drawer_code}}
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: BREADCRUMB -->
+        <!-- start: YOUR CONTENT HERE -->
+        <!-- end: YOUR CONTENT HERE -->
+    </div>
+</div>

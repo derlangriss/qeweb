@@ -1,0 +1,7 @@
+<?PHP
+$i = 'AAAA';
+do {
+  echo $i . "\n";
+  $i++;
+} while( $i !== 'AAAAA');
+?>

@@ -13,7 +13,7 @@ date("H:i:s");
  * side processing requirements of DataTables.
  *
  * @license MIT - http://datatables.net/license_mit
- */
+ */ 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Easy set variables
@@ -37,17 +37,18 @@ $primaryKey = 'idcollection';
 // indexes
 $columns = array(
 	array( 'as'=>'as1','tb'=>'specimens','db' => 'idspecimens', 'dt' => 0 ),
-	array( 'as'=>'as2','tb'=>'collection','db' => 'collectionid',  'dt' => 1 ),
-	array( 'as'=>'as3','tb'=>'collection','db' => 'idcollection',      'dt' => 2 ),
-	array( 'as'=>'as4','tb'=>'collection','db' => 'trash',     'dt' => 3 ),
-    array( 'as'=>'as5','tb'=>'collection','db' => 'coll_code',  'dt' => 4 ),
-	array( 'as'=>'as6','tb'=>'collection','db' => 'coll_year',      'dt' => 5 ),
-	array( 'as'=>'as7','tb'=>'collection','db' => 'coll_number',     'dt' => 6 ),
-    array( 'as'=>'as8','tb'=>'torder','db' => 'tordername',     'dt' => 7 ),
-    array( 'as'=>'as9','tb'=>'family','db' => 'familyname',  'dt' => 8 ),
-	array( 'as'=>'as10','tb'=>'genus','db' => 'genusname',      'dt' => 9 ),
-	array( 'as'=>'as11','tb'=>'species','db' => 'speciesname',     'dt' => 10 ),
-    array( 'as'=>'as12','tb'=>'specimens','db' => 'specimen_number',      'dt' => 11 ),
+	array( 'as'=>'as2','tb'=>'specimens','db' => 'specimenfullnumber', 'dt' => 1 ),
+	array( 'as'=>'as3','tb'=>'collection','db' => 'collectionid',  'dt' => 2 ),
+	array( 'as'=>'as4','tb'=>'collection','db' => 'idcollection',      'dt' => 3 ),
+	array( 'as'=>'as5','tb'=>'collection','db' => 'trash',     'dt' => 4 ),
+    array( 'as'=>'as6','tb'=>'collection','db' => 'coll_code',  'dt' => 5 ),
+	array( 'as'=>'as7','tb'=>'collection','db' => 'coll_year',      'dt' => 6 ),
+	array( 'as'=>'as8','tb'=>'collection','db' => 'coll_number',     'dt' => 7 ),
+    array( 'as'=>'as9','tb'=>'torder','db' => 'tordername',     'dt' => 8 ),
+    array( 'as'=>'as10','tb'=>'family','db' => 'familyname',  'dt' => 9 ),
+	array( 'as'=>'as11','tb'=>'genus','db' => 'genusname',      'dt' => 10 ),
+	array( 'as'=>'as12','tb'=>'species','db' => 'speciesname',     'dt' => 11 ),
+    array( 'as'=>'as13','tb'=>'specimens','db' => 'specimen_number',      'dt' => 12 ),
 	
 	
 	
@@ -59,7 +60,7 @@ $columns = array(
 $sql_details = array(
 	'user' => 'mkmorgangling',
 	'pass' => 'nepenthes',
-	'db'   => 'qsbgcoll',
+	'db'   => 'QEinsectsDB',
 	'host' => 'localhost'
 );
 

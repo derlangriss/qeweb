@@ -18,7 +18,7 @@ app.controller('SweetAlertCtrl', ['$scope', 'SweetAlert', function ($scope, Swee
             text: "It's pretty, isn't it?",
             confirmButtonColor: "#007AFF"
         });
-    };
+    };  
 
     $scope.demo3 = function () {
         SweetAlert.swal({
@@ -54,12 +54,12 @@ app.controller('SweetAlertCtrl', ['$scope', 'SweetAlert', function ($scope, Swee
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "Yes, delete it!",
             cancelButtonText: "No, cancel plx!",
-            closeOnConfirm: false,
-            closeOnCancel: false
+            closeOnConfirm: true,
+            closeOnCancel: true
         }, function (isConfirm) {
             if (isConfirm) {
                 SweetAlert.swal({
-                    title: "Deleted!",
+                    title: "dfsdfsdfsdf!",
                     text: "Your imaginary file has been deleted.",
                     type: "success",
                     confirmButtonColor: "#007AFF"

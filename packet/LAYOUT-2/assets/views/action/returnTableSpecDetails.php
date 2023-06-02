@@ -1,49 +1,41 @@
 <?php
-$hostname = "localhost";
-$dbUser = "mkmorgangling";
-$dbPass = "nepenthes";
-$dbName = "qsbgcoll";
-// connect to the database
-$objConnect = pg_connect("host=$hostname dbname=$dbName user=$dbUser password=$dbPass") or die("Cannot connect to the database");
-	
-	$strSQL = "SELECT collectionlocality,collectionlongd,collectionlongm,collectionlongs,collectionlatd,collectionlatm,collectionlats,collectorsen,collectionmasl,coll_code,coll_year,coll_number,provinceen,collectionenddate,collectionmethodsdetails,idspecimens,specimens.torder_idtorder,specimens.family_idfamily,subfamily,specimens.genus_idgenus,subgenus,specimens.species_idspecies,specimens.specimen_number,specimens.taxatypes_idtaxatypes FROM specimens
-        left join collection on (collection.idcollection = specimens.collection_idcollection)
-        left join collectionmethods on (collectionmethods.idcollectionmethods = collection.collectionmethods_idcollectionmethods)
-        left join collectors on (collectors.idcollectors = collection.collectors_idcollectors)
-        left join amphurs on (collection.amphurs_idamphurs = amphurs.idamphurs)
-        left join province on (amphurs.province_idprovince = province.idprovince)
-        left join torder on (specimens.torder_idtorder = torder.idtorder)
-        left join family on (specimens.family_idfamily = family.idfamily)
-        left join genus on (specimens.genus_idgenus = genus.idgenus)
-        left join species on (specimens.species_idspecies = species.idspecies)
-        
-WHERE idspecimens  = '".$_POST["sCode"]."'";
-	
-        
-	$objQuery = pg_query($strSQL);
-	$intNumField = pg_num_fields($objQuery);
-	$resultArray = array();
-	while($obResult = pg_fetch_array($objQuery))
-	{
-            
-            
-		$arrCol = array();
-		for($i=0;$i<$intNumField;$i++)
-		{
-                    
-                        if(pg_field_name($objQuery,$i) == 'specimen_number'){
-				if($obResult[$i]==null){
-					$obResult[$i]=1;
-				}
-				$obResult[$i] = sprintf('%04d',$obResult[$i]);			
-			}
-			$arrCol[pg_field_name($objQuery,$i)] = $obResult[$i];
-		}
-		array_push($resultArray,$arrCol);
-	}
-	
-	pg_close($objConnect);
-	
-	echo json_encode($resultArray);	
-	
-?>
+require 'connectdb.php';
+
+$strSQL = "SELECT * FROM specimens
+left join species on (specimens.species_species_id = species .species_id)
+left join genus on (species.genus_genus_id = genus .genus_id)
+left join family on (genus.family_family_id= family.family_id)
+left join torder on (family.torder_torder_id = torder.torder_id)
+left join collection on (specimens.collection_coll_id = collection.coll_id)
+left join pinor on (specimens.pinor_pinor_id= pinor.pinor_id)
+left join labelor on (specimens.labelor_labelor_id = labelor.labelor_id)
+left join identification on (specimens.identification_identification_id = identification.identification_id)
+left join taxatype on (specimens.taxatype_taxatype_id = taxatype.taxatype_id)
+WHERE coll_code  = '" . $_POST["sCode"] . "' AND coll_year  = '" . $_POST["sYear"] . "' AND coll_number  = '" . $_POST["sNumber"] . "' AND specimens_number = '" . $_POST["sSpecNumber"] . "'";
+
+$objQuery    = pg_query($strSQL);
+$intNumField = pg_num_fields($objQuery);
+$resultArray = array();
+while ($obResult = pg_fetch_array($objQuery)) {
+    $arrCol = array();
+    for ($i = 0; $i < $intNumField; $i++) {
+        if (pg_field_name($objQuery, $i) == 'specimens_number') {
+            if ($obResult[$i] == null) {
+                $obResult[$i] = 1;
+            }
+            $obResult[$i] = sprintf('%04d', $obResult[$i]);
+        }
+        if (pg_field_name($objQuery, $i) == 'coll_number') {
+            if ($obResult[$i] == null) {
+                $obResult[$i] = 1;
+            } else {
+                $obResult[$i] = $obResult[$i];
+            }
+            $obResult[$i] = sprintf('%04d', $obResult[$i]);
+        }
+        $arrCol[pg_field_name($objQuery, $i)] = $obResult[$i];
+    }
+    array_push($resultArray, $arrCol);
+}
+pg_close($conn);
+echo json_encode($resultArray);

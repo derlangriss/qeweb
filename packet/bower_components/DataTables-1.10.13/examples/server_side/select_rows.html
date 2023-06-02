@@ -6,6 +6,7 @@
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 	<title>DataTables example - Row selection</title>
 	<link rel="stylesheet" type="text/css" href="../../media/css/jquery.dataTables.css">
+	<link rel="stylesheet" type="text/css" href="../../extensions/Select/css/select.dataTables.css">
 	<link rel="stylesheet" type="text/css" href="../resources/syntax/shCore.css">
 	<link rel="stylesheet" type="text/css" href="../resources/demo.css">
 	<style type="text/css" class="init">
@@ -15,6 +16,7 @@
 	</script>
 	<script type="text/javascript" language="javascript" src="../../media/js/jquery.dataTables.js">
 	</script>
+	<script type="text/javascript" language="javascript" src="../../extensions/Select/js/dataTables.select.js">
 	<script type="text/javascript" language="javascript" src="../resources/syntax/shCore.js">
 	</script>
 	<script type="text/javascript" language="javascript" src="../resources/demo.js">
@@ -25,29 +27,74 @@
 $(document).ready(function() {
 	var selected = [];
 
-	$("#example").DataTable({
+	var table = $("#example").DataTable({
 		"processing": true,
 		"serverSide": true,
 		"ajax": "scripts/ids-arrays.php",
-		"rowCallback": function( row, data ) {
-			if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
+		columns: [
+            { data: "0" },
+            { data: "1" },
+            { data: "2" },
+            { data: "3" },
+            { data: "4" },
+            { data: "5" },
+           
+            {
+                data:   "6",
+                render: function ( data, type, row ) {
+                    if ( type === 'display' ) {
+                        return '';
+                    }
+                    return data;
+                }
+            }
+        ],
+        
+
+       
+        rowCallback: function ( row, data ) {
+              if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
+            
 				$(row).addClass('selected');
 			}
-		}
+			
+
+        },
+        columnDefs: [ {
+			orderable: false,
+			className: 'select-checkbox',
+			targets:   6
+		} ],
+		select: {
+			style:    'multi'
+			/*,
+			selector: 'td:first-child'*/
+		},
+		order: [[ 1, 'asc' ]]
+
+
+
+
+
+
+
+
+
+
+
 	});
 
-	$('#example tbody').on('click', 'tr', function () {
-		var id = this.id;
-		var index = $.inArray(id, selected);
+	
+   $('#example').on( 'click', 'tbody tr', function () {
+    if ( table.row( this, { selected: true } ).any() ) {
+        table.row( this ).deselect();
+    }
+    else {
+        table.row( this ).select();
+    }
+} );
 
-		if ( index === -1 ) {
-			selected.push( id );
-		} else {
-			selected.splice( index, 1 );
-		}
 
-		$(this).toggleClass('selected');
-	} );
 } );
 
 
@@ -70,12 +117,15 @@ $(document).ready(function() {
 			<table id="example" class="display" cellspacing="0" width="100%">
 				<thead>
 					<tr>
+						
 						<th>First name</th>
 						<th>Last name</th>
 						<th>Position</th>
 						<th>Office</th>
 						<th>Start date</th>
 						<th>Salary</th>
+						<th></th>
+
 					</tr>
 				</thead>
 				<tfoot>
@@ -86,6 +136,8 @@ $(document).ready(function() {
 						<th>Office</th>
 						<th>Start date</th>
 						<th>Salary</th>
+						<th></th>
+						
 					</tr>
 				</tfoot>
 			</table>

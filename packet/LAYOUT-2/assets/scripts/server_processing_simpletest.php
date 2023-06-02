@@ -14,7 +14,7 @@ date("H:i:s");
  *
  * @license MIT - http://datatables.net/license_mit
  */
-
+ 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Easy set variables
  */
@@ -41,24 +41,27 @@ $columns = array(
 	array( 'as'=>'as4','tb'=>'amphurs','db' => 'amphuren',     'dt' => 3 ),
 	array( 'as'=>'as5','tb'=>'collection','db' => 'collectionstartdate',     'dt' => 4 ),
 	array( 'as'=>'as6','tb'=>'collection','db' => 'collectionenddate',     'dt' => 5 ),
-        array( 'as'=>'as7','tb'=>'collection','db' => 'collectionlocality', 'dt' => 6 ),
+    array( 'as'=>'as7','tb'=>'collection','db' => 'collectionlocality', 'dt' => 6 ),
 	array( 'as'=>'as8','tb'=>'collection','db' => 'collectionspecificlocality',  'dt' => 7 ),
 	array( 'as'=>'as9','tb'=>'collection','db' => 'collectionhabitat',   'dt' => 8),
 	array( 'as'=>'as10','tb'=>'collection','db' => 'collectionlatdec',     'dt' => 9 ),
 	array( 'as'=>'as11','tb'=>'collection','db' => 'collectionlongdec',     'dt' => 10 ),
 	array( 'as'=>'as12','tb'=>'collection','db' => 'collectioneasting',     'dt' => 11 ),
-        array( 'as'=>'as13','tb'=>'collection','db' => 'collectionnorthing', 'dt' => 12 ),
+    array( 'as'=>'as13','tb'=>'collection','db' => 'collectionnorthing', 'dt' => 12 ),
 	array( 'as'=>'as14','tb'=>'collection','db' => 'collectionutm',  'dt' => 13 ),
 	array( 'as'=>'as15','tb'=>'collection','db' => 'collectionmasl',   'dt' => 14 ),
 	array( 'as'=>'as16','tb'=>'collectors','db' => 'collectorsen',     'dt' => 15 ),
 	array( 'as'=>'as17','tb'=>'collection','db' => 'newcollection',     'dt' => 16 ),
 	array( 'as'=>'as18','tb'=>'province','db' => 'provinceen',     'dt' => 17 ),
-        array( 'as'=>'as19','tb'=>'collection','db' => 'collectionlatd', 'dt' => 18 ),
+    array( 'as'=>'as19','tb'=>'collection','db' => 'collectionlatd', 'dt' => 18 ),
 	array( 'as'=>'as20','tb'=>'collection','db' => 'collectionlatm',  'dt' => 19 ),
 	array( 'as'=>'as21','tb'=>'collection','db' => 'collectionlats',   'dt' => 20 ),
 	array( 'as'=>'as22','tb'=>'collection','db' => 'collectionlongd',     'dt' => 21 ),
 	array( 'as'=>'as23','tb'=>'collection','db' => 'collectionlongm',     'dt' => 22 ),
 	array( 'as'=>'as24','tb'=>'collection','db' => 'collectionlongs',     'dt' => 23 ),
+	array( 'as'=>'as24','tb'=>'collection','db' => 'coll_code',     'dt' => 24 ),
+	array( 'as'=>'as24','tb'=>'collection','db' => 'coll_year',     'dt' => 25 ),
+	array( 'as'=>'as24','tb'=>'collection','db' => 'coll_number',     'dt' => 26 )
         
 	
 	
@@ -69,7 +72,7 @@ $columns = array(
 $sql_details = array(
 	'user' => 'mkmorgangling',
 	'pass' => 'nepenthes',
-	'db'   => 'qsbgcoll',
+	'db'   => 'QEinsectsDB',
 	'host' => 'localhost'
 );
 

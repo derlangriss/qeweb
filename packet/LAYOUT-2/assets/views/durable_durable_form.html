@@ -1,0 +1,313 @@
+<div class="animate-show-hide">
+    <div class="subcollection-view">
+        <!-- start: EMAIL LIST -->
+        <div class="col collection-main" ng-controller="DurableFormCtrl">
+            <div class="durablewrap-list scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                <form class="gf" id="collection_form" name="collection_form" novalidate="">
+                    <div class="col-md-12">
+                        <div class="collection-left margin-top-25">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-white no-border no-radius">
+                                        <div class="col-lg-6 col-xs-12">
+                                            <div class="focusguard" id="focusguard-1" tabindex="1">
+                                            </div>
+                                            <fieldset>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="panel no-radius">
+                                                            <div flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-file-success="uploader.controllerFn($flow, $file, $message)" flow-init="{singleFile:true}" flow-name="obj.flow" flow-object="obj.flow">
+                                                                <div class="center">
+                                                                    <div class="user-image">
+                                                                        <div class="thumbnail">
+                                                                            <img alt="" ng-if="!obj.flow.files.length && noImage" src="{{durableimage.avatar}}">
+                                                                                <img alt="" ng-if="!obj.flow.files.length && !noImage" ng-src="{{durableimage.avatar}}">
+                                                                                    <img flow-img="obj.flow.files[0]" ng-if="obj.flow.files.length">
+                                                                                    </img>
+                                                                                </img>
+                                                                            </img>
+                                                                        </div>
+                                                                        <div class="user-image-buttons" ng-if="obj.flow.files.length">
+                                                                            <span class="label btn btn-danger" ng-click="obj.flow.cancel()">
+                                                                                <i class="fa fa-times">
+                                                                                </i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <!--div class="user-image-buttons" ng-if="!obj.flow.files.length">
+                                                                            <span class="btn btn-primary btn-file">
+                                                                                <i class="fa fa-pencil">
+                                                                                </i>
+                                                                                <input flow-btn="" type="file"/>
+                                                                            </span>
+                                                                            <span class="btn btn-danger" ng-click="removeImage()" ng-if="!noImage">
+                                                                                <i class="fa fa-times">
+                                                                                </i>
+                                                                            </span>
+                                                                        </div-->
+                                                                        <div class="row">
+                                                                            <div class="col-sm-12 col-lg-12">
+                                                                                <div class="panel panel-transparent ">
+                                                                                    <div class="space12 ">
+                                                                                        <div class="btn-group">
+                                                                                            <span class="label label-info btn btn-primary btn-file">
+                                                                                                <input flow-btn="" type="file"/>
+                                                                                                UPLOAD Image
+                                                                                            </span>
+                                                                                            <!--a class="btn btn-primary btn-xs btn-o hidden-xs" href="javascript:;" ng-click="changetable('museum');">
+                                                                                                <i class="fa fa-repeat">
+                                                                                                </i>
+                                                                                                Museum
+                                                                                            </a-->
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-lg-6 col-xs-12">
+                                            <fieldset>
+                                                <legend>
+                                                    Durable Number (หมายเลขครุภัณฑ์)
+                                                </legend>
+                                                <div class="gf-row-6 no-padding gf-row-border">
+                                                    <div class="gf-col-6 " data-column="3">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="form-group-minism ">
+                                                                    <input autofocus="" class="number4p form-control" id="txtdurableno" name="txtdurableno" ng-keyup="GETNERATEAUTOCOLLNO()" ng-model="durableno" ng-required="currentStep == 1" placeholder="หมายเลขครุภัณฑ์" tabindex="3" type="text">
+                                                                    </input>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset>
+                                                <legend>
+                                                    General Infomation (รายละเอียด)
+                                                </legend>
+                                                <div class="gf-row-6 no-padding gf-row-border">
+                                                    <div class="gf-col-2 " data-column="2">
+                                                        <span class="label label-info">
+                                                            รายการครุภัณฑ์
+                                                        </span>
+                                                    </div>
+                                                    <div class="gf-col-4 " data-column="3">
+                                                        <div class="form-group-minism">
+                                                            <div class="col-sm-12">
+                                                                <input class="date form-control" id="txtdurable_name" name="txtdurable_name" ng-model="durable_name" ng-required="currentStep == 1" placeholder="รายการครุภัณฑ์" tabindex="5" type="text"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-row-6 no-padding gf-row-border">
+                                                    <div class="gf-col-2 " data-column="2">
+                                                        <span class="label label-info">
+                                                            หน่วยงาน
+                                                        </span>
+                                                    </div>
+                                                    <div class="gf-col-4 padding-2" data-column="3">
+                                                        <div class="form-group-minism">
+                                                            <div class="col-sm-12">
+                                                                <select class="form-control noborder input-vsm" name="txtdurable_unit" ng-change="selectdurableunit()" ng-model="durable_unit" ng-options="item.orgsection_id as item.orgsection for item in getorgsection" tabindex="7">
+                                                                    <option disabled="" value="">
+                                                                        หน่วยงาน
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-row-6 no-padding gf-row-border">
+                                                    <div class="gf-col-2 " data-column="2">
+                                                        <span class="label label-info">
+                                                            ผู้ใช้งาน
+                                                        </span>
+                                                    </div>
+                                                    <div class="gf-col-4 padding-2" data-column="3">
+                                                        <div class="form-group-minism">
+                                                            <div class="col-sm-12">
+                                                                <select class="form-control noborder input-vsm" name="txtdurable_user" ng-model="durable_user" ng-options="item.owner_id as item.owner for item in getdurableuser" tabindex="7">
+                                                                    <option disabled="" value="">
+                                                                        ผู้ใช้
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-row-6 no-padding gf-row-border">
+                                                    <div class="gf-col-2 " data-column="2">
+                                                        <span class="label label-info">
+                                                            สถานที่
+                                                        </span>
+                                                    </div>
+                                                    <div class="gf-col-4 padding-2" data-column="3">
+                                                        <div class="form-group-minism">
+                                                            <div class="col-sm-12">
+                                                                <select class="form-control noborder input-vsm" name="txtdurable_place" ng-change="selectDurableExplace()" ng-model="durable_explace" ng-options="item.explace_id as item.explace for item in getDurableExplace" tabindex="7">
+                                                                    <option disabled="" value="">
+                                                                        สถานที่
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-row-6 no-padding gf-row-border">
+                                                    <div class="gf-col-2 " data-column="2">
+                                                        <span class="label label-info">
+                                                            สถานที่ใช้ประจำ
+                                                        </span>
+                                                    </div>
+                                                    <div class="gf-col-4 padding-2" data-column="3">
+                                                        <div class="form-group-minism">
+                                                            <div class="col-sm-12">
+                                                                <select class="form-control noborder input-vsm" name="txtdurable_subplace" ng-model="durable_subplace" ng-options="item.sub_place_id as item.room for item in getDurableSubPlace" tabindex="7">
+                                                                    <option disabled="" value="">
+                                                                        สถานที่ใช้ประจำ
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset>
+                                                <legend>
+                                                    Note (หมายเหตุ)
+                                                </legend>
+                                                <div class="gf-row-6 no-padding gf-row-border">
+                                                    <div class="gf-col-6 ">
+                                                        <div class="form-group">
+                                                            <div class="note-editor">
+                                                                <textarea class="form-control autosize msd-elastic: \n;" ng-model="durable_note" style="overflow:auto;resize:none">
+                                                                </textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-lg-12">
+                                                        <div class="panel panel-transparent ">
+                                                            <div class="space12 pull-right">
+                                                                <div class="btn-group">
+                                                                    <a class="btn btn-primary btn-xs btn-o hidden-xs" href="javascript:;" ng-click="durableaction('SAVE');">
+                                                                        <i class="fa fa-save">
+                                                                        </i>
+                                                                        บันทึก
+                                                                    </a>
+                                                                    <a class="btn btn-primary btn-xs btn-o hidden-xs" href="javascript:;" ng-click="durableaction('RESET');">
+                                                                        <i class="fa fa-reset">
+                                                                        </i>
+                                                                        Museum
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <div class="focusguard" id="focusguard-2" tabindex="20">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="email-reader scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+            <div class="panel panel-white no-radius no-margin no-border">
+                <div class="panel-body">
+                    <table cellspacing="0" class="table table-stylish table-hover" id="DurableNormalTbl" width="100%">
+                        <thead>
+                            <tr class="uppercase label-default ">
+                                <th>
+                                </th>
+                                <th>
+                                    <span class="label-change ">
+                                        หมายเลขครุภัณฑ์
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="label-change ">
+                                        รายการครุภัณฑ์
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="label-change ">
+                                        ผู้ใช้
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="label-change ">
+                                        ผู้รับผิดชอบ
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="label-change ">
+                                        ห้อง
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="label-change ">
+                                        สถานที่
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="label-change ">
+                                        รูป
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="label-change ">
+                                        สถานะ
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="label-change ">
+                                        หมายเหตุ
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="label-change ">
+                                        durable id
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="label-change ">
+                                        หน่วยงาน
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="label-change ">
+                                        Place id
+                                    </span>
+                                </th>
+                                <th>
+                                    <span class="label-change ">
+                                        Owner id
+                                    </span>
+                                </th>
+                                <th>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,155 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.DURABLE">
+        FORM ELEMENTS
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: BASIC EXAMPLE -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <div ng-controller="FormDurableCtrl">
+                        <form class="gf" id="statusgroup">
+                            <fieldset>
+                                <legend>
+                                    รายการครุภัณฑ์ สำนักวิจัยและอนุรักษ์
+                                </legend>
+                                <div class="gf-row-12 ">
+                                    <div class="gf-col-12 gf-col-bg">
+                                        <fieldset>
+                                            <legend>
+                                                ค้นหารายละเอียดครุภัณฑ์
+                                            </legend>
+                                            <div class="gf-row-4 gf-large">
+                                                <div class="gf-col-1" data-column="1">
+                                                    <label>
+                                                        หมายเลขครุภัณฑ์
+                                                    </label>
+                                                    <input autofocus="" class="column_filterspec" id="col1_filter" type="text">
+                                                    </input>
+                                                </div>
+                                                <div class="gf-col-1" data-column="2">
+                                                    <label>
+                                                        รายการครุภัณฑ์
+                                                    </label>
+                                                    <input autofocus="" class="column_filterspec" id="col2_filter" type="text">
+                                                    </input>
+                                                </div>
+                                                <div class="gf-col-1" data-column="3">
+                                                    <label>
+                                                        ผู้ใช้
+                                                    </label>
+                                                    <input autofocus="" class="column_filterspec" id="col3_filter" type="text">
+                                                    </input>
+                                                </div>
+                                                <div class="gf-col-1" data-column="4">
+                                                    <label>
+                                                        ผู้รับผิดชอบ
+                                                    </label>
+                                                    <input autofocus="" class="column_filterspec" id="col4_filter" type="text">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                            <div class="gf-row-4 gf-large">
+                                                <div class="gf-col-1" data-column="5">
+                                                    <label>
+                                                        ห้องหรือที่เก็บ
+                                                    </label>
+                                                    <input autofocus="" class="column_filterspec" id="col5_filter" type="text">
+                                                    </input>
+                                                </div>
+                                                <div class="gf-col-1" data-column="6">
+                                                    <label>
+                                                        สถานที่
+                                                    </label>
+                                                    <input autofocus="" class="column_filterspec" id="col6_filter" type="text">
+                                                    </input>
+                                                </div>
+                                                <div class="gf-col-1" data-column="7">
+                                                    <label>
+                                                        สถานะ
+                                                    </label>
+                                                    <input autofocus="" class="column_filterspec" id="col7_filter" type="text">
+                                                    </input>
+                                                </div>
+                                                <div class="gf-col-1" data-column="8">
+                                                    <label>
+                                                        หมายเหตุ
+                                                    </label>
+                                                    <input autofocus="" class="column_filterspec" id="col8_filter" type="text">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>
+                                                    </label>
+                                                    <table cellspacing="0" class="table compact table-striped table-condensed nowrap " id="DurableListTbl" width="100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>
+                                                                    Check
+                                                                </th>
+                                                                <th>
+                                                                    หมายเลขครุภัณฑ์
+                                                                </th>
+                                                                <th>
+                                                                    รายการครุภัณฑ์
+                                                                </th>
+                                                                <th>
+                                                                    ผู้ใช้
+                                                                </th>
+                                                                <th>
+                                                                    ผู้รับผิดชอบ
+                                                                </th>
+                                                                <th>
+                                                                    ห้อง
+                                                                </th>
+                                                                <th>
+                                                                    สถานที่
+                                                                </th>
+                                                                <th>
+                                                                    สถานะ
+                                                                </th>
+                                                                <th>
+                                                                    หมายเหตุ
+                                                                </th>
+                                                                <th>
+                                                                    Edit
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <tabs data="tabData" template-url="ui-router-tabs-custom-ui-view-template.html" type="pills">
+                                                    </tabs>
+                                                </div>
+                                                <!-- custom location of ui-view -->
+                                                <div class="col-md-10">
+                                                    <ui-view autoscroll="">
+                                                    </ui-view>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

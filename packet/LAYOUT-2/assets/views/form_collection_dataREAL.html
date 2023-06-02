@@ -1,0 +1,902 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.COLLECTION">
+        Collection Form
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: COLLECTION FORM -->
+<div map-lazy-load="https://maps.google.com/maps/api/js?key=AIzaSyAON6nxRhnYXVSGjVszJZ8J_mkQT3hNyPI">
+    <div class="container-fluid container-fullw">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-white">
+                    <div class="panel-body">
+                        <div ng-controller="CollectionDataCtrl">
+                            <form class="gf" id="collection_form" name="collection_form" novalidate="">
+                                <fieldset>
+                                    <legend>
+                                        Collection Data Entry Form
+                                    </legend>
+                                    <div class="gf-row-7 gf-testlarge">
+                                        <div class="gf-col-4 gf-col-bg gf-none-border">
+                                            <!-- start: COLLECTION NUMBER -->
+                                            <fieldset>
+                                                <legend>
+                                                    <letter-icon char-count="1" custom-class="letter-custom" data="Generate Auto Number">
+                                                    </letter-icon>
+                                                    <span class="text-light text-bold margin-left-5">
+                                                        Generate auto Collection Number
+                                                    </span>
+                                                </legend>
+                                                <div class="gf-row-6 gf-testlarge">
+                                                    <!--div class="gf-row-6 gf-testlarge" noneborder-->
+                                                    <div class="gf-col-1 ">
+                                                        <label>
+                                                            Code
+                                                        </label>
+                                                        <select id="gencoll_code" name="gencoll_code" ng-model="gencoll_code" ng-options="item.collection_code_id as item.collection_code for item in GETcollectioncode">
+                                                            <option disabled="" value="">
+                                                                CODE
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="gf-col-1 gf-col-bg gf-none-border">
+                                                        <label>
+                                                            year
+                                                        </label>
+                                                        <input class='form-group"' id="gencoll_year" name="gencoll_year" ng-model="gencoll_year" type="text"/>
+                                                    </div>
+                                                    <div class="gf-col-1 gf-col-bg gf-none-border">
+                                                        <label>
+                                                            number
+                                                        </label>
+                                                        <input class="form-group" id="gencoll_number" name="gencoll_number" ng-model="gencoll_number" type="text"/>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset>
+                                                <div class="gf-col-3 gf-col-bg gf-none-border">
+                                                    <nav class="links cl-effect-2" id="cl-effect-2">
+                                                        <a href="" ng-click="GETNERATEAUTOCOLLNO();">
+                                                            <span data-hover="GENERATE NUMBER!">
+                                                                <i class="fa fa-refresh">
+                                                                </i>
+                                                                GENERATE NUMBER!
+                                                            </span>
+                                                        </a>
+                                                    </nav>
+                                                </div>
+                                            </fieldset>
+                                            <!-- end: COLLECTION NUMBER -->
+                                            <!-- start: COLLECTION NUMBER -->
+                                            <fieldset>
+                                                <legend>
+                                                    <letter-icon char-count="2" custom-class="letter-custom" data="1">
+                                                    </letter-icon>
+                                                    <span class="text-light text-bold margin-left-5">
+                                                        Collection Number
+                                                    </span>
+                                                </legend>
+                                                <div class="gf-row-8 gf-large">
+                                                    <div class="gf-col-2">
+                                                        <label>
+                                                            Code
+                                                        </label>
+                                                        <input autofocus="" class="fontsize18" id="txtcoll_code" name="txtcoll_code" ng-model="data.coll_code" readonly="" type="text">
+                                                        </input>
+                                                    </div>
+                                                    <div class="gf-col-2">
+                                                        <label>
+                                                            year
+                                                        </label>
+                                                        <input autofocus="" class="fontsize18" id="txtcoll_year" name="txtcoll_year" ng-model="data.coll_year" readonly="" type="text">
+                                                        </input>
+                                                    </div>
+                                                    <div class="gf-col-2">
+                                                        <label>
+                                                            Number
+                                                        </label>
+                                                        <input autofocus="" class="fontsize18" id="txtcoll_number" name="txtcoll_number" ng-model="data.coll_number" readonly="" type="text">
+                                                        </input>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <!-- end: COLLECTION NUMBER -->
+                                            <!-- start: DATE COLLECTION -->
+                                            <fieldset>
+                                                <legend>
+                                                    <letter-icon char-count="2" custom-class="letter-custom" data="2">
+                                                    </letter-icon>
+                                                    <span class="text-light text-bold margin-left-5">
+                                                        Date Collection
+                                                    </span>
+                                                </legend>
+                                                <div id="sandbox-container">
+                                                    <div class="gf-row-4 gf-large input-daterange input-group" id="dp_range">
+                                                        <div class="gf-col-2">
+                                                            <div ng-class="{'has-error':collection_form.txtcollection_start_date.$dirty && collection_form.txtcollection_start_date.$invalid, 'has-success':collection_form.txtcollection_start_date.$valid}">
+                                                                <label>
+                                                                    Date start
+                                                                    <span class="symbol required">
+                                                                    </span>
+                                                                </label>
+                                                                <input class="date" id="txtcollection_start_date" name="txtcollection_start_date" ng-model="txtcollection_start_date" ng-required="currentStep == 1" type="text"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="gf-col-2">
+                                                            <div ng-class="{'has-error':collection_form.txtcollection_end_date.$dirty && collection_form.txtcollection_end_date.$invalid, 'has-success':collection_form.txtcollection_end_date.$valid}">
+                                                                <label>
+                                                                    Date End
+                                                                    <span class="symbol required">
+                                                                    </span>
+                                                                </label>
+                                                                <input class="date" id="txtcollection_end_date" name="txtcollection_end_date" ng-model="txtcollection_end_date" ng-required="currentStep == 1" type="text"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <!-- end: DATE COLLECTION -->
+                                            <!-- start: LOCATION COORDINATE -->
+                                            <fieldset>
+                                                <legend>
+                                                    <letter-icon char-count="2" custom-class="letter-custom" data="3">
+                                                    </letter-icon>
+                                                    <span class="text-light text-bold margin-left-5">
+                                                        Location Coordinate
+                                                    </span>
+                                                </legend>
+                                                <div class="gf-row-6 gf-large ">
+                                                    <div class="gf-col-2">
+                                                        <div ng-class="{'has-error':collection_form.txtlatdec.$dirty && collection_form.txtlatdec.$invalid, 'has-success':collection_form.txtlatdec.$valid}">
+                                                            <label>
+                                                                Lat dec
+                                                                <span class="symbol required">
+                                                                </span>
+                                                            </label>
+                                                            <input autofocus="" class="latdecimal" id="txtlatdec" name="txtlatdec" ng-keyup="GPSautoDec();" ng-model="data.collectionlatdec" ng-required="currentStep == 1" placeholder="Only Digits" type="text"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="gf-col-1">
+                                                        <label>
+                                                            LatH
+                                                        </label>
+                                                        <input autofocus="" class="input_tiny" id="txtlath" name="txtlath" type="text" value="N">
+                                                        </input>
+                                                    </div>
+                                                    <div class="gf-col-2">
+                                                        <div ng-class="{'has-error':collection_form.txtlongdec.$dirty && collection_form.txtlongdec.$invalid, 'has-success':collection_form.txtlongdec.$valid}">
+                                                            <label>
+                                                                Long dec
+                                                                <span class="symbol required">
+                                                                </span>
+                                                            </label>
+                                                            <input autofocus="" class="londecimal" id="txtlongdec" name="txtlongdec" ng-keyup="GPSautoDec();" ng-model="data.collectionlongdec" ng-required="currentStep == 1" placeholder="Only Digits" type="text"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="gf-col-1">
+                                                        <label>
+                                                            LongH
+                                                        </label>
+                                                        <input autofocus="" class="input_tiny" id="txtlongh" name="txtlongh" type="text" value="E">
+                                                        </input>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-row-6 gf-large">
+                                                    <div class="gf-col-1">
+                                                        <div ng-class="{'has-error':collection_form.txtlat_d.$dirty && collection_form.txtlat_d.$invalid, 'has-success':collection_form.txtlat_d.$valid}">
+                                                            <label>
+                                                                Lat D
+                                                                <span class="symbol required">
+                                                                </span>
+                                                            </label>
+                                                            <input autofocus="" class="number2p" id="txtlat_d" name="txtlat_d" ng-keyup="GPSautoLatLong();" ng-model="data.collectionlatd" ng-required="currentStep == 1" type="text">
+                                                            </input>
+                                                        </div>
+                                                    </div>
+                                                    <div class="gf-col-1">
+                                                        <div ng-class="{'has-error':collection_form.txtlat_m.$dirty && collection_form.txtlat_m.$invalid, 'has-success':collection_form.txtlat_m.$valid}">
+                                                            <label>
+                                                                Lat M
+                                                                <span class="symbol required">
+                                                                </span>
+                                                            </label>
+                                                            <input autofocus="" class="number2p input_tiny" id="txtlat_m" name="txtlat_m" ng-keyup="GPSautoLatLong();" ng-model="data.collectionlatm" ng-required="currentStep == 1" type="text">
+                                                            </input>
+                                                        </div>
+                                                    </div>
+                                                    <div class="gf-col-1">
+                                                        <div ng-class="{'has-error':collection_form.txtlat_s.$dirty && collection_form.txtlat_s.$invalid, 'has-success':collection_form.txtlat_s.$valid}" ng-required="currentStep == 1">
+                                                            <label>
+                                                                Lat S
+                                                                <span class="symbol required">
+                                                                </span>
+                                                            </label>
+                                                            <input autofocus="" class="degree" id="txtlat_s" name="txtlat_s" ng-keyup="GPSautoLatLong();" ng-model="data.collectionlats" ng-required="currentStep == 1" type="text">
+                                                            </input>
+                                                        </div>
+                                                    </div>
+                                                    <div class="gf-col-1">
+                                                        <div ng-class="{'has-error':collection_form.txtlong_d.$dirty && collection_form.txtlong_d.$invalid, 'has-success':collection_form.txtlong_d.$valid}">
+                                                            <label>
+                                                                Long D
+                                                                <span class="symbol required">
+                                                                </span>
+                                                            </label>
+                                                            <input autofocus="" class="number3p input_tiny validate[custom[integer],max[180]]" id="txtlong_d" name="txtlong_d" ng-keyup="GPSautoLatLong();" ng-model="data.collectionlongd" ng-required="currentStep == 1" type="text">
+                                                            </input>
+                                                        </div>
+                                                    </div>
+                                                    <div class="gf-col-1">
+                                                        <div ng-class="{'has-error':collection_form.txtlong_m.$dirty && collection_form.txtlong_m.$invalid, 'has-success':collection_form.txtlong_m.$valid}">
+                                                            <label>
+                                                                Long M
+                                                                <span class="symbol required">
+                                                                </span>
+                                                            </label>
+                                                            <input autofocus="" class="number2p input_tiny" id="txtlong_m" name="txtlong_m" ng-keyup="GPSautoLatLong();" ng-model="data.collectionlongm" ng-required="currentStep == 1" type="text">
+                                                            </input>
+                                                        </div>
+                                                    </div>
+                                                    <div class="gf-col-1">
+                                                        <div ng-class="{'has-error':collection_form.txtlong_s.$dirty && collection_form.txtlong_s.$invalid, 'has-success':collection_form.txtlong_s.$valid}">
+                                                            <label>
+                                                                Long S
+                                                                <span class="symbol required">
+                                                                </span>
+                                                            </label>
+                                                            <input autofocus="" class="degree" id="txtlong_s" name="txtlong_s" ng-keyup="GPSautoLatLong();" ng-model="data.collectionlongs" ng-required="currentStep == 1" type="text">
+                                                            </input>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-row-2 gf-large">
+                                                    <div class="gf-col-1">
+                                                        <label>
+                                                            northing
+                                                        </label>
+                                                        <input autofocus="" class="number" id="txtNorthing" name="txtNorthing" type="text" value="{{data.collectionnorthing}}">
+                                                        </input>
+                                                    </div>
+                                                    <div class="gf-col-1">
+                                                        <label>
+                                                            easting
+                                                        </label>
+                                                        <input autofocus="" class="easting input_small" id="txtEasting" name="txtEasting" type="text" value="{{data.collectioneasting}}">
+                                                        </input>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-row-2 gf-large">
+                                                    <div class="gf-col-1">
+                                                        <label>
+                                                            UTM
+                                                        </label>
+                                                        <input autofocus="" id="txtUTM" name="txtUTM" type="text" value="{{data.collectionutm}}">
+                                                        </input>
+                                                    </div>
+                                                    <div class="gf-col-1">
+                                                        <label>
+                                                            MASL
+                                                        </label>
+                                                        <input autofocus="" class="number validate[custom[integer],max[2800]] text-input" id="txtMASL" name="txtMASL" ng-model="data.collectionmasl" type="text">
+                                                        </input>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="gf-col-3 gf-col-bg gf-none-border" id="googleMap">
+                                            <ng-map center="[{{data.collectionlatmap}},{{data.collectionlongmap}}]" zoom="6">
+                                                <marker animation="Animation.BOUNCE" ng-repeat="pos in positions" position="{{pos.lat}}, {{pos.lng}}">
+                                                </marker>
+                                            </ng-map>
+                                            <!--
+                                                <ng-map center="{{data.center}}" on-click="addMarker()" zoom="7">
+                                                <marker animation="Animation.BOUNCE" ng-repeat="pos in positions" position="{{pos.lat}}, {{pos.lng}}">
+                                                </marker>
+                                            </ng-map>
+                                        -->
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <!-- end: LOCATION COORDINATE -->
+                                <!-- start: LOCATION ADMINISTRATIVE (AUTO) -->
+                                <fieldset>
+                                    <legend>
+                                        <letter-icon char-count="2" custom-class="letter-custom" data="4">
+                                        </letter-icon>
+                                        <span class="text-light text-bold margin-left-5">
+                                            Location Administrative(AUTO)
+                                        </span>
+                                    </legend>
+                                    <div class="gf-row-3 gf-large">
+                                        <div class="gf-col-1">
+                                            <label>
+                                                province English (thai)
+                                            </label>
+                                            <input autofocus="" class="disabletextbox" id="txtprovinceen" name="txtprovinceen" ng-model="data.provinceen" readonly="" type="text" value="{{data.provinceen}}">
+                                            </input>
+                                        </div>
+                                        <div class="gf-col-1">
+                                            <label>
+                                                Amphur English (thai)
+                                            </label>
+                                            <input autofocus="" class="disabletextbox" id="txtamphuren" name="txtamphuren" ng-model="data.amphuren" readonly="" type="text" value="{{data.amphuren}}">
+                                            </input>
+                                        </div>
+                                        <div class="gf-col-1">
+                                            <label>
+                                                tambon English (thai)
+                                            </label>
+                                            <input autofocus="" class="disabletextbox" id="txttambon" name="txttambon" ng-model="data.tambonen" readonly="" type="text" value="{{data.tambonen}}">
+                                            </input>
+                                        </div>
+                                    </div>
+                                    <div class="gf-row-7 gf-large">
+                                        <div class="gf-col-7">
+                                            <label>
+                                                acceptable
+                                            </label>
+                                            <div class="radio-inline">
+                                                <input id="radio1" name="acceptable" ng-change="status.open=false" ng-model="acceptable" type="radio" value="1">
+                                                    <label class="label label-default">
+                                                        YES
+                                                    </label>
+                                                </input>
+                                            </div>
+                                            <div class="radio-inline">
+                                                <input id="radio2" name="acceptable" ng-change="status.open=true" ng-model="acceptable" type="radio" value="0">
+                                                    <label class="label label-default">
+                                                        NO
+                                                    </label>
+                                                </input>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gf-row-3 gf-large special">
+                                        <div class="gf-col-3">
+                                            <div class="container-fluid container-fullw">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="panel panel-white">
+                                                            <div class="panel-body">
+                                                                <p>
+                                                                    if you do not accept the location administrative(AUTO) from the database please fill the data below instead so we need to compare next time for the most corrective data
+                                                                </p>
+                                                                <uib-accordion class="accordion" close-others="oneAtATime" model="item1">
+                                                                    <uib-accordion-group is-disabled="!status.Disabled" is-open="status.open">
+                                                                        <uib-accordion-heading>
+                                                                            <span class="label label-default">
+                                                                                LOCATION ADMINISTRATIVE(MANUAL)
+                                                                            </span>
+                                                                            <i class="pull-right fa" ng-class="{'fa-angle-down ': status.open, 'fa-angle-right': !status.open}">
+                                                                            </i>
+                                                                        </uib-accordion-heading>
+                                                                        <div class="gf-row-3 gf-large test">
+                                                                            <div class="gf-col-1 manual inline">
+                                                                                <label>
+                                                                                    province English (thai)
+                                                                                </label>
+                                                                                <input class="form-control" id="province_direct_en" name="province_direct_en" ng-model="item1.myModelPro" placeholder="Enter Province Name" type="text" typeahead-loading="loadingProvince" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.province_direct_en for o in getprovince($viewValue)"/>
+                                                                                <span>
+                                                                                    <a ui-sref="app.form.location_manual">
+                                                                                        <i class="fa fa-plus-square">
+                                                                                        </i>
+                                                                                    </a>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="gf-col-1 manual inline">
+                                                                                <label>
+                                                                                    Amphur English (thai)
+                                                                                </label>
+                                                                                <input class="form-control" id="amphur_direct_en" name="amphur_direct_en" ng-model="item1.myModelAmp" placeholder="Enter amphur English Name" type="text" typeahead-loading="loadingamphur" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.amphur_direct_en for o in getamphur($viewValue)"/>
+                                                                                <span>
+                                                                                    <a ui-sref="app.form.location_manual">
+                                                                                        <i class="fa fa-plus-square">
+                                                                                        </i>
+                                                                                    </a>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="gf-col-1 manual inline">
+                                                                                <label>
+                                                                                    tambon English (thai)
+                                                                                </label>
+                                                                                <input class="form-control" id="tambon_direct_en" name="tambon_direct_en" ng-model="item1.myModelTam" placeholder="Enter tambon English Name" type="text" typeahead-loading="loadingtambon" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.tambon_direct_en for o in gettambon($viewValue)"/>
+                                                                                <span>
+                                                                                    <a ui-sref="app.form.location_manual">
+                                                                                        <i class="fa fa-plus-square">
+                                                                                        </i>
+                                                                                    </a>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="gf-row-3 gf-large test">
+                                                                            <pre class="code margin-top-20">จังหวัด:{{ item1.myModelPro.province_direct_th | json }}<br>อำเภอ:{{ item1.myModelAmp.amphur_direct_th | json }}<br>ตำบล:{{ item1.myModelTam.tambon_direct_th | json }}</br></br></pre>
+                                                                        </div>
+                                                                    </uib-accordion-group>
+                                                                </uib-accordion>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gf-row-2 gf-large">
+                                        <div class="gf-col-1">
+                                            <label>
+                                                Locality
+                                            </label>
+                                            <input class="input_tiny" id="txtlocality" name="txtlocality" ng-model="data.collLocality" type="text"/>
+                                        </div>
+                                        <div class="gf-col-1">
+                                            <label>
+                                                Specific Locality
+                                            </label>
+                                            <input class="input_tiny" id="txtspecific_locality" name="txtspecific_locality" ng-model="data.collSlocality" type="text"/>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <!-- end: LOCATION ADMINISTRATIVE (AUTO) -->
+                                <!-- start: COLLECTION DETAILS -->
+                                <fieldset>
+                                    <legend>
+                                        <letter-icon char-count="2" custom-class="letter-custom" data="5">
+                                        </letter-icon>
+                                        <span class="text-light text-bold margin-left-5">
+                                            Collection Details
+                                        </span>
+                                    </legend>
+                                    <div class="gf-row-3 gf-large">
+                                        <div class="gf-col-3">
+                                            <label>
+                                                Habitat
+                                            </label>
+                                            <input autofocus="" id="txthabitat" name="txthabitat" ng-model="data.habitat" type="text">
+                                            </input>
+                                        </div>
+                                    </div>
+                                    <div class="gf-row-2 gf-large">
+                                        <div class="gf-col-2">
+                                            <div ng-class="{'has-error':collection_form.txtcoll_method_ID.$dirty && collection_form.txtcoll_method_ID.$invalid, 'has-success':collection_form.txtcoll_method_ID.$valid}">
+                                                <label>
+                                                    COLLECTION METHOD
+                                                    <span class="symbol required">
+                                                    </span>
+                                                </label>
+                                                <div class="form-group">
+                                                    <span class="clip-select">
+                                                        <select class="form-control" id="txtcoll_method_ID" name="txtcoll_method_ID" ng-model="selectMethod" ng-options="item.method_id as item.method for item in getmethod" ng-required="currentStep == 1">
+                                                            <option disabled="" value="">
+                                                                SELECT METHOD
+                                                            </option>
+                                                        </select>
+                                                    </span>
+                                                    <span>
+                                                        <a ui-sref="app.form.form_method">
+                                                            <i class="fa fa-plus-square">
+                                                            </i>
+                                                        </a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="gf-col-1">
+                                            <div ng-class="{'has-error':collection_form.txtdonation_ID.$dirty && collection_form.txtdonation_ID.$invalid, 'has-success':collection_form.txtdonation_ID.$valid}">
+                                                <label>
+                                                    Donation
+                                                    <span class="symbol required">
+                                                    </span>
+                                                </label>
+                                                <div class="form-group">
+                                                    <span class="clip-select">
+                                                        <select class="form-control" id="txtdonation_ID" name="txtdonation_ID" ng-model="selectDonate" ng-options="item.donation_id as item.donation for item in getdonation" ng-required="currentStep == 1">
+                                                            <option disabled="" value="">
+                                                                SELECT DONATION
+                                                            </option>
+                                                        </select>
+                                                    </span>
+                                                    <span>
+                                                        <a ui-sref="app.form.form_donation">
+                                                            <i class="fa fa-plus-square">
+                                                            </i>
+                                                        </a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <!-- end: COLLECTION DETAILS -->
+                                <!-- start: COLLECTION DETAILS -->
+                                <fieldset>
+                                    <legend>
+                                        <letter-icon char-count="2" custom-class="letter-custom" data="6">
+                                        </letter-icon>
+                                        <span class="text-light text-bold margin-left-5">
+                                            Collector Details
+                                        </span>
+                                    </legend>
+                                    <div class="gf-row-7 gf-testlarge">
+                                        <div class="gf-col-3 gf-col-bg gf-none-border">
+                                            <fieldset>
+                                                <div class="container-fluid ">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="panel panel-white">
+                                                                <div class="panel-body">
+                                                                    <h5 class="over-title">
+                                                                        Collector
+                                                                        <span class="text-bold">
+                                                                            List
+                                                                        </span>
+                                                                        <span>
+                                                                            <a ui-sref="app.form.form_collector">
+                                                                                <i class="fa fa-plus-square">
+                                                                                </i>
+                                                                            </a>
+                                                                        </span>
+                                                                    </h5>
+                                                                    <p>
+                                                                        Add all the collector name that may be concern on this collection So the label will be shown only three first three name.
+                                                                    </p>
+                                                                    <div class="row">
+                                                                        <!-- start: DYNAMIC TABLE -->
+                                                                        <div class="container-fluid ">
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="panel panel-white">
+                                                                                        <div class="panel-body">
+                                                                                            <fieldset id="collectorlist">
+                                                                                                <div class="row">
+                                                                                                    <div class="col-md-6 ">
+                                                                                                        <div class="form-group form-inline">
+                                                                                                            <label>
+                                                                                                                First Name
+                                                                                                            </label>
+                                                                                                            <input class="form-control" id="collector_firstname_en" name="collector_firstname_en" ng-model="myModelCollectorList" placeholder="Enter First Name" type="text" typeahead-loading="loadingCollectorname" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.collector_firstname_en for o in CollectorKeyup($viewValue)"/>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-6">
+                                                                                                        <div class="form-group">
+                                                                                                            <label class="control-label">
+                                                                                                                Last Name
+                                                                                                            </label>
+                                                                                                            <input class="form-control" name="collector_name_th" ng-model="myModelCollectorList.collector_lastname_en" placeholder="Enter Last Name" type="text"/>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="row">
+                                                                                                    <div class="col-md-6">
+                                                                                                        <div class="form-group">
+                                                                                                            <button class="btn btn-o btn-primary" ng-click="addRow();" type="submit">
+                                                                                                                Submit
+                                                                                                            </button>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </fieldset>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- end: DYNAMIC TABLE -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- end: LABELS AND BADGES -->
+                                            </fieldset>
+                                        </div>
+                                        <div class="gf-col-4 gf-col-bg gf-none-border">
+                                            <fieldset>
+                                                <legend>
+                                                    Collector Name
+                                                    <span class="text-bold">
+                                                        List
+                                                    </span>
+                                                </legend>
+                                                <!-- start: BASIC TABLE -->
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="panel">
+                                                                <div class="panel-body">
+                                                                    <table class="table" id="sample-table-1">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>
+                                                                                    No.
+                                                                                </th>
+                                                                                <th>
+                                                                                    Fist Name
+                                                                                </th>
+                                                                                <th class="hidden-xs">
+                                                                                    Last Name
+                                                                                </th>
+                                                                                <th>
+                                                                                    Action
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr ng-repeat="collector in collectors">
+                                                                                <td>
+                                                                                    <span class="badge badge-info">
+                                                                                        {{collector.collectorseq}}
+                                                                                    </span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    {{collector.collector_firstname_en}}
+                                                                                </td>
+                                                                                <td class="hidden-xs">
+                                                                                    {{collector.collector_lastname_en}}
+                                                                                </td>
+                                                                                <td class="center">
+                                                                                    <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                                                                        <a class="btn btn-transparent btn-xs tooltips" href="#" ng-click="removeRow(collector.collector_id)" tooltip-placement="top" uib-tooltip="Remove">
+                                                                                            <i class="fa fa-times fa fa-white">
+                                                                                            </i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                                                        <div class="btn-group" uib-dropdown="">
+                                                                                            <button class="btn btn-primary btn-o btn-sm dropdown-toggle" type="button" uib-dropdown-toggle="">
+                                                                                                <i class="fa fa-cog">
+                                                                                                </i>
+                                                                                                <span class="caret">
+                                                                                                </span>
+                                                                                            </button>
+                                                                                            <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                                                                <li>
+                                                                                                    <a href="#" ng-click="removeRow(collector.collector_id)">
+                                                                                                        Remove
+                                                                                                    </a>
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <!-- end: COLLECTION DETAILS -->
+                                <!-- end: COLLECTION IMAGES -->
+                                <fieldset>
+                                    <legend>
+                                        <letter-icon char-count="2" custom-class="letter-custom" data="7">
+                                        </letter-icon>
+                                        <span class="text-light text-bold margin-left-5">
+                                            Collection Images
+                                        </span>
+                                    </legend>
+                                    <!-- start: UPLOADS ONLY IMAGES -->
+                                    <div class="container-fluid container-fullw">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-white">
+                                                    <div class="panel-body">
+                                                        <h5 class="over-title margin-bottom-15">
+                                                            Uploads
+                                                            <span class="text-bold">
+                                                                only images
+                                                            </span>
+                                                        </h5>
+                                                        <p>
+                                                            with canvas preview
+                                                        </p>
+                                                        <!-- /// controller:  'UploadCtrl' -  localtion: assets/js/controllers/uploadCtrl.js /// -->
+                                                        <div nv-file-drop="" uploader="uploaderImages">
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <h5>
+                                                                        Select files
+                                                                    </h5>
+                                                                    <div class="panel panel-white">
+                                                                        <div class="panel-body">
+                                                                            <div ng-show="uploaderImages.isHTML5">
+                                                                                <!-- 3. nv-file-over uploader="link" over-class="className" -->
+                                                                                <div class="well my-drop-zone" nv-file-over="" uploader="uploaderImages">
+                                                                                    Base drop zone
+                                                                                </div>
+                                                                                <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                                                                                <div nv-file-drop="" options="{ url: '/foo' }" uploader="uploaderImages">
+                                                                                    <div class="well my-drop-zone" nv-file-over="" over-class="another-file-over-class" uploader="uploaderImages">
+                                                                                        Another drop zone with its own settings
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                                                                            <span class="btn btn-primary btn-o btn-file">
+                                                                                Select an image file
+                                                                                <input multiple="" nv-file-select="" type="file" uploader="uploaderImages"/>
+                                                                            </span>
+                                                                            <br/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-9 file-upload" style="margin-bottom: 40px">
+                                                                    <h4>
+                                                                        The queue
+                                                                    </h4>
+                                                                    <p>
+                                                                        Queue length: {{ uploaderImages.queue.length }}
+                                                                    </p>
+                                                                    <div class="table-responsive">
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th width="50%">
+                                                                                        Name
+                                                                                    </th>
+                                                                                    <th ng-show="uploaderImages.isHTML5">
+                                                                                        Size
+                                                                                    </th>
+                                                                                    <th ng-show="uploaderImages.isHTML5">
+                                                                                        Progress
+                                                                                    </th>
+                                                                                    <th>
+                                                                                        Status
+                                                                                    </th>
+                                                                                    <th>
+                                                                                        Actions
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr ng-repeat="item in uploaderImages.queue">
+                                                                                    <td>
+                                                                                        <strong>
+                                                                                            {{ item.file.name }}
+                                                                                        </strong>
+                                                                                        <!-- Image preview -->
+                                                                                        <!--auto height-->
+                                                                                        <!--<div ng-thumb="{ file: item.file, width: 100 }"></div>-->
+                                                                                        <!--auto width-->
+                                                                                        <div ng-show="uploaderImages.isHTML5" ng-thumb="{ file: item._file, height: 100 }">
+                                                                                        </div>
+                                                                                        <!--fixed width and height -->
+                                                                                        <!--<div ng-thumb="{ file: item.file, width: 100, height: 100 }"></div>-->
+                                                                                    </td>
+                                                                                    <td ng-show="uploaderImages.isHTML5" nowrap="">
+                                                                                        {{ item.file.size/1024/1024|number:2 }} MB
+                                                                                    </td>
+                                                                                    <td ng-show="uploaderImages.isHTML5">
+                                                                                        <div class="progress progress-xs margin-bottom-0">
+                                                                                            <div class="progress-bar" ng-style="{ 'width': item.progress + '%' }" role="progressbar">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="text-center">
+                                                                                        <span ng-show="item.isSuccess">
+                                                                                            <i class="glyphicon glyphicon-ok">
+                                                                                            </i>
+                                                                                        </span>
+                                                                                        <span ng-show="item.isCancel">
+                                                                                            <i class="glyphicon glyphicon-ban-circle">
+                                                                                            </i>
+                                                                                        </span>
+                                                                                        <span ng-show="item.isError">
+                                                                                            <i class="glyphicon glyphicon-remove">
+                                                                                            </i>
+                                                                                        </span>
+                                                                                    </td>
+                                                                                    <td nowrap="">
+                                                                                        <button class="btn btn-primary btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess" type="button">
+                                                                                            <span class="glyphicon glyphicon-upload">
+                                                                                            </span>
+                                                                                            Upload
+                                                                                        </button>
+                                                                                        <button class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading" type="button">
+                                                                                            <span class="glyphicon glyphicon-ban-circle">
+                                                                                            </span>
+                                                                                            Cancel
+                                                                                        </button>
+                                                                                        <button class="btn btn-danger btn-xs" ng-click="removeFile(item)" type="button">
+                                                                                            <span class="glyphicon glyphicon-trash">
+                                                                                            </span>
+                                                                                            Remove
+                                                                                        </button>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div>
+                                                                            Queue progress:
+                                                                            <div class="progress progress-xs margin-top-5 margin-bottom-20">
+                                                                                <div class="progress-bar" ng-style="{ 'width': uploaderImages.progress + '%' }" role="progressbar">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <button class="btn btn-primary btn-s" ng-click="uploaderImages.uploadAll()" ng-disabled="!uploaderImages.getNotUploadedItems().length" type="button">
+                                                                            <span class="glyphicon glyphicon-upload">
+                                                                            </span>
+                                                                            Upload all
+                                                                        </button>
+                                                                        <button class="btn btn-primary btn-o btn-s" ng-click="uploaderImages.cancelAll()" ng-disabled="!uploaderImages.isUploading" type="button">
+                                                                            <span class="glyphicon glyphicon-ban-circle">
+                                                                            </span>
+                                                                            Cancel all
+                                                                        </button>
+                                                                        <button class="btn btn-primary btn-o btn-s" ng-click="uploaderImages.clearQueue()" ng-disabled="!uploaderImages.queue.length" type="button">
+                                                                            <span class="glyphicon glyphicon-trash">
+                                                                            </span>
+                                                                            Remove all
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end: UPLOADS ONLY IMAGES -->
+                                </fieldset>
+                                <!-- end: COLLECTION IMAGES -->
+                                <fieldset>
+                                    <div class="panel-body">
+                                        <div class="radio clip-radio radio-primary radio-sm radio-inline">
+                                            <input checked="checked" id="testradio1" name="savetype" ng-model="savetype" type="radio" value="1">
+                                                <label for="testradio1">
+                                                    Different
+                                                </label>
+                                            </input>
+                                        </div>
+                                        <div class="radio clip-radio radio-primary radio-sm radio-inline">
+                                            <input id="testradio2" name="savetype" ng-model="savetype" type="radio" value="0">
+                                                <label for="testradio2">
+                                                    Similar
+                                                </label>
+                                            </input>
+                                        </div>
+                                        <p>
+                                            <a class="btn btn-sm btn-primary" href="#" ng-click="CollectionData(collection_form);">
+                                                <i class="fa fa-save">
+                                                </i>
+                                                Save
+                                            </a>
+                                            <a class="btn btn-sm btn-blue" href="#">
+                                                <i class="fa fa-ban">
+                                                </i>
+                                                Reset
+                                            </a>
+                                        </p>
+                                    </div>
+                                    <div class="gf-row-6 gf-testlarge">
+                                        <div class="gf-col-6 gf-col-bg gf-none-border">
+                                            <div id="hidden">
+                                                <input id="txtcoll_autonumber_on_inter" name="autonumber_inter" type="hidden"/>
+                                                <input id="txtamphur_ID" name="txtamphur_ID" type="hidden"/>
+                                                <input id="txtcollection_ID_inter" name="txtcollection_ID_inter" size="20" type="hidden"/>
+                                                <input autofocus="" id="txtcollection_ID" name="txtcollection_ID" type="hidden"/>
+                                                <input id="txttambon_ID" name="txttambon_ID" ng-model="data.amphurid" type="hidden"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

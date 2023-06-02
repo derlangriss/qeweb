@@ -1,0 +1,1025 @@
+<!-- start: MESSAGES -->
+<div ct-fullheight="" data-ct-fullheight-exclusion="header, footer">
+    <!-- /// controller:  'InboxCtrl' -  localtion: assets/js/controllers/inboxCtrl.js /// -->
+    <div active-class="message-open" class="inbox" id="inbox" ng-controller="FormContainerManageCtrl" toggleable="">
+        <!-- start: EMAIL LIST -->
+        <div class="col spec-list">
+            <div class="innerwrap-list">
+                <div class="innerspec-list scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                    <div class="col-md-12 ">
+                        <div class="row">
+                            <div class="panel-body">
+                                <div class="partition-light-grey padding-15 text-center">
+                                    <h4 class="no-margin">
+                                        January
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                            <fieldset>
+                                <legend>
+                                    <letter-icon char-count="2" custom-class="letter-custom" data="3">
+                                    </letter-icon>
+                                    <span class="text-light text-bold margin-left-5">
+                                        Location Coordinate
+                                    </span>
+                                </legend>
+                                <div class="gf-row-2 gf-large">
+                                    <div class="gf-col-1">
+                                        <select class="cs-select cs-skin-elastic" ng-model="reportModel.month">
+                                            <option disabled="" value="">
+                                                Month
+                                            </option>
+                                            <option value="1">
+                                                January
+                                            </option>
+                                            <option value="2">
+                                                February
+                                            </option>
+                                            <option value="3">
+                                                March
+                                            </option>
+                                            <option value="4">
+                                                April
+                                            </option>
+                                            <option value="5">
+                                                May
+                                            </option>
+                                            <option value="6">
+                                                June
+                                            </option>
+                                            <option value="7">
+                                                July
+                                            </option>
+                                            <option value="8">
+                                                August
+                                            </option>
+                                            <option value="9">
+                                                September
+                                            </option>
+                                            <option value="10">
+                                                October
+                                            </option>
+                                            <option value="11">
+                                                November
+                                            </option>
+                                            <option value="12">
+                                                December
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="gf-col-1">
+                                        <select class="cs-select cs-skin-elastic" ng-model="reportModel.year">
+                                            <option disabled="" value="">
+                                                Year
+                                            </option>
+                                            <option value="2015">
+                                                2015
+                                            </option>
+                                            <option value="2016">
+                                                2016
+                                            </option>
+                                            <option value="2017">
+                                                2017
+                                            </option>
+                                            <option value="2018">
+                                                2018
+                                            </option>
+                                            <option value="2019">
+                                                2019
+                                            </option>
+                                            <option value="2020">
+                                                2020
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>
+                                    <letter-icon char-count="2" custom-class="letter-custom" data="3">
+                                    </letter-icon>
+                                    <span class="text-light text-bold margin-left-5">
+                                        Location Coordinate
+                                    </span>
+                                </legend>
+                                <div class="gf-row-2 gf-large">
+                                    <div class="gf-col-1">
+                                        <select class="cs-select cs-skin-elastic" ng-model="reportModel.month">
+                                            <option disabled="" value="">
+                                                Month
+                                            </option>
+                                            <option value="1">
+                                                January
+                                            </option>
+                                            <option value="2">
+                                                February
+                                            </option>
+                                            <option value="3">
+                                                March
+                                            </option>
+                                            <option value="4">
+                                                April
+                                            </option>
+                                            <option value="5">
+                                                May
+                                            </option>
+                                            <option value="6">
+                                                June
+                                            </option>
+                                            <option value="7">
+                                                July
+                                            </option>
+                                            <option value="8">
+                                                August
+                                            </option>
+                                            <option value="9">
+                                                September
+                                            </option>
+                                            <option value="10">
+                                                October
+                                            </option>
+                                            <option value="11">
+                                                November
+                                            </option>
+                                            <option value="12">
+                                                December
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="gf-col-1">
+                                        <select class="cs-select cs-skin-elastic" ng-model="reportModel.year">
+                                            <option disabled="" value="">
+                                                Year
+                                            </option>
+                                            <option value="2015">
+                                                2015
+                                            </option>
+                                            <option value="2016">
+                                                2016
+                                            </option>
+                                            <option value="2017">
+                                                2017
+                                            </option>
+                                            <option value="2018">
+                                                2018
+                                            </option>
+                                            <option value="2019">
+                                                2019
+                                            </option>
+                                            <option value="2020">
+                                                2020
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <div class="panel panel-white no-radius">
+                            <div class="panel-heading border-bottom">
+                                <h4 class="panel-title">
+                                    Specimens Details
+                                </h4>
+                            </div>
+                            <div class="panel-body">
+                                <h5 class="text-bold text-uppercase">
+                                    Quantity
+                                    <a href='#"' ng-click="PrintSpecBox('SpecList')">
+                                        331
+                                    </a>
+                                </h5>
+                                <p class="text-light text-small">
+                                    the number of specimens of the month.
+                                </p>
+                                <div class="row">
+                                    <div class="col-xs-12 no-padding border-right">
+                                        <div class="padding-10 text-center">
+                                            <i class="fa fa-globe text-azure large-letters">
+                                            </i>
+                                            <div class="clearfix">
+                                            </div>
+                                            <span class="counter" count-to="{{allspecimens}}" duration="1" filter="number" ng-model="allspecimens" value="0">
+                                                {{allspecimens}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-white no-radius">
+                            <div class="panel-heading border-bottom">
+                                <h4 class="panel-title">
+                                    Current User
+                                </h4>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item no-radius no-margin no-border-top no-border-left no-border-right">
+                                        <div class="row">
+                                            <div class="col-xs-7">
+                                                <td class="width-200">
+                                                    <a href="#">
+                                                        <i class="fa fa-archive">
+                                                        </i>
+                                                        Box01
+                                                    </a>
+                                                </td>
+                                            </div>
+                                            <div class="col-xs-5">
+                                                <span class="block">
+                                                    28
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item no-radius no-margin no-border-top no-border-left no-border-right">
+                                        <div class="row">
+                                            <div class="col-xs-7">
+                                                <a href="#">
+                                                    <i class="fa fa-archive">
+                                                    </i>
+                                                    Box01
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-5">
+                                                <span class="block ">
+                                                    18
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item no-radius no-margin no-border-top no-border-left no-border-right">
+                                        <div class="row">
+                                            <div class="col-xs-7">
+                                                <a href="#">
+                                                    <i class="fa fa-archive">
+                                                    </i>
+                                                    Box01
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-5">
+                                                <span class="block ">
+                                                    13
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item no-radius no-margin no-border-top no-border-left no-border-right">
+                                        <div class="row">
+                                            <div class="col-xs-7">
+                                                <a href="#">
+                                                    <i class="fa fa-archive">
+                                                    </i>
+                                                    Box01
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-5">
+                                                <span class="block ">
+                                                    155
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: EMAIL LIST -->
+        <!-- start: EMAIL READER -->
+        <div class="email-reader">
+            <div class="spec-sideinfo scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                <div class="col-md-12">
+                    <!--div class="row">
+                        <div class="panel-body">
+                            <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                <fieldset>
+                                    <legend>
+                                        Select Report of the month
+                                        <a ui-sref="app.form.container_manage">
+                                            <i class="fa fa-plus-square">
+                                            </i>
+                                        </a>
+                                    </legend>
+                                    <div class="gf-row-3 gf-large">
+                                        <div class="gf-col-1">
+                                            <input class="form-control" id="trans_container" name="trans_container" ng-change="ctrans_container()" ng-model="transcontainer" placeholder="Enter container name" type="text" typeahead-loading="loadingtranscontainer" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.cabinet for o in TransContainerKeyup($viewValue)"/>
+                                        </div>
+                                        <div class="gf-col-1">
+                                            <input class="form-control" id="trans_locker" name="trans_locker" ng-change="ctrans_locker()" ng-model="translocker" placeholder="Enter Locker" type="text" typeahead-loading="loadingLocker" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.sub_cabinet for o in TransLockerKeyup($viewValue)"/>
+                                        </div>
+                                        <div class="gf-col-1">
+                                            <input class="form-control" id="trans_drawer" name="trans_drawer" ng-change="ctrans_drawer()" ng-model="transdrawer" placeholder="Enter Drawer" type="text" typeahead-loading="loadingDrawer" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.spec_box for o in TransDrawerKeyup($viewValue)"/>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div-->
+                    <div class="row">
+                        <div class="editedMenu">
+                            <!-- start: WIZARD SEPS -->
+                            <ul>
+                                <li ng-click="setTab(1)">
+                                    <a href="" ng-class="{'selected' : isSet(1), 'done' : currentStep > 1}">
+                                        <div class="stepNumber">
+                                            1
+                                        </div>
+                                        <span class="stepDesc text-small">
+                                            OVERALL
+                                        </span>
+                                    </a>
+                                </li>
+                                <li ng-click="setTab(2)">
+                                    <a href="" ng-class="{'selected' : isSet(2), 'done' : currentStep > 2}">
+                                        <div class="stepNumber">
+                                            2
+                                        </div>
+                                        <span class="stepDesc text-small">
+                                            CABINET INFO
+                                        </span>
+                                    </a>
+                                </li>
+                                <li ng-click="setTab(3)">
+                                    <a href="" ng-class="{'selected' : isSet(3), 'done' : currentStep > 3}">
+                                        <div class="stepNumber">
+                                            3
+                                        </div>
+                                        <span class="stepDesc text-small">
+                                            ASSIGN DRAWER
+                                        </span>
+                                    </a>
+                                </li>
+                                <li ng-click="setTab(4)">
+                                    <a href="" ng-class="{'selected' : isSet(4), 'done' : currentStep > 4}">
+                                        <div class="stepNumber">
+                                            4
+                                        </div>
+                                        <span class="stepDesc text-small">
+                                            KPI
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel" id="activities">
+                        <div class="tab-pane" id="tab-table1">
+                            <div class="animate-show-hide margin-top-5" ng-show="isSet(1)">
+                                <div class="panel panel-white">
+                                    <div class="panel-heading border-light">
+                                        <h4 class="panel-title">
+                                            Toolbar
+                                        </h4>
+                                        <ul class="panel-heading-tabs border-light">
+                                            <li>
+                                                <div class="pull-right">
+                                                    <div class="btn-group" is-open="status.isopen" uib-dropdown="">
+                                                        <button class="btn btn-primary dropdown-toggle" ng-click="PrintSpecBox('SpecList')" ng-disabled="disabled" type="button" uib-dropdown-toggle="">
+                                                            <i class="fa fa-download">
+                                                            </i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="rate text-red">
+                                                    <i class="fa fa-ban ">
+                                                    </i>
+                                                    <span class="value" count-to="{{undefinedspecimens}}" duration="1" filter="number" ng-model="undefinedspecimens" value="0">
+                                                        {{undefinedspecimens}}
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="rate text-orange">
+                                                    <i class="fa fa-bug ">
+                                                    </i>
+                                                    <span class="value" count-to="{{resspecimens}}" duration="1" filter="number" ng-model="resspecimens" value="0">
+                                                        {{resspecimens}}
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li class="panel-tools">
+                                                <ct-paneltool tool-refresh="load1">
+                                                </ct-paneltool>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row space20">
+                                            <div class="col-md-12">
+                                                <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                                    <fieldset>
+                                                        <legend>
+                                                            Specimens Search
+                                                        </legend>
+                                                        <div class="gf-row-6 gf-large">
+                                                            <div class="gf-col-3" data-column="2">
+                                                                <label>
+                                                                    Order
+                                                                </label>
+                                                                <input autofocus="" class="numberdecimal column_filterspec" id="col2_filter" name="txtcoll_code" ng-change="searchmodel(2)" ng-model="collorder" type="text">
+                                                                </input>
+                                                            </div>
+                                                            <div class="gf-col-3" data-column="3">
+                                                                <label>
+                                                                    family
+                                                                </label>
+                                                                <input autofocus="" class="numberdecimal column_filterspec" id="col3_filter" name="txtcoll_code" ng-change="searchmodel(3)" ng-model="collfamily" type="text">
+                                                                </input>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <table cellspacing="0" class="table table-condensed table-hover" id="SpecimensReportListTbl" width="100%">
+                                            <thead>
+                                                <tr class="uppercase bigfont">
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Specimen Number
+                                                    </th>
+                                                    <th>
+                                                        Order
+                                                    </th>
+                                                    <th>
+                                                        Family
+                                                    </th>
+                                                    <th>
+                                                        Box Number
+                                                    </th>
+                                                    <th>
+                                                        Cabinet
+                                                    </th>
+                                                    <th>
+                                                        SubCabinet
+                                                    </th>
+                                                    <th>
+                                                        Drawer No.
+                                                    </th>
+                                                    <th>
+                                                        coll_code
+                                                    </th>
+                                                    <th>
+                                                        coll_year
+                                                    </th>
+                                                    <th>
+                                                        coll_number
+                                                    </th>
+                                                    <th>
+                                                        specimen_number
+                                                    </th>
+                                                    <th>
+                                                        identify_check
+                                                    </th>
+                                                    <th>
+                                                        Report Date
+                                                    </th>
+                                                    <th>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane " id="tab-table2">
+                            <div class="animate-show-hide" ng-show="isSet(2)">
+                                <div class="container-fluid container-fullw">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="panel panel-white">
+                                                <div class="panel-body">
+                                                    <h5 class="over-title margin-bottom-15">
+                                                        <span class="text-bold">
+                                                            CABINET INFO
+                                                        </span>
+                                                    </h5>
+                                                    <p>
+                                                        Additional Container Info.
+                                                    </p>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="panel panel-white">
+                                                                <div class="panel-heading border-light">
+                                                                    <h4 class="panel-title">
+                                                                        Container
+                                                                        <span class="text-bold">
+                                                                            Row
+                                                                        </span>
+                                                                    </h4>
+                                                                    <ct-paneltool class="panel-tools" tool-refresh="load1">
+                                                                    </ct-paneltool>
+                                                                </div>
+                                                                <div class="panel-body">
+                                                                    <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                                                        <fieldset>
+                                                                            <legend>
+                                                                                Select Report of the month
+                                                                            </legend>
+                                                                            <div class="gf-row-2 gf-large">
+                                                                                <div class="gf-col-1">
+                                                                                    <select class="cs-select cs-skin-elastic" id="rowcabinet" name="rowcabinet" ng-change="onChangedRowContainer();" ng-model="cabinet" ng-options="item.rcabinet_id as item.rcabinet for item in GETrowcabinet">
+                                                                                        <option disabled="" value="">
+                                                                                            ROW
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="gf-col-1">
+                                                                                    <div class="boxselect">
+                                                                                        <input type="text">
+                                                                                        </input>
+                                                                                    </div>
+                                                                                    <label class="fa-inline">
+                                                                                        <a ui-sref="app.form.container_manage text-large">
+                                                                                            <i class="fa fa-save text-medium">
+                                                                                            </i>
+                                                                                        </a>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="gf-row-2 gf-large">
+                                                                                <div class="gf-col-1">
+                                                                                    <select class="cs-select cs-skin-elastic" id="cabinet" name="cabinet" ng-change="onChangedContainer();" ng-model="cabinet" ng-options="item.cabinet_id as item.cabinet for item in GETcabinet">
+                                                                                        <option disabled="" value="">
+                                                                                            CONTAINER
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="gf-col-1">
+                                                                                    <div class="boxselect">
+                                                                                        <input type="text">
+                                                                                        </input>
+                                                                                    </div>
+                                                                                    <label class="fa-inline">
+                                                                                        <a ui-sref="app.form.container_manage text-large">
+                                                                                            <i class="fa fa-save text-medium">
+                                                                                            </i>
+                                                                                        </a>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="gf-row-2 gf-large">
+                                                                                <div class="gf-col-1">
+                                                                                    <select class="cs-select cs-skin-elastic" id="clocker" name="clocker" ng-change="onChangedLocker();" ng-model="clocker" ng-options="item.subcabinet_id as item.sub_cabinet for item in GETclocker">
+                                                                                        <option disabled="" value="">
+                                                                                            LOCKER
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="gf-col-1">
+                                                                                    <div class="boxselect">
+                                                                                        <input type="text">
+                                                                                        </input>
+                                                                                    </div>
+                                                                                    <label class="fa-inline">
+                                                                                        <a ui-sref="app.form.container_manage text-large">
+                                                                                            <i class="fa fa-save text-medium">
+                                                                                            </i>
+                                                                                        </a>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="gf-row-2 gf-large">
+                                                                                <div class="gf-col-1">
+                                                                                    <select class="cs-select cs-skin-elastic" id="cdrawer" name="cdrawer" ng-model="cdrawer" ng-options="item.spec_box_id as item.spec_box for item in GETcdrawer">
+                                                                                        <option disabled="" value="">
+                                                                                            DRAWER
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="gf-col-1">
+                                                                                    <div class="boxselect">
+                                                                                        <input type="text">
+                                                                                        </input>
+                                                                                    </div>
+                                                                                    <label class="fa-inline">
+                                                                                        <a ui-sref="app.form.container_manage text-large">
+                                                                                            <i class="fa fa-save text-medium">
+                                                                                            </i>
+                                                                                        </a>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="gf-row-2 ">
+                                                                                <div class="form-group margin-top-15">
+                                                                                    <div class="btn-group">
+                                                                                        <label class="btn btn-primary btn-sm" ng-click="ReportSearchnew()" ng-model="myModel.paymentMethod" uib-btn-radio="'creditcard'">
+                                                                                            <i class="fa fa-search">
+                                                                                            </i>
+                                                                                            SEARCH
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </fieldset>
+                                                                    </form>
+                                                                    <p>
+                                                                        Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="panel panel-white">
+                                                                <div class="panel-heading border-light">
+                                                                    <h4 class="panel-title">
+                                                                        Locker
+                                                                    </h4>
+                                                                    <ul class="panel-heading-tabs border-light">
+                                                                        <li>
+                                                                            <div class="pull-right">
+                                                                                <div class="btn-group" is-open="status.isopen" uib-dropdown="">
+                                                                                    <button class="btn btn-primary dropdown-toggle" ng-disabled="disabled" type="button" uib-dropdown-toggle="">
+                                                                                        Tools
+                                                                                        <span class="caret">
+                                                                                        </span>
+                                                                                    </button>
+                                                                                    <ul class="dropdown-menu" role="menu">
+                                                                                        <li>
+                                                                                            <a href="#">
+                                                                                                Action
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#">
+                                                                                                Another action
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#">
+                                                                                                Something else here
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="divider">
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#">
+                                                                                                Separated link
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="rate">
+                                                                                <i class="fa fa-caret-up text-primary">
+                                                                                </i>
+                                                                                <span class="value">
+                                                                                    15
+                                                                                </span>
+                                                                                <span class="percentage">
+                                                                                    %
+                                                                                </span>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li class="panel-tools">
+                                                                            <ct-paneltool tool-refresh="load1">
+                                                                            </ct-paneltool>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="panel-body">
+                                                                    <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                                                        <fieldset>
+                                                                            <legend>
+                                                                                Select Report of the month
+                                                                            </legend>
+                                                                            <div class="gf-row-2 gf-large">
+                                                                                <div class="gf-col-1">
+                                                                                    <select class="cs-select cs-skin-elastic" ng-model="reportModel.month">
+                                                                                        <option disabled="" value="">
+                                                                                            Month
+                                                                                        </option>
+                                                                                        <option value="1">
+                                                                                            January
+                                                                                        </option>
+                                                                                        <option value="2">
+                                                                                            February
+                                                                                        </option>
+                                                                                        <option value="3">
+                                                                                            March
+                                                                                        </option>
+                                                                                        <option value="4">
+                                                                                            April
+                                                                                        </option>
+                                                                                        <option value="5">
+                                                                                            May
+                                                                                        </option>
+                                                                                        <option value="6">
+                                                                                            June
+                                                                                        </option>
+                                                                                        <option value="7">
+                                                                                            July
+                                                                                        </option>
+                                                                                        <option value="8">
+                                                                                            August
+                                                                                        </option>
+                                                                                        <option value="9">
+                                                                                            September
+                                                                                        </option>
+                                                                                        <option value="10">
+                                                                                            October
+                                                                                        </option>
+                                                                                        <option value="11">
+                                                                                            November
+                                                                                        </option>
+                                                                                        <option value="12">
+                                                                                            December
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="gf-col-1">
+                                                                                    <select class="cs-select cs-skin-elastic" ng-model="reportModel.year">
+                                                                                        <option disabled="" value="">
+                                                                                            Year
+                                                                                        </option>
+                                                                                        <option value="2015">
+                                                                                            2015
+                                                                                        </option>
+                                                                                        <option value="2016">
+                                                                                            2016
+                                                                                        </option>
+                                                                                        <option value="2017">
+                                                                                            2017
+                                                                                        </option>
+                                                                                        <option value="2018">
+                                                                                            2018
+                                                                                        </option>
+                                                                                        <option value="2019">
+                                                                                            2019
+                                                                                        </option>
+                                                                                        <option value="2020">
+                                                                                            2020
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="gf-row-2 ">
+                                                                                <div class="form-group margin-top-15">
+                                                                                    <div class="btn-group">
+                                                                                        <label class="btn btn-primary btn-sm" ng-click="ReportSearchnew()" ng-model="myModel.paymentMethod" uib-btn-radio="'creditcard'">
+                                                                                            <i class="fa fa-search">
+                                                                                            </i>
+                                                                                            SEARCH
+                                                                                        </label>
+                                                                                        <!--label class="btn btn-primary btn-sm" ng-click="ReportSearchnew()" ng-model="myModel.paymentMethod" uib-btn-radio="'paypal'">
+                                            <i class="fa fa-ban">
+                                            </i>
+                                            NEW VERSION
+                                        </label-->
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </fieldset>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="panel panel-white no-radius">
+                                                                <div class="panel-heading border-light">
+                                                                    <h4 class="panel-title">
+                                                                        Squared
+                                                                        <span class="text-bold">
+                                                                            Panel
+                                                                        </span>
+                                                                    </h4>
+                                                                    <ct-paneltool class="panel-tools" tool-refresh="load1">
+                                                                    </ct-paneltool>
+                                                                </div>
+                                                                <div class="panel-body">
+                                                                    <p>
+                                                                        Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
+                                                                    </p>
+                                                                    <p>
+                                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                                    </p>
+                                                                    <p>
+                                                                        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-table3">
+                            <div class="animate-show-hide" ng-show="isSet(3)">
+                                <div class="container-fluid container-fullw">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="panel panel-white">
+                                                <div class="panel-body">
+                                                    <h5 class="over-title margin-bottom-15">
+                                                        <span class="text-bold">
+                                                            ASSIGN DRAWER
+                                                        </span>
+                                                    </h5>
+                                                    <p>
+                                                        Additional Drawer List Info.
+                                                    </p>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="panel panel-white">
+                                                                <div class="panel-heading border-light">
+                                                                    <h4 class="panel-title">
+                                                                        Locker List
+                                                                    </h4>
+                                                                    <ul class="panel-heading-tabs border-light">
+                                                                        <li>
+                                                                            <div class="pull-right">
+                                                                                <div class="btn-group" is-open="status.isopen" uib-dropdown="">
+                                                                                    <button class="btn btn-primary dropdown-toggle" ng-disabled="disabled" type="button" uib-dropdown-toggle="">
+                                                                                        Tools
+                                                                                        <span class="caret">
+                                                                                        </span>
+                                                                                    </button>
+                                                                                    <ul class="dropdown-menu" role="menu">
+                                                                                        <li>
+                                                                                            <a href="#">
+                                                                                                Action
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#">
+                                                                                                Another action
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#">
+                                                                                                Something else here
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="divider">
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#">
+                                                                                                Separated link
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="rate">
+                                                                                <i class="fa fa-caret-up text-primary">
+                                                                                </i>
+                                                                                <span class="value">
+                                                                                    15
+                                                                                </span>
+                                                                                <span class="percentage">
+                                                                                    %
+                                                                                </span>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li class="panel-tools">
+                                                                            <ct-paneltool tool-refresh="load1">
+                                                                            </ct-paneltool>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="panel-body">
+                                                                    <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                                                        <fieldset>
+                                                                            <div class="gf-row-2 ">
+                                                                                <table cellspacing="0" class="table table-condensed table-hover" id="DrawerListTbl" width="100%">
+                                                                                    <thead>
+                                                                                        <tr class="uppercase bigfont">
+                                                                                            <th>
+                                                                                            </th>
+                                                                                            <th>
+                                                                                                Drawer Code
+                                                                                            </th>
+                                                                                            <th>
+                                                                                                Locer Code
+                                                                                            </th>
+                                                                                            <th>
+                                                                                                Cabinet Code
+                                                                                            </th>
+                                                                                            <th>
+                                                                                                Row Code
+                                                                                            </th>
+                                                                                            <th>
+                                                                                                Family Name
+                                                                                            </th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                </table>
+                                                                            </div>
+                                                                        </fieldset>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-table4">
+                            <div class="animate-show-hide" ng-show="isSet(4)">
+                                <div class="margin-top-15 panel panel-white">
+                                    <div class="panel-heading border-light">
+                                        <h4 class="panel-title">
+                                            <span class="text-bold">
+                                                KPI (Project Indecator)
+                                            </span>
+                                        </h4>
+                                        <ct-paneltool class="panel-tools" tool-refresh="load1">
+                                        </ct-paneltool>
+                                    </div>
+                                    <div class="panel-body">
+                                        <table class="table no-margin">
+                                            <thead>
+                                                <th>
+                                                    กิจกรรม
+                                                </th>
+                                                <th>
+                                                    ตัวชี้วัด
+                                                </th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge">
+                                                            1
+                                                        </span>
+                                                        จำแนกตัวอย่างแมลงระดับวงศ์
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            {{countfamily}}
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge">
+                                                            2
+                                                        </span>
+                                                        รวบรวมตัวอย่างแห้ง
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            {{allspecimens}}
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge">
+                                                            3
+                                                        </span>
+                                                        ลงทะเบียนข้อมูลแมลง
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            {{countregist}}
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge">
+                                                            4
+                                                        </span>
+                                                        จัดเก็บตัวอย่างแมลงในพิพิธภัณฑ์
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            {{countmanaged}}
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: EMAIL READER -->
+    </div>
+    <!-- end: MESSAGES -->
+</div>

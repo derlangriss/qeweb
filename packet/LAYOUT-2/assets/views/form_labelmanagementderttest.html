@@ -1,0 +1,1319 @@
+<!-- start: MESSAGES -->
+<div ct-fullheight="" data-ct-fullheight-exclusion="header, footer">
+    <!-- /// controller:  'InboxCtrl' -  localtion: assets/js/controllers/inboxCtrl.js /// -->
+    <div active-class="message-open" class="inbox" id="inbox" ng-controller="FormlabelmanagementCtrl" toggleable="">
+        <!-- start: EMAIL READER -->
+        <div class="fullwidth-panel">
+            <div class="spec-sideinfo scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                <div class="panel partition-light-grey no-radius">
+                    <div class="panel-heading border-light">
+                        <h4 class="panel-title">
+                            Label
+                            <span class="text-bold">
+                                Management
+                            </span>
+                        </h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="editedMenu">
+                            <!-- start: WIZARD SEPS -->
+                            <ul>
+                                <li ng-click="setTab(1)">
+                                    <a href="" ng-class="{'selected' : isSet(1), 'done' : currentStep > 1}">
+                                        <div class="stepNumber">
+                                            1
+                                        </div>
+                                        <span class="stepDesc text-small">
+                                            OVERALL
+                                        </span>
+                                    </a>
+                                </li>
+                                <li ng-click="setTab(2)">
+                                    <a href="" ng-class="{'selected' : isSet(2), 'done' : currentStep > 2}">
+                                        <div class="stepNumber">
+                                            2
+                                        </div>
+                                        <span class="stepDesc text-small">
+                                            CABINET INFO
+                                        </span>
+                                    </a>
+                                </li>
+                                <li ng-click="setTab(3)">
+                                    <a href="" ng-class="{'selected' : isSet(3), 'done' : currentStep > 3}">
+                                        <div class="stepNumber">
+                                            3
+                                        </div>
+                                        <span class="stepDesc text-small">
+                                            ASSIGN DRAWER
+                                        </span>
+                                    </a>
+                                </li>
+                                <li ng-click="setTab(4)">
+                                    <a href="" ng-class="{'selected' : isSet(4), 'done' : currentStep > 4}">
+                                        <div class="stepNumber">
+                                            4
+                                        </div>
+                                        <span class="stepDesc text-small">
+                                            KPI
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="tab-pane" id="tab-table1">
+                            <div class="animate-show-hide margin-top-5" ng-show="isSet(1)">
+                                <div class="col-sm-12">
+                                    <div class="panel panel-white no-radius">
+                                        <div class="panel-heading border-light">
+                                            <h4 class="panel-title">
+                                                Overall
+                                            </h4>
+                                            <ct-paneltool class="panel-tools" tool-refresh="load1">
+                                            </ct-paneltool>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="user-left">
+                                                        <div class="center">
+                                                            <h4>
+                                                                {{userInfo.firstName}} {{userInfo.lastName}}
+                                                            </h4>
+                                                            <div flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="upload()" flow-init="" flow-name="obj.flow">
+                                                                <div class="user-image">
+                                                                    <div class="thumbnail">
+                                                                        <img alt="" ng-if="!obj.flow.files.length && noImage" src="assets/images/default-user.png">
+                                                                            <img alt="" ng-if="!obj.flow.files.length && !noImage" ng-src="{{userInfo.avatar}}">
+                                                                                <img flow-img="obj.flow.files[0]" ng-if="obj.flow.files.length">
+                                                                                </img>
+                                                                            </img>
+                                                                        </img>
+                                                                    </div>
+                                                                    <div class="user-image-buttons" ng-if="obj.flow.files.length">
+                                                                        <span class="btn btn-primary btn-file">
+                                                                            <i class="fa fa-pencil">
+                                                                            </i>
+                                                                            <input flow-btn="" type="file"/>
+                                                                        </span>
+                                                                        <span class="btn btn-danger" ng-click="obj.flow.cancel()">
+                                                                            <i class="fa fa-times">
+                                                                            </i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="user-image-buttons" ng-if="!obj.flow.files.length">
+                                                                        <span class="btn btn-primary btn-file">
+                                                                            <i class="fa fa-pencil">
+                                                                            </i>
+                                                                            <input flow-btn="" type="file"/>
+                                                                        </span>
+                                                                        <span class="btn btn-danger" ng-click="removeImage()" ng-if="!noImage">
+                                                                            <i class="fa fa-times">
+                                                                            </i>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                                <div class="social-icons block">
+                                                                    <ul>
+                                                                        <li class="social-twitter tooltips" data-original-title="Twitter" data-placement="top">
+                                                                            <a href="#" target="_blank">
+                                                                                Twitter
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="social-facebook tooltips" data-original-title="Facebook" data-placement="top">
+                                                                            <a href="#" target="_blank">
+                                                                                Facebook
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="social-google tooltips" data-original-title="Google" data-placement="top">
+                                                                            <a href="#" target="_blank">
+                                                                                Google+
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="social-linkedin tooltips" data-original-title="LinkedIn" data-placement="top">
+                                                                            <a href="#" target="_blank">
+                                                                                LinkedIn
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="social-github tooltips" data-original-title="Github" data-placement="top">
+                                                                            <a href="#" target="_blank">
+                                                                                Github
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <hr>
+                                                                </hr>
+                                                            </hr>
+                                                        </div>
+                                                        <table class="table table-condensed">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan="3">
+                                                                        Contact Information
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        url
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="">
+                                                                            {{userInfo.url}}
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        email:
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="">
+                                                                            {{userInfo.email}}
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        phone:
+                                                                    </td>
+                                                                    <td>
+                                                                        {{userInfo.phone}}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        skye
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="">
+                                                                            {{userInfo.skype}}
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <table class="table table-condensed">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan="3">
+                                                                        General information
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        Position
+                                                                    </td>
+                                                                    <td>
+                                                                        UI Designer
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        Last Logged In
+                                                                    </td>
+                                                                    <td>
+                                                                        56 min
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        Position
+                                                                    </td>
+                                                                    <td>
+                                                                        Senior Marketing Manager
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        Supervisor
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="#">
+                                                                            Kenneth Ross
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        Status
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="label label-sm label-info">
+                                                                            Administrator
+                                                                        </span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <table class="table table-condensed">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan="3">
+                                                                        Additional information
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        Groups
+                                                                    </td>
+                                                                    <td>
+                                                                        New company web site development, HR Management
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <div class="text-right">
+                                                            <a class="btn btn-primary btn-o btn-wide" href="#" ng-click="editActive = true">
+                                                                Edit Account
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="row space20">
+                                                        <div class="col-sm-3">
+                                                            <button class="btn btn-icon margin-bottom-5 margin-bottom-5 btn-block">
+                                                                <i class="ti-layers-alt block text-primary text-extra-large margin-bottom-10">
+                                                                </i>
+                                                                Projects
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <button class="btn btn-icon margin-bottom-5 btn-block">
+                                                                <i class="ti-comments block text-primary text-extra-large margin-bottom-10">
+                                                                </i>
+                                                                Messages
+                                                                <span class="badge badge-danger">
+                                                                    23
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <button class="btn btn-icon margin-bottom-5 btn-block">
+                                                                <i class="ti-calendar block text-primary text-extra-large margin-bottom-10">
+                                                                </i>
+                                                                Calendar
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <button class="btn btn-icon margin-bottom-5 btn-block">
+                                                                <i class="ti-flag block text-primary text-extra-large margin-bottom-10">
+                                                                </i>
+                                                                Notifications
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-white" id="activities">
+                                                        <div class="panel-heading border-light">
+                                                            <h4 class="panel-title text-primary">
+                                                                Recent Activities
+                                                            </h4>
+                                                            <paneltool class="panel-tools" tool-collapse="tool-collapse" tool-dismiss="tool-dismiss" tool-refresh="load1">
+                                                            </paneltool>
+                                                        </div>
+                                                        <div class="panel-wrapper" ng-init="activities=false" uib-collapse="activities">
+                                                            <div class="panel-body">
+                                                                <ul class="timeline-xs">
+                                                                    <li class="timeline-item success">
+                                                                        <div class="margin-left-15">
+                                                                            <div class="text-muted text-small">
+                                                                                2 minutes ago
+                                                                            </div>
+                                                                            <p>
+                                                                                <a class="text-info" href="">
+                                                                                    Steven
+                                                                                </a>
+                                                                                has completed his account.
+                                                                            </p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="timeline-item">
+                                                                        <div class="margin-left-15">
+                                                                            <div class="text-muted text-small">
+                                                                                12:30
+                                                                            </div>
+                                                                            <p>
+                                                                                Staff Meeting
+                                                                            </p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="timeline-item danger">
+                                                                        <div class="margin-left-15">
+                                                                            <div class="text-muted text-small">
+                                                                                11:11
+                                                                            </div>
+                                                                            <p>
+                                                                                Completed new layout.
+                                                                            </p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="timeline-item info">
+                                                                        <div class="margin-left-15">
+                                                                            <div class="text-muted text-small">
+                                                                                Thu, 12 Jun
+                                                                            </div>
+                                                                            <p>
+                                                                                Contacted
+                                                                                <a class="text-info" href="">
+                                                                                    Microsoft
+                                                                                </a>
+                                                                                for license upgrades.
+                                                                            </p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="timeline-item">
+                                                                        <div class="margin-left-15">
+                                                                            <div class="text-muted text-small">
+                                                                                Tue, 10 Jun
+                                                                            </div>
+                                                                            <p>
+                                                                                Started development new site
+                                                                            </p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="timeline-item">
+                                                                        <div class="margin-left-15">
+                                                                            <div class="text-muted text-small">
+                                                                                Sun, 11 Apr
+                                                                            </div>
+                                                                            <p>
+                                                                                Lunch with
+                                                                                <a class="text-info" href="">
+                                                                                    Nicole
+                                                                                </a>
+                                                                                .
+                                                                            </p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="timeline-item warning">
+                                                                        <div class="margin-left-15">
+                                                                            <div class="text-muted text-small">
+                                                                                Wed, 25 Mar
+                                                                            </div>
+                                                                            <p>
+                                                                                server Maintenance.
+                                                                            </p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="timeline-item">
+                                                                        <div class="margin-left-15">
+                                                                            <div class="text-muted text-small">
+                                                                                Fri, 20 Mar
+                                                                            </div>
+                                                                            <p>
+                                                                                New User Registration
+                                                                                <a class="text-info" href="">
+                                                                                    more details
+                                                                                </a>
+                                                                                .
+                                                                            </p>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-white space20">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                Recent Tweets
+                                                            </h4>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <ul class="ltwt">
+                                                                <li class="ltwt_tweet">
+                                                                    <p class="ltwt_tweet_text">
+                                                                        <a class="text-info" href="">
+                                                                            @Shakespeare
+                                                                        </a>
+                                                                        Some are born great, some achieve greatness, and some have greatness thrust upon them.
+                                                                    </p>
+                                                                    <span class="block text-light">
+                                                                        <i class="fa fa-fw fa-clock-o">
+                                                                        </i>
+                                                                        2 minuts ago
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-table1">
+                            <div class="animate-show-hide margin-top-5" ng-show="isSet(2)">
+                                <div class="col-sm-12">
+                                    <div class="panel panel-white no-radius">
+                                        <div class="panel-heading border-light">
+                                            <h4 class="panel-title">
+                                                Squared
+                                                <span class="text-bold">
+                                                    Panel
+                                                </span>
+                                            </h4>
+                                            <ct-paneltool class="panel-tools" tool-refresh="load1">
+                                            </ct-paneltool>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="container-fluid container-fullw">
+                                                <div class="row no-margin">
+                                                    <div class="col-xs-12 no-padding partition-azure no-border">
+                                                        <div class="row no-margin">
+                                                            <div class="col-md-8 col-lg-9 no-padding">
+                                                                <div class="panel panel-white no-radius no-margin">
+                                                                    <div class="panel-heading border-light padding-30">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 col-xs-5">
+                                                                                <span class="input-icon">
+                                                                                    <input class="form-control radius-10" id="form-field-14" placeholder="Search posts..." type="text">
+                                                                                        <i class="ti-search">
+                                                                                        </i>
+                                                                                    </input>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="col-lg-8 col-xs-7 text-right">
+                                                                                <div class="btn-group margin-top-5" ng-init="selected='Newest'" uib-dropdown="">
+                                                                                    <button class="btn btn-azure btn-sm" id="split-button" type="button">
+                                                                                        Sort by:
+                                                                                        <span class="text-bold">
+                                                                                            {{selected}}
+                                                                                        </span>
+                                                                                    </button>
+                                                                                    <button class="btn btn-azure btn-sm" type="button" uib-dropdown-toggle="">
+                                                                                        <span class="caret">
+                                                                                        </span>
+                                                                                        <span class="sr-only">
+                                                                                            Split button!
+                                                                                        </span>
+                                                                                    </button>
+                                                                                    <ul aria-labelledby="split-button" role="menu" uib-dropdown-menu="">
+                                                                                        <li role="menuitem">
+                                                                                            <a href="#" ng-click="selected='Newest'">
+                                                                                                Newest
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li role="menuitem">
+                                                                                            <a href="#" ng-click="selected='Oldest'">
+                                                                                                Oldest
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li role="menuitem">
+                                                                                            <a href="#" ng-click="selected='Approved'">
+                                                                                                Approved
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li role="menuitem">
+                                                                                            <a href="#" ng-click="selected='In Review'">
+                                                                                                In Review
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="divider">
+                                                                                        </li>
+                                                                                        <li role="menuitem">
+                                                                                            <a href="#" ng-click="selected='Declined'">
+                                                                                                Declined
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="panel-body">
+                                                                        <table class="table no-margin">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="max-width-100">
+                                                                                        <div class="icons-effect">
+                                                                                            <img alt="" class="img-responsive img-rounded" src="assets/images/portfolio/image01_th.jpg">
+                                                                                                <div class="mask mask-rounded">
+                                                                                                    <div class="icons-wrapper">
+                                                                                                        <div class="icons">
+                                                                                                            <a class="icon" href="#">
+                                                                                                                <span class="fa-stack fa-2x">
+                                                                                                                    <i class="fa fa-circle fa-stack-2x text-white">
+                                                                                                                    </i>
+                                                                                                                    <i class="fa fa-search fa-stack-1x text-extra-large text-light">
+                                                                                                                    </i>
+                                                                                                                </span>
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </img>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="padding-10">
+                                                                                            <div class="block">
+                                                                                                <strong>
+                                                                                                    Multi-slot transclusion
+                                                                                                </strong>
+                                                                                                <span class="text-muted">
+                                                                                                    has been approved
+                                                                                                </span>
+                                                                                            </div>
+                                                                                            <span class="text-small text-muted">
+                                                                                                An endorsement for
+                                                                                            </span>
+                                                                                            <span class="text-azure">
+                                                                                                AngularJs
+                                                                                            </span>
+                                                                                            <div class="block margin-top-10">
+                                                                                                <span class="label label-success">
+                                                                                                    Approved
+                                                                                                </span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="hidden-xs">
+                                                                                        <div class="block">
+                                                                                            <a class="margin-right-10 block" href="#">
+                                                                                                <i class="fa fa-comments text-azure">
+                                                                                                </i>
+                                                                                                Workroom
+                                                                                            </a>
+                                                                                            <a class="block" href="#">
+                                                                                                <i class="fa fa-retweet text-green">
+                                                                                                </i>
+                                                                                                Re-Hire
+                                                                                            </a>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="visible-lg">
+                                                                                        <div class="col-xs-4 no-padding text-center">
+                                                                                            <div class="border-right border-dark padding-5">
+                                                                                                <small class="text-muted">
+                                                                                                    Subscribers
+                                                                                                    <br>
+                                                                                                        <strong>
+                                                                                                            156,987
+                                                                                                        </strong>
+                                                                                                    </br>
+                                                                                                </small>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-xs-4 no-padding text-center">
+                                                                                            <div class="border-right border-dark padding-5">
+                                                                                                <small class="text-muted">
+                                                                                                    Female
+                                                                                                    <br>
+                                                                                                        <strong>
+                                                                                                            38%
+                                                                                                        </strong>
+                                                                                                    </br>
+                                                                                                </small>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-xs-4 no-padding text-center">
+                                                                                            <div class="padding-5">
+                                                                                                <small class="text-muted">
+                                                                                                    Male
+                                                                                                    <br>
+                                                                                                        <strong>
+                                                                                                            62%
+                                                                                                        </strong>
+                                                                                                    </br>
+                                                                                                </small>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="max-width-100">
+                                                                                        <div class="icons-effect">
+                                                                                            <img alt="" class="img-responsive img-rounded" src="assets/images/portfolio/image02_th.jpg">
+                                                                                                <div class="mask mask-rounded">
+                                                                                                    <div class="icons-wrapper">
+                                                                                                        <div class="icons">
+                                                                                                            <a class="icon" href="#">
+                                                                                                                <span class="fa-stack fa-2x">
+                                                                                                                    <i class="fa fa-circle fa-stack-2x text-white">
+                                                                                                                    </i>
+                                                                                                                    <i class="fa fa-search fa-stack-1x text-extra-large text-light">
+                                                                                                                    </i>
+                                                                                                                </span>
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </img>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="padding-10">
+                                                                                            <div class="block">
+                                                                                                <strong>
+                                                                                                    Command Line Interface
+                                                                                                </strong>
+                                                                                                <span class="text-muted">
+                                                                                                    has been approved
+                                                                                                </span>
+                                                                                            </div>
+                                                                                            <span class="text-small text-muted">
+                                                                                                An endorsement for
+                                                                                            </span>
+                                                                                            <span class="text-azure">
+                                                                                                Apple Watch
+                                                                                            </span>
+                                                                                            <div class="block margin-top-10">
+                                                                                                <span class="label label-warning">
+                                                                                                    In Review
+                                                                                                </span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="hidden-xs">
+                                                                                        <div class="block">
+                                                                                            <a class="margin-right-10 block" href="#">
+                                                                                                <i class="fa fa-comments text-azure">
+                                                                                                </i>
+                                                                                                Workroom
+                                                                                            </a>
+                                                                                            <a class="block" href="#">
+                                                                                                <i class="fa fa-retweet text-green">
+                                                                                                </i>
+                                                                                                Re-Hire
+                                                                                            </a>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="visible-lg">
+                                                                                        <div class="col-xs-4 no-padding text-center">
+                                                                                            <div class="border-right border-dark padding-5">
+                                                                                                <small class="text-muted">
+                                                                                                    Subscribers
+                                                                                                    <br>
+                                                                                                        <strong>
+                                                                                                            156,987
+                                                                                                        </strong>
+                                                                                                    </br>
+                                                                                                </small>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-xs-4 no-padding text-center">
+                                                                                            <div class="border-right border-dark padding-5">
+                                                                                                <small class="text-muted">
+                                                                                                    Female
+                                                                                                    <br>
+                                                                                                        <strong>
+                                                                                                            68%
+                                                                                                        </strong>
+                                                                                                    </br>
+                                                                                                </small>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-xs-4 no-padding text-center">
+                                                                                            <div class="padding-5">
+                                                                                                <small class="text-muted">
+                                                                                                    Male
+                                                                                                    <br>
+                                                                                                        <strong>
+                                                                                                            32%
+                                                                                                        </strong>
+                                                                                                    </br>
+                                                                                                </small>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="max-width-100">
+                                                                                        <div class="icons-effect">
+                                                                                            <img alt="" class="img-responsive img-rounded" src="assets/images/portfolio/image03_th.jpg">
+                                                                                                <div class="mask mask-rounded">
+                                                                                                    <div class="icons-wrapper">
+                                                                                                        <div class="icons">
+                                                                                                            <a class="icon" href="#">
+                                                                                                                <span class="fa-stack fa-2x">
+                                                                                                                    <i class="fa fa-circle fa-stack-2x text-white">
+                                                                                                                    </i>
+                                                                                                                    <i class="fa fa-search fa-stack-1x text-extra-large text-light">
+                                                                                                                    </i>
+                                                                                                                </span>
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </img>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="padding-10">
+                                                                                            <div class="block">
+                                                                                                <strong>
+                                                                                                    Tools and Training
+                                                                                                </strong>
+                                                                                                <span class="text-muted">
+                                                                                                    has been approved
+                                                                                                </span>
+                                                                                            </div>
+                                                                                            <span class="text-small text-muted">
+                                                                                                An endorsement for
+                                                                                            </span>
+                                                                                            <span class="text-azure">
+                                                                                                Visual Basic
+                                                                                            </span>
+                                                                                            <div class="block margin-top-10">
+                                                                                                <span class="label label-danger">
+                                                                                                    Declined
+                                                                                                </span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="hidden-xs">
+                                                                                        <div class="block">
+                                                                                            <a class="margin-right-10 block" href="#">
+                                                                                                <i class="fa fa-comments text-azure">
+                                                                                                </i>
+                                                                                                Workroom
+                                                                                            </a>
+                                                                                            <a class="block" href="#">
+                                                                                                <i class="fa fa-retweet text-green">
+                                                                                                </i>
+                                                                                                Re-Hire
+                                                                                            </a>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="visible-lg">
+                                                                                        <div class="col-xs-4 no-padding text-center">
+                                                                                            <div class="border-right border-dark padding-5">
+                                                                                                <small class="text-muted">
+                                                                                                    Subscribers
+                                                                                                    <br>
+                                                                                                        <strong>
+                                                                                                            156,987
+                                                                                                        </strong>
+                                                                                                    </br>
+                                                                                                </small>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-xs-4 no-padding text-center">
+                                                                                            <div class="border-right border-dark padding-5">
+                                                                                                <small class="text-muted">
+                                                                                                    Female
+                                                                                                    <br>
+                                                                                                        <strong>
+                                                                                                            68%
+                                                                                                        </strong>
+                                                                                                    </br>
+                                                                                                </small>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-xs-4 no-padding text-center">
+                                                                                            <div class="padding-5">
+                                                                                                <small class="text-muted">
+                                                                                                    Male
+                                                                                                    <br>
+                                                                                                        <strong>
+                                                                                                            32%
+                                                                                                        </strong>
+                                                                                                    </br>
+                                                                                                </small>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="max-width-100">
+                                                                                        <div class="icons-effect">
+                                                                                            <img alt="" class="img-responsive img-rounded" src="assets/images/portfolio/image05_th.jpg">
+                                                                                                <div class="mask mask-rounded">
+                                                                                                    <div class="icons-wrapper">
+                                                                                                        <div class="icons">
+                                                                                                            <a class="icon" href="#">
+                                                                                                                <span class="fa-stack fa-2x">
+                                                                                                                    <i class="fa fa-circle fa-stack-2x text-white">
+                                                                                                                    </i>
+                                                                                                                    <i class="fa fa-search fa-stack-1x text-extra-large text-light">
+                                                                                                                    </i>
+                                                                                                                </span>
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </img>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="padding-10">
+                                                                                            <div class="block">
+                                                                                                <strong>
+                                                                                                    Angular 2 integration
+                                                                                                </strong>
+                                                                                                <span class="text-muted">
+                                                                                                    has been approved
+                                                                                                </span>
+                                                                                            </div>
+                                                                                            <span class="text-small text-muted">
+                                                                                                An endorsement for
+                                                                                            </span>
+                                                                                            <span class="text-azure">
+                                                                                                AngularJs
+                                                                                            </span>
+                                                                                            <div class="block margin-top-10">
+                                                                                                <span class="label label-warning">
+                                                                                                    In Review
+                                                                                                </span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="hidden-xs">
+                                                                                        <div class="block">
+                                                                                            <a class="margin-right-10 block" href="#">
+                                                                                                <i class="fa fa-comments text-azure">
+                                                                                                </i>
+                                                                                                Workroom
+                                                                                            </a>
+                                                                                            <a class="block" href="#">
+                                                                                                <i class="fa fa-retweet text-green">
+                                                                                                </i>
+                                                                                                Re-Hire
+                                                                                            </a>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="visible-lg">
+                                                                                        <div class="col-xs-4 no-padding text-center">
+                                                                                            <div class="border-right border-dark padding-5">
+                                                                                                <small class="text-muted">
+                                                                                                    Subscribers
+                                                                                                    <br>
+                                                                                                        <strong>
+                                                                                                            156,987
+                                                                                                        </strong>
+                                                                                                    </br>
+                                                                                                </small>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-xs-4 no-padding text-center">
+                                                                                            <div class="border-right border-dark padding-5">
+                                                                                                <small class="text-muted">
+                                                                                                    Female
+                                                                                                    <br>
+                                                                                                        <strong>
+                                                                                                            68%
+                                                                                                        </strong>
+                                                                                                    </br>
+                                                                                                </small>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-xs-4 no-padding text-center">
+                                                                                            <div class="padding-5">
+                                                                                                <small class="text-muted">
+                                                                                                    Male
+                                                                                                    <br>
+                                                                                                        <strong>
+                                                                                                            32%
+                                                                                                        </strong>
+                                                                                                    </br>
+                                                                                                </small>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                    <div class="panel-footer no-border">
+                                                                        <p class="no-margin">
+                                                                            <a href="#">
+                                                                                <i class="fa fa-arrow-circle-o-down text-green">
+                                                                                </i>
+                                                                            </a>
+                                                                            <span class="text-light margin-left-10">
+                                                                                Show more details
+                                                                            </span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-lg-3 no-padding">
+                                                                <div class="panel panel-azure no-border no-radius no-margin">
+                                                                    <div class="panel-body">
+                                                                        <h3 class="text-white padding-top-10">
+                                                                            Assign Drawer
+                                                                        </h3>
+                                                                        <table class="table margin-bottom-5">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <input type="text">
+                                                                                        </input>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="pull-right margin-top-5">
+                                                                                            <switch class="light" ng-init="switchsetting = false" ng-model="switchsetting" tooltip-placement="top" uib-tooltip="Approve">
+                                                                                            </switch>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <input type="text">
+                                                                                        </input>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="pull-right margin-top-5">
+                                                                                            <switch class="light" ng-init="switchsetting2 = false" ng-model="switchsetting2" tooltip-placement="top" uib-tooltip="Approve">
+                                                                                            </switch>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <span class="text-white">
+                                                                                            Rows
+                                                                                        </span>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="pull-right margin-top-5">
+                                                                                            A-F
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <span class="text-white">
+                                                                                            Cabinets
+                                                                                        </span>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="pull-right margin-top-5">
+                                                                                            A-Q
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <span class="text-white">
+                                                                                            Lockers
+                                                                                        </span>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="pull-right margin-top-5">
+                                                                                            1-4
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <span class="text-white">
+                                                                                            Drawers
+                                                                                        </span>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="pull-right margin-top-5">
+                                                                                            1-23
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <div class="block text-dark text-center">
+                                                                            <span class="counter text-bold text-white" count-to="12" duration="0.4" filter="number" value="0">
+                                                                                12
+                                                                            </span>
+                                                                            <h4 class="text-uppercase text-white no-margin">
+                                                                                Proposal
+                                                                            </h4>
+                                                                            <span class="line-separator line-sm text-white">
+                                                                            </span>
+                                                                            <p class="no-margin">
+                                                                                <span class="text-white-transparent">
+                                                                                    Last Month:
+                                                                                </span>
+                                                                                <span class="label background-light text-bold text-dark">
+                                                                                    16
+                                                                                </span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-table1">
+                            <div class="animate-show-hide margin-top-5" ng-show="isSet(3)">
+                                <div class="col-sm-12">
+                                    <div class="panel panel-white no-radius">
+                                        <div class="panel-heading border-light">
+                                            <h4 class="panel-title">
+                                                Assign
+                                                <span class="text-bold">
+                                                    Drawer
+                                                </span>
+                                            </h4>
+                                            <ct-paneltool class="panel-tools" tool-refresh="load1">
+                                            </ct-paneltool>
+                                        </div>
+                                        <div class="panel-body no-padding">
+                                            <div class="container-fluid no-padding ">
+                                                <div class="row no-margin no-padding">
+                                                    <div class="col-xs-12 no-padding partition-azure no-border">
+                                                        <div class="row no-margin">
+                                                            <div class="col-md-8 col-lg-9 no-padding">
+                                                                <div class="panel panel-white no-radius no-margin no-border">
+                                                                    <div class="panel-heading border-light padding-30">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-12 col-xs-12">
+                                                                                <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                                                                    <fieldset>
+                                                                                        <legend>
+                                                                                            Search field
+                                                                                            <a ui-sref="app.form.container_manage">
+                                                                                                <i class="fa fa-search">
+                                                                                                </i>
+                                                                                            </a>
+                                                                                        </legend>
+                                                                                        <div class="gf-row-4 gf-large">
+                                                                                            <div class="gf-col-1 " data-column="1">
+                                                                                                <label>
+                                                                                                    row
+                                                                                                </label>
+                                                                                                <input autofocus="" class="column_filter_coninfo" id="col1_filter" type="text">
+                                                                                                </input>
+                                                                                            </div>
+                                                                                            <div class="gf-col-1" data-column="2">
+                                                                                                <label>
+                                                                                                    cabinet
+                                                                                                </label>
+                                                                                                <input autofocus="" class="column_filter_coninfo" id="col2_filter" type="text">
+                                                                                                </input>
+                                                                                            </div>
+                                                                                            <div class="gf-col-1" data-column="3">
+                                                                                                <label>
+                                                                                                    locker
+                                                                                                </label>
+                                                                                                <input autofocus="" class="column_filter_coninfo" id="col3_filter" type="text">
+                                                                                                </input>
+                                                                                            </div>
+                                                                                            <div class="gf-col-1" data-column="4">
+                                                                                                <label>
+                                                                                                    drawer
+                                                                                                </label>
+                                                                                                <input autofocus="" class="column_filter_coninfo" id="col4_filter" type="text">
+                                                                                                </input>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </fieldset>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="panel-body">
+                                                                        <table cellspacing="0" class="table table-condensed table-hover" id="DrawerListTbl" width="100%">
+                                                                            <thead>
+                                                                                <tr class="uppercase label-default bigfont">
+                                                                                    <th>
+                                                                                    </th>
+                                                                                    <th>
+                                                                                        <span class="label">
+                                                                                            Row
+                                                                                        </span>
+                                                                                    </th>
+                                                                                    <th>
+                                                                                        <span class="label">
+                                                                                            Cabinet
+                                                                                        </span>
+                                                                                    </th>
+                                                                                    <th>
+                                                                                        <span class="label">
+                                                                                            Locker
+                                                                                        </span>
+                                                                                    </th>
+                                                                                    <th>
+                                                                                        <span class="label">
+                                                                                            Drawer
+                                                                                        </span>
+                                                                                    </th>
+                                                                                    <th>
+                                                                                        <span class="label ">
+                                                                                            Family Name
+                                                                                        </span>
+                                                                                    </th>
+                                                                                    <th>
+                                                                                        Drawer Id
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-lg-3 no-padding">
+                                                                <div class="panel panel-azure no-border no-radius no-margin">
+                                                                    <div class="panel-body">
+                                                                        <h3 class="text-white padding-top-10">
+                                                                            Assign Form
+                                                                        </h3>
+                                                                        <!--div class="gf-col-1">
+                                                                                                <label>
+                                                                                                    row
+                                                                                                </label>
+                                                                                                <input class="form-control" id="trans_container" name="trans_row" ng-change="ctrans_container()" ng-model="transcontainer" placeholder="Enter row" type="text" typeahead-loading="loadingtranscontainer" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.cabinet for o in TransContainerKeyup($viewValue)"/>
+                                                                                            </div>
+                                                                                            <div class="gf-col-1">
+                                                                                                <label>
+                                                                                                    cabinet
+                                                                                                </label>
+                                                                                                <input class="form-control" id="trans_locker" name="trans_container" ng-change="ctrans_locker()" ng-model="translocker" placeholder="Enter cabinet" type="text" typeahead-loading="loadingLocker" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.sub_cabinet for o in TransLockerKeyup($viewValue)"/>
+                                                                                            </div>
+                                                                                            <div class="gf-col-1">
+                                                                                                <label>
+                                                                                                    locker
+                                                                                                </label>
+                                                                                                <input class="form-control" id="trans_drawer" name="trans_locker" ng-change="ctrans_drawer()" ng-model="transdrawer" placeholder="Enter Locker" type="text" typeahead-loading="loadingDrawer" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.spec_box for o in TransDrawerKeyup($viewValue)"/>
+                                                                                            </div>
+                                                                                            <div class="gf-col-1">
+                                                                                                <label>
+                                                                                                    drawer
+                                                                                                </label>
+                                                                                                <input class="form-control" id="trans_drawer" name="trans_drawer" ng-change="ctrans_drawer()" ng-model="transdrawer" placeholder="Enter Drawer" type="text" typeahead-loading="loadingDrawer" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.spec_box for o in TransDrawerKeyup($viewValue)"/>
+                                                                                            </div-->
+                                                                        <table class="table margin-bottom-5">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <input class="form-control" id="order" name="order" ng-change="changeOrder()" ng-model="specModelOrder" ng-required="currentStep == 1" placeholder="Enter Order Name" type="text" typeahead-loading="loadingOrder" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.torder_name for o in OrderKeyup($viewValue)"/>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="pull-right margin-top-5">
+                                                                                            <switch class="light" ng-init="switchsetting = false" ng-model="switchsetting" tooltip-placement="top" uib-tooltip="Approve">
+                                                                                            </switch>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <input class="form-control" id="family" name="family" ng-change="changeFamily()" ng-model="specModelFamily" ng-required="currentStep == 1" placeholder="Enter Family Name" type="text" typeahead-loading="loadingFamily" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.family_name for o in FamilyKeyup($viewValue)"/>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="pull-right margin-top-5">
+                                                                                            <switch class="light" ng-init="switchsetting2 = false" ng-model="switchsetting2" tooltip-placement="top" uib-tooltip="Approve">
+                                                                                            </switch>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <span class="text-white">
+                                                                                            Rows
+                                                                                        </span>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="pull-right margin-top-5">
+                                                                                            A-F
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <span class="text-white">
+                                                                                            Cabinets
+                                                                                        </span>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="pull-right margin-top-5">
+                                                                                            A-Q
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <span class="text-white">
+                                                                                            Lockers
+                                                                                        </span>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="pull-right margin-top-5">
+                                                                                            1-4
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <span class="text-white">
+                                                                                            Drawers
+                                                                                        </span>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="pull-right margin-top-5">
+                                                                                            1-23
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-table1">
+                            <div class="animate-show-hide margin-top-5" ng-show="isSet(4)">
+                                <div class="col-sm-12">
+                                    <div class="panel panel-white no-radius">
+                                        <div class="panel-heading border-light">
+                                            <h4 class="panel-title">
+                                                Cabinet
+                                                <span class="text-bold">
+                                                    Info
+                                                </span>
+                                            </h4>
+                                            <ct-paneltool class="panel-tools" tool-refresh="load1">
+                                            </ct-paneltool>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>
+                                                Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
+                                            </p>
+                                            <p>
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                            </p>
+                                            <p>
+                                                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: EMAIL READER -->
+    </div>
+    <!-- end: MESSAGES -->
+</div>

@@ -1,0 +1,33 @@
+<div class="col-md-12">
+    <form class="gf" id="specimens_printqueue" name="specimens_printqueue">
+        <fieldset>
+            <legend>
+                Search Collection
+            </legend>
+            <div class="gf-row-3 gf-large">
+                <div class="gf-col-1" data-column="6" id="filter_col1">
+                    <label>
+                        Year
+                    </label>
+                    <input autofocus="" class="column_filter_printcolltest" id="col7_filter" name="txtcoll_year_inter" ng-model="collyear" type="text">
+                    </input>
+                </div>
+                <div class="gf-col-1" data-column="7" id="filter_col2">
+                    <label>
+                        number
+                    </label>
+                    <input autofocus="" class="column_filter_printcolltest" id="col7_filter" name="txtcoll_year_inter" ng-model="collnumber" type="text">
+                    </input>
+                </div>
+            </div>
+            <div class="gf-row-3 gf-large">
+                <button class="btn btn-primary" ng-click="Labelinsert()">
+                    OK
+                </button>
+                <button class="btn btn-primary btn-o" ng-click="cancel()">
+                    Cancel
+                </button>
+            </div>
+        </fieldset>
+    </form>
+</div>

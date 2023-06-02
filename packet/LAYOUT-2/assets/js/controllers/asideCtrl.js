@@ -6,9 +6,9 @@
 app.controller('AsideCtrl', ["$scope", "$aside", function ($scope, $aside) {
     $scope.openAside = function (position) {
         $aside.open({
-            templateUrl: 'asideContent.html',
+            templateUrl: 'assets/views/ui_modals.html',
             placement: position,
-            size: 'sm',
+            size: 'lg',
             backdrop: true,
             controller: function ($scope, $uibModalInstance) {
                 $scope.ok = function (e) {

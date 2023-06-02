@@ -1,53 +1,46 @@
 <?php
-	require("postgresql2jsonPDO.class.php");
-	ini_set('display_errors', 1);
-	error_reporting(~0);
-        $serverName = "localhost";
-        $userName = "mkmorgangling";
-        $userPassword = "nepenthes";
-        $dbName = "qsbgcoll";
-  
-        $conn = new PDO('pgsql:host=localhost;port=5432;dbname=qsbgcoll', 'mkmorgangling', 'nepenthes');
+require "postgresql2jsonPDO.class.php";
+ini_set('display_errors', 1);
+error_reporting(~0);
+require 'connectdb.php';
 
-       if ( isset($_GET['sTorder'])){
+if (isset($_GET['sTorder'])) {
 
-        $query="SELECT * FROM torder ORDER BY tordername ASC ";
-                
-	$stmt = $conn->prepare($query);
-        $stmt->execute();
-        
-        $num=$stmt->rowCount();
-	}
-	if ( isset($_GET['sFamily'])){
+    $query = "SELECT * FROM torder ORDER BY tordername ASC ";
 
-        $query="SELECT * FROM family ORDER BY familyname ASC ";
-                
-	$stmt = $conn->prepare($query);
-        $stmt->execute();
-        
-        $num=$stmt->rowCount();
-	}
-        if ( isset($_GET['sGenus'])){
+    $stmt = $PDOconn->prepare($query);
+    $stmt->execute();
 
-        $query="SELECT * FROM genus ORDER BY genusname ASC ";
-                
-	$stmt = $conn->prepare($query);
-        $stmt->execute();
-        
-        $num=$stmt->rowCount();
-	}
-        if ( isset($_GET['sSpecies'])){
+    $num = $stmt->rowCount();
+}
+if (isset($_GET['sFamily'])) {
 
-        $query="SELECT * FROM species ORDER BY speciesname ASC ";
-                
-	$stmt = $conn->prepare($query);
-        $stmt->execute();
-        
-        $num=$stmt->rowCount();
-	}
-	
-	
-	$json=new postgresql2jsonPDO;
-	$data=$json->getJSON($stmt,$num);
-	echo $data;
-?>
+    $query = "SELECT * FROM family ORDER BY familyname ASC ";
+
+    $stmt = $PDOconn->prepare($query);
+    $stmt->execute();
+
+    $num = $stmt->rowCount();
+}
+if (isset($_GET['sGenus'])) {
+
+    $query = "SELECT * FROM genus ORDER BY genusname ASC ";
+
+    $stmt = $PDOconn->prepare($query);
+    $stmt->execute();
+
+    $num = $stmt->rowCount();
+}
+if (isset($_GET['sSpecies'])) {
+
+    $query = "SELECT * FROM species ORDER BY speciesname ASC ";
+
+    $stmt = $PDOconn->prepare($query);
+    $stmt->execute();
+
+    $num = $stmt->rowCount();
+}
+
+$json = new postgresql2jsonPDO;
+$data = $json->getJSON($stmt, $num);
+echo $data;

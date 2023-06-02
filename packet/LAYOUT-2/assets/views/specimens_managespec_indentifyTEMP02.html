@@ -1,0 +1,721 @@
+<!-- start: MESSAGES -->
+<div data-iden-fullheight-exclusion="header, footer" iden-fullheight="">
+    <!-- /// controller:  'InboxCtrl' -  localtion: assets/js/controllers/inboxCtrl.js /// -->
+    <div active-class="message-open" class="inbox" id="inbox" ng-controller="SpecManageIdentifyCtrl" toggleable="">
+        <!-- start: IDENTIFY FORM -->
+        <div class="col indentify-form no-border">
+            <div class="innerwrap-list">
+                <div class="innerspec-list scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="panel-body">
+                                <div class="panel panel-white panel-carousel dots-left no-border no-radius">
+                                    <div class="panel-body no-padding height-150">
+                                        <!-- start: CAROUSEL -->
+                                        <slick arrows="false" autoplay="true" autoplay-speed="6000" class="carousel" dots="true" infinite="false" slides-to-scroll="1" slides-to-show="1" speed="300">
+                                            <div class="slide padding-20 height-150" style="background: url('assets/images/carousel/04.jpg')">
+                                                <h5 class="text-bold text-extra-small text-dark-transparent text-uppercase">
+                                                    Identify Specimens
+                                                    <i class="fa fa-arrow-circle-o-right">
+                                                    </i>
+                                                </h5>
+                                                <h3>
+                                                    {{monthshow01}}
+                                                </h3>
+                                                <span class="label partition-purple">
+                                                    Administrator
+                                                </span>
+                                                <span class="cl-effect-3 links block margin-top-10">
+                                                    <a class="uppercase text-dark text-uppercase text-bold text-extra-small" href="#">
+                                                        show details
+                                                        <i class="padding-left-5 fa fa-angle-right">
+                                                        </i>
+                                                    </a>
+                                                </span>
+                                            </div>
+                                        </slick>
+                                        <!-- end: CAROUSEL -->
+                                    </div>
+                                </div>
+                                <div class="panel no-radius">
+                                    <div class="panel-heading panel-purple border-light">
+                                        <div class="editedMenu">
+                                            <ul>
+                                                <li ng-click="setTabIden(1)">
+                                                    <a href="" ng-class="{'selected' : isSetIden(1), 'done' : currentStep > 1}">
+                                                        <div class="stepNumber">
+                                                            <i class="fa fa-briefcase">
+                                                            </i>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li ng-click="setTabIden(2)">
+                                                    <a href="" ng-class="{'selected' : isSetIden(2), 'done' : currentStep > 2}">
+                                                        <div class="stepNumber">
+                                                            <i class="fa fa-search">
+                                                            </i>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li ng-click="setTabIden(3)">
+                                                    <a href="" ng-class="{'selected' : isSetIden(3), 'done' : currentStep > 3}">
+                                                        <div class="stepNumber">
+                                                            3
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body panel-light-grey no-padding">
+                                        <div class="tab-content test scrollbar-macosx panel-light-grey" data-jquery-scrollbar="jqueryScrollbarOptions">
+                                            <div class="tab-pane" id="ss" ng-class="{ active: isSetIden(1) }">
+                                                <div class="animate-show-hide " ng-show="isSetIden(1)">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="col-sm-12">
+                                                                <div class="padding-top-15">
+                                                                    <h5 class="text-bold text-uppercase">
+                                                                        BOX Selection
+                                                                    </h5>
+                                                                    <p class="text-light text-small">
+                                                                        Please select the box number and lock them to be the onwer.
+                                                                    </p>
+                                                                    <ul class="list-group">
+                                                                        <li class="list-group-item no-radius no-margin no-border-top no-border-left no-border-right" ng-bind-html-unsafe="opt.text" ng-repeat=" opt in GETAllBoxcode">
+                                                                            <div class="row">
+                                                                                <div class="col-xs-5">
+                                                                                    <a href="#">
+                                                                                        <letter-icon class="margin-right-5" color="#7F8C8D" data="Box" size="sm">
+                                                                                        </letter-icon>
+                                                                                        {{ opt.collboxno }}
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="col-xs-5">
+                                                                                    <span class="block padding-top-10">
+                                                                                        <uib-progressbar class="progress-xs no-radius background-dark no-margin" type="purple" value="89">
+                                                                                        </uib-progressbar>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <div class="col-xs-2 no-padding">
+                                                                                    <div class="radio clip-radio radio-primary radio-inline">
+                                                                                        <input id="{{opt.collboxno}}" name="inline" type="radio" value="opt.collbox_id">
+                                                                                            <label for="{{opt.collboxno}}">
+                                                                                             
+                                                                                            </label>
+                                                                                        </input>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="ss" ng-class="{ active: isSetIden(2) }">
+                                                <div class="animate-show-hide " ng-show="isSetIden(2)">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="col-sm-12">
+                                                                <div class="row">
+                                                                    <div class="panel-body">
+                                                                        <ul class="timeline-xs margin-bottom-30">
+                                                                            <li class="timeline-item info">
+                                                                                <div class="margin-left-15">
+                                                                                    <div class="text-muted text-small margin-bottom-5">
+                                                                                        <span class="badge badge-default uppercase-small">
+                                                                                            Order
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <p>
+                                                                                        <input class="form-navi-fixed noborderfixed input-vsm" id="order" name="order" ng-change="changeOrder()" ng-model="specModelOrder" ng-required="currentStep == 1" placeholder="Enter Order Name" type="text" typeahead-loading="loadingOrder" typeahead-no-results="noResults" typeahead-on-select="onSelectTypedef($item, $model, $label,$event)" uib-typeahead="o as o.torder_name for o in OrderKeyup($viewValue)"/>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="timeline-item info">
+                                                                                <div class="margin-left-15">
+                                                                                    <div class="text-muted text-small margin-bottom-5">
+                                                                                        <span class="badge badge-default uppercase-small">
+                                                                                            family
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <p>
+                                                                                        <input class="form-navi-fixed noborderfixed input-vsm" id="family" name="family" ng-change="changeFamily()" ng-model="specModelFamily" ng-required="currentStep == 1" placeholder="Enter Family Name" type="text" typeahead-loading="loadingFamily" typeahead-no-results="noResults" typeahead-on-select="onSelectTypedef($item, $model, $label,$event)" uib-typeahead="o as o.family_name for o in FamilyKeyup($viewValue)"/>
+                                                                                    </p>
+                                                                                    <div class="text-muted text-small margin-bottom-5">
+                                                                                        <span class="badge badge-info uppercase-small">
+                                                                                            sub family : {{subfamily}}
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="timeline-item danger">
+                                                                                <div class="margin-left-15">
+                                                                                    <div class="text-muted text-small margin-bottom-5">
+                                                                                        <span class="badge badge-default uppercase-small">
+                                                                                            genus
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <p>
+                                                                                        <input class="form-navi-fixed noborderfixed input-vsm" id="genus" name="genus" ng-change="changeGenus()" ng-model="specModelGenus" ng-required="currentStep == 1" placeholder="Enter Genus Name" type="text" typeahead-loading="loadingGenus" typeahead-no-results="noResults" typeahead-on-select="onSelectTypeGenus($item, $model, $label,$event)" uib-typeahead="o as o.genus_name for o in GenusKeyup($viewValue)"/>
+                                                                                    </p>
+                                                                                    <div class="text-muted text-small margin-bottom-5">
+                                                                                        <span class="badge badge-info uppercase-small">
+                                                                                            sub genus : {{subgenus}}
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="timeline-item info">
+                                                                                <div class="margin-left-15">
+                                                                                    <div class="text-muted text-small margin-bottom-5">
+                                                                                        <span class="badge badge-default uppercase-small">
+                                                                                            species
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <p>
+                                                                                        <input class="form-navi-fixed noborderfixed input-vsm" id="species" name="species" ng-model="specModelSpecies" ng-required="currentStep == 1" placeholder="Enter Species Name" type="text" typeahead-loading="loadingSpecies" typeahead-no-results="noResults" typeahead-on-select="onSelectTypedef($item, $model, $label,$event)" uib-typeahead="o as o.species_name for o in SpeciesKeyup($viewValue)"/>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-lg-12">
+                                                                        <div class="panel panel-transparent margin-top-10">
+                                                                            <div "="" class="space12 pull-left">
+                                                                                <div class="btn-group">
+                                                                                    <a "="" class="btn btn-primary btn-xs btn-o active" href="javascript:;" ng-click="IdentifyUpdate('UPDATE',SpecimensTaxa_Form);">
+                                                                                        <i class="fa fa-save">
+                                                                                        </i>
+                                                                                        Save
+                                                                                    </a>
+                                                                                    <a class="btn btn-primary btn-xs btn-o hidden-xs" href="javascript:;">
+                                                                                        <i class="fa fa-repeat">
+                                                                                        </i>
+                                                                                        Reset
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: EMAIL LIST -->
+        <!-- start: EMAIL READER -->
+        <div class="email-reader">
+            <div class="spec-sideinfo scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="panel-body">
+                            <div class="partition-light-grey padding-15 text-center">
+                                <h4 class="no-margin">
+                                    {{monthshow01}}({{allspecimens}})
+                                    <span class="label {{LabelWaringModel}}" ng-bind="BoxShowModel">
+                                    </span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <nav class="links cl-effect-9 " id="cl-effect-9" ng-class="{ clmenu: changestyle(1) }">
+                                <a href="" ng-class="{ active: isSet(1) }" ng-click="setTab(1)">
+                                    <span>
+                                        Overall
+                                    </span>
+                                    <span>
+                                        Specimens List
+                                    </span>
+                                </a>
+                            </nav>
+                        </div>
+                        <div class="col-sm-3">
+                            <nav class="links cl-effect-9 " id="cl-effect-9" ng-class="{ clmenu: changestyle(2) }">
+                                <a href="" ng-class="{ active: isSet(2) }" ng-click="setTab(2)">
+                                    <span>
+                                        Box Info
+                                    </span>
+                                    <span>
+                                        {{BoxShowDetailsBoxno}}
+                                    </span>
+                                </a>
+                            </nav>
+                        </div>
+                        <div class="col-sm-3">
+                            <nav class="links cl-effect-9 " id="cl-effect-9" ng-class="{ clmenu: changestyle(3) }">
+                                <a href="" ng-class="{ active: isSet(3) }" ng-click="setTab(3)">
+                                    <span>
+                                        track & trace
+                                    </span>
+                                    <span>
+                                        tracking system
+                                    </span>
+                                </a>
+                            </nav>
+                        </div>
+                        <div class="col-sm-3">
+                            <nav class="links cl-effect-9 " id="cl-effect-9" ng-class="{ clmenu: changestyle(4) }">
+                                <a href="" ng-class="{ active: isSet(4) }" ng-click="setTab(4)">
+                                    <span>
+                                        KPI
+                                    </span>
+                                    <span>
+                                        project indicator
+                                    </span>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="panel" id="activities">
+                        <div class="tab-pane" id="tab-table1">
+                            <div class="animate-show-hide margin-top-15" ng-show="isSet(1)">
+                                <div class="panel panel-white">
+                                    <div class="panel-heading border-light">
+                                        <h4 class="panel-title">
+                                            Toolbar
+                                        </h4>
+                                        <ul class="panel-heading-tabs border-light">
+                                            <li>
+                                                <div class="pull-right">
+                                                    <div class="btn-group" is-open="status.isopen" uib-dropdown="">
+                                                        <button class="btn btn-primary dropdown-toggle" ng-click="PrintSpecBox('SpecList')" ng-disabled="disabled" type="button" uib-dropdown-toggle="">
+                                                            <i class="fa fa-download">
+                                                            </i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="rate text-red">
+                                                    <i class="fa fa-ban ">
+                                                    </i>
+                                                    <span class="value" count-to="{{undefinedspecimens}}" duration="1" filter="number" ng-model="undefinedspecimens" value="0">
+                                                        {{undefinedspecimens}}
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="rate text-orange">
+                                                    <i class="fa fa-bug ">
+                                                    </i>
+                                                    <span class="value" count-to="{{resspecimens}}" duration="1" filter="number" ng-model="resspecimens" value="0">
+                                                        {{resspecimens}}
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li class="panel-tools">
+                                                <ct-paneltool tool-refresh="load1">
+                                                </ct-paneltool>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row space20">
+                                            <div class="col-md-12">
+                                                <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                                    <fieldset>
+                                                        <legend>
+                                                            Specimens Search
+                                                        </legend>
+                                                        <div class="gf-row-6 gf-large">
+                                                            <div class="gf-col-2" data-column="6">
+                                                                <label>
+                                                                    code
+                                                                </label>
+                                                                <input autofocus="" class="numberdecimal column_filterspec" id="col6_filter" name="txtcoll_code" ng-change="searchmodel(6)" ng-model="collcode" type="text">
+                                                                </input>
+                                                            </div>
+                                                            <div class="gf-col-2" data-column="7">
+                                                                <label>
+                                                                    code
+                                                                </label>
+                                                                <input autofocus="" class="numberdecimal column_filterspec" id="col7_filter" name="txtcoll_code" ng-change="searchmodel(7)" ng-model="collyear" type="text">
+                                                                </input>
+                                                            </div>
+                                                            <div class="gf-col-2" data-column="8">
+                                                                <label>
+                                                                    code
+                                                                </label>
+                                                                <input autofocus="" class="numberdecimal column_filterspec" id="col8_filter" name="txtcoll_code" ng-change="searchmodel(8)" ng-model="collnumber" type="text">
+                                                                </input>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <table cellspacing="0" class="table compact table-striped table-condensed nowrap " id="SpecimensReportListTbl" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Specimen Number
+                                                    </th>
+                                                    <th>
+                                                        Order
+                                                    </th>
+                                                    <th>
+                                                        Family
+                                                    </th>
+                                                    <th>
+                                                        Genus
+                                                    </th>
+                                                    <th>
+                                                        Species
+                                                    </th>
+                                                    <th>
+                                                        coll_code
+                                                    </th>
+                                                    <th>
+                                                        coll_year
+                                                    </th>
+                                                    <th>
+                                                        coll_number
+                                                    </th>
+                                                    <th>
+                                                        specimen_number
+                                                    </th>
+                                                    <th>
+                                                        Report Date
+                                                    </th>
+                                                    <th>
+                                                        Report Date
+                                                    </th>
+                                                    <th>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane " id="tab-table2">
+                            <div ng-show="isSet(2)">
+                                <div class="margin-top-15" ng-show="isSet(2)">
+                                    <div class="panel panel-white">
+                                        <div class="panel-heading border-light">
+                                            <h4 class="panel-title">
+                                                <i class="fa fa-archive">
+                                                </i>
+                                                {{BoxShowDetailsBoxno}}
+                                            </h4>
+                                            <ul class="panel-heading-tabs border-light">
+                                                <li>
+                                                    <div class="pull-right">
+                                                        <div class="btn-group" is-open="status.isopen" uib-dropdown="">
+                                                            <button class="btn btn-primary dropdown-toggle" ng-click="PrintSpecBox('SpecInBox')" ng-disabled="disabled" type="button" uib-dropdown-toggle="">
+                                                                <i class="fa fa-download">
+                                                                </i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="rate text-red">
+                                                        <i class="fa fa-ban ">
+                                                        </i>
+                                                        <span class="value">
+                                                            {{InBoxUndefinedShowDetails}}
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="rate text-orange">
+                                                        <i class="fa fa-bug ">
+                                                        </i>
+                                                        <span class="value">
+                                                            {{InBoxAllShowDetails}}
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="panel-tools">
+                                                    <ct-paneltool tool-refresh="load1">
+                                                    </ct-paneltool>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row space20">
+                                                <div class="col-md-12">
+                                                    <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                                        <fieldset>
+                                                            <legend>
+                                                                Specimens Search
+                                                            </legend>
+                                                            <div class="gf-row-6 gf-large">
+                                                                <div class="gf-col-2" data-column="6">
+                                                                    <label>
+                                                                        code
+                                                                    </label>
+                                                                    <input autofocus="" class="numberdecimal column_filterspec" id="col6_filter" name="txtcoll_code" ng-model="coll_code" type="text">
+                                                                    </input>
+                                                                </div>
+                                                                <div class="gf-col-2" data-column="7">
+                                                                    <label>
+                                                                        year
+                                                                    </label>
+                                                                    <input autofocus="" class="numberdecimal column_filterspec" id="col7_filter" name="txtcoll_year" ng-model="specdata.coll_year" type="text">
+                                                                    </input>
+                                                                </div>
+                                                                <div class="gf-col-2" data-column="8">
+                                                                    <label>
+                                                                        number
+                                                                    </label>
+                                                                    <input autofocus="" class="numberdecimal column_filterspec" id="col8_filter" name="txtcoll_number" ng-model="specdata.coll_number" type="text">
+                                                                    </input>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <table cellspacing="0" class="table compact table-striped table-condensed nowrap " id="SpecimensBoxListTbl" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                        </th>
+                                                        <th>
+                                                            Specimen Number
+                                                        </th>
+                                                        <th>
+                                                            Order
+                                                        </th>
+                                                        <th>
+                                                            Family
+                                                        </th>
+                                                        <th>
+                                                            Genus
+                                                        </th>
+                                                        <th>
+                                                            Species
+                                                        </th>
+                                                        <th>
+                                                            coll_code
+                                                        </th>
+                                                        <th>
+                                                            coll_year
+                                                        </th>
+                                                        <th>
+                                                            coll_number
+                                                        </th>
+                                                        <th>
+                                                            specimen_number
+                                                        </th>
+                                                        <th>
+                                                            Report Date
+                                                        </th>
+                                                        <th>
+                                                            Report Date
+                                                        </th>
+                                                        <th>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-table3">
+                            <div class="animate-show-hide" ng-show="isSet(3)">
+                                <div class="margin-top-15 panel panel-white">
+                                    <div class="panel-heading border-light">
+                                        <h4 class="panel-title">
+                                            Box
+                                            <span class="text-bold">
+                                                Status
+                                            </span>
+                                        </h4>
+                                        <ct-paneltool class="panel-tools" tool-refresh="load1">
+                                        </ct-paneltool>
+                                    </div>
+                                    <div class="panel-body">
+                                        <table class="table no-margin">
+                                            <thead>
+                                                <th>
+                                                    BOX NO.
+                                                </th>
+                                                <th>
+                                                </th>
+                                                <th>
+                                                    QTY
+                                                </th>
+                                                <th class="hidden-xs hidden-sm">
+                                                    <span class="text-red">
+                                                        UNDEFINED
+                                                    </span>
+                                                </th>
+                                                <th class="hidden-xs hidden-sm">
+                                                    STATUS
+                                                </th>
+                                                <th class="hidden-xs hidden-sm">
+                                                    LOCATE
+                                                </th>
+                                                <th>
+                                                    Actions
+                                                </th>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat-start="d in GetBoxViewAvarList">
+                                                    <td>
+                                                        <i class="fa fa-archive">
+                                                        </i>
+                                                        {{d.collboxno}}
+                                                    </td>
+                                                    <td class="center">
+                                                        <div class="userboxavatars">
+                                                            <span class="userboxavatar" ng-repeat-start="c in d.avartars">
+                                                                <img src="{{c.avartar}}">
+                                                                </img>
+                                                            </span>
+                                                            <span ng-repeat-end="">
+                                                            </span>
+                                                            <!-- Variable amount more avatars -->
+                                                        </div>
+                                                        <p>
+                                                            {{d.countuser}} People
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        {{d.countallspec}}
+                                                    </td>
+                                                    <td class="hidden-xs hidden-sm">
+                                                        <span class="text-red">
+                                                            {{d.countundefinedspec}}
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="uppercase label {{d.state_color}}">
+                                                            {{d.boxstatus}}
+                                                        </span>
+                                                    </td>
+                                                    <td class="hidden-xs hidden-sm">
+                                                        {{d.boxlocate}}
+                                                    </td>
+                                                    <td class="hidden-xs hidden-sm">
+                                                        <div class="checkbox clip-check check-primary">
+                                                            <input id="checkbox1" type="checkbox" value="1">
+                                                                <label for="checkbox1">
+                                                                </label>
+                                                            </input>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr ng-repeat-end="">
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-table4">
+                            <div class="animate-show-hide" ng-show="isSet(4)">
+                                <div class="margin-top-15 panel panel-white">
+                                    <div class="panel-heading border-light">
+                                        <h4 class="panel-title">
+                                            <span class="text-bold">
+                                                KPI (Project Indecator)
+                                            </span>
+                                        </h4>
+                                        <ct-paneltool class="panel-tools" tool-refresh="load1">
+                                        </ct-paneltool>
+                                    </div>
+                                    <div class="panel-body">
+                                        <table class="table no-margin">
+                                            <thead>
+                                                <th>
+                                                    กิจกรรม
+                                                </th>
+                                                <th>
+                                                    ตัวชี้วัด
+                                                </th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge">
+                                                            1
+                                                        </span>
+                                                        จำแนกตัวอย่างแมลงระดับวงศ์
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            {{countfamily}}
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge">
+                                                            2
+                                                        </span>
+                                                        รวบรวมตัวอย่างแห้ง
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            {{allspecimens}}
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge">
+                                                            3
+                                                        </span>
+                                                        ลงทะเบียนข้อมูลแมลง
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            {{countregist}}
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge">
+                                                            4
+                                                        </span>
+                                                        จัดเก็บตัวอย่างแมลงในพิพิธภัณฑ์
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            {{countmanaged}}
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: EMAIL READER -->
+    </div>
+</div>
+<!-- end: MESSAGES -->

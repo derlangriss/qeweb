@@ -1,0 +1,186 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.ELEMENTS">
+        FORM ELEMENTS
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: BASIC EXAMPLE -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <div ng-controller="FormSpecimensBoxCtrl">
+                        <!-- start: collector form -->
+                        <div class="col-md-3">
+                            <form class="gf" id="specimens_form" name="SpecimensBox_Form">
+                                <fieldset>
+                                    <legend>
+                                        Specimen Data Entry
+                                    </legend>
+                                    <div class="gf-row-6 gf-large">
+                                        <div class="gf-col-2" data-column="6">
+                                            <label>
+                                                code
+                                            </label>
+                                            <input autofocus="" class="numberdecimal column_filterspec" id="col6_filter" name="txtcoll_code" ng-change="onChangedCollcode();" ng-model="specdata.coll_code" type="text">
+                                            </input>
+                                        </div>
+                                        <div class="gf-col-2" data-column="7">
+                                            <label>
+                                                year
+                                            </label>
+                                            <input autofocus="" class="numberdecimal column_filterspec" id="col7_filter" name="txtcoll_year" ng-change="onChangedCollyear();" ng-model="specdata.coll_year" type="text">
+                                            </input>
+                                        </div>
+                                        <div class="gf-col-2" data-column="8">
+                                            <label>
+                                                number
+                                            </label>
+                                            <input autofocus="" class="numberdecimal column_filterspec" id="col8_filter" name="txtcoll_number" ng-change="onChangedCollnumber();" ng-model="specdata.coll_number" type="text">
+                                            </input>
+                                        </div>
+                                    </div>
+                                    <input autofocus="" id="txtidspecimens" name="txtidspecimens" type="hidden" value="{{specdata.idspecimens}}">
+                                        <input autofocus="" id="txtidcollection" name="txtidcollection" type="hidden" value="{{specdata.idcollection}}">
+                                        </input>
+                                    </input>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>
+                                        <letter-icon char-count="2" custom-class="letter-custom" data="3">
+                                        </letter-icon>
+                                        <span class="text-light text-bold margin-left-5">
+                                            Specimens Box
+                                        </span>
+                                        <span>
+                                            <a ui-sref="app.form.taxadetails">
+                                                <i class="fa fa-plus-square">
+                                                </i>
+                                            </a>
+                                        </span>
+                                    </legend>
+                                    <div class="form-group">
+                                        <select class="cs-select cs-skin-slide" id="txtcoll_method_ID" name="txtcoll_method_ID" ng-model="selectMethod" ng-options="item.collbox_id as item.collboxno for item in getBox" ng-required="currentStep == 1">
+                                            <option disabled="" value="">
+                                                SELECT BOX
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 col-lg-12 no-padding">
+                                        <div class="panel panel-azure no-border no-radius no-margin">
+                                            <div class="panel-body">
+                                                <table class="table margin-bottom-5">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <span class="text-white">
+                                                                    Lock the box
+                                                                </span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="pull-right margin-top-5">
+                                                                    <switch class="light" ng-init="switchsetting = false" ng-model="switchsetting" tooltip-placement="top" uib-tooltip="Approve">
+                                                                    </switch>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <span class="text-white">
+                                                                    Box status
+                                                                </span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="pull-right margin-top-5">
+                                                                    <switch class="light" ng-init="switchsetting2 = false" ng-model="switchsetting2" tooltip-placement="top" uib-tooltip="Approve">
+                                                                    </switch>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <!-- save botton -->
+                                <fieldset>
+                                    <a class="btn btn-light-azure btn-xs" href="#" ng-click="specimensUpdate('UPDATE',SpecimensTaxa_Form);">
+                                        <i class="fa fa-save">
+                                        </i>
+                                        Save
+                                    </a>
+                                    <a class="btn btn-light-azure btn-xs" href="#" ng-click="resetspecformBtn();">
+                                        <i class="fa fa-ban">
+                                        </i>
+                                        Reset Field
+                                    </a>
+                                    <a class="btn btn-light-azure btn-xs" href="#" ng-click="resetAllfieldBtn();">
+                                        <i class="fa fa-ban">
+                                        </i>
+                                        Reset Form
+                                    </a>
+                                    <!--a class="btn btn-light-azure btn-xs" href="#" ng-click="checkalert();">
+                                                <i class="fa fa-ban">
+                                                </i>
+                                                check alert
+                                            </a-->
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="col-md-9">
+                            <!-- specimens table -->
+                            <table cellspacing="0" class="table compact table-striped table-condensed nowrap " id="SpecimensListTbl" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                        </th>
+                                        <th>
+                                            Specimen Number
+                                        </th>
+                                        <th>
+                                            Order
+                                        </th>
+                                        <th>
+                                            Family
+                                        </th>
+                                        <th>
+                                            Genus
+                                        </th>
+                                        <th>
+                                            Species
+                                        </th>
+                                        <th>
+                                            coll_code
+                                        </th>
+                                        <th>
+                                            coll_year
+                                        </th>
+                                        <th>
+                                            coll_number
+                                        </th>
+                                        <th>
+                                            specimen_number
+                                        </th>
+                                        <th>
+                                            identify check
+                                        </th>
+                                        <th>
+                                            Report Date
+                                        </th>
+                                        <th>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

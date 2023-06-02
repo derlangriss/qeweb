@@ -1,3 +1,4 @@
+
 'use strict';
 /**
  * controllers for ng-table
@@ -95,82 +96,63 @@ var data = [{
     gender: "female",
     power: 80
 }];
-app.controller('ngTableCtrl', ["$scope", "ngTableParams", function ($scope, ngTableParams) {
-    $scope.tableParams = new ngTableParams({
+app.controller('ngTableCtrl', ["$scope", "NgTableParams", function ($scope, NgTableParams) {
+    $scope.tableParams = new NgTableParams({
         page: 1, // show first page
-        count: 5 // count per page
-    }, {
-        total: data.length, // length of data
-        getData: function ($defer, params) {
-            $defer.resolve(data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+        count: 5, // count per page
+        // initial sort order
+        sorting: {
+            name: "asc"
         }
-    });
+    }, {
+            total: data.length, // length of data
+            dataset: data
+        });
 }]);
-app.controller('ngTableCtrl2', ["$scope", "$filter", "ngTableParams", function ($scope, $filter, ngTableParams) {
-    $scope.tableParams = new ngTableParams({
+app.controller('ngTableCtrl2', ["$scope", "$filter", "NgTableParams", function ($scope, $filter, NgTableParams) {
+    $scope.tableParams = new NgTableParams({
         page: 1, // show first page
         count: 5, // count per page
         sorting: {
-            name: 'asc' // initial sorting
+            name: "asc" // initial sorting
         }
     }, {
-        total: data.length, // length of data
-        getData: function ($defer, params) {
-            // use build-in angular filter
-            var orderedData = params.sorting() ? $filter('orderBy')(data, params.orderBy()) : data;
-            $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-        }
-    });
+            total: data.length, // length of data
+            dataset: data
+        });
 }]);
-app.controller('ngTableCtrl3', ["$scope", "$filter", "ngTableParams", function ($scope, $filter, ngTableParams) {
-    $scope.tableParams = new ngTableParams({
+app.controller('ngTableCtrl3', ["$scope", "$filter", "NgTableParams", function ($scope, $filter, NgTableParams) {
+    $scope.tableParams = new NgTableParams({
         page: 1, // show first page
         count: 5, // count per page
         filter: {
-            name: 'M' // initial filter
+            name: "M" // initial filter
         }
     }, {
-        total: data.length, // length of data
-        getData: function ($defer, params) {
-            // use build-in angular filter
-            var orderedData = params.filter() ? $filter('filter')(data, params.filter()) : data;
-            $scope.users = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
-            params.total(orderedData.length);
-            // set total for recalc pagination
-            $defer.resolve($scope.users);
-        }
-    });
+            total: data.length, // length of data
+            dataset: data            
+        });
 }]);
-app.controller('ngTableCtrl4', ["$scope", "$filter", "ngTableParams", function ($scope, $filter, ngTableParams) {
-    $scope.tableParams = new ngTableParams({
+app.controller('ngTableCtrl4', ["$scope", "$filter", "NgTableParams", function ($scope, $filter, NgTableParams) {
+    $scope.tableParams = new NgTableParams({
         page: 1, // show first page
         count: 10 // count per page
 
     }, {
-        total: data.length, // length of data
-        getData: function ($defer, params) {
-            // use build-in angular filter
-            var orderedData = params.sorting() ? $filter('orderBy')(data, params.orderBy()) : data;
-            $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-
-        }
-    });
+            total: data.length, // length of data
+            dataset: data
+        });
 }]);
-app.controller('ngTableCtrl5', ["$scope", "$filter", "ngTableParams", function ($scope, $filter, ngTableParams) {
-    $scope.tableParams = new ngTableParams({
+app.controller('ngTableCtrl5', ["$scope", "$filter", "NgTableParams", function ($scope, $filter, NgTableParams) {
+    $scope.tableParams = new NgTableParams({
         page: 1, // show first page
         count: 10 // count per page
     }, {
-        total: data.length, // length of data
-        getData: function ($defer, params) {
-            // use build-in angular filter
-            var orderedData = params.sorting() ? $filter('orderBy')(data, params.orderBy()) : data;
-
-            $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-        }
-    });
+            total: data.length, // length of data
+            dataset: data
+        });
 }]);
-app.controller('ngTableCtrl6', ["$scope", "$filter", "ngTableParams", function ($scope, $filter, ngTableParams) {
+app.controller('ngTableCtrl6', ["$scope", "$filter", "NgTableParams", function ($scope, $filter, NgTableParams) {
     var data = [{
         "id": 1,
         "lm": 138661285100,
@@ -312,16 +294,13 @@ app.controller('ngTableCtrl6', ["$scope", "$filter", "ngTableParams", function (
         "ac": true,
         "dl": false
     }];
-    $scope.tableParams = new ngTableParams({
+    $scope.tableParams = new NgTableParams({
         page: 1,
         count: 10
     }, {
-        total: data.length,
-        getData: function ($defer, params) {
-            var orderedData = params.sorting() ? $filter('orderBy')(data, params.orderBy()) : data;
-            $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-        }
-    });
+            total: data.length,
+            dataset: data
+        });
 
     $scope.editId = -1;
 

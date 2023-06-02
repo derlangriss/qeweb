@@ -1,11 +1,21 @@
 'use strict'; 
 /** 
-  * controllers for GoogleMap 
+  * controllers for GoogleMap  
   * AngularJS Directive 
 */ 
 app.controller("GridFormSpecimenCtrl", ["$scope","$http", "$timeout", "$stateParams", "SweetAlert", "test", 
     function ($scope, $http, $timeout, $stateParams, SweetAlert, test) {
     $scope.specdata = {};
+    $scope.getOrderlist = null;
+    $scope.getOrders = [];
+    $http({
+        method: 'GET',
+        url: 'assets/views/action/getOrderlist.php',
+        dataType: "JSON",
+        params: {sTorder: 'torder'}
+    }).success(function(result) {
+        $scope.getOrders = result;
+    });
     test.specno($stateParams.specid).success(function(result) {
         
          function filterColumn(i) {
@@ -13,7 +23,9 @@ app.controller("GridFormSpecimenCtrl", ["$scope","$http", "$timeout", "$statePar
                  $('#col' + i + '_filter').val()
 
              ).draw();
-         } 
+         }  
+
+
         
         $("#coll_codetest").val(result[0].coll_code);
         var startdate = result[0].collectionstartdate;
@@ -36,6 +48,7 @@ app.controller("GridFormSpecimenCtrl", ["$scope","$http", "$timeout", "$statePar
         $scope.specdata.coll_year = result[0].coll_year;
         $scope.specdata.coll_number = result[0].coll_number;
         $scope.specdata.idspecimens = result[0].idspecimens;  
+        $scope.selectedCountry =  result[0].torder_idtorder;  
         $('#labelhead').html("THAILAND:");
         $('#collectioncode').html(result[0].coll_code);
         $('#collectionyear').html(result[0].coll_year);
@@ -48,12 +61,14 @@ app.controller("GridFormSpecimenCtrl", ["$scope","$http", "$timeout", "$statePar
         $('#collectionlocality').html(result[0].collectionlocality);
         $('#collectionlat').html(result[0].collectionlatd + "&#12444;" + result[0].collectionlatm + "&#39;" + result[0].collectionlats + "&quot" + "N");
         $('#collectionlong').html(result[0].collectionlongd + "&#12444;" + result[0].collectionlongm + "&#39;" + result[0].collectionlongs + "&quot" + "E");
-        $("#col4_filter").val(result[0].coll_code);
-        $("#col5_filter").val(result[0].coll_year);
-        $("#col6_filter").val(result[0].coll_number);
-        filterColumnspec(4)
+        $("#col5_filter").val(result[0].coll_code);
+        $("#col6_filter").val(result[0].coll_year);
+        $("#col7_filter").val(result[0].coll_number);
+        
         filterColumnspec(5)
         filterColumnspec(6)
+        filterColumnspec(7)
+  
     });
 
     $scope.generateAUTO = function() {
@@ -182,7 +197,8 @@ app.controller("GridFormSpecimenCtrl", ["$scope","$http", "$timeout", "$statePar
         { "data": "8","width": "8%" },
         { "data": "9","width": "8%" },
         { "data": "10","width": "18%" },
-        { "data": "11","width": "18%" }],
+        { "data": "11","width": "18%" },
+        { "data": "12","width": "18%" }],
         "columnDefs": [
         
          {
@@ -208,6 +224,16 @@ app.controller("GridFormSpecimenCtrl", ["$scope","$http", "$timeout", "$statePar
         {
             "visible": false,
                     targets: 6
+
+        },
+        {
+            "visible": false,
+                    targets: 7
+
+        },
+        {
+            "visible": false,
+                    targets: 12
 
         }
 
@@ -286,10 +312,10 @@ app.controller("GridFormSpecimenCtrl", ["$scope","$http", "$timeout", "$statePar
                                                           $("#txttest").val(inval["taxatypes_idtaxatypes"]);
                                                           
                                                           
-                                                          if (inval["taxatypes_idtaxatypes"]==null) {
-                                                            inval["taxatypes_idtaxatypes"]= 0
+                                                          if (inval["taxatypes_idtaxatypes"]==1) {
+                                                            inval["taxatypes_idtaxatypes"]= 3
                                                           }
-                                                          $('input:radio[name=test]')[inval["taxatypes_idtaxatypes"]].checked = true;
+                                                          $('input:radio[name=typespecimen]')[inval["taxatypes_idtaxatypes"]].checked = true;
                              });
                                         }
                                      
@@ -298,16 +324,7 @@ app.controller("GridFormSpecimenCtrl", ["$scope","$http", "$timeout", "$statePar
                  
   } );
     
-    $scope.getOrderlist = null;
-    $scope.getOrder = [];
-    $http({
-        method: 'GET',
-        url: 'assets/views/action/getTaxalist.php',
-        dataType: "JSON",
-        params: {sTorder: 'torder'}
-    }).success(function(result) {
-        $scope.getOrder = result;
-    });
+    
 
     $scope.getFamilylist = null;
     $scope.getFamily = [];
@@ -710,6 +727,13 @@ app.controller("GridFormSpecimenCtrl", ["$scope","$http", "$timeout", "$statePar
   var f = $("#txtidcollection").val();
   var g = parseInt($("#txtspecimen_number").val()); 
   var h = $('input[name=typespecimen]:checked').val();
+  var i = $("#txtcoll_code").val();
+  var j = $("#txtcoll_year").val();
+  var k = $("#txtcoll_number").val();
+  var l = i+"-"+j+"-"+k+"-"+g;
+
+
+
 
 
   
@@ -733,6 +757,7 @@ app.controller("GridFormSpecimenCtrl", ["$scope","$http", "$timeout", "$statePar
                  tFamily_ID: encodeURI(b),
                  tGenus_ID: encodeURI(c),
                  tSpecies_ID: encodeURI(d),
+                 tspecimenfullnumber: encodeURI(l),
                  taxatype: h,
                  tMode: Mode
                 }

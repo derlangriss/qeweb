@@ -1,14 +1,76 @@
 {
-  "name": "angular-animate",
-  "version": "1.6.2",
-  "description": "AngularJS module for animations",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "_args": [
+    [
+      {
+        "raw": "angular-animate@1.6.*",
+        "scope": null,
+        "escapedName": "angular-animate",
+        "name": "angular-animate",
+        "rawSpec": "1.6.*",
+        "spec": ">=1.6.0 <1.7.0",
+        "type": "range"
+      },
+      "D:\\Apache24\\htdocs\\QEmanagementWebapp\\packet\\node_modules\\angular-super-gallery"
+    ]
+  ],
+  "_from": "angular-animate@>=1.6.0 <1.7.0",
+  "_id": "angular-animate@1.6.9",
+  "_inCache": true,
+  "_location": "/angular-animate",
+  "_nodeVersion": "8.9.4",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/angular-animate-1.6.9.tgz_1517577245810_0.9634366047102958"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/angular/angular.js.git"
+  "_npmUser": {
+    "name": "angularcore",
+    "email": "angular-core+npm@google.com"
+  },
+  "_npmVersion": "5.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "angular-animate@1.6.*",
+    "scope": null,
+    "escapedName": "angular-animate",
+    "name": "angular-animate",
+    "rawSpec": "1.6.*",
+    "spec": ">=1.6.0 <1.7.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/angular-super-gallery"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-animate/-/angular-animate-1.6.9.tgz",
+  "_shasum": "a0f926c1ba3190bd8929ef966a7fa79760682622",
+  "_shrinkwrap": null,
+  "_spec": "angular-animate@1.6.*",
+  "_where": "D:\\Apache24\\htdocs\\QEmanagementWebapp\\packet\\node_modules\\angular-super-gallery",
+  "author": {
+    "name": "Angular Core Team",
+    "email": "angular-core+npm@google.com"
+  },
+  "bugs": {
+    "url": "https://github.com/angular/angular.js/issues"
+  },
+  "dependencies": {},
+  "description": "AngularJS module for animations",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-3/fqrmT6mJgB2O6oDvXDlNP6AJVqUXLWZq/P87Xo7Wt0JjcSmhJSQ02Yp7gm0Pkd5SXMKHICLpn/iEJPyse9fg==",
+    "shasum": "a0f926c1ba3190bd8929ef966a7fa79760682622",
+    "tarball": "https://registry.npmjs.org/angular-animate/-/angular-animate-1.6.9.tgz"
+  },
+  "gitHead": "b9edd1d6c8d9b6d040299d351155ac163a0be437",
+  "homepage": "http://angularjs.org",
+  "jspm": {
+    "shim": {
+      "angular-animate": {
+        "deps": [
+          "angular"
+        ]
+      }
+    }
   },
   "keywords": [
     "angular",
@@ -17,17 +79,31 @@
     "animation",
     "client-side"
   ],
-  "author": "Angular Core Team <angular-core+npm@google.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/angular/angular.js/issues"
-  },
-  "homepage": "http://angularjs.org",
-  "jspm": {
-    "shim": {
-      "angular-animate": {
-        "deps": ["angular"]
-      }
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "akalinovski",
+      "email": "a.kalinovski@gmail.com"
+    },
+    {
+      "name": "angularcore",
+      "email": "angular-core+npm@google.com"
+    },
+    {
+      "name": "petebd",
+      "email": "pete@bacondarwin.com"
     }
-  }
+  ],
+  "name": "angular-animate",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular/angular.js.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.6.9"
 }

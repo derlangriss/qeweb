@@ -1,0 +1,259 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.tables.COLLECTOR">
+        Donation Form
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: DYNAMIC TABLE -->
+<div class="container-fluid container-fullw">
+    <div ng-controller="SpecimensReportCtrl">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-white no-radius">
+                    <div class="panel-heading partition-azure border-light">
+                        <h4 class="panel-title">
+                            Assign
+                            <span class="text-bold">
+                                Number
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="panel-body no-padding">
+                        <div class="container-fluid no-padding ">
+                            <div class="row no-margin no-padding">
+                                <div class="col-xs-12 no-padding no-border">
+                                    <div class="row no-margin">
+                                        <div class="col-md-4 col-lg-3 no-padding">
+                                            <div class="panel no-border no-radius no-margin">
+                                                <div class="panel-body">
+                                                    <div class="panel panel-white no-border no-radius">
+                                                        <div class="panel-body no-padding">
+                                                            <div class="">
+                                                                <h5 class="text-bold text-extra-small text-dark-transparent text-uppercase no-margin">
+                                                                    Specimens Summary
+                                                                    <i class="fa fa-arrow-circle-o-right">
+                                                                    </i>
+                                                                </h5>
+                                                                <div class="block margin-top-15 text-orange">
+                                                                    <span class="counter" count-to="{{ngmodelMothsum}}" duration="1" filter="number" ng-model="ngmodelMothsum" value="0">
+                                                                        {{ngmodelMothsum}}
+                                                                    </span>
+                                                                    <span class="counter-symbol">
+                                                                        <i class="fa fa-bug">
+                                                                        </i>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="panel panel-white no-border no-radius">
+                                                            <div class="col-lg-12 col-xs-12">
+                                                                <form class="gf" id="specimens_form" name="SpecimensTaxa_Form" ng-submit="preinsspecIns()">
+                                                                    <fieldset>
+                                                                        <legend>
+                                                                            Date Report (วันที่รายงานผล)
+                                                                        </legend>
+                                                                        <div class="gf-row-6 no-padding gf-row-border">
+                                                                            <div class="gf-col-2 " data-column="2">
+                                                                                <span class="badge badge-info text-extra-small text-uppercase">
+                                                                                    DATE
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="gf-col-4 " data-column="3">
+                                                                                <input class="date form-control noborder input-vsm" id="txtpreinsdate" name="txtpreinsdate" ng-model="preinsspec.preinsdate" type="text"/>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="gf-row-6 no-padding gf-row-border">
+                                                                            <div class="gf-col-2 " data-column="2">
+                                                                                <span class="badge badge-info text-extra-small text-uppercase">
+                                                                                    staff
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="gf-col-4 padding-2" data-column="3">
+                                                                                <select class="form-control noborder input-vsm" name="gencoll_code" ng-model="preinsspec.preinsstaffid" ng-options="item.uid as item.firstname for item in GETstaffid">
+                                                                                    <option disabled="" value="">
+                                                                                        STAFF NAME
+                                                                                    </option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </fieldset>
+                                                                    <fieldset>
+                                                                        <legend>
+                                                                            Collection Details (ข้อมูลคอลเลคชัน)
+                                                                        </legend>
+                                                                        <div class="focusguard" id="focusguard-1" tabindex="1">
+                                                                        </div>
+                                                                        <div class="gf-row-6 no-padding gf-row-border">
+                                                                            <div class="gf-col-2" data-column="2">
+                                                                                <span class="badge badge-info text-extra-small text-uppercase">
+                                                                                    Code
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="gf-col-4 padding-2" data-column="3">
+                                                                                <select class="form-control noborder input-vsm" name="gencoll_code" ng-model="preinsspec.preinscode" ng-options="item.collection_code_id as item.collection_code for item in GETcollectioncode">
+                                                                                    <option disabled="" value="">
+                                                                                        CODE
+                                                                                    </option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="gf-row-6 no-padding gf-row-border">
+                                                                            <div class="gf-col-2" data-column="2">
+                                                                                <span class="badge badge-info text-extra-small text-uppercase">
+                                                                                    Year
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="gf-col-4 padding-2" data-column="3">
+                                                                                <input class="form-control noborder input-vsm autofocus" id="txtpreinsyear" ng-model="preinsspec.preinsyear" tabindex="2" type="text">
+                                                                                </input>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="gf-row-6 no-padding gf-row-border">
+                                                                            <div class="gf-col-2" data-column="2">
+                                                                                <span class="badge badge-info text-extra-small text-uppercase">
+                                                                                    Number
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="gf-col-4 padding-2" data-column="3">
+                                                                                <input class="form-control noborder input-vsm" ng-model="preinsspec.preinsnumber" tabindex="3" type="text">
+                                                                                </input>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="gf-row-6 no-padding gf-row-border">
+                                                                            <div class="gf-col-2" data-column="2">
+                                                                                <span class="badge badge-info text-extra-small text-uppercase">
+                                                                                    QTY
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="gf-col-4 padding-2" data-column="3">
+                                                                                <input class="form-control noborder input-vsm" id="txtpreinsqty" name="" ng-model="preinsspec.preinsqty" tabindex="4" type="text">
+                                                                                </input>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="focusguard" id="focusguard-2" tabindex="5">
+                                                                        </div>
+                                                                    </fieldset>
+                                                                    <fieldset class="hidden">
+                                                                        <legend>
+                                                                            Save Mode (โหมดการบันทึกข้อมูล)
+                                                                        </legend>
+                                                                        <div class="gf-row-6 no-padding gf-row-border">
+                                                                            <div class="gf-col-3 " data-column="2">
+                                                                                <div class="radio clip-radio radio-primary radio-sm radio-inline no-padding no-margin">
+                                                                                    <input checked="checked" id="testradio1" name="savetype" ng-model="editmode" type="radio" value="Nedit">
+                                                                                        <label for="testradio1">
+                                                                                            ADD MODE
+                                                                                        </label>
+                                                                                    </input>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="gf-col-3 " data-column="3">
+                                                                                <div class="radio clip-radio radio-primary radio-sm radio-inline no-padding no-margin">
+                                                                                    <input id="testradio2" name="savetype" ng-model="editmode" type="radio" value="Exedit">
+                                                                                        <label for="testradio2">
+                                                                                            EDIT MODE
+                                                                                        </label>
+                                                                                    </input>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </fieldset>
+                                                                    <fieldset class="hidden">
+                                                                        <legend>
+                                                                            Save Mode (โหมดการบันทึกข้อมูล)
+                                                                        </legend>
+                                                                        <div class="gf-row-6 no-padding gf-row-border">
+                                                                            <div class="gf-col-3 padding-2" data-column="2">
+                                                                                <div class="radio clip-radio radio-primary radio-sm radio-inline">
+                                                                                    <input checked="checked" id="resetformradio01" name="resetformr" ng-model="resetform" type="radio" value="YES">
+                                                                                        <label for="resetformradio01">
+                                                                                            YES
+                                                                                        </label>
+                                                                                    </input>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="gf-col-3 padding-2" data-column="3">
+                                                                                <div class="radio clip-radio radio-primary radio-sm radio-inline">
+                                                                                    <input id="resetformradio02" name="resetformr" ng-model="resetform" type="radio" value="NO">
+                                                                                        <label for="resetformradio02">
+                                                                                            NO
+                                                                                        </label>
+                                                                                    </input>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </fieldset>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12 col-lg-12">
+                                                                            <div class="panel panel-transparent margin-top-20">
+                                                                                <div "="" class="space12 pull-left">
+                                                                                    <div class="btn-group">
+                                                                                        <input class="btn btn-primary btn-xs btn-o active" type="submit"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-lg-9 no-padding no-bording">
+                                            <div class="panel panel-white no-radius no-margin no-border">
+                                                <div class="panel-body">
+                                                    <table cellspacing="0" class="table table-condensed table-hover" id="preInsSpecTbl" width="100%">
+                                                        <thead>
+                                                            <tr class="uppercase label-default ">
+                                                                <th>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="label-change ">
+                                                                        Collection Number
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="label-change ">
+                                                                        QTY
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="label-change ">
+                                                                        Staff
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="label-change ">
+                                                                        Date
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="label-change ">
+                                                                        action
+                                                                    </span>
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

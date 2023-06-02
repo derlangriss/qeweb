@@ -1,0 +1,103 @@
+% This file is a valid PHP file and also a valid LaTeX file
+% When processed with LaTeX, it will generate a blank template
+% Loading with PHP will fill it with details
+
+\documentclass{article}
+% Required for proper escaping
+\usepackage{textcomp} % Symbols
+\usepackage[T1]{fontenc} % Input format
+
+\usepackage{xltxtra}
+\XeTeXlinebreaklocale "th_TH"
+\font\T="TH SarabunPSK:script=thai" at 14pt
+\font\E="Times New Roman:script=english" at 14pt
+
+% Because Unicode etc. 
+\usepackage{fontspec} % For loading fonts
+\setmainfont{Liberation Serif} % Has a lot more symbols than Computer Modern
+ 
+% Make placeholders visible
+\newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
+
+% Defaults for each variable
+\newcommand{\collfullnum}{\placeholder{collfullnum}}
+\newcommand{\counteachspec}{\placeholder{counteachspec}}
+\newcommand{\countspecmonth}{\placeholder{countspecmonth}}
+\newcommand{\monthDisplay}{\placeholder{monthDisplay}}
+\newcommand{\pictureref}{\placeholder{pic_name}}
+
+
+
+
+
+% LaTeX code for the invoice
+\usepackage[landscape]{geometry}
+ \geometry{
+ a4paper,
+ total={257mm,170mm},
+ left=20mm,
+ top=40mm,
+ }
+\usepackage{array}
+\usepackage{pdflscape}
+\usepackage[table]{xcolor}
+\usepackage{ltablex}
+\usepackage{graphicx}
+\graphicspath{{D:/Apache24/htdocs/QedatamanagementRealestate/packet/LAYOUT-2/assets/duimage/}}
+\definecolor{tableShade}{gray}{0.9}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+
+\begin{document}
+\rowcolors{3}{tableShade}{white}  %% start alternating shades from 3rd row
+
+
+
+    % Table of customer details
+	\begin{tabular}{c}
+		\T รายการครุภัณฑ์ 2562
+	\end{tabular}
+
+	% Table of items on this invoice
+	\vspace{15mm}
+	\begin{tabularx}{\linewidth}{|m{1cm}|m{5cm}|m{3.5cm}|m{3cm}|m{2.5cm}|m{2.5cm}|m{2.5cm}|m{2.5cm}|}
+
+    \hline
+	\T ลำดับ  &\T หมายเลขครุภัณฑ์  &\T รายการครุภัณฑ์  &\T ห้องหรือที่เก็บ &\T ผู้ใช้ &\T สถานที่ & \T รูป & \T หมายเหตุ \\
+	\endhead
+    \hline
+
+  
+  %<?php																		/*
+% */ foreach($data as $reportitem) {						/*   
+ % */ ?>  /*
+%<?php																		/*
+	% */ 	echo "\n " . LatexTemplate::escape($reportitem['durablelist_id']) . " & " .	/*	
+	% */ 	" " ."\T ". LatexTemplate::escape($reportitem['durable_name_main']) . " & ".    /*	
+	% */ 	" " ."\T ". LatexTemplate::escape($reportitem['durable_no_main']) . " & ".    /*
+	% */ 	" " ."\T ". LatexTemplate::escape($reportitem['owner']) . " & ".    /*
+	% */ 	" " . LatexTemplate::escape($reportitem['m_room_id']) . " & ".    /*	
+    % */ 	" " ."\T ". LatexTemplate::escape($reportitem['place']) . " & ";	?>  
+  %<?php																		/*	
+% */  echo "\n" . "\\renewcommand{\\pictureref}{" . LatexTemplate::escape($reportitem['pic_name']) . "}\n"; ?>
+
+\begin{minipage}[t]{\textwidth}
+\includegraphics[width=0.15\textwidth,height=0.15\textwidth]{\pictureref} 
+\end{minipage}
+&
+
+
+
+\\
+\hline
+ %<?php	 /*
+ % */ } ?>  /*
+   
+
+	\hline
+
+	\end{tabularx}
+
+	
+\end{document}

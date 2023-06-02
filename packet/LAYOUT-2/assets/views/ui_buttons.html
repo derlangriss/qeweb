@@ -489,16 +489,16 @@
                                         </code>
                                         buttons.
                                     </p>
-                                    <button type="button" class="btn btn-wide btn-primary" disabled="disabled">
+                                    <button type="button" class="btn btn-wide btn-primary" disabled="">
                                         Disabled
                                     </button>
-                                    <button type="button" class="btn btn-wide btn-azure" disabled="disabled">
+                                    <button type="button" class="btn btn-wide btn-azure" ng-disabled="disabled">
                                         Disabled
                                     </button>
-                                    <button type="button" class="btn btn-wide btn-red" disabled="disabled">
+                                    <button type="button" class="btn btn-wide btn-red" ng-disabled="disabled">
                                         Disabled
                                     </button>
-                                    <button type="button" class="btn btn-wide btn-green" disabled="disabled">
+                                    <button type="button" class="btn btn-wide btn-green" ng-disabled="disabled">
                                         Disabled
                                     </button>
                                 </div>
@@ -839,7 +839,9 @@
                                 <h5> Built-in progress bar </h5>
                                 <p class="progress-demo">
                                     <a ladda="ldloading.expand_right_progress" class="btn btn-primary" data-style="expand-right" ng-click="clickProgressBtn('expand-right')"> expand-right </a>
-                                    <a ladda="ldloading.contract_progress" class="btn btn-wide btn-primary" data-style="contract" ng-click="clickProgressBtn('contract')"> contract </a>
+                                    <a ladda="ldloading.contract_progress" class="btn btn-transparent" data-style="contract" ng-click="clickProgressBtn('contract')"> 
+<i class="fa fa-print"></i>
+                                     </a>
                                 </p>
                                 <h5> Sizes </h5>
                                 <p class="progress-demo">
@@ -849,7 +851,7 @@
                                 </p>
                                 <h5> Colors </h5>
                                 <p class="progress-demo">
-                                    <a ladda="ldloading.red" class="btn btn-wide btn-default" data-style="expand-right" data-spinner-color="#ff0000" ng-click="clickBtn('red')"> red </a>
+                                    <a ladda="ldloading.red" class="btn btn-transparent" data-style="expand-right" data-spinner-color="#ff0000" ng-click="clickBtn('red')"> <i class="fa fa-print"></i> </a>
                                     <a ladda="ldloading.gray" class="btn btn-wide btn-default" data-style="expand-right" data-spinner-color="#999999" ng-click="clickBtn('gray')"> gray </a>
                                     <a ladda="ldloading.black" class="btn btn-wide btn-default" data-style="expand-right" data-spinner-color="#000000" ng-click="clickBtn('black')"> black </a>
                                 </p>

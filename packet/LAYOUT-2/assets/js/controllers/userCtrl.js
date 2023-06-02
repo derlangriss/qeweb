@@ -6,8 +6,24 @@ app.controller('UserCtrl', ["$scope", "flowFactory", function ($scope, flowFacto
     $scope.removeImage = function () {
         $scope.noImage = true;
     };
-    $scope.obj = new Flow();
 
+
+    $scope.obj = {};
+    /*
+    $scope.flowOptions = {   
+      target: './assets/views/action/uploadflow.php',
+      testChunks: false,
+    };*/
+
+
+    $scope.upload = function () {
+    $scope.obj.flow.opts.target = './assets/views/action/uploadflow.php'
+    $scope.obj.flow.opts.testChunks = false
+    $scope.obj.flow.upload();    
+    }
+
+    
+ 
     $scope.userInfo = {
         firstName: 'Peter',
         lastName: 'Clark',

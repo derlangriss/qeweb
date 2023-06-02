@@ -1,0 +1,154 @@
+\documentclass{article} 
+% Required for proper escaping
+\usepackage{textcomp} % Symbols
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % Input format
+\usepackage[usegeometry]{typearea}
+\usepackage{multirow}
+\usepackage{hyperref}
+
+
+\newcommand*{\plogo}{\fbox{$\mathcal{PL}$}} % Generic dummy publisher logo
+
+\usepackage{xltxtra}
+\usepackage{polyglossia}
+\XeTeXlinebreaklocale "th"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+
+\fontspec[
+ItalicFont={TH SarabunPSK Italic},
+BoldFont={TH SarabunPSK Bold},
+BoldItalicFont={TH SarabunPSK Bold Italic},
+]{TH SarabunPSK}
+\fontsize{18pt}{24pt}\selectfont
+% Because Unicode etc. 
+
+% Make placeholders visible
+\newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
+
+% Defaults for each variable
+\newcommand{\collfullnum}{\placeholder{collfullnum}}
+\newcommand{\counteachspec}{\placeholder{counteachspec}}
+\newcommand{\countspecmonth}{\placeholder{countspecmonth}}
+\newcommand{\monthDisplay}{\placeholder{monthDisplay}}
+\newcommand{\pictureref}{\placeholder{pic_name}}
+
+
+\usepackage[landscape]{geometry}
+ \geometry{
+ a4paper,
+ total={257mm,170mm},
+ left=20mm,
+ top=35mm,
+ }
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{pdflscape}
+\usepackage[svgnames,table]{xcolor}
+\usepackage{ltablex}
+\usepackage{graphicx}
+\usepackage{setspace}
+
+\graphicspath{{F:/xampp/htdocs/Qedatamanagement/packet/LAYOUT-2/assets/duimage/}}
+\definecolor{tableShade}{gray}{0.9}
+\setlength{\parindent}{0pt}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields 
+\renewcommand{\headrulewidth}{0pt}
+
+
+\fancyhead[C]{\begin{tabular}[t]{>{\centering\arraybackslash}p{10cm}@{}}
+  \hfill \textbf{แบบรายงานผลการตรวจสอบพัสดุ ประจำปี  (ครุภัณฑ์)} \hfill \strut \\
+  \\
+  \textbf{ประเภท :} 
+	\begin{Form}
+	\hfill{} \mbox{\CheckBox[width=11pt,height=11pt,bordercolor=0 0 0,name=first]{\ignorespaces}}  ครุภัณฑ์
+	\hfill{} \mbox{\CheckBox[width=11pt,height=11pt,bordercolor=0 0 0,name=second]{\ignorespaces}}  วัสดุคงทน
+	\hfill{}  \mbox{\CheckBox[width=11pt,height=11pt,bordercolor=0 0 0,name=third]{\ignorespaces}}  สิ่งก่อสร้าง
+	\end{Form}
+\end{tabular}}
+\fancyhead[R]{\begin{tabular}[t]{@{}>{\raggedright}p{5cm}@{}}
+ \textbf{ส่วน} พิพิธภัณฑ์แมลง  \\
+  \textbf{สำนัก/ส่วนสาขา} วิจัยและอนุรักษ์\\
+\end{tabular}}
+\fancyfoot[RO,LE]{\begin{tabular}[t]{@{}p{7cm}@{}}
+ \\
+   \hfill ลงชื่อ...............................................  \hfill \strut \\
+   \\
+   \hfill (นางส่งศรี โกวิทเทวาวงศ์ )  \hfill \strut \\
+   \hfill ผู้รับผิดชอบการตรวจสอบพัสดุ ตามคำสั่งแต่งตั้ง  \hfill \strut \\
+\end{tabular}}
+
+
+\setdefaultlanguage{thai}
+\newfontfamily{\thaifont}[Script=Thai,
+  SizeFeatures={Size=14},
+  BoldFeatures={SizeFeatures={Size=14}}, 
+  UprightFeatures={SizeFeatures={Size=14}},
+  ItalicFeatures={SizeFeatures={Size=14}},
+  BoldFeatures={SizeFeatures={Size=14}},
+  BoldItalicFeatures={SizeFeatures={Size=14}}]{TH SarabunPSK}
+
+\newfontfamily{\thaihuge}{TH SarabunPSK}
+\newcommand{\minifont}[1]{{%
+  \fontsize{8pt}{10pt}\thaihuge #1%
+}}
+
+\setlength{\parskip}{1em}
+
+\setlength{\headheight}{35pt}
+
+\begin{document}
+\newgeometry{hmargin=2.0cm,bottom=45mm,height=155mm,includehead}
+\fancyheadoffset{0pt}% recalculate headwidth for fancyhdr
+
+\begin{tabularx}{\linewidth}{|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{3.5cm}|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3.0cm}|>{\centering\arraybackslash}m{2.0cm}|@{}m{1.92cm}@{}|m{1.0cm}|m{1.0cm}|>{ \centering\arraybackslash}m{1.0cm}|m{1.0cm}|}
+ \hline
+
+ \multirow{3}{3cm}{\textbf{ลำดับที่}} &\multirow{3}{3cm}{\textbf{รายการครุภัณฑ์}}   & \multirow{3}{*}{\centering\textbf{หมายเลขครุภัณฑ์}}   &  \multirow{3}{*}{\centering\textbf{ผู้ใช้งาน}}   & \multirow{3}{*}{\centering\textbf{ผู้รับผิดชอบ}}  &  \multirow{3}{*}{\centering\textbf{สถานที่}} & \multirow{3}{2cm}{\centering\textbf{รูป}}  & \multicolumn{4}{c|}{\textbf{ผลการตรวจสอบ}} \\  \cline{8-11}
+
+                    &  &   &  & &  &  &  \textbf{ปกติ} & \textbf{ชำรุด}&  \vskip -0.3cm  \minifont{\textbf{ไม่จำเป็นต้องใช้งาน}} & \textbf{ไม่พบ} \\
+
+
+  \endhead
+    \hline
+
+  %<?php                                    /*
+% */ foreach($data as $reportitem) {            /*   
+ % */ ?>  /*
+%<?php                                    /*
+  % */  echo "\n " . LatexTemplate::escape($reportitem['durable_seq']) . " & " .  /*  
+  % */  " " . LatexTemplate::escape($reportitem['durable_name_main']) . " & ".    /*  
+  % */  " " . LatexTemplate::escape($reportitem['durable_no_main']) . " & ".    /*
+  % */  " " . LatexTemplate::escape($reportitem['owner']) . " & ".    /*
+  % */  " " . LatexTemplate::escape($reportitem['response_name']) . " & ".    /*
+    % */  " " . LatexTemplate::escape($reportitem['explace']) . " & ";  ?>  
+    \vspace{-3.2mm}
+  %<?php                                    /*  
+% */  echo "\n" . "\\renewcommand{\\pictureref}{" . LatexTemplate::escape($reportitem['pic_name']) . "}\n"; ?>
+\begin{minipage}{0.15\textwidth}
+\includegraphics[width=0.5\textwidth,height=0.5\textwidth]{\pictureref} 
+\end{minipage}
+\vspace{-1.5mm}
+\hspace*{-25cm}% 
+&
+ %<?php                                    /*
+ % */  echo "\n " . LatexTemplate::escape($reportitem['note'])  /*  
+ % */ ?> 
+&&&
+\\
+\hline
+ %<?php  /*
+ % */ } ?>  /*
+
+\hline
+
+  \end{tabularx}
+
+\end{document}

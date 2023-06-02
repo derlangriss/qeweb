@@ -5,7 +5,7 @@ if( ! ini_get('date.timezone') )
 }
 $strMode = $_POST["tMode"];
 
-
+ 
 require('_header.php');
 require('collnolib.php');
 
@@ -29,7 +29,7 @@ if($strMode == "ADD")
         }
 	if($_POST["tamphur_ID"]==''){
 	exit;
-        }
+        } 
 	if($start==''){
 	exit;
         }
@@ -80,34 +80,23 @@ $strSQL .=",collectors_idcollectors = '".$_POST["tcollector_ID"]."' ";
 $strSQL .=",collectionmasl = '".($_POST["tMASL"]!=''?$_POST["tMASL"]:0)."' ";
 $strSQL .=",collectionnorthing = '".($_POST["tNorthing"]!=''?$_POST["tNorthing"]:'0')."' ";
 $strSQL .=",collectioneasting = '".($_POST["tEasting"]!=''?$_POST["tEasting"]:'0')."' ";
-
 $strSQL .=",collectionlatdec = '".($_POST["tlatdec"]!=''?$_POST["tlatdec"]:'0')."' ";
-
 $strSQL .=",collectionlatd = '".($_POST["tlat_d"]!=''?$_POST["tlat_d"]:'0')."' ";
 $strSQL .=",collectionlatm = '".($_POST["tlat_m"]!=''?$_POST["tlat_m"]:'0')."' ";
 $strSQL .=",collectionlats = '".($_POST["tlat_s"]!=''?$_POST["tlat_s"]:'0')."' ";
-
 $strSQL .=",collectionlongdec = '".($_POST["tlongdec"]!=''?$_POST["tlongdec"]:'0')."' ";
-
 $strSQL .=",collectionlongd = '".($_POST["tlong_d"]!=''?$_POST["tlong_d"]:'0')."' ";
 $strSQL .=",collectionlongm = '".($_POST["tlong_m"]!=''?$_POST["tlong_m"]:'0')."' ";
 $strSQL .=",collectionlongs = '".($_POST["tlong_s"]!=''?$_POST["tlong_s"]:'0')."' ";
 $strSQL .=",collectionstartdate = '".($_POST["tcollection_start_date"]!=''?trim($_POST["tcollection_start_date"]):'')."' ";
-$strSQL .=",collectionenddate = '".($_POST["tcollection_end_date"]!=''?trim($_POST["tcollection_end_date"]):'')."' ";
-				  		
-
+$strSQL .=",collectionenddate = '".($_POST["tcollection_end_date"]!=''?trim($_POST["tcollection_end_date"]):'')."' ";	
 $strSQL .="WHERE idcollection	 = '".$_POST["tidcollection"]."' ";
-
 $objQuery = pg_query($strSQL);
-
 }
 
 $resultArray = array();
-
-
 $sql= "select * from collectioncounter LIMIT 1";
 $res = pg_query($sql);
-
 $row=pg_fetch_array($res);
 extract($row);
 
@@ -129,7 +118,7 @@ $count_number = sprintf('%04d',$count);
 $collno = ("QSBG-".$collyear . "-" . $count_number);
 
 
-$arr = array('coll_code' => 'QSBG', 'coll_year' => $collyear, 'coll_number' => $count_number, 'collectionid'=> $collno);
+$arr = array('code' => 'QSBG', 'year' => $collyear, 'number' => $count_number);
 array_push($resultArray,$arr);
 
 echo json_encode($resultArray);	

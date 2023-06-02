@@ -1,0 +1,146 @@
+\documentclass{article} 
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % Input format
+\newcommand*{\plogo}{\fbox{$\mathcal{PL}$}} % Generic dummy publisher logo
+\usepackage{xltxtra}
+\usepackage{polyglossia}
+
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{multirow}
+\usepackage{pgffor}
+\usepackage{collcell}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\setlist{nolistsep}
+\definecolor{green}{HTML}{66FF66}
+\definecolor{orange}{HTML}{f75414}
+\definecolor{myGreen}{HTML}{009900}
+\definecolor{myOrange}{HTML}{ff8a6f}
+
+
+% LaTeX code for the invoice.
+\usepackage[usegeometry]{typearea}% load before geometry
+\usepackage[portrait]{geometry}
+ \geometry{
+ a4paper,
+ total={257mm,170mm},
+ left=20mm,
+ top=35mm,
+ }
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\definecolor{tableShade}{gray}{0.9}
+\setlength{\parindent}{0pt}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields 
+\renewcommand{\headrulewidth}{0pt}
+
+\setdefaultlanguage{thai}
+\newfontfamily{\thaifont}[Script=Thai,
+  SizeFeatures={Size=14},
+  BoldFeatures={SizeFeatures={Size=14}}, 
+  UprightFeatures={SizeFeatures={Size=14}},
+  ItalicFeatures={SizeFeatures={Size=14}},
+  BoldFeatures={SizeFeatures={Size=14}},
+  BoldItalicFeatures={SizeFeatures={Size=14}}]{TH SarabunPSK}
+\newcommand{\boldfont}[1]{{%
+  \fontsize{10pt}{12pt}\normalfont #1%
+}}
+\setlength{\headheight}{35pt}
+
+\usepackage{ltablex}
+\usepackage{environ}
+\usepackage{lipsum}
+
+\NewEnviron{MyTabularX}[2][0]{%
+
+   \begin{tabularx}{\textwidth}{#2}
+    \hline% Print header rows
+   \multicolumn{2}{|c}{\emph{\textbf{Specimens Number}}} & 
+                \multicolumn{2}{|c|}{\emph{\textbf{Genera Info}}} &   \\ \hline
+       \rowcolor{myOrange}  {\textbf{Collection No.}} & \textbf{Specimens No.} & \textbf{Order} & \textbf{Family} & \textbf{Total}\\ \hline
+    \BODY
+   \end{tabularx}
+}
+
+\newcommand*{\Data}[1]{%
+  
+    #1\\ 
+    \hline
+}%
+\graphicspath{{D:/Apache24/htdocs/QedatamanagementRealestate/packet/LAYOUT-2/assets/images/}}
+\definecolor{tableShade}{gray}{0.9}
+\setlength{\parindent}{0pt}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields 
+\renewcommand{\headrulewidth}{0pt}
+
+
+
+
+% Make placeholders visible
+\newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
+
+% Defaults for each variable
+
+\newcommand{\reportdate}{\placeholder{sreport_date}}
+\newcommand{\collboxno}{\placeholder{collboxno}}
+\newcommand{\allcount}{\placeholder{allcount}}
+\newcommand{\fulldatereport}{\placeholder{fulldatereport}}
+
+% <?php echo "\n" . "\\renewcommand{\\reportdate}{" . LatexTemplate::escape($data[0]['sreport_date']) . "}\n"; ?>
+% <?php echo "\n" . "\\renewcommand{\\collboxno}{" . LatexTemplate::escape($data[0]['collboxno']) . "}\n"; ?>
+% <?php echo "\n" . "\\renewcommand{\\allcount}{" . LatexTemplate::escape($data[0]['allcount']) . "}\n"; ?>
+% <?php echo "\n" . "\\renewcommand{\\fulldatereport}{" . LatexTemplate::escape($data[0]['fulldatereport']) . "}\n"; ?>
+
+\fancyhead[RE,LO]{\begin{tabular}{@{}m{1.3cm}m{5cm}}
+  \begin{minipage}{0.25\textwidth}
+\includegraphics[width=0.5\textwidth,height=0.5\textwidth]{ENTO-LOGO-WEBAPP} 
+\end{minipage} & \begin{minipage}[t]{\linewidth}%
+\begin{itemize}
+\item[] Queen Sirikit Botanic Garden
+\item[] Entomolgy Section
+\end{itemize} 
+\end{minipage}                 \\
+\end{tabular}}
+
+
+\fancyhead[LE,RO]{
+\begin{tabular}{@{}m{4cm}m{3cm}@{}}
+\arrayrulecolor{orange}\hline
+\textbf{\textcolor{orange}{Specimens Box Details}} & \\
+\hline
+REPORT DATE & \fulldatereport  \\
+BOX NO. & \collboxno \\
+QUANTITY & \allcount  \\
+\arrayrulecolor{black}\hline
+\end{tabular}
+}
+
+\newgeometry{hmargin=2.0cm,bottom=45mm,height=240mm,includehead}
+\fancyheadoffset{0pt}% recalculate headwidth for fancyhdr
+
+\setlength{\headheight}{45pt}
+\begin{document}
+\begin{MyTabularX}{|p{3.5cm}|p{2.5cm}|p{3.5cm}|p{3.5cm}|p{1.5cm}|}
+
+%<?php                                    /*
+% */ foreach($data as $specboxdetails) {           /*
+% */  echo "\n" . "\\Data{" . LatexTemplate::escape($specboxdetails['coll_full_id']) . " & " .  /*  
+% */  " " . LatexTemplate::escape($specboxdetails['concatspecno']) . " & ".    /* 
+% */  " " . LatexTemplate::escape($specboxdetails['torder_name']) . " & ".    /*
+% */  " " . LatexTemplate::escape($specboxdetails['family_name']) . " & ".    /*
+% */  " " . LatexTemplate::escape($specboxdetails['countspec']) . "}\n";    ?> 
+
+%<?php  } ?> 
+\end{MyTabularX}
+
+\textcolor{black}{\rule{17cm}{1mm}} \\
+CAUSTION : Please check your the data befor you pull out the specimens from the box
+\end{document}

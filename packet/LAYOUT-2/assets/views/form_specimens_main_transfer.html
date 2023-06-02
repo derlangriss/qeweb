@@ -1,0 +1,555 @@
+<!-- start: MESSAGES -->
+<div ct-fullheight="" data-ct-fullheight-exclusion="header, footer">
+    <!-- /// controller:  'InboxCtrl' -  localtion: assets/js/controllers/inboxCtrl.js /// -->
+    <div active-class="message-open" class="inbox" id="inbox" ng-controller="FormSpecimensMainTransferCtrl" toggleable="">
+        <!-- start: EMAIL LIST -->
+        <div class="col spec-list">
+            <div class="innerwrap-list">
+                <div class="innerspec-list scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                    <div class="col-md-12 ">
+                        <div class="row">
+                            <div class="panel-body">
+                                <div class="panel panel-white no-border no-radius">
+                                    <div class="panel-body no-padding">
+                                        <div class="col-lg-8 col-xs-7 text-right">
+                                            <div class="btn-group margin-top-5" ng-init="selected='Newest'" uib-dropdown="">
+                                                <button class="btn btn-azure btn-sm" id="split-button" type="button">
+                                                    Select Page
+                                                </button>
+                                                <button class="btn btn-azure btn-sm" type="button" uib-dropdown-toggle="">
+                                                    <span class="caret">
+                                                    </span>
+                                                    <span class="sr-only">
+                                                        Split button!
+                                                    </span>
+                                                </button>
+                                                <ul aria-labelledby="split-button" role="menu" uib-dropdown-menu="">
+                                                    <li role="menuitem">
+                                                        <a ui-sref="app.form.specimens_transfer">
+                                                            Main Transfer Page
+                                                        </a>
+                                                    </li>
+                                                    <li role="menuitem">
+                                                        <a ui-sref="app.form.specimens_transfer.oldspecimens">
+                                                            Old specimens
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a ui-sref="app.form.specimens_transfer.newspecimens">
+                                                            New Specimens
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-6 no-padding">
+                                            <div ui-view="secondview ">
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: EMAIL LIST -->
+        <!-- start: EMAIL READER -->
+        <div class="email-reader">
+            <div class="spec-sideinfo scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                <div class="col-md-12 ">
+                    <div class="row">
+                        <div class="panel-body">
+                            <!-- end: EMAIL READER -->
+                            <div class="">
+                                <ul class="nav nav-tabs">
+                                    <li ng-class="{ active: isSet(1) }">
+                                        <a aria-expanded="false" data-toggle="tab" ng-click="setTab(1)" title="Event">
+                                            <span class="round-tabs four">
+                                                <i class="fa fa-eye">
+                                                </i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li ng-class="{ active: isSet(2) }">
+                                        <a aria-expanded="false" data-toggle="tab" ng-click="setTab(2)" title="Event">
+                                            <span class="round-tabs four">
+                                                <i class="fa fa-calendar">
+                                                </i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li ng-class="{ active: isSet(3) }">
+                                        <a aria-expanded="false" data-toggle="tab" ng-click="setTab(3)" title="Event">
+                                            <span class="round-tabs four">
+                                                <i class="fa fa-upload">
+                                                </i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li ng-class="{ active: isSet(4) }">
+                                        <a aria-expanded="false" data-toggle="tab" ng-click="setTab(4)" title="Event">
+                                            <span class="round-tabs four">
+                                                <i class="fa fa-archive">
+                                                </i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="panel">
+                                <div class="tab-pane" id="tab-table1">
+                                    <div class="tab-content">
+                                        <div class="container bootstrap snippet no-padding">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab-table1">
+                                        <div class="animate-show-hide margin-top-5" ng-show="isSet(1)">
+                                            <div ui-view="firstview ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab-table1">
+                                        <div class="animate-show-hide margin-top-5" ng-show="isSet(2)">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="panel panel-white no-radius">
+                                                        <div class="panel-heading partition-azure border-light">
+                                                            <h4 class="panel-title">
+                                                                Specimens In
+                                                                <span class="text-bold">
+                                                                    the Museum
+                                                                </span>
+                                                            </h4>
+                                                            <ct-paneltool class="panel-tools" tool-refresh="load1">
+                                                            </ct-paneltool>
+                                                        </div>
+                                                        <div class="panel-body no-padding">
+                                                            <div class="container-fluid no-padding ">
+                                                                <div class="row no-margin no-padding">
+                                                                    <div class="col-xs-12 no-padding no-border">
+                                                                        <div class="row no-margin">
+                                                                            <div class="col-md-4 col-lg-3 no-padding">
+                                                                                <div class="panel no-border no-radius no-margin">
+                                                                                    <div class="panel-body">
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-12">
+                                                                                                <div class="panel panel-white no-border no-radius">
+                                                                                                    <div class="panel-body no-padding">
+                                                                                                        <div class="">
+                                                                                                            <h5 class="text-bold text-extra-small text-dark-transparent text-uppercase no-margin">
+                                                                                                                Specimens Box Information
+                                                                                                                <i class="fa fa-arrow-circle-o-right">
+                                                                                                                </i>
+                                                                                                            </h5>
+                                                                                                            <div class="block margin-top-15 margin-bottom-10 text-orange">
+                                                                                                                <span class="counter" count-to="{{ngmodelMothsum}}" duration="1" filter="number" ng-model="ngmodelMothsum" value="0">
+                                                                                                                    {{ngmodelMothsum}}
+                                                                                                                </span>
+                                                                                                                <span class="counter-symbol">
+                                                                                                                    <i class="fa fa-bug">
+                                                                                                                    </i>
+                                                                                                                </span>
+                                                                                                            </div>
+                                                                                                            <span class="label partition-green text-white margin-top-10 margin-right-5">
+                                                                                                                +11%
+                                                                                                            </span>
+                                                                                                            <span class="text-extra-small">
+                                                                                                                Previous period
+                                                                                                            </span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="panel panel-white no-border no-radius">
+                                                                                                <div class="col-lg-12 col-xs-12">
+                                                                                                    <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                                                                                        <fieldset>
+                                                                                                            <legend>
+                                                                                                                Specimens Box Code
+                                                                                                                <i class="fa fa-search">
+                                                                                                                </i>
+                                                                                                            </legend>
+                                                                                                            <div class="gf-row-6 no-padding gf-row-border">
+                                                                                                                <div class="gf-col-2 padding-2" data-column="2">
+                                                                                                                    <span>
+                                                                                                                        BOX Code
+                                                                                                                    </span>
+                                                                                                                </div>
+                                                                                                                <div class="gf-col-4 padding-2" data-column="3">
+                                                                                                                    <input class="form-control noborder input-vsm" id="trans_rcontainerMuseum" name="trans_rcontainerMuseum" ng-model="transRcontainerMuseum" placeholder="Enter container name" type="text" typeahead-loading="loadingtransrcontainerMuseum" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.spec_box_code for o in TransRContainerMuseumKeyup($viewValue)"/>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="row">
+                                                                                                                <div class="col-sm-12 col-lg-12">
+                                                                                                                    <div class="panel panel-transparent margin-top-20">
+                                                                                                                        <div "="" class="space12 pull-left">
+                                                                                                                            <div class="btn-group">
+                                                                                                                                <a class="btn btn-primary btn-xs btn-o active" href="javascript:;" ng-click="ContainerUpdate('UPDATE','DrcodeMuseum');">
+                                                                                                                                    <i class="fa fa-save">
+                                                                                                                                    </i>
+                                                                                                                                    Save DR
+                                                                                                                                </a>
+                                                                                                                                <a class="btn btn-primary btn-xs btn-o hidden-xs" href="javascript:;">
+                                                                                                                                    <i class="fa fa-repeat">
+                                                                                                                                    </i>
+                                                                                                                                    Reset
+                                                                                                                                </a>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </fieldset>
+                                                                                                        <fieldset id="specimensdetails">
+                                                                                                            <legend>
+                                                                                                                Specimen Details
+                                                                                                            </legend>
+                                                                                                            <div class="gf-row-2 gf-large">
+                                                                                                                <div class="gf-col-2">
+                                                                                                                    <div ng-class="{'has-error':Specimens_Form.order.$dirty && Specimens_Form.order.$invalid, 'has-success':Specimens_Form.order.$valid}">
+                                                                                                                        <label>
+                                                                                                                            Order
+                                                                                                                            <span class="symbol required">
+                                                                                                                            </span>
+                                                                                                                        </label>
+                                                                                                                        <input class="form-control" id="order" name="order" ng-change="changeOrder()" ng-model="specModelOrder" ng-required="currentStep == 1" placeholder="Enter Order Name" type="text" typeahead-loading="loadingOrder" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.torder_name for o in OrderKeyup($viewValue)"/>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="gf-row-4 gf-large">
+                                                                                                                <div class="gf-col-4">
+                                                                                                                    <div ng-class="{'has-error':Specimens_Form.family.$dirty && Specimens_Form.family.$invalid, 'has-success':Specimens_Form.family.$valid}">
+                                                                                                                        <label>
+                                                                                                                            family
+                                                                                                                            <span class="symbol required">
+                                                                                                                            </span>
+                                                                                                                        </label>
+                                                                                                                        <input class="form-control" id="family" name="family" ng-change="changeFamily()" ng-model="specModelFamily" ng-required="currentStep == 1" placeholder="Enter Family Name" type="text" typeahead-loading="loadingFamily" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.family_name for o in FamilyKeyup($viewValue)"/>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="gf-row-2 gf-large">
+                                                                                                                <div class="gf-col-2">
+                                                                                                                    <div ng-class="{'has-error':Specimens_Form.genus.$dirty && Specimens_Form.genus.$invalid, 'has-success':Specimens_Form.genus.$valid}">
+                                                                                                                        <label>
+                                                                                                                            Genus
+                                                                                                                            <span class="symbol required">
+                                                                                                                            </span>
+                                                                                                                        </label>
+                                                                                                                        <input class="form-control" id="genus" name="genus" ng-change="changeGenus()" ng-model="specModelGenus" ng-required="currentStep == 1" placeholder="Enter Genus Name" type="text" typeahead-loading="loadingGenus" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.genus_name for o in GenusKeyup($viewValue)"/>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="gf-row-2 gf-large">
+                                                                                                                <div class="gf-col-2">
+                                                                                                                    <div ng-class="{'has-error':Specimens_Form.species.$dirty && Specimens_Form.species.$invalid, 'has-success':Specimens_Form.species.$valid}">
+                                                                                                                        <label>
+                                                                                                                            Species
+                                                                                                                            <span class="symbol required">
+                                                                                                                            </span>
+                                                                                                                        </label>
+                                                                                                                        <input class="form-control" id="species" name="species" ng-model="specModelSpecies" ng-required="currentStep == 1" placeholder="Enter Species Name" type="text" typeahead-loading="loadingSpecies" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.species_name for o in SpeciesKeyup($viewValue)"/>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="gf-row-2 gf-large">
+                                                                                                                <div class="gf-col-2">
+                                                                                                                    <label>
+                                                                                                                        Action
+                                                                                                                        <span class="symbol required">
+                                                                                                                        </span>
+                                                                                                                    </label>
+                                                                                                                    <label class="radio-inline">
+                                                                                                                        <input checked="checked" id="updatetype" name="updatetype" ng-model="updatetype" type="radio" value="0">
+                                                                                                                            <label for="testradio1">
+                                                                                                                                only key
+                                                                                                                            </label>
+                                                                                                                        </input>
+                                                                                                                    </label>
+                                                                                                                    <label class="radio-inline">
+                                                                                                                        <input id="testradio2" name="updatetype" ng-model="updatetype" type="radio" value="1">
+                                                                                                                            <label for="testradio2">
+                                                                                                                                with box
+                                                                                                                            </label>
+                                                                                                                        </input>
+                                                                                                                    </label>
+                                                                                                                    <label class="radio-inline">
+                                                                                                                        <input id="testradio3" name="updatetype" ng-model="updatetype" type="radio" value="2">
+                                                                                                                            <label for="testradio3">
+                                                                                                                                in box
+                                                                                                                            </label>
+                                                                                                                        </input>
+                                                                                                                    </label>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="gf-row-2 gf-large">
+                                                                                                                <div class="form-group margin-top-15">
+                                                                                                                    <div class="btn-group">
+                                                                                                                        <label class="btn btn-primary btn-sm" ng-click="specimensUpdate('UPDATE',SpecimensTaxa_Form);" ng-model="myModel.paymentMethod" uib-btn-radio="'creditcard'">
+                                                                                                                            <i class="fa fa-save">
+                                                                                                                            </i>
+                                                                                                                            Save
+                                                                                                                        </label>
+                                                                                                                        <label class="btn btn-primary btn-sm" ng-click="resetspecformBtn();" ng-model="myModel.paymentMethod" uib-btn-radio="'paypal'">
+                                                                                                                            <i class="fa fa-ban">
+                                                                                                                            </i>
+                                                                                                                            Cancel
+                                                                                                                        </label>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </fieldset>
+                                                                                                        <fieldset>
+                                                                                                            <legend>
+                                                                                                                Container information
+                                                                                                            </legend>
+                                                                                                            <div class="gf-row-6 no-padding gf-row-border">
+                                                                                                                <div class="gf-col-2 padding-2" data-column="2">
+                                                                                                                    <span>
+                                                                                                                        Row
+                                                                                                                    </span>
+                                                                                                                </div>
+                                                                                                                <div class="gf-col-4 padding-2" data-column="3">
+                                                                                                                    <select class="form-control noborder input-vsm" id="rowcabinet" name="rowcabinet" ng-change="onChangedRowContainer();" ng-model="rcabinet" ng-options="item.rcabinet_id as item.rcabinet for item in GETrowcabinet">
+                                                                                                                        <option disabled="" value="">
+                                                                                                                            ROW
+                                                                                                                        </option>
+                                                                                                                    </select>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="gf-row-6 padding-2 gf-row-border">
+                                                                                                                <div class="gf-col-2 padding-2" data-column="2">
+                                                                                                                    <span>
+                                                                                                                        Cabinet
+                                                                                                                    </span>
+                                                                                                                </div>
+                                                                                                                <div class="gf-col-4 padding-2" data-column="3">
+                                                                                                                    <select class="form-control noborder input-vsm" id="cabinet" name="cabinet" ng-change="onChangedContainer();" ng-model="cabinet" ng-options="item.cabinet_id as item.cabinet for item in GETcabinet">
+                                                                                                                        <option disabled="" value="">
+                                                                                                                            CONTAINER
+                                                                                                                        </option>
+                                                                                                                    </select>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="gf-row-6 padding-2 gf-row-border">
+                                                                                                                <div class="gf-col-2 no-padding" data-column="2">
+                                                                                                                    <span>
+                                                                                                                        Locker
+                                                                                                                    </span>
+                                                                                                                </div>
+                                                                                                                <div class="gf-col-4 padding-2" data-column="3">
+                                                                                                                    <select class="form-control noborder input-vsm" id="clocker" name="clocker" ng-change="onChangedLocker();" ng-model="clocker" ng-options="item.subcabinet_id as item.sub_cabinet for item in GETclocker">
+                                                                                                                        <option disabled="" value="">
+                                                                                                                            LOCKER
+                                                                                                                        </option>
+                                                                                                                    </select>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="gf-row-6 gf-row-border">
+                                                                                                                <div class="gf-col-2 padding-2" data-column="2">
+                                                                                                                    <span>
+                                                                                                                        Drawer
+                                                                                                                    </span>
+                                                                                                                </div>
+                                                                                                                <div class="gf-col-4 padding-2" data-column="3">
+                                                                                                                    <select class="form-control noborder input-vsm" id="cdrawer" name="cdrawer" ng-model="cdrawer" ng-options="item.spec_box_id as item.spec_box for item in GETcdrawer">
+                                                                                                                        <option disabled="" value="">
+                                                                                                                            DRAWER
+                                                                                                                        </option>
+                                                                                                                    </select>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </fieldset>
+                                                                                                        <div class="row">
+                                                                                                            <div class="col-sm-12 col-lg-12">
+                                                                                                                <div class="panel panel-transparent margin-top-20">
+                                                                                                                    <div "="" class="space12 pull-left">
+                                                                                                                        <div class="btn-group">
+                                                                                                                            <a class="btn btn-primary btn-xs btn-o active" href="javascript:;" ng-click="ContainerUpdate('UPDATE','ChainDrcode');">
+                                                                                                                                <i class="fa fa-save">
+                                                                                                                                </i>
+                                                                                                                                Save
+                                                                                                                            </a>
+                                                                                                                            <a class="btn btn-primary btn-xs btn-o hidden-xs" href="javascript:;">
+                                                                                                                                <i class="fa fa-repeat">
+                                                                                                                                </i>
+                                                                                                                                Reset
+                                                                                                                            </a>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </form>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-8 col-lg-9 no-padding no-bording">
+                                                                                <div class="panel panel-white no-radius no-margin no-border">
+                                                                                    <div class="panel-heading border-light no-padding">
+                                                                                        <div class="row">
+                                                                                            <div class="col-lg-12 col-xs-12">
+                                                                                                <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                                                                                    <fieldset>
+                                                                                                        <div class="gf-row-9">
+                                                                                                            <div class="gf-col-3" data-column="2">
+                                                                                                                <label>
+                                                                                                                    Drawer Code
+                                                                                                                    <i class="fa fa-search">
+                                                                                                                    </i>
+                                                                                                                </label>
+                                                                                                                <input autofocus="" class="numberdecimal column_filterspecboxmuseum" id="col3_filterboxmuseum" ng-change="searchmuseummodel(4)" ng-model="drawerno" type="text">
+                                                                                                                </input>
+                                                                                                            </div>
+                                                                                                            <div class="gf-col-3" data-column="3">
+                                                                                                                <label>
+                                                                                                                    Box Code
+                                                                                                                    <i class="fa fa-search">
+                                                                                                                    </i>
+                                                                                                                </label>
+                                                                                                                <input autofocus="" class="numberdecimal column_filterspecboxmuseum" id="col2_filterboxmuseum" ng-change="searchmuseummodel(11)" ng-model="specboxno" type="text">
+                                                                                                                </input>
+                                                                                                            </div>
+                                                                                                            <div class="gf-col-1" data-column="7">
+                                                                                                                <label>
+                                                                                                                    Code
+                                                                                                                    <i class="fa fa-search">
+                                                                                                                    </i>
+                                                                                                                </label>
+                                                                                                                <input autofocus="" class="numberdecimal column_filterspecboxmuseum" id="col7_filterboxmuseum" ng-change="searchmuseummodel(8)" ng-model="collcodemuseum" type="text">
+                                                                                                                </input>
+                                                                                                            </div>
+                                                                                                            <div class="gf-col-1" data-column="8">
+                                                                                                                <label>
+                                                                                                                    year
+                                                                                                                    <i class="fa fa-search">
+                                                                                                                    </i>
+                                                                                                                </label>
+                                                                                                                <input autofocus="" class="numberdecimal column_filterspecboxmuseum" id="col8_filterboxmuseum" ng-change="searchmuseummodel(9)" ng-model="collyearmuseum" type="text">
+                                                                                                                </input>
+                                                                                                            </div>
+                                                                                                            <div class="gf-col-1" data-column="15">
+                                                                                                                <label>
+                                                                                                                    number
+                                                                                                                    <i class="fa fa-search">
+                                                                                                                    </i>
+                                                                                                                </label>
+                                                                                                                <input autofocus="" class="numberdecimal column_filterspecboxmuseum" id="col9_filterboxmuseum" ng-change="searchmuseummodel(10)" ng-model="collnumbermuseum" type="text">
+                                                                                                                </input>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </fieldset>
+                                                                                                </form>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="panel-body">
+                                                                                        <table cellspacing="0" class="table table-condensed table-hover" id="SpecimensMuseumTbl" width="100%">
+                                                                                            <thead>
+                                                                                                <tr class="uppercase label-default ">
+                                                                                                    <th>
+                                                                                                    </th>
+                                                                                                    <th>
+                                                                                                        <span class="label-change ">
+                                                                                                            Specimen Number
+                                                                                                        </span>
+                                                                                                    </th>
+                                                                                                    <th>
+                                                                                                        <span class="label-change ">
+                                                                                                            Order
+                                                                                                        </span>
+                                                                                                    </th>
+                                                                                                    <th>
+                                                                                                        <span class="label-change ">
+                                                                                                            Family
+                                                                                                        </span>
+                                                                                                    </th>
+                                                                                                    <th>
+                                                                                                        <span class="label-change ">
+                                                                                                            Draw Code
+                                                                                                        </span>
+                                                                                                    </th>
+                                                                                                    <th>
+                                                                                                        <span class="label-change ">
+                                                                                                            Box Code
+                                                                                                        </span>
+                                                                                                    </th>
+                                                                                                    <th>
+                                                                                                        <span class="label-change ">
+                                                                                                            Box Code
+                                                                                                        </span>
+                                                                                                    </th>
+                                                                                                    <th>
+                                                                                                        <span class="label-change ">
+                                                                                                            Box Code
+                                                                                                        </span>
+                                                                                                    </th>
+                                                                                                    <th>
+                                                                                                        <span class="label-change ">
+                                                                                                            Box Code
+                                                                                                        </span>
+                                                                                                    </th>
+                                                                                                    <th>
+                                                                                                        <span class="label-change ">
+                                                                                                            Box Code
+                                                                                                        </span>
+                                                                                                    </th>
+                                                                                                    <th>
+                                                                                                        <span class="label-change ">
+                                                                                                            Box Code
+                                                                                                        </span>
+                                                                                                    </th>
+                                                                                                    <th>
+                                                                                                        <span class="label-change ">
+                                                                                                            Box Code
+                                                                                                        </span>
+                                                                                                    </th>
+                                                                                                </tr>
+                                                                                            </thead>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab-table1">
+                                        <div class="animate-show-hide margin-top-5" ng-show="isSet(3)">
+                                            <div class="col-sm-12">
+                                                sompong
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab-table1">
+                                        <div class="animate-show-hide margin-top-5" ng-show="isSet(4)">
+                                            <div class="col-sm-12">
+                                                sompong
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

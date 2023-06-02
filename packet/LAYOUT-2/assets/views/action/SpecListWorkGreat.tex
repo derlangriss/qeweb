@@ -1,0 +1,90 @@
+\documentclass[12pt]{report}
+
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{multirow}
+\usepackage{pgffor}
+\usepackage{collcell}
+
+\newtoggle{DoneWithHeader}
+\newcommand{\MyMultiRow}[1]{%
+    \iftoggle{DoneWithHeader}{%
+        \multirow{2}{*}{#1}% no longer in header
+    }{%
+        #1% still in header so do not apply \multirow
+    }%
+}
+\newcolumntype{M}{>{\collectcell\MyMultiRow}{l}<{\endcollectcell}}
+
+
+\newcolumntype{Z}{>{\centering\arraybackslash}m{5in}}
+\newcolumntype{Y}{>{\centering\arraybackslash\columncolor{Gainsboro}}c}
+
+
+\newcounter{QuestionCount}
+\newcommand*{\QuestionGroup}{}
+\newenvironment{MyTabular}[2][Q\arabic{QuestionCount}]{%
+    % #1 = Question Group: Defaults to "Q<n>"
+    % #2 = usual tabular column specification
+    \stepcounter{QuestionCount}% increment for subsequent tables
+    \setcounter{QuestionSubCount}{0}% ensure we start at (a) for subsequent tables
+    \xdef\QuestionGroup{#1}
+    \renewcommand*{\arraystretch}{1.2}
+    \fontsize{9pt}{10.8pt}\selectfont
+    \global\togglefalse{DoneWithHeader}% not yet done with header
+    \begin{tabular}{#2}
+
+       
+}{%
+    \end{tabular}%
+}
+
+
+\newcounter{QuestionSubCount}
+\newcommand*{\Data}[2]{%
+    % #1 = Question Text
+    % #2 = Univerity group numbers
+    % #3 = School Group Numbers
+    % #4 = Comparrisons
+    %
+
+      \hline
+    \rowcolor{Gainsboro}
+    \multicolumn{6}{|c|}{#1}  \\
+    \hline
+    #2\\ \hline
+  
+  
+     
+}%
+
+
+\begin{document}
+
+
+\begin{MyTabular}{|Y|c|c|c|c|c|c|c|}
+%<?php                                    /*
+% */           $i = 0; /*
+% */ foreach($data as $specboxdetails) {           /*
+% */  echo "\n" . "\\Data{" .LatexTemplate::escape($specboxdetails['torder_name']) .  /*  
+% */  " " . LatexTemplate::escape($specboxdetails['family_name']) . "}\n"; ?>
+{ Collection No. &  Specimens No. & Box number & Cabinet & SubCabinet & Drawer No.}
+
+%<?php                                    /*
+% */ foreach($data[$i]['speclist'] as $speclistdetails) {           /*
+  % */  echo "\n". LatexTemplate::escape($speclistdetails['coll_full_id']) . " & " . /*
+  % */  " " . LatexTemplate::escape($speclistdetails['specimens_number']) . " & ".    /*
+  % */  " " . LatexTemplate::escape($speclistdetails['collboxno']) . " & ".    /*
+  % */  " " . "" . " & ".    /*
+  % */  " " . "" . " & ".    /*
+  % */  " " . "" ."\\\\". "\\hline"."\n";   /*
+% */ } ?>  
+
+
+
+
+%<?php /*
+% */ $i++; /*
+% */ } ?> 
+\end{MyTabular}
+\end{document}

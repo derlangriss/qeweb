@@ -19,4 +19,4 @@ app.controller('DateRangeCtrl', function ($scope) {
         'Last 30 days': [moment().subtract(30, 'days'), moment()],
         'This month': [moment().startOf('month'), moment().endOf('month')]
     };
-});
+}); 

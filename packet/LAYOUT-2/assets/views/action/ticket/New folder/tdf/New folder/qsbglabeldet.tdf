@@ -1,0 +1,13 @@
+%%
+%% free ticket for pins etc. 
+%%
+\unitlength=1mm
+\hoffset=-16mm%\hoffset=-10mm
+\voffset=-15mm
+
+\ticketNumbers{6}{25}
+%\ticketNumbers{2}{2}
+
+\ticketSize{34}{10} % in unitlength \ticketSize{36}{10}
+\ticketDistance{0.05}{0.05} %in unitlength 0.65
+

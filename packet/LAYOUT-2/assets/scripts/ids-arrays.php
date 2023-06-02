@@ -13,7 +13,7 @@
  *
  * @license MIT - http://datatables.net/license_mit
  */
-
+ 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Easy set variables
  */

@@ -1,0 +1,89 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.pages.USERPROFILE">
+        USER PROFILE
+    </h4>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+            <div ng-controller="FormSpecimensBoxCtrl">
+                <div class="row">
+                    <div class="col-md-2 no-padding">
+                        <div class="panel panel-azure no-border no-radius no-margin">
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row space20">
+                            <div class="col-sm-3">
+                                <button class="btn btn-icon margin-bottom-5 margin-bottom-5 btn-block" ng-click="go('app.form.specimens_box.specview')">
+                                    <i class="ti-layers-alt block text-primary text-extra-large margin-bottom-10">
+                                    </i>
+                                    แมลงรอใส่กล่อง
+                                </button>
+                            </div>
+                            <div class="col-sm-3">
+                                <button class="btn btn-icon margin-bottom-5 btn-block" ng-click="go('app.form.specimens_box.boxview')">
+                                    <i class="ti-comments block text-primary text-extra-large margin-bottom-10">
+                                    </i>
+                                    รายการแมลงในกล่อง
+                                    <span class="badge badge-danger">
+                                        23
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="col-sm-3">
+                                <button class="btn btn-icon margin-bottom-5 btn-block">
+                                    <i class="ti-calendar block text-primary text-extra-large margin-bottom-10">
+                                    </i>
+                                    Calendar
+                                </button>
+                            </div>
+                            <div class="col-sm-3">
+                                <button class="btn btn-icon margin-bottom-5 btn-block">
+                                    <i class="ti-flag block text-primary text-extra-large margin-bottom-10">
+                                    </i>
+                                    Notifications
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <div ui-view="contentview">
+                            </div>
+                        </div>
+                        <div class="panel panel-white space20">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    Recent Tweets
+                                </h4>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="ltwt">
+                                    <li class="ltwt_tweet">
+                                        <p class="ltwt_tweet_text">
+                                            <a class="text-info" href="">
+                                                @Shakespeare
+                                            </a>
+                                            Some are born great, some achieve greatness, and some have greatness thrust upon them.
+                                        </p>
+                                        <span class="block text-light">
+                                            <i class="fa fa-fw fa-clock-o">
+                                            </i>
+                                            2 minuts ago
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: USER PROFILE -->

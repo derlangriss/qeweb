@@ -1,0 +1,116 @@
+%%%%
+%
+% ticket.sty example file for a pin for conferences
+%
+%%%%
+% use the corresponding paper size for your ticket definition
+\documentclass[a4paper,10pt]{letter}
+
+% load ticket.sty with the appropriate ticket definition
+\usepackage{ticket}[qsbglabel,rowmode,crossmark]%boxed, crossmark,circlemark,emptycrossmark,cutmark
+
+% load misc stuff
+\usepackage{graphicx}
+
+\usepackage{eso-pic}
+\usepackage{calc}
+%\usepackage{pst-barcode}
+%\usepackage{auto-pst-pdf}
+\usepackage{ragged2e}
+
+\usepackage[utf8x]{inputenc}
+
+\usepackage{lmodern}
+%\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+%\usepackage{gensymb}
+\usepackage{qrcode}
+
+\makeatletter
+\ifcase \@ptsize \relax% 10pt
+  \newcommand{\miniscule}{\@setfontsize\miniscule{4}{5}}% \tiny: 5/6
+\or% 11pt
+  \newcommand{\miniscule}{\@setfontsize\miniscule{5}{6}}% \tiny: 6/7
+\or% 12pt
+  \newcommand{\miniscule}{\@setfontsize\miniscule{5}{6}}% \tiny: 6/7
+\fi
+\makeatother
+
+
+
+
+
+
+
+\renewcommand{\ticketdefault}{%
+}
+
+
+
+% now what do you like to put in your ticket
+\newcommand{\qsbglabelitem}[1]{\ticket{%
+    \put(0.6,4.0){#1}
+}}
+
+
+%% the pins for the partipiciants ... ;-)
+%% you can generate this part from a database!
+\begin{document}
+\RaggedRight
+\miniscule\bfseries\sffamily
+
+
+ \qsbglabelitem{
+\parbox[r][10mm][c]{5mm}{
+ \vspace{-2mm}
+ \hspace{0mm}
+\qrcode[level=M,height=0.7cm]{dddd}
+}
+ \parbox[l][10mm][t]{32mm}{QSBG-2013-093-YYY,\,Phitsanulok, Chat Trakan, Hmun Sawang Village, 17°38$^\prime$9$^{\prime\prime}$N,\,100°54$^\prime$25$^{\prime\prime}$E,\,575m, 06-vi-2013, Sweep net, W. Srisuka et al.}\parbox[r][10mm][c]{10mm}{
+ \vspace{0.0mm}
+ \hspace{0.5mm}
+% \begin{pspicture}(10mm,10mm)
+ %\psbarcode{QSBG-2013-93}{eclevel=H width=0.3 height=0.3}{qrcode}
+%\qrcode[level=M,height=0.7cm]{QSBG-2013-93}  
+ %\end{pspicture}
+%\vspace{85mm}
+
+
+%\vspace{5mm}
+%\qrcode[level=Q,height=0.8cm]{QSBG-2013-93}
+
+
+%\vspace{5mm}
+%\qrcode[level=Q,height=0.7cm]{QSBG-2013-93}
+
+%\vspace{5mm}
+
+
+
+%\vspace{5mm}
+
+
+%\vspace{5mm}
+
+%\qrcode[level=M,height=0.8cm]{QSBG-2013-93}
+
+
+%\vspace{5mm}
+%\qrcode[level=M,height=0.7cm]{QSBG-2013-93}
+
+%\vspace{5mm}
+
+
+ }
+
+
+ }
+
+
+
+
+
+
+\end{document}
+
+

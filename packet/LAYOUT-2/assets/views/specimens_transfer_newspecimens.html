@@ -1,0 +1,137 @@
+<div ng-controller="FormNewSpecimensMainTransferCtrl">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-white no-radius no-border">
+                <div class="panel-heading partition-azure border-light">
+                    <h4 class="panel-title">
+                        Assign
+                        <span class="text-bold">
+                            Drawer
+                        </span>
+                        <span class="label label-warning text-bold">
+                            New Specimens
+                        </span>
+                    </h4>
+                    <ct-paneltool class="panel-tools" tool-refresh="load1">
+                    </ct-paneltool>
+                </div>
+                <div class="panel-body no-padding">
+                    <div class="container-fluid no-padding ">
+                        <div class="row no-margin no-padding">
+                            <div class="col-xs-12 no-padding no-border">
+                                <div class="row no-margin">
+                                    <div class="col-md-12 col-lg-12 no-padding no-border">
+                                        <div class="panel panel-white no-radius no-margin no-border">
+                                            <div class="panel-heading no-border no-padding">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-xs-12">
+                                                        <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                                            <fieldset>
+                                                                <div class="gf-row-8">
+                                                                    <div class="gf-col-2" data-column="2">
+                                                                        <label>
+                                                                            Order
+                                                                            <i class="fa fa-search">
+                                                                            </i>
+                                                                        </label>
+                                                                        <input autofocus="" class="numberdecimal column_filterspec" id="col2_filter" name="txtcoll_code" ng-change="searchmodel(2)" ng-model="collorder" type="text">
+                                                                        </input>
+                                                                    </div>
+                                                                    <div class="gf-col-3" data-column="3">
+                                                                        <label>
+                                                                            family
+                                                                            <i class="fa fa-search">
+                                                                            </i>
+                                                                        </label>
+                                                                        <input autofocus="" class="numberdecimal column_filterspec" id="col3_filter" name="txtcoll_code" ng-change="searchmodel(3)" ng-model="collfamily" type="text">
+                                                                        </input>
+                                                                    </div>
+                                                                    <div class="gf-col-1" data-column="7">
+                                                                        <label>
+                                                                            Code
+                                                                            <i class="fa fa-search">
+                                                                            </i>
+                                                                        </label>
+                                                                        <input autofocus="" class="numberdecimal column_filterspec" id="col7_filter" name="txtcoll_code" ng-change="searchmodel(8)" ng-model="collcode" type="text">
+                                                                        </input>
+                                                                    </div>
+                                                                    <div class="gf-col-1" data-column="8">
+                                                                        <label>
+                                                                            year
+                                                                            <i class="fa fa-search">
+                                                                            </i>
+                                                                        </label>
+                                                                        <input autofocus="" class="numberdecimal column_filterspec" id="col8_filter" name="txtcoll_code" ng-change="searchmodel(9)" ng-model="collyear" type="text">
+                                                                        </input>
+                                                                    </div>
+                                                                    <div class="gf-col-1" data-column="15">
+                                                                        <label>
+                                                                            number
+                                                                            <i class="fa fa-search">
+                                                                            </i>
+                                                                        </label>
+                                                                        <input autofocus="" class="numberdecimal column_filterspec" id="col9_filter" name="txtcoll_code" ng-change="searchmodel(10)" ng-model="collnumber" type="text">
+                                                                        </input>
+                                                                    </div>
+                                                                </div>
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel-body no-padding">
+                                                <table cellspacing="0" class="table table-condensed table-hover" id="NewSpecimensListTbl" width="100%">
+                                                    <thead>
+                                                        <tr class="uppercase label-default ">
+                                                            <th>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    Specimen Number
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    Order
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    Family
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    Box Number
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    coll_code
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    coll_year
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    coll_number
+                                                                </span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

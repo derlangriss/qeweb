@@ -1,0 +1,132 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "angular-super-gallery",
+        "scope": null,
+        "escapedName": "angular-super-gallery",
+        "name": "angular-super-gallery",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "D:\\Apache24\\htdocs\\QEmanagementWebapp\\packet"
+    ]
+  ],
+  "_from": "angular-super-gallery@latest",
+  "_id": "angular-super-gallery@1.2.4",
+  "_inCache": true,
+  "_location": "/angular-super-gallery",
+  "_nodeVersion": "8.0.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/angular-super-gallery_1.2.4_1519409564742_0.8514186167883209"
+  },
+  "_npmUser": {
+    "name": "schanpm",
+    "email": "github@schalk.hu"
+  },
+  "_npmVersion": "5.0.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "angular-super-gallery",
+    "scope": null,
+    "escapedName": "angular-super-gallery",
+    "name": "angular-super-gallery",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-super-gallery/-/angular-super-gallery-1.2.4.tgz",
+  "_shasum": "b5ab08802438059d72df2a52b51ff4a54fc9e580",
+  "_shrinkwrap": null,
+  "_spec": "angular-super-gallery",
+  "_where": "D:\\Apache24\\htdocs\\QEmanagementWebapp\\packet",
+  "author": {
+    "name": "Tamas Schalk",
+    "email": "github@schalk.hu",
+    "url": "https://github.com/schalkt"
+  },
+  "bugs": {
+    "url": "https://github.com/schalkt/angular-super-gallery/issues"
+  },
+  "dependencies": {
+    "angular": "1.6.*",
+    "angular-animate": "1.6.*",
+    "angular-touch": "1.6.*",
+    "bootstrap": "3.3.*",
+    "jquery": "^3.2.1",
+    "screenfull": "^3.3.2"
+  },
+  "description": "AngularJS Super Gallery",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-batch": "^1.0.5",
+    "gulp-bump": "^2.8.0",
+    "gulp-changed": "^3.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-debug": "^3.1.0",
+    "gulp-filter": "^5.0.1",
+    "gulp-gzip": "^1.4.0",
+    "gulp-header": "^1.8.9",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-jshint": "^2.0.4",
+    "gulp-order": "^1.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "~3.1.0",
+    "gulp-sourcemaps": "~2.6.1",
+    "gulp-tslint": "^8.1.2",
+    "gulp-typescript": "^3.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "run-sequence": "^2.2.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.5.3",
+    "typings": "^2.1.1"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-7OqxaDrM+jUPE/JL1+rKTVUTwIU62w9EFU6+zQGvlucopHV5xVguEWBuCSooAwLETy4XE2XLzK8v0wVT6TILTw==",
+    "shasum": "b5ab08802438059d72df2a52b51ff4a54fc9e580",
+    "tarball": "https://registry.npmjs.org/angular-super-gallery/-/angular-super-gallery-1.2.4.tgz",
+    "fileCount": 87,
+    "unpackedSize": 988681
+  },
+  "gitHead": "6b65589930883820d5971b7b825d20eb9f540c60",
+  "homepage": "http://schalk.hu/projects/angular-super-gallery/demo/",
+  "keywords": [
+    "angular",
+    "image",
+    "gallery",
+    "thumbnails",
+    "component",
+    "modal",
+    "bootstrap"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "schanpm",
+      "email": "github@schalk.hu"
+    }
+  ],
+  "name": "angular-super-gallery",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schalkt/angular-super-gallery.git"
+  },
+  "version": "1.2.4"
+}

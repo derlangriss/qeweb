@@ -1,0 +1,38 @@
+\documentclass{memoir}
+
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\graphicspath{ {D:/Apache24/htdocs/newwebapp01/packet/LAYOUT-2/assets/duimage/} }
+\usepackage{ragged2e}
+
+% Make placeholders visible
+\newcommand{\placeholder}[3]{\textbf{$<$ #3 $>$}}
+\newcommand{\plusbinomial}[3][2]{(#2 + #3)^#1}
+% Defaults for each variable
+\newcommand{\DURABLELIST}{\placeholder{DURABLELIST_ID}}
+\newcommand{\STATUS}{\placeholder{STATUS_ID}}
+\begin{document}
+\begin{table}
+    \setlength\tabcolsep{3pt}
+    \centering
+\begin{tabularx}{\linewidth}{|>{\bfseries}c|*{4}{>{\RaggedRight}X|}}% <-- changed
+\hline
+Interviewee & Name 1& Name 2 & Name3 & Name 4 \\ 
+\hline
+%<?php                                    /*
+% */ foreach($data as $labelitem) {           /*            
+% */  echo "\n" . "\\renewcommand{\\DURABLELIST}{" . LatexTemplate::escape($labelitem['DURABLELIST_ID']) . "}\n".    /*
+% */       "\n" . "\\renewcommand{\\STATUS}{" . LatexTemplate::escape($labelitem['STATUS_ID']) . "}\n"; ?>
+\DURABLELIST{} &{simple} & {simple} & {simple} &{simple}   \\ 
+            %<?php   /*
+ 
+ % */ } ?>  
+
+
+
+\hline
+\end{tabularx}
+\caption{My caption}
+\label{my-label}
+\end{table}
+\end{document}

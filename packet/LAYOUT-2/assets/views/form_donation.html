@@ -1,0 +1,87 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.tables.DYNAMIC">
+        Donation Form
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: DYNAMIC TABLE -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <h5 class="over-title margin-bottom-15">
+                        Donation
+                        <span class="text-bold">
+                            Data Entry
+                        </span>
+                    </h5>
+                    <p>
+                        Add the row by pressing the submit button. Alternatively, play around by adding and deleting/removing the rows.
+                    </p>
+                    <!-- /// controller:  'ngTableCtrl' -  localtion: assets/js/controllers/ngTableCtrl.js /// -->
+                    <div ng-controller="donationTblCtrl">
+                        <div class="col-md-4">
+                            <div class="padding-bottom-20">
+                                <h3>
+                                    Add Donation
+                                </h3>
+                            </div>
+                            <form class="form-horizontal padding-bottom-20" role="form">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Donation
+                                    </label>
+                                    <div class="col-md-6">
+                                        <input class="form-control" id="txtdonation" name="txtdonation" ng-model="txtdonation" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Note
+                                    </label>
+                                    <div class="col-md-6">
+                                        <input class="form-control" id="txtdonation_note" name="txtdonation_note" ng-model="txtmethod_note" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-6">
+                                        <input class="btn btn-primary btn-wide pull-right" ng-click="Donationins('ADD');" type="submit" value="Submit"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="table-responsive">
+                                <fieldset>
+                                    <table cellspacing="0" class="table table-condensed table-hover" id="donationTbl" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">
+                                                    No.
+                                                </th>
+                                                <th class="hidden-xs">
+                                                    Donation details.
+                                                </th>
+                                                <th class="hidden-xs">
+                                                    Notes
+                                                </th>
+                                                <th>
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: DYNAMIC TABLE -->

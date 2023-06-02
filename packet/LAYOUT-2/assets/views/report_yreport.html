@@ -1,0 +1,664 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.MREPORT">
+        FORM ELEMENTS
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<div class="container-fluid container-fullw">
+    <div class="panel panel-white">
+        <div class="panel-body">
+            <div ng-controller="ReportMreportCtrl">
+                <div class="row">
+                    <div class="col-md-9">
+                        <form class="gf" id="specimens_printqueue" name="specimens_printqueue">
+                            <fieldset>
+                                <legend>
+                                    Search Collection
+                                </legend>
+                                <div class="gf-row-1 gf-large">
+                                    <!--div class="gf-col-1" data-column="6" id="filter_col1">
+                                        <label>
+                                            CODE
+                                        </label>
+                                        <input autofocus="" class="column_filter_printcoll" id="col6_filter" name="txtcoll_code_inter" type="text">
+                                        </input>
+                                    </div>
+                                    <div class="gf-col-1" data-column="7" id="filter_col2">
+                                        <label>
+                                            YEAR
+                                        </label>
+                                        <input autofocus="" class="column_filter_printcoll number" id="col7_filter" name="txtcoll_year_inter" type="text">
+                                        </input>
+                                    </div>
+                                    <div class="gf-col-1">
+                                        <label>
+                                            NUMBER
+                                        </label>
+                                        <div class="input-group">
+                                            <input autofocus="" id="col8_filter" type="text">
+                                            </input>
+                                        </div>
+                                    </div-->
+                                    <div class="gf-col-1">
+                                        <label>
+                                            MONTH
+                                        </label>
+                                        <div class="input-group">
+                                            <input id="date" name="txtcoll_number_inter" ng-model="mreport_date" type="text">
+                                            </input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="">
+                                        <div class="">
+                                            <p>
+                                                <div class="btn-group btn-group-justified">
+                                                    <a class="btn btn-primary" href="javascript:;" ng-click="msearch();">
+                                                        SEARCH
+                                                    </a>
+                                                    <a class="btn btn-primary" href="javascript:;" ng-click="mreset();">
+                                                        RESET
+                                                    </a>
+                                                </div>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>
+                                    Collection List
+                                </legend>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>
+                                        </label>
+                                        <table class="grid" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Consulente
+                                                    </th>
+                                                    <th>
+                                                        target
+                                                    </th>
+                                                    <th>
+                                                        Visti
+                                                    </th>
+                                                    <th>
+                                                        Chiusi
+                                                    </th>
+                                                    <th>
+                                                        Ratio
+                                                    </th>
+                                                    <th>
+                                                        Venduto €
+                                                    </th>
+                                                    <th>
+                                                        Aps €
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MRS FOUR
+                                                    </td>
+                                                    <td column="target:">
+                                                        WALK INS
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        2
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        1
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        1.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        3.903€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        1.952€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MRS FOUR
+                                                    </td>
+                                                    <td column="target:">
+                                                        ANNULLAMENTI
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        0
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        2
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        0.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        -1.398€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        -699€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MISTER ONE
+                                                    </td>
+                                                    <td column="target:">
+                                                        RINNOVI
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        0
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        2
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        0.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        3.388€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        1.694€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MISTER ONE
+                                                    </td>
+                                                    <td column="target:">
+                                                        WALK INS
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        9
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        2
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        4.50
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        4.122€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        2.061€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MISTER ONE
+                                                    </td>
+                                                    <td column="target:">
+                                                        RIFERITI
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        2
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        2
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        1.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        4.122€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        2.061€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MISTER ONE
+                                                    </td>
+                                                    <td column="target:">
+                                                        INBOUND
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        3
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        1
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        3.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        1.953€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        1.953€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MISTER ONE
+                                                    </td>
+                                                    <td column="target:">
+                                                        PROSPECTING
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        1
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        1
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        1.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        1.840€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        1.840€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MISTER ONE
+                                                    </td>
+                                                    <td column="target:">
+                                                        PLATFORM
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        3
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        3
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        1.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        5.710€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        1.903€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MISTER ONE
+                                                    </td>
+                                                    <td column="target:">
+                                                        ANNULLAMENTI
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        0
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        2
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        0.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        -2.318€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        -1.159€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MISTER TWO
+                                                    </td>
+                                                    <td column="target:">
+                                                        WALK INS
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        2
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        1
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        2.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        2.439€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        2.439€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MISTER TWO
+                                                    </td>
+                                                    <td column="target:">
+                                                        RIFERITI
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        3
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        2
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        1.50
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        3.359€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        1.680€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MISTER TWO
+                                                    </td>
+                                                    <td column="target:">
+                                                        INBOUND
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        2
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        0
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        0€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MISTER TWO
+                                                    </td>
+                                                    <td column="target:">
+                                                        PLATFORM
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        4
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        1
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        4.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        -901€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        -901€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        MISTER TWO
+                                                    </td>
+                                                    <td column="target:">
+                                                        ANNULLAMENTI
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        1
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        2
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        0.50
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        -3.031€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        -1.516€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        BB
+                                                    </td>
+                                                    <td column="target:">
+                                                        RINNOVI
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        0
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        2
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        0.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        1.827€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        914€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        BB
+                                                    </td>
+                                                    <td column="target:">
+                                                        WALK INS
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        4
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        1
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        4.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        1.287€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        1.287€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        BB
+                                                    </td>
+                                                    <td column="target:">
+                                                        RIFERITI
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        5
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        1
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        5.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        1.371€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        1.371€
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        BB
+                                                    </td>
+                                                    <td column="target:">
+                                                        INBOUND
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        2
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        0
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        0€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td column="Consulente:">
+                                                        BB
+                                                    </td>
+                                                    <td column="target:">
+                                                        PLATFORM
+                                                    </td>
+                                                    <td column="Visti:">
+                                                        12
+                                                    </td>
+                                                    <td column="Chiusi:">
+                                                        2
+                                                    </td>
+                                                    <td column="Ratio:">
+                                                        6.00
+                                                    </td>
+                                                    <td column="Venduto €:">
+                                                        4.248€
+                                                    </td>
+                                                    <td column="Aps €:">
+                                                        2.124€
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>
+                                                        Consulente
+                                                    </th>
+                                                    <th>
+                                                        target
+                                                    </th>
+                                                    <th>
+                                                        Visti
+                                                    </th>
+                                                    <th>
+                                                        Chiusi
+                                                    </th>
+                                                    <th>
+                                                        Ratio
+                                                    </th>
+                                                    <th>
+                                                        Venduto €
+                                                    </th>
+                                                    <th>
+                                                        Aps €
+                                                    </th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-12">
+                                <div class="panel panel-white no-radius no-border">
+                                    <div class="partition-light-grey padding-15 text-center margin-bottom-25">
+                                        <h5 class="text-bold">
+                                            Monthly Statistics
+                                        </h5>
+                                        <span class="label label-warning">
+                                            {{ngmodelMothDisplay}}
+                                        
+                                            {{ngmodelYearDisplay}}
+                                        </span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="panel-scroll height-300" perfect-scrollbar="" suppress-scroll-x="true" wheel-propagation="false">
+                                                    <table class="table no-margin">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="center">
+                                                                    <div class="block margin-top-15 margin-bottom-10 text-orange">
+                                                                        <span class="counter-symbol">
+                                                                            <i class="fa fa-bug">
+                                                                            </i>
+                                                                        </span>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="text-small block text-light">
+                                                                        Specimens
+                                                                    </span>
+                                                                    <a href="#">
+                                                                        Peter Clark
+                                                                    </a>
+                                                                </td>
+                                                                <td class="text-right">
+                                                                    <span class="counter-symbol" count-to="{{ngmodelMothlysum}}" duration="1" filter="number" ng-model="ngmodelMothlysum" value="0">
+                                                                        {{ngmodelMothlysum}}
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr ng-repeat="rp in getCountspecimens">
+                                                                <td class="center">
+                                                                    <span class="text-extra-large">
+                                                                        <i class="fa fa-tag">
+                                                                        </i>
+                                                                    </span>
+                                                                </td>
+                                                                <td>
+                                                                    <span>
+                                                                        {{rp.collfullnum}}
+                                                                    </span>
+                                                                </td>
+                                                                <td class="text-right">
+                                                                    <span class="badge badge-inverse">
+                                                                        {{rp.counteachspec}}
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--div class="partition-light-grey padding-15 text-center margin-bottom-25">
+                                        <h5 class="text-bold">
+                                            TEST STATUSITIC
+                                        </h5>
+                                        <span class="label label-warning">
+                                        </span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="panel-scroll height-300" perfect-scrollbar="" suppress-scroll-x="true" wheel-propagation="false">
+                                                    <table class="table no-margin">
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,7 +8,7 @@
 <!-- start: WIZARD DEMO -->
 <div class="container-fluid container-fullw">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12"> 
             <div class="panel panel-white">
                 <div class="panel-body">
                     <h5 class="over-title margin-bottom-15">Wizard <span class="text-bold">demo</span></h5>
@@ -84,7 +84,7 @@
                                                         <div class="form-group" ng-class="{'has-error':Form.lastName.$dirty && Form.lastName.$invalid, 'has-success':Form.lastName.$valid}">
                                                             <label class="control-label"> Last Name <span class="symbol required"></span> </label>
                                                             <input type="text" placeholder="Enter your Last Name" class="form-control" name="lastName" ng-model="myModel.lastName" ng-required="currentStep == 1" />
-                                                            <span class="error text-small block" ng-if="Form.lastName.$dirty && Form.lastName.$invalid">Last Name is required</span>
+                                                            <span class="error text-small block" ng-if="Form.lastName.$dirty && Form.lastName.$invalid"></span>
                                                             <span class="success text-small" ng-if="Form.lastName.$valid">Wonderful!</span>
                                                         </div>
                                                     </div>
@@ -343,7 +343,7 @@
                                                     <div class="col-xs-12">
                                                         <label> Security code </label>
                                                         <div class="row">
-                                                            <div class="col-xs-3">
+                                                            <div class="col-xs-3"> 
                                                                 <div class="form-group">
                                                                     <input type="text" class="form-control" name="securityCode" placeholder="Security code" ng-model="myModel.securityCode">
                                                                 </div>

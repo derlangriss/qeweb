@@ -12,7 +12,6 @@
             "HEADER": "Unread messages",
             "SEEALL": "See All"
         },
-
         "activities": {
             "MAIN": "Activities",
             "HEADER": "You have new notifications",
@@ -51,7 +50,9 @@
         "heading": {
             "NAVIGATION": "Main Navigation",
             "FEATURES": "Core Features",
-            "DOCUMENTATION": "Documentation"
+            "DOCUMENTATION": "Documentation",
+            "REPORT": "REPORT",
+            "MUSEUM": "MUSEUM"
         },
         "nav": {
             "dashboard": {
@@ -91,23 +92,92 @@
                 "NESTABLE": "Nestable List",
                 "TYPOGRAPHY": "Typography"
             },
+            "collection": {
+                "MAIN": "Collection Info",
+                "COLLECTIONINFO": "Collection Report",
+                "COLECTION": "Collection Table",
+                "COLLECTOR": "Collector Table",
+                "METHOD": "Method Table",
+                "DONATOR": "Donator Table",
+                "LOCATION": "Location Table"
+            },
+            "specimens": {
+                "MAIN": "Specimens Info",
+                "SPECIMENSINFO": "Specimens View",
+                "SPECIMENS": "Specimens List",
+                "SPECMANAGEMENT": {
+                    "MAIN": "Applications",
+                    "STEP1": "Count Specimens",
+                    "STEP2": "Produce Label",
+                    "STEP3": "Indentify",
+                    "STEP4": "Tracking"
+                }
+            },
             "tables": {
                 "MAIN": "Tables",
                 "BASIC": "Basic Tables",
                 "RESPONSIVE": "Responsive Tables",
                 "DYNAMIC": "Dynamic Tables",
-                "DATA": "ngTable"
+                "DATA": "ngTable",
+                "COLLECTION": "Collection",
+                "SPECIMENS": "Specimen",
+                "COLLECTOR": "Collector",
+                "TRAPPING": "Trapping",
+                "LOCATION": "Location",
+                "DONATION": "Donation",
+                "TAXAINFO": "TaxaInfo"
+            },
+            "museuminfo": {
+                "MAIN":"Museum Infomation"
+            },
+            "durableinfo": {
+                "MAIN":"Durable Infomation"
+            },
+            "museum": {
+                "MAIN":"Museum",
+                "ALLINFO": "Museum Info",
+                "CONMANAGE": "Container Management",
+                "TRANSFER": "Transfer",
+                "TRANSFEROLD": "OLD Specimens",
+                "TRANSFERNEW": "NEW Specimens",
+                "MUSEUMSPEC": "Specimens in Museum"
+            },
+            "4label": {
+                "MAIN": "Label",
+                "NONPRINTED": "Non-Printed Label",
+                "PRINTED": "Printed Label",
+                "LBMANAGE": "Label Management"
+            },
+            "report": {
+                "MAIN": "Summary Report",
+                "MREPORT": "Monthly Report ",
+                "YREPORT": "Annual Report "
             },
             "forms": {
                 "MAIN": "Forms",
-                "ELEMENTS": "Form Elements",
+                "ELEMENTS": "form element",
+                "COLLECTION": "Collection Form",
                 "PICKERS": "Pickers",
                 "XEDITABLE": "X-Editable Elements",
                 "TEXTEDITOR": "Text Editor",
                 "WIZARD": "Form Wizard",
+                "TAXA": "TaxaDetails From",
                 "VALIDATION": "Form Validation",
                 "CROPPING": "Image Cropping",
-                "UPLOAD": "Multiple File Upload"
+                "UPLOAD": "Multiple File Upload",
+                "COLLECTION": "Collection Form",
+                "SPECIMENS": "Specimens Form",
+                "COLLECTIONLIST": "Collection Form",
+                "PRINTLABEL": "Non-Print Label",
+                "PRINTEDLABEL": "Printed Label",
+                "COLLECTOR": "Collector Form",
+                "PREINSSPEC": "PreInsertSpec Form",
+                "MASSSPECIMENS": "MassSpecimes Form",
+                "DURABLE": "Durable Form",
+                "TRAPPING": "Trapping",
+                "BOXSPECIMENS": "Specimens Box",
+                "MAINTRANSFERSPEC": "Tranfer Specimens",
+                "MANAGESPEC": "Specimens Box NEW"
             },
             "login": {
                 "MAIN": "Login",
@@ -227,6 +297,12 @@
             },
             "landing": {
                 "MAIN": "Landing Page"
+            },
+            "gallery": {
+                "MAIN": "Gallery"
+            },
+            "mreport": {
+                "MAIN": "Monthly Summary Report"
             },
             "rtl": {
                 "MAIN": "RTL Version"

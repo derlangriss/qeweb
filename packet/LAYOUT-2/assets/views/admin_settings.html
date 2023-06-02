@@ -1,0 +1,10 @@
+<div ng-controller="AdminSettingsCtrl">
+  <ul class="nav nav-tabs">
+      <li role="presentat" ng-repeat="tab in settingsTabs" ng-class="{active : activeTab == tab.name}">
+          <a ui-sref="app.settings.general" ng-click="tabClicked(tab.name)">
+              {{tab.name}}
+          </a>
+      </li> 
+  </ul>
+
+</div> 

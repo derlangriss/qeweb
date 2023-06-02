@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="http://www.datatables.net/favicon.ico" rel="shortcut icon" type="image/ico">
+		<meta content="initial-scale=1.0, maximum-scale=2.0" name="viewport">
+		<title>
+		DataTables example - Bootstrap 3
+		</title>
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+		</script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+		</script>
+		<script>
+				
+		$(document).ready(function(){
+
+$(".dropdown").on({
+
+	"shown.bs.dropdown": function() { alert("sdfdsf") }
+
+
+
+				})
+
+
+
+
+			/***end*/
+				})
+
+
+
+
+		</script>
+	</link>
+	</meta>
+</link>
+</meta>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<h2>
+		Multi level dropdown menu in Bootstrap 3
+		</h2>
+		<hr>
+		<div class="dropdown">
+			<a class="btn btn-primary" data-target="" data-toggle="dropdown" id="dLabel" role="button">
+				Dropdown
+				<span class="caret">
+				</span>
+			</a>
+			<ul aria-labelledby="dropdownMenu" class="dropdown-menu multi-level" role="menu">
+				<li>
+					<a href="#">
+						Some action
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						Some other action
+					</a>
+				</li>
+				<li class="divider">
+				</li>
+				<li class="dropdown-submenu">
+					<a href="#" tabindex="-1">
+						Hover me for more options
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#" tabindex="-1">
+								Second level
+							</a>
+						</li>
+						<li class="dropdown-submenu">
+							<a href="#">
+								Even More..
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">
+										3rd level
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										3rd level
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">
+								Second level
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								Second level
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		</hr>
+	</div>
+</div>
+</body>
+</html>

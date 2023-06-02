@@ -1,9 +1,18 @@
 'use strict';
-/*addition*/
-app.controller("GridFormCollectionCtrl", ["$scope", "$http", "$timeout", "$stateParams", "SweetAlert", "test", function($scope, $http, $timeout, $stateParams, SweetAlert, test) {
-
+/*addition*/ 
+app.controller("GridFormCollectionCtrl", ["$scope", "$http", "$timeout", "$stateParams", "SweetAlert", "test","$state", function($scope, $http, $timeout, $stateParams, SweetAlert,test,$state,$window) {
+    
+    $http.get("assets/views/action/session.php")
+    .success(function (response) {
+    
+     $scope.access_token = response.data[0].access_token;
+        if($scope.access_token == ""){
+             $state.go('login.signin')
+        }
+     
+    });
     $scope.data = {};
-    test.collno($stateParams.contactid).success(function(result) {
+    test.collno($stateParams.idcollection).success(function(result) {
         var startdate = result[0].collectionstartdate;
         var enddate = result[0].collectionenddate;
         $scope.data.idcollection = result[0].idcollection;
@@ -11,7 +20,7 @@ app.controller("GridFormCollectionCtrl", ["$scope", "$http", "$timeout", "$state
         $scope.data.collectionlatdec = result[0].collectionlatdec;
         $scope.data.collectionlatd = result[0].collectionlatd;
         $scope.data.collectionlatm = result[0].collectionlatm;
-        $scope.data.collectionlats = result[0].collectionlats;
+        $scope.data.collectionlats = result[0].collectionlats; 
         $scope.data.collectionlongdec = result[0].collectionlongdec;
         $scope.data.collectionlongd = result[0].collectionlongd;
         $scope.data.collectionlongm = result[0].collectionlongm;
@@ -190,7 +199,11 @@ app.controller("GridFormCollectionCtrl", ["$scope", "$http", "$timeout", "$state
         });
     }
 
+    var savetype = $('input[name="savetype"]:checked').val()
+
     $scope.doCallAjaxinterfacesimilar = function(Mode) {
+        var savetype = $('input[name="savetype"]:checked').val()
+        alert(savetype);
         var pmeters = "tcollection_ID=" + encodeURI(document.getElementById("txtcollection_ID_inter").value) +
             "&tidcollection=" + encodeURI(document.getElementById("txtidcollection").value) +
             "&tcollection_start_date=" + encodeURI(document.getElementById("txtcollection_start_date").value) +
@@ -234,6 +247,9 @@ app.controller("GridFormCollectionCtrl", ["$scope", "$http", "$timeout", "$state
                             document.querySelector('input[name="txtcoll_year_inter"]').value = inval["coll_year"];
                             document.querySelector('input[name="txtcoll_number_inter"]').value = inval["coll_number"];
                         });
+                        if(savetype==1){
+                         clearform();
+                        }
                     }
                 });
             }
@@ -242,6 +258,7 @@ app.controller("GridFormCollectionCtrl", ["$scope", "$http", "$timeout", "$state
     }
 
     $scope.doCallAjaxinterface = function(Mode) {
+         var savetype = $('input[name="savetype"]:checked').val()
         var pmeters = "tcollection_ID=" + encodeURI(document.getElementById("txtcollection_ID_inter").value) +
             "&tidcollection=" + encodeURI(document.getElementById("txtidcollection").value) +
             "&tcollection_start_date=" + encodeURI(document.getElementById("txtcollection_start_date").value) +
@@ -285,7 +302,9 @@ app.controller("GridFormCollectionCtrl", ["$scope", "$http", "$timeout", "$state
                             document.querySelector('input[name="txtcoll_year_inter"]').value = inval["coll_year"];
                             document.querySelector('input[name="txtcoll_number_inter"]').value = inval["coll_number"];
                         });
-                        clearform();
+                        if(savetype==1){
+                         clearform();
+                        }
                     }
                 });
             }

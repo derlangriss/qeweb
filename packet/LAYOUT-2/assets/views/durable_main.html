@@ -1,0 +1,54 @@
+<!-- start: MESSAGES -->
+<div ct-fullheight="" data-ct-fullheight-exclusion="header, footer">
+    <!-- /// controller:  'InboxCtrl' -  localtion: assets/js/controllers/inboxCtrl.js /// -->
+    <div active-class="message-open" class="inbox" id="inbox" ng-controller="DurableMainCtrl" toggleable="">
+        <!-- end: EMAIL LIST -->
+        <!-- start: EMAIL READER -->
+        <div class="fullwidth-panel">
+            <div class="spec-sideinfo scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                <div class="swMain-fixed" id="wizard">
+                    <ul>
+                         <li ng-click="setTab(1)">
+                            <a href="javascript:void(0);" ng-class="{'selected' : isSet(1), 'done' : currentStep > 1}" ui-sref="app.durable.durable_main.normal">
+                         
+                                <div class="stepNumber">
+                                    <i class="fa fa-chain">
+                                    </i>
+                                </div>
+                                <span class="stepDesc text-small">
+                                    Normal Durable
+                                </span>
+                            </a>
+                        </li>
+                        <li ng-click="setTab(2)">
+                            <a href="javascript:void(0);" ng-class="{'selected' : isSet(2), 'done' : currentStep > 2}" ui-sref="app.durable.durable_main.abnormal">
+                                <div class="stepNumber">
+                                    <i class="fa fa-chain-broken">
+                                    </i>
+                                </div>
+                                <span class="stepDesc text-small">
+                                    ABNormal Durable
+                                </span>
+                            </a>
+                        </li>
+                        <li ng-click="setTab(3)">
+                            <a href="javascript:void(0);" ng-class="{'selected' : isSet(3), 'done' : currentStep > 3}" ui-sref="app.durable.durable_main.durableform">
+                                <div class="stepNumber">
+                                    <i class="fa fa-file-text-o">
+                                    </i>
+                                </div>
+                                <span class="stepDesc text-small">
+                                    Durable Form
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fade-in-up" ui-view="firstview">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: EMAIL READER -->
+</div>
+<!-- end: MESSAGES -->

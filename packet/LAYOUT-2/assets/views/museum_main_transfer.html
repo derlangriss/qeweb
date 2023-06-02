@@ -1,0 +1,418 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="">
+        Museum Information
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+    <div ng-controller="reporttab">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-9 col-lg-12">
+                        <div class="panel panel-white no-radius" id="panelsocial">
+                            <div class="panel-heading partition-azure border-light">
+                                <h4 class="panel-title">
+                                    การจัดเก็บตัวอย่างในพิพิธภัณฑ์ งบประมาณ 2562
+                                </h4>
+                            </div>
+                            <div class="panel-wrapper" ng-init="panelsocial=false" uib-collapse="panelsocial">
+                                <div class="panel-body no-padding">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="padding-10 block text-center">
+                                                <p>
+                                                    <span class="text-bold">
+                                                        รวบรวมตัวอย่างแห้ง
+                                                    </span>
+                                                    <span class="text-light">
+                                                        (3600 หมายเลข)
+                                                    </span>
+                                                </p>
+                                                <!-- /// controller:  'SocialCtrl3' -  localtion: assets/js/controllers/dashboardCtrl.js /// -->
+                                                <div class="panel-body text-center">
+                                                    <ui-knob options="options" value="valuespec">
+                                                    </ui-knob>
+                                                </div>
+                                                <h4>
+                                                    <i class="fa fa-sort-up small text-green margin-right-5">
+                                                    </i>
+                                                    <span class="text-bold text-dark margin-right-10">
+                                                        {{countexpecyear}}
+                                                    </span>
+                                                    <span class="text-grey">
+                                                        ({{avgbarspec}} %)
+                                                    </span>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="padding-10 block text-center">
+                                                <p>
+                                                    <span class="text-bold">
+                                                        จำแนกตัวอย่างแมลงระดับวงศ์
+                                                    </span>
+                                                    <span class="text-light">
+                                                        (80 วงศ์)
+                                                    </span>
+                                                </p>
+                                                <!-- /// controller:  'SocialCtrl4' -  localtion: assets/js/controllers/dashboardCtrl.js /// -->
+                                                <div ng-controller="SocialCtrl4">
+                                                    <div class="text-center">
+                                                        <span class="mini-pie-500">
+                                                            <canvas chart-colours="colors" chart-data="data" chart-labels="labels" chart-options="options" chart-series="series" class="chart chart-doughnut">
+                                                            </canvas>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <h4>
+                                                    <i class="fa fa-sort-up small text-green margin-right-5">
+                                                    </i>
+                                                    <span class="text-bold text-dark margin-right-10">
+                                                        {{countmaxfamilyname}}
+                                                    </span>
+                                                    <span class="text-grey">
+                                                        ({{countmaxfamily}})
+                                                    </span>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="padding-10 block text-center">
+                                                <p>
+                                                    <span class="text-bold">
+                                                        การใช้พื้นที่ในพิพิธภัณฑ์
+                                                    </span>
+                                                    <span class="text-light">
+                                                        ({{countspecboxmuseum}} กล่อง)
+                                                    </span>
+                                                </p>
+                                                <!-- /// controller:  'SocialCtrl4' -  localtion: assets/js/controllers/dashboardCtrl.js /// -->
+                                                <div ng-controller="SocialCtrl4">
+                                                    <div class="text-center">
+                                                        <span class="mini-pie-100">
+                                                            <canvas chart-colours="colors" chart-data="data" chart-labels="labels" chart-options="options" chart-series="series" class="chart chart-doughnut">
+                                                            </canvas>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <h4>
+                                                    <i class="fa fa-sort-up small text-green margin-right-5">
+                                                    </i>
+                                                    <span class="text-bold text-dark margin-right-10">
+                                                        Nymphanidae
+                                                    </span>
+                                                    <span class="text-grey">
+                                                        (72.11%)
+                                                    </span>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix padding-5 space5">
+                                        <div class="col-xs-4 text-center no-padding">
+                                            <div class="border-right border-dark">
+                                                <a class="text-dark" href="#">
+                                                    <i class="fa fa-tag text-red">
+                                                    </i>
+                                                    {{countallyear}}
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 text-center no-padding">
+                                            <div class="border-right border-dark">
+                                                <a class="text-dark" href="#">
+                                                    <i class="fa fa-bug text-green">
+                                                    </i>
+                                                    {{countallyearfamily}}
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 text-center no-padding">
+                                            <a class="text-dark" href="#">
+                                                <i class="fa fa-archive text-azure">
+                                                </i>
+                                                {{countusedspecbox}}
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <div class="row">
+                                            <div class="panel-body">
+                                                <!-- end: EMAIL READER -->
+                                                <div class="panel">
+                                                    <div class="tab-pane" id="tab-table1">
+                                                        <div class="tab-content">
+                                                            <div class="container bootstrap snippet no-padding">
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="tab-table1">
+                                                            <div class="row">
+                                                                
+                                                                <div class="col-md-12">
+                                                                    <div id="tab-table2">
+                                                                        <div class="panel no-border panel-white no-radius">
+                                                                            <div class="panel-body ">
+                                                                                <h5 class="over-title margin-bottom-15">
+                                                                                    Specimens Report
+                                                                                    <span class="text-bold">
+                                                                                        list
+                                                                                    </span>
+                                                                                </h5>
+                                                                                <table class="table table-bordered table-hover no-padding" id="sample-table-5">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th>
+                                                                                                Month
+                                                                                            </th>
+                                                                                            <th class="hidden-xs">
+                                                                                                QTY
+                                                                                            </th>
+                                                                                            <th>
+                                                                                                <i class="fa fa-time">
+                                                                                                </i>
+                                                                                                Uploaded(%)
+                                                                                            </th>
+                                                                                            <th class="hidden-xs">
+                                                                                                Status
+                                                                                            </th>
+                                                                                            <th>
+                                                                                            </th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr ng-repeat="m in mreportspeclist">
+                                                                                            <td>
+                                                                                                {{m.fullmonth}} {{m.reportyear}}
+                                                                                            </td>
+                                                                                            <td class="hidden-xs">
+                                                                                                {{m.countspecea}}
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {{m.uploadedpercent}}
+                                                                                            </td>
+                                                                                            <td class="hidden-xs">
+                                                                                                <span class="label label-sm {{m.uploadprogressaction}}">
+                                                                                                    {{m.uploadprogress}}
+                                                                                                </span>
+                                                                                            </td>
+                                                                                            <td class="center">
+                                                                                                <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                                                                                    <a class="btn btn-transparent btn-xs" ng-click="ReportSearch(m.reportmonth,m.reportyear)" tooltip-placement="top" uib-tooltip="Museum">
+                                                                                                        <i class="fa fa-building">
+                                                                                                        </i>
+                                                                                                    </a>
+                                                                                                    <a class="btn btn-transparent btn-xs tooltips" ng-click="LabelSearch(m.reportmonth,m.reportyear)" tooltip-placement="top" uib-tooltip="Label">
+                                                                                                        <i class="fa fa-tags">
+                                                                                                        </i>
+                                                                                                    </a>
+                                                                                                    <!--a class="btn btn-transparent btn-xs tooltips" href="#" ng-click="PrintReport('MReport',m.reportmonth,m.reportyear)" tooltip-placement="top" uib-tooltip="Print">
+                                                                                                        <i class="fa fa-print fa fa-white">
+                                                                                                        </i>
+                                                                                                    </a-->
+                                                                                                </div>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr ng-repeat-end="">
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="panel-body">
+                                                <table class="table table-bordered table-bordered-fixed table-hover no-padding" id="fiscaltbl" width="100%">
+                                                    <thead>
+                                                        <tr class="uppercase label-default ">
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    family id
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    family name
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    january
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    february
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    march
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    april
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    may
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    june
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    july
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    august
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    september
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    october
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    november
+                                                                </span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="label-change ">
+                                                                    december
+                                                                </span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--div class="row">
+                                            <div class="panel-body">
+                                                <table class="table table-bordered table-hover no-padding" id="sample-table-5">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>
+                                                                Family
+                                                            </th>
+                                                            <th class="hidden-xs">
+                                                                January
+                                                            </th>
+                                                            <th>
+                                                                February
+                                                            </th>
+                                                            <th class="hidden-xs">
+                                                                March
+                                                            </th>
+                                                            <th class="hidden-xs">
+                                                                April
+                                                            </th>
+                                                            <th>
+                                                                May
+                                                            </th>
+                                                            <th class="hidden-xs">
+                                                                June
+                                                            </th>
+                                                            <th class="hidden-xs">
+                                                                July
+                                                            </th>
+                                                            <th>
+                                                                August
+                                                            </th>
+                                                            <th class="hidden-xs">
+                                                                September
+                                                            </th>
+                                                            <th class="hidden-xs">
+                                                                October
+                                                            </th>
+                                                            <th>
+                                                                November
+                                                            </th>
+                                                            <th class="hidden-xs">
+                                                                December
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="m in familyreportlist">
+                                                            <td>
+                                                                {{m.family_name}}
+                                                            </td>
+                                                            <td>
+                                                                {{m.jan}}
+                                                            </td>
+                                                            <td>
+                                                                {{m.feb}}
+                                                            </td>
+                                                            <td>
+                                                                {{m.mar}}
+                                                            </td>
+                                                            <td>
+                                                                {{m.apr}}
+                                                            </td>
+                                                            <td>
+                                                                {{m.may}}
+                                                            </td>
+                                                            <td>
+                                                                {{m.jun}}
+                                                            </td>
+                                                            <td>
+                                                                {{m.jul}}
+                                                            </td>
+                                                            <td>
+                                                                {{m.aug}}
+                                                            </td>
+                                                            <td>
+                                                                {{m.sep}}
+                                                            </td>
+                                                            <td>
+                                                                {{m.oct}}
+                                                            </td>
+                                                            <td>
+                                                                {{m.nov}}
+                                                            </td>
+                                                            <td>
+                                                                {{m.dec}}
+                                                            </td>
+                                                        </tr>
+                                                        <tr ng-repeat-end="">
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: USER PROFILE -->

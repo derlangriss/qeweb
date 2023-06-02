@@ -1,237 +1,54 @@
-<!-- start: BREADCRUMB -->
-<div class="breadcrumb-wrapper">
-    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.ELEMENTS">FORM ELEMENTS</h4>
-    <div ncy-breadcrumb class="pull-right"></div>
-</div>
-<!-- end: BREADCRUMB -->
-<div class="container-fluid container-fullw">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-white">
-                <div class="panel-body">
-<div ng-controller="PrintLabelSummaryCtrl">
-                 <form name="frmMain"  id="formID" class="gf">
-<fieldset>
-       <legend>Print Summary</legend>
-
-        <div class="">
-<div class="">
-
-
-
-
-
-<div class="row cart">
-<div class="small-12 medium-8 large-9 cart-items columns">
-
-<h1>Label Print Queue</h1>
-<form action="http://www.getintenso.com/demo/default/checkout/cart/updatePost/" method="post">
-<input name="form_key" type="hidden" value="PIecImArGFAQj7HI"/>
-<table id="shopping-cart-table" class="data-table cart-table">
-<col width="1"/>
-<col/>
-<col width="1"/>
-<col width="1"/>
-<thead>
-<tr>
-<th rowspan="1">&nbsp;</th>
-<th rowspan="1">&nbsp;</th>
-
-<th rowspan="1" class="a-center">Quantity</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td colspan="50" class="btn-continue-shopping">
-<a title="Continue Shopping" class="link-continue" onclick="setLocation('http://www.getintenso.com/demo/default/')">Add New Label</a>
-<button type="submit" name="update_cart_action" data-cart-empty value="empty_cart" title="Empty Cart" class="button2 btn-empty" id="empty_cart_button"><span><span>Empty Cart</span></span></button>
-<!--[if lt IE 8]>
-                            <input type="hidden" id="update_cart_action_container" />
-                            <script type="text/javascript">
-                           
-                            </script>
-                            <![endif]-->
-</td>
-</tr>
-</tfoot>
-<tbody>
-
-       
-       
-<tr ng-repeat="contact in contactList" on-last-repeat>
-<td><a href="http://www.getintenso.com/demo/default/man-top-polos-pearl-street-classic-fit-polo.html" title="Pearl Street Classic Fit Polo" class="product-image"><img src="assets/img/QRbasic/qrcode_basic.gif" width="75" height="75" alt="Pearl Street Classic Fit Polo"/></a></td>
-<td>
-
-
-
-
-<h4 class="product-name">
-<a href="http://www.getintenso.com/demo/default/man-top-polos-pearl-street-classic-fit-polo.html">{{contact.idlabelprintqueue}}</a>
-</h2>
-<dl class="item-options clearfix">
-<dt>THAILAND:{{contact.collectionid}}</dt>
-<dt>{{contact.provinceen}} Alt. {{contact.collectionmasl}} m</dt>
-<dt>{{contact.collectionlatd}}&#12444;{{contact.collectionlatm}}&#39{{contact.collectionlats}}&quotN {{contact.collectionlongd}}&#12444;{{contact.collectionlongm}}&#39{{contact.collectionlongs}}&quotE</dt>
-<dt>{{contact.collectionenddate}} {{contact.collectionmethodsdetails}}</dt>
-<dt>{{contact.collectorsen}}</dt>
-</dl>
-<a href="http://www.getintenso.com/demo/default/checkout/cart/configure/id/19667/" title="Edit item parameters" class="btn-edit">Edit</a>
-<a href="http://www.getintenso.com/demo/default/checkout/cart/delete/id/19667/uenc/aHR0cDovL3d3dy5nZXRpbnRlbnNvLmNvbS9kZW1vL2RlZmF1bHQvY2hlY2tvdXQvY2FydC8,/" title="Remove item" class="btn-remove btn-remove2">Remove item</a>
-</td>
-
- 
-<td id="qty-wrapper-19667" class="qty-wrapper">
-<select name="cart[19667][qty]" id="cart[19667][qty]" class="simulate-change">
-<option value="1" selected="selected">{{contact.numberofitemstoprint}}</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10+</option>
-</select>
-
-</td>
-</tr>
-
-
-
-
-</tbody>
-</table>
-
-</form>
-</div>
-<div class="small-12 medium-4 large-3 cart-collaterals columns">
-<div class="buybox bg-box center">
-<table id="shopping-cart-totals-table">
-<col/>
-<col width="1"/>
-<tfoot>
-<tr>
-<td style="" class="a-right" colspan="1">
-<strong>Number of Paper</strong>
-</td>
-<td style="" class="a-right">
-<strong><span>1</span></strong>
-</td>
-</tr>
-</tfoot>
-
-<tbody>
-<tr>
-<td style="" class="a-right" colspan="1">
-Total Label </td>
-<td style="" class="a-right">
-<span class="price">{{totaltest}}</span> </td>
-</tr>
-</tbody>
-</table>
-<ul class="checkout-types">
-<li>
-
-<p></p>
-    <form>
-       <a id="edit" ng-click="labelprint.Click()" class="btn btn-primary btn-outline btn-sm">Print Label</a>
-</form>
-
-
-
-
-</li>
-<li><a href="http://www.getintenso.com/demo/default/checkout/multishipping/" title="Checkout with Multiple Addresses" class="multishipping-link">Checkout with Multiple Labels</a>
-</li>
-</ul>
-</div>
-<!--div class="shipping">
-<h2>Estimate Shipping and Tax</h2>
-<div class="shipping-form">
-<form action="http://www.getintenso.com/demo/default/checkout/cart/estimatePost/" method="post" id="shipping-zip-form">
-<p>Enter your destination to get a shipping estimate.</p>
-<ul class="form-list">
-<li>
-<label for="country" class="required"><em>*</em>Country</label>
-<div class="input-box">
-<select name="country_id" id="country" class="validate-select" title="Country">
-        <option value=""> </option>
-        <option value="AF">Afghanistan</option>
-        <option value="ZW">Zimbabwe</option>
-</select>
-</div>
-</li>
-<li class="state-province-field">
-<label for="region_id">State/Province</label>
-<div class="input-box">
-<select id="region_id" name="region_id" title="State/Province" style="display:none;">
-<option value="">Please select region, state or province</option>
-</select>
-
-<input type="text" id="region" name="region" value="" title="State/Province" class="input-text" style="display:none;"/>
-</div>
-</li>
-<li>
-<label for="postcode">Zip/Postal Code</label>
-<div class="input-box">
-<input class="input-text validate-postcode" type="text" id="postcode" name="estimate_postcode" value=""/>
-</div>
-</li>
-</ul>
-<div class="buttons-set">
-<button type="button" title="Get a Quote" onclick="coShippingMethodForm.submit()" class="button tiny secondary"><span><span>Get a Quote</span></span></button>
-</div>
-</form>
-
-</div>
-</div>
-<form id="discount-coupon-form" action="http://www.getintenso.com/demo/default/checkout/cart/couponPost/" method="post">
-<input type="hidden" name="remove" id="remove-coupone" value="0"/>
-<div class="discount">
-<h2>Discount Codes</h2>
-<div class="discount-form">
-<ul class="form-list">
-<li>
-<label for="coupon_code">Enter your coupon code if you have one.</label>
-<div class="input-box">
-<input type="text" class="input-text" id="coupon_code" name="coupon_code" value=""/>
-</div>
-</li>
-</ul>
-<div class="buttons-set">
-<button type="button" title="Apply Coupon" class="button tiny secondary" onclick="discountForm.submit(false)" value="Apply Coupon"><span><span>Apply Coupon</span></span></button>
-</div>
-</div>
-</div>
-</form>
-
-
-</div>
-</div-->
-
-
-
-
-
-
-</div> 
-</div> 
-</fieldset> 
-
-
-
-
-
-</div>
-
+<!-- start: MESSAGES -->
+<div ct-fullheight="" data-ct-fullheight-exclusion="header, footer">
+    <!-- /// controller:  'InboxCtrl' -  localtion: assets/js/controllers/inboxCtrl.js /// -->
+    <div active-class="message-open" class="inbox" id="inbox" ng-controller="DurableMainCtrl" toggleable="">
+        <!-- end: EMAIL LIST -->
+        <!-- start: EMAIL READER -->
+        <div class="fullwidth-panel">
+            <div class="spec-sideinfo scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                <div class="swMain-fixed" id="wizard">
+                    <ul>
+                         <li ng-click="setTab(1)">
+                            <a href="javascript:void(0);" ng-class="{'selected' : isSet(1), 'done' : currentStep > 1}" ui-sref="app.form.gridform_printsummary.specimen">
+                         
+                                <div class="stepNumber">
+                                    <i class="fa fa-archive">
+                                    </i>
+                                </div>
+                                <span class="stepDesc text-small">
+                                    Normal Durable
+                                </span>
+                            </a>
+                        </li>
+                        <li ng-click="setTab(2)">
+                            <a href="javascript:void(0);" ng-class="{'selected' : isSet(2), 'done' : currentStep > 2}" ui-sref="app.form.gridform_printsummary.collection">
+                                <div class="stepNumber">
+                                    <i class="fa fa-random">
+                                    </i>
+                                </div>
+                                <span class="stepDesc text-small">
+                                    ABNormal Durable
+                                </span>
+                            </a>
+                        </li>
+                        <li ng-click="setTab(3)">
+                            <a href="javascript:void(0);" ng-class="{'selected' : isSet(3), 'done' : currentStep > 3}">
+                                <div class="stepNumber">
+                                    <i class="fa fa-bar-chart-o">
+                                    </i>
+                                </div>
+                                <span class="stepDesc text-small">
+                                    Collector Details
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fade-in-up" ui-view="firstview">
                 </div>
             </div>
         </div>
     </div>
-</div>                
- 
-
-
- 
-
+    <!-- end: EMAIL READER -->
+</div>
+<!-- end: MESSAGES -->

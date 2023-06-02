@@ -1,0 +1,363 @@
+<!-- end: BREADCRUMB -->
+<!-- start: TABS -->
+<!-- /// controller:  'TabsDemoCtrl' -  localtion: assets/js/controllers/bootstrapCtrl.js /// -->
+<div ng-controller="taballviewCtrl">
+    <!-- start: FIFTH  SECTION -->
+    <div class="container-fluid container-fullw">
+        <div class="row">
+            <div class="col-xs-12 col-md-8"> 
+                <div class="panel panel-white no-radius no-margin">
+                    <div class="panel-heading border-light padding-30">
+                        <div class="row">
+                            <div class="col-lg-4 col-xs-5">
+                                <span class="input-icon">
+                                    <input class="form-control radius-10" id="form-field-14" placeholder="Search posts..." type="text">
+                                        <i class="ti-search">
+                                        </i>
+                                    </input>
+                                </span>
+                            </div>
+                            <div class="col-lg-8 col-xs-7 text-right"> 
+                                <div class="btn-group margin-top-5" ng-init="selected='Newest'" uib-dropdown="">
+                                    <button class="btn btn-azure btn-sm" id="split-button" type="button">
+                                        Sort by:
+                                        <span class="text-bold">
+                                            {{selected}}
+                                        </span>
+                                    </button>
+                                    <button class="btn btn-azure btn-sm" type="button" uib-dropdown-toggle="">
+                                        <span class="caret">
+                                        </span>
+                                        <span class="sr-only">
+                                            Split button!
+                                        </span>
+                                    </button>
+                                    <ul aria-labelledby="split-button" role="menu" uib-dropdown-menu="">
+                                        <li role="menuitem">
+                                            <a href="#" ng-click="selected='Newest'">
+                                                Newest
+                                            </a>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a href="#" ng-click="selected='Oldest'">
+                                                Oldest
+                                            </a>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a href="#" ng-click="selected='Approved'">
+                                                Approved
+                                            </a>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a href="#" ng-click="selected='In Review'">
+                                                In Review
+                                            </a>
+                                        </li>
+                                        <li class="divider">
+                                        </li>
+                                        <li role="menuitem">
+                                            <a href="#" ng-click="selected='Declined'">
+                                                Declined
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body padding-top-0">
+                        <table class="table no-margin">
+                            <tbody>
+                                <tr ng-repeat-start="d in datareportspec">
+                                    <td class="max-width-100">
+                                        <div class="icons-effect">
+                                            <img alt="" class="img-responsive img-rounded" src="assets/images/portfolio/image01_th.jpg">
+                                                <div class="mask mask-rounded">
+                                                    <div class="icons-wrapper">
+                                                        <div class="icons">
+                                                            <a class="icon" href="#">
+                                                                <span class="fa-stack fa-2x">
+                                                                    <i class="fa fa-circle fa-stack-2x text-white">
+                                                                    </i>
+                                                                    <i class="fa fa-search fa-stack-1x text-extra-large text-light">
+                                                                    </i>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </img>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="padding-10">
+                                            <div class="block">
+                                                <strong>
+                                                    {{d.head}}
+                                                </strong>
+                                                <span class="text-muted">
+                                                    has been approved
+                                                </span>
+                                            </div>
+                                            <span class="text-small text-muted">
+                                                An endorsement for
+                                            </span>
+                                            <span class="text-azure">
+                                                {{d.link}}
+                                            </span>
+                                            <div class="block margin-top-10">
+                                                <span class="label label-success">
+                                                    {{d.status}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="hidden-xs">
+                                        <div class="block">
+                                            <a class="block" href="#">
+                                                <i class="fa fa-comments text-azure">
+                                                </i>
+                                                จำนวนแมลงทั้งหมด
+                                            </a>
+                                            <a class="block" href="#">
+                                                <i class="fa fa-retweet text-green">
+                                                </i>
+                                                {{d.quantity}}
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td class="visible-lg">
+                                        <div class="col-xs-3 no-padding text-center">
+                                            <div class="border-right border-dark padding-5">
+                                                <small class="text-muted">
+                                                    Order
+                                                    <br>
+                                                        <strong>
+                                                            {{d.order}}
+                                                        </strong>
+                                                    </br>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3 no-padding text-center">
+                                            <div class="border-right border-dark padding-5">
+                                                <small class="text-muted">
+                                                    Family
+                                                    <br>
+                                                        <strong>
+                                                            {{d.family}}
+                                                        </strong>
+                                                    </br>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3 no-padding text-center">
+                                            <div class="border-right border-dark padding-5">
+                                                <small class="text-muted">
+                                                    Genus
+                                                    <br>
+                                                        <strong>
+                                                            {{d.genus}}
+                                                        </strong>
+                                                    </br>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3 no-padding text-center">
+                                            <div class="padding-5">
+                                                <small class="text-muted">
+                                                    Species
+                                                    <br>
+                                                        <strong>
+                                                            {{d.species}}
+                                                        </strong>
+                                                    </br>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr ng-repeat-end=""> 
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer no-border padding-top-0">
+                        <p class="no-margin">
+                            <a href="#">
+                                <i class="fa fa-arrow-circle-o-down text-green">
+                                </i>
+                            </a>
+                            <span class="text-light margin-left-10">
+                                Show more details
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="panel panel-white no-radius">
+                    <div class="panel-heading border-bottom">
+                        <h4 class="panel-title">
+                            สถานะกล่องใส่แมลงของเดือนล่าสุด
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item no-radius no-margin no-border-top no-border-left no-border-right">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <a href="#">
+                                            <letter-icon class="margin-right-5" color="#7F8C8D" data="Omega" size="sm">
+                                            </letter-icon>
+                                            Box01
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="block margin-top-10">
+                                            <span class="label label-warning">
+                                                In used
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span class="block padding-top-10">
+                                            LAB
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item no-radius no-margin no-border-top no-border-left no-border-right">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <a href="#">
+                                            <letter-icon class="margin-right-5" color="#947499" data="Alpha" size="sm">
+                                            </letter-icon>
+                                            Box02
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="block margin-top-10">
+                                            <span class="label label-warning">
+                                                In used
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span class="block padding-top-10">
+                                            LAB
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item no-radius no-margin no-border-top no-border-left no-border-right">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <a href="#">
+                                            <letter-icon class="margin-right-5" color="#5A8770" data="Kappa" size="sm">
+                                            </letter-icon>
+                                            Box03
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="block margin-top-10">
+                                            <span class="label label-warning">
+                                                In used
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span class="block padding-top-10">
+                                            LAB
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item no-radius no-margin no-border-top no-border-left no-border-right">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <a href="#">
+                                            <letter-icon class="margin-right-5" color="#5B9BD1" data="Zeta" size="sm">
+                                            </letter-icon>
+                                            Box04
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="block margin-top-10">
+                                            <span class="label label-success">
+                                                Full
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span class="block padding-top-10">
+                                            LAB
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item no-radius no-margin no-border-top no-border-left no-border-right">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <a href="#">
+                                            <letter-icon class="margin-right-5" color="#315777" data="Upsilon" size="sm">
+                                            </letter-icon>
+                                            Box05
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="block margin-top-10">
+                                            <span class="label label-success">
+                                                Full
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span class="block padding-top-10">
+                                            LAB
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item no-radius no-margin no-border">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <a href="#">
+                                            <letter-icon class="margin-right-5" color="#ABA556" data="Sigma" size="sm">
+                                            </letter-icon>
+                                            Box06
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="block margin-top-10">
+                                            <span class="label label-success">
+                                                Full
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span class="block padding-top-10">
+                                            LAB
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-footer padding-20 no-border">
+                        <p class="no-margin">
+                            <a href="#">
+                                <i class="fa fa-arrow-circle-o-down text-green">
+                                </i>
+                            </a>
+                            <span class="text-light margin-left-10">
+                                Show more details
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: FIFTH SECTION -->
+</div>

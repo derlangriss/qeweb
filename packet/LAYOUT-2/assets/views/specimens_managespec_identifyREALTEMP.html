@@ -1,0 +1,680 @@
+<!-- start: MESSAGES -->
+<div ct-fullheight="" data-ct-fullheight-exclusion="header, footer">
+    <!-- /// controller:  'InboxCtrl' -  localtion: assets/js/controllers/inboxCtrl.js /// -->
+    <div active-class="message-open" class="inbox" id="inbox" ng-controller="SpecManageIdentifyCtrl" toggleable="">
+        <!-- start: EMAIL OPTIONS -->
+        <div class="col email-options">
+            <div class="boxwrap-list">
+                <slick arrows="false" autoplay="true" autoplay-speed="6000" class="carousel" dots="true" infinite="false" slides-to-scroll="1" slides-to-show="1" speed="300">
+                    <div class="slide padding-20 height-1500" style="background: url('assets/images/carousel/04.jpg')">
+                        <h5 class="text-bold text-extra-small text-dark-transparent text-uppercase">
+                            Identify Specimens
+                            <a class="btn btn-transparent btn-sm tooltips" ng-click="PrintSpecBox('SpecList','')" tooltip-placement="right" uib-tooltip="Download">
+                                <i class="fa fa-download fa fa-white">
+                                </i>
+                            </a>
+                        </h5>
+                        <h3>
+                            {{monthshow01}}
+                            <a aria-expanded="false" data-toggle="tab" ng-click="showDatePicker()" title="Event">
+                                <i class="fa fa-calendar" id="showdate">
+                                </i>
+                            </a>
+                        </h3>
+                        <span class="badge text-extra-large partition-purple">
+                            Specimens: {{allspecimens}}
+                        </span>
+                        <span class="label text-left text-dark block margin-top-10">
+                            <a class="uppercase text-dark text-uppercase text-bold text-extra-small" ng-click="moreinfo()">
+                                Work Progress (More Info)
+                                <i class="padding-left-5 fa fa-angle-right">
+                                </i>
+                            </a>
+                            <span class="text-extra-small text-light pull-right">
+                                {{respercent}}%
+                            </span>
+                        </span>
+                        <div class="padding-bottom">
+                            <uib-progressbar class="progress-xs no-radius background-dark no-margin" type="azure" value="respercent">
+                            </uib-progressbar>
+                        </div>
+                        <!--span class="cl-effect-3 links block margin-top-10">
+                            <a class="uppercase text-dark text-uppercase text-bold text-extra-small" href="#">
+                                More Info
+                               
+                                <i class="padding-left-5 fa fa-angle-right">
+                                </i>
+                            </a>
+                        </span-->
+                    </div>
+                </slick>
+                <div class="panel-footer panel-gradian-grey no-radius margin-bottom-10">
+                    <div class="clearfix">
+                        <div class="col-xs-6 text-center no-padding">
+                            <div class="border-right border-dark">
+                                <span class="text-bold text-red block text-extra-large">
+                                    {{undefinedspecimens}}
+                                </span>
+                                <span class="label text-red">
+                                    UNDEFINED
+                                </span>
+                                <span class="label text-red">
+                                    (ไม่สามารถระบุชนิด)
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 text-center no-padding">
+                            <div class="border-dark">
+                                <span class="text-bold text-red block text-extra-large">
+                                    {{resspecimens}}
+                                </span>
+                                <span class="label text-red">
+                                    TOTAL
+                                </span>
+                                <br>
+                                    <span class="label text-red">
+                                        (คงเหลือ)
+                                    </span>
+                                </br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-list scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                    <div class="panel-body no-padding">
+                        <div class="tab-content tab-nocolor">
+                            <div class="tab-pane" id="ss" ng-class="{ active: isSetIden(1) }">
+                                <div class="animate-show-hide " ng-show="isSetIden(1)">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table class="table no-margin">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="">
+                                                            <i class="">
+                                                            </i>
+                                                        </td>
+                                                        <td class="hidden-xs">
+                                                            <div class="block">
+                                                                <a class="block" ng-click="addnewbox()">
+                                                                    <i class="fa fa-plus text-azure">
+                                                                    </i>
+                                                                    Add
+                                                                </a>
+                                                                <a class="block" href="#">
+                                                                    <i class="fa fa-archive text-green">
+                                                                    </i>
+                                                                    Specimens Box
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="visible-lg">
+                                                            <div class="col-xs-12 no-padding text-center">
+                                                                <div class="padding-5">
+                                                                    <small class="text-muted">
+                                                                        Number of Box
+                                                                        <br>
+                                                                            <strong>
+                                                                                {{allbox}}
+                                                                            </strong>
+                                                                        </br>
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <ul class="media-list">
+                                                <li class="linehight-30 padding-5" ng-repeat-start="iden in IdenBoxQTYtransList">
+                                                    <div class="row">
+                                                        <div class="col-xs-2">
+                                                            <a ng-click="viewspecboxlist(iden.collboxno,iden.collbox_id)">
+                                                                <span class="label label-default">
+                                                                    {{iden.collboxno}}
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-xs-5">
+                                                            <span class="block padding-top-10">
+                                                                <uib-progressbar class="progress-sm no-radius background-dark no-margin" type="purple" value="iden.countrespercent">
+                                                                    {{iden.countspeceforeach}}
+                                                                </uib-progressbar>
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-xs-2">
+                                                            <td class="center">
+                                                                <span class="userboxavatar">
+                                                                    <img alt="image" class="img-circle" src="{{iden.avartar}}"/>
+                                                                </span>
+                                                                <span ng-repeat-end="">
+                                                                </span>
+                                                                <!-- Variable amount more avatars -->
+                                                            </td>
+                                                        </div>
+                                                        <div class="col-xs-3">
+                                                            <span class="">
+                                                                <a ng-click="BoxlockSelection($event,iden.collbox_id)">
+                                                                    <i class="fa {{iden.boxstate}}">
+                                                                    </i>
+                                                                </a>
+                                                                <a class="margin-left-5" ng-click="">
+                                                                    <i class="text-large fa {{iden.compareUser}}">
+                                                                    </i>
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li ng-repeat-end="">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="ss" ng-class="{ active: isSetIden(2) }">
+                                <div class="animate-show-hide " ng-show="isSetIden(2)">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-lg-6">
+                                            <div class="panel panel-transparent">
+                                                <div class="space12 pull-left">
+                                                    <div class="btn-group">
+                                                        <a class="btn btn-transparent" href="javascript:;" ng-click="backstep1(1);">
+                                                            <i class="fa fa-chevron-circle-left">
+                                                            </i>
+                                                            Back
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-6">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-sm-12">
+                                                <div class="row">
+                                                    <div class="col-sm-7 col-lg-7">
+                                                        <div class="row">
+                                                            <div class="panel-body">
+                                                                <ul class="timeline-xs margin-bottom-10">
+                                                                    <li class="timeline-item info">
+                                                                        <div class="margin-left-15">
+                                                                            <div class="text-muted text-small margin-bottom-5">
+                                                                                <span class="badge badge-default uppercase-small">
+                                                                                    Order
+                                                                                </span>
+                                                                            </div>
+                                                                            <p>
+                                                                                <input class="form-navi-fixed noborderfixed input-vsm" id="order" name="order" ng-change="changeOrder()" ng-model="specModelOrder" ng-required="currentStep == 1" placeholder="Enter Order Name" type="text" typeahead-loading="loadingOrder" typeahead-no-results="noResults" typeahead-on-select="onSelectTypedef($item, $model, $label,$event)" uib-typeahead="o as o.torder_name for o in OrderKeyup($viewValue)"/>
+                                                                            </p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="timeline-item info">
+                                                                        <div class="margin-left-15">
+                                                                            <div class="text-muted text-small margin-bottom-5">
+                                                                                <span class="badge badge-success uppercase-small">
+                                                                                    family
+                                                                                </span>
+                                                                            </div>
+                                                                            <p>
+                                                                                <input class="form-navi-fixed noborderfixed input-vsm" id="family" name="family" ng-change="changeFamily()" ng-model="specModelFamily" ng-required="currentStep == 1" placeholder="Enter Family Name" type="text" typeahead-loading="loadingFamily" typeahead-no-results="noResults" typeahead-on-select="onSelectTypedef($item, $model, $label,$event)" uib-typeahead="o as o.family_name for o in FamilyKeyup($viewValue)"/>
+                                                                            </p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="timeline-item danger">
+                                                                        <div class="margin-left-15">
+                                                                            <div class="text-muted text-small margin-bottom-5">
+                                                                                <span class="badge badge-warning uppercase-small">
+                                                                                    genus
+                                                                                </span>
+                                                                            </div>
+                                                                            <p>
+                                                                                <input class="form-navi-fixed noborderfixed input-vsm" id="genus" name="genus" ng-change="changeGenus()" ng-model="specModelGenus" ng-required="currentStep == 1" placeholder="Enter Genus Name" type="text" typeahead-loading="loadingGenus" typeahead-no-results="noResults" typeahead-on-select="onSelectTypeGenus($item, $model, $label,$event)" uib-typeahead="o as o.genus_name for o in GenusKeyup($viewValue)"/>
+                                                                            </p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="timeline-item info">
+                                                                        <div class="margin-left-15">
+                                                                            <div class="text-muted text-small margin-bottom-5">
+                                                                                <span class="badge badge-info uppercase-small">
+                                                                                    species
+                                                                                </span>
+                                                                            </div>
+                                                                            <p>
+                                                                                <input class="form-navi-fixed noborderfixed input-vsm" id="species" name="species" ng-change="changeSpecies()" ng-model="specModelSpecies" ng-required="currentStep == 1" placeholder="Enter Species Name" type="text" typeahead-loading="loadingSpecies" typeahead-no-results="noResults" typeahead-on-select="onSelectTypedef($item, $model, $label,$event)" uib-typeahead="o as o.species_name for o in SpeciesKeyup($viewValue)"/>
+                                                                            </p>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: EMAIL OPTIONS -->
+        <!-- end: EMAIL LIST -->
+        <!-- start: EMAIL READER -->
+        <div class="email-reader">
+            <div class="swMain-fixed" id="wizard">
+                <!-- start: WIZARD SEPS -->
+                <ul>
+                    <li ng-click="setTab(1)">
+                        <a href="" ng-class="{'selected' : isSet(1), 'done' : currentStep > 1}">
+                            <div class="stepNumber">
+                                <i class="fa fa-archive">
+                                </i>
+                            </div>
+                            <span class="stepDesc text-small">
+                                SPECIMENS BOX
+                            </span>
+                        </a>
+                    </li>
+                    <li ng-click="setTab(2)">
+                        <a href="" ng-class="{'selected' : isSet(2), 'done' : currentStep > 2}">
+                            <div class="stepNumber">
+                                <i class="fa fa-random">
+                                </i>
+                            </div>
+                            <span class="stepDesc text-small">
+                                TRACK & TRACE
+                            </span>
+                        </a>
+                    </li>
+                    <li ng-click="setTab(3)">
+                        <a href="" ng-class="{'selected' : isSet(3), 'done' : currentStep > 3}">
+                            <div class="stepNumber">
+                                <i class="fa fa-bar-chart-o">
+                                </i>
+                            </div>
+                            <span class="stepDesc text-small">
+                                KPI
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="animate-show-hide " ng-show="isSet(1)">
+                    <div class="panel panel-gradian-grey no-radius no-border">
+                        <table class="table no-margin table-bar">
+                            <tbody>
+                                <tr>
+                                    <td class="center" width="150px">
+                                        <span class="badge badge-danger text-large">
+                                            {{GETAllcollboxno}}
+                                        </span>
+                                    </td>
+                                    <td class="center" width="150px">
+                                        <span class="text-small block text-black">
+                                            <i class="fa fa-bug small text-red margin-right-5">
+                                            </i>
+                                            <span class="text-bold text-dark margin-right-10">
+                                                {{GETAllcountspecinbox}}
+                                            </span>
+                                        </span>
+                                        <a href="#">
+                                            <span class="label">
+                                                QTY (จำนวนแมลงในกล่อง)
+                                            </span>
+                                        </a>
+                                    </td>
+                                    <td class="center" width="150px">
+                                        <span class="text-small block text-black">
+                                            <i class="fa fa-ban small text-red margin-right-5">
+                                            </i>
+                                            <span class="text-bold text-dark margin-right-10">
+                                                {{GETAllundefinedbox}}
+                                            </span>
+                                        </span>
+                                        <a href="#">
+                                            <span class="label">
+                                                Undefined (แมลงที่ไม่สามารถระบุชนิด)
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="subresult-view">
+                        <!-- start: EMAIL LIST -->
+                        <div class="col label-main">
+                            <div class="labelwrap-list">
+                                <slick arrows="false" autoplay="true" autoplay-speed="6000" class="carousel" dots="true" infinite="false" slides-to-scroll="1" slides-to-show="1" speed="300">
+                                    <div class="slide padding-20">
+                                        <form>
+                                            <input class="form-control underline" ng-change="searchlabel(1)" ng-model="labelspecid" placeholder="Search label..." type="text">
+                                            </input>
+                                        </form>
+                                    </div>
+                                </slick>
+                                <div class="label-list scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                                    <div class="panel-label-body no-border ">
+                                        <table class="table table-stylish" id="SpecimensIdList" width="100%">
+                                            <thead style="display:none;">
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email-reader scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                            <div class="panel-body no-border ">
+                                <table cellspacing="0" class="table compact table-striped nowrap " id="TransferSpectoBoxTbl" width="100%">
+                                    <thead>
+                                        <tr class="uppercase label-default ">
+                                            <th>
+                                            </th>
+                                            <th>
+                                                <span class="label-change ">
+                                                    Specimen Number
+                                                </span>
+                                            </th>
+                                            <th>
+                                                <span class="label-change ">
+                                                    Order
+                                                </span>
+                                            </th>
+                                            <th>
+                                                <span class="label-change ">
+                                                    Family
+                                                </span>
+                                            </th>
+                                            <th>
+                                                <span class="label-change ">
+                                                    Genus
+                                                </span>
+                                            </th>
+                                            <th>
+                                                <span class="label-change ">
+                                                    Species
+                                                </span>
+                                            </th>
+                                            <th>
+                                                coll_code
+                                            </th>
+                                            <th>
+                                                coll_year
+                                            </th>
+                                            <th>
+                                                coll_number
+                                            </th>
+                                            <th>
+                                                specimen_number
+                                            </th>
+                                            <th>
+                                                Report Date
+                                            </th>
+                                            <th>
+                                                Report Date
+                                            </th>
+                                            <th>
+                                                <span class="label-change ">
+                                                    Box NO
+                                                </span>
+                                            </th>
+                                            <th>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane " id="tab-table2">
+                    <div class="animate-show-hide" ng-show="isSet(2)">
+                        <div class="panel panel-gradian-grey no-radius no-border">
+                            <table class="table no-margin no-border">
+                                <tbody>
+                                    <tr>
+                                        <td class="center">
+                                            <span class="margin-left-10 barfont">
+                                                <strong>
+                                                    รายการกล่องแมลงประจำเดือน
+                                                </strong>
+                                            </span>
+                                            <span class="margin-left-10 badge badge-danger text-large">
+                                                ตุลาคม
+                                            </span>
+                                            <span class="margin-left-10 barheight text-large">
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="subresult-view">
+                            <div class="fullwidth-panel scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                                <div class="panel-body no-border ">
+                                    <table class="table table-bordered no-margin" id="speclistbox">
+                                        <thead class="uppercase label-default">
+                                            <th>
+                                                <span class="label">
+                                                    BOX NO.
+                                                </span>
+                                            </th>
+                                            <th>
+                                                <span class="label">
+                                                    USER
+                                                </span>
+                                            </th>
+                                            <th>
+                                                <span class="label">
+                                                    QTY
+                                                </span>
+                                            </th>
+                                            <th class="hidden-xs hidden-sm">
+                                                <span class="label">
+                                                    UNDEFINED
+                                                </span>
+                                            </th>
+                                            <th class="hidden-xs hidden-sm">
+                                                <span class="label">
+                                                    STATUS
+                                                </span>
+                                            </th>
+                                            <th class="hidden-xs hidden-sm">
+                                                <span class="label">
+                                                    LOCATE
+                                                </span>
+                                            </th>
+                                            <th>
+                                                <span class="label">
+                                                    Download
+                                                </span>
+                                            </th>
+                                            <th>
+                                                <span class="label">
+                                                    Actions
+                                                </span>
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat-start="d in GetBoxViewAvarList">
+                                                <td>
+                                                    <i class="fa fa-archive">
+                                                    </i>
+                                                    {{d.collboxno}}
+                                                </td>
+                                                <td class="center">
+                                                    <div class="userboxavatars">
+                                                        <span class="userboxavatar" ng-repeat-start="c in d.avartars">
+                                                            <img src="{{c.avartar}}">
+                                                            </img>
+                                                        </span>
+                                                        <span ng-repeat-end="">
+                                                        </span>
+                                                        <!-- Variable amount more avatars -->
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    {{d.countallspec}}
+                                                </td>
+                                                <td class="hidden-xs hidden-sm">
+                                                    <span class="text-red">
+                                                        {{d.countundefinedspec}}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span class="uppercase label {{d.state_color}}">
+                                                        {{d.boxstatus}}
+                                                    </span>
+                                                </td>
+                                                <td class="hidden-xs hidden-sm">
+                                                    {{d.boxlocate}}
+                                                </td>
+                                                <td class="hidden-xs hidden-sm">
+                                                    <div class="hidden-xs hidden-sm">
+                                                        <a class="btn btn-transparent btn-sm tooltips" ng-click="PrintSpecBox('SpecInBox',d.collbox_id)" tooltip-placement="top" uib-tooltip="Download">
+                                                            <i class="fa fa-download fa fa-white">
+                                                            </i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="hidden-xs hidden-sm">
+                                                    <div class="hidden-xs hidden-sm">
+                                                        <a class="btn btn-transparent btn-sm tooltips" ng-click="RemoveBox(d.lockbox_id)" tooltip-placement="top" uib-tooltip="Remove">
+                                                            <i class="fa fa-minus-square fa fa-white">
+                                                            </i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr ng-repeat-end="">
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab-table3">
+                    <div class="animate-show-hide" ng-show="isSet(3)">
+                        <div class="panel panel-gradian-grey no-radius no-border">
+                            <table class="table no-margin no-border">
+                                <tbody>
+                                    <tr>
+                                        <td class="center">
+                                            <span class="margin-left-10 barfont">
+                                                <strong>
+                                                    ตัวชี้วัดโครงการ
+                                                </strong>
+                                            </span>
+                                            <span class="margin-left-10 text-large">
+                                            </span>
+                                            <span class="margin-left-10 barheight text-large">
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="subresult-view">
+                            <div class="fullwidth-panel scrollbar-macosx" data-jquery-scrollbar="jqueryScrollbarOptions">
+                                <div class="panel-body no-border ">
+                                    <table class="table no-margin">
+                                        <thead>
+                                            <th>
+                                                กิจกรรม
+                                            </th>
+                                            <th>
+                                                ตัวชี้วัด
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <span class="badge">
+                                                        1
+                                                    </span>
+                                                    จำแนกตัวอย่างแมลงระดับวงศ์
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                        {{countfamily}}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="badge">
+                                                        2
+                                                    </span>
+                                                    รวบรวมตัวอย่างแห้ง
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                        {{allspecimens}}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="badge">
+                                                        3
+                                                    </span>
+                                                    ลงทะเบียนข้อมูลแมลง
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                        {{countregist}}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="badge">
+                                                        4
+                                                    </span>
+                                                    จัดเก็บตัวอย่างแมลงในพิพิธภัณฑ์
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                        {{countmanaged}}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab-table4">
+                    <div class="animate-show-hide" ng-show="isSet(4)">
+                        <div class="margin-top-15 panel panel-white">
+                            <div class="panel-heading border-light">
+                                <h4 class="panel-title">
+                                    <span class="text-bold">
+                                        KPI (Project Indecator)
+                                    </span>
+                                </h4>
+                                <ct-paneltool class="panel-tools" tool-refresh="load1">
+                                </ct-paneltool>
+                            </div>
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: EMAIL READER -->
+    </div>
+</div>
+<!-- end: MESSAGES -->

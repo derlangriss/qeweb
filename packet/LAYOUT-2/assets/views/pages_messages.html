@@ -43,47 +43,6 @@
         <div class="col email-list" ng-hide="$state.current.name.indexOf('inbox')>= 0 && isMobileDevice">
             <div class="wrap-list">
                 <div class="wrap-options" id="wrap-options" toggleable active-class="search-open">
-                    <div class="messages-options padding-15">
-                        <div class="btn-group" uib-dropdown>
-                            <button type="button" class="btn btn-primary btn-wide">
-                                Compose
-                            </button>
-                            <button type="button" class="btn btn-primary dropdown-toggle" uib-dropdown-toggle>
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-light" role="menu">
-                                <li>
-                                    <a href ng-click="filters = {sent: false}">
-                                        <span class="title"><i class="ti-import"></i> Inbox</span>
-                                        <span class="badge" ng-if="messages.length">{{(messages |filter: filters = {sent: false}).length}}</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href ng-click="filters = {sent: true}">
-                                        <span class="title"><i class="ti-upload"></i> Sent</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href ng-click="filters = {spam: true}">
-                                        <span class="title"><i class="ti-na"></i> Spam</span>
-                                        <span class="badge" ng-if="(messages |filter: {spam: true}).length">{{(messages |filter: filters = {spam: true}).length}}</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href ng-click="filters = {starred: true}">
-                                        <span class="title"><i class="ti-star"></i> Starred</span>
-                                        <span class="badge" ng-if="(messages |filter: {starred: true}).length">{{(messages |filter: filters = {starred: true}).length}}</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <button class="btn btn-transparent pull-right open-message-search" ct-toggle="on" target="wrap-options">
-                            <i class="ti-search"></i>
-                        </button>
-                        <button class="btn btn-transparent pull-right close-message-search" ct-toggle="off" target="wrap-options" ng-click="inbox.search = {}">
-                            <i class="ti-close"></i>
-                        </button>
-                    </div>
                     <div class="messages-search">
                         <form>
                             <input type="text" class="form-control underline" placeholder="Search messages..." ng-model="inbox.search.$">

@@ -1,0 +1,66 @@
+<div class="scrollingtable">
+        <div>
+            <div>
+               <table class="table">
+                    
+                    <thead>
+                        <tr>
+            <th><div label=""></div></th>
+            <th><div label="COLLECTION DETAILS"></div></th>
+            <th><div label="ACTIONS"></div></th>
+                            <th>
+                             <div><div>NUMBER OF ITEMS</div><div>NUMBER OF ITEMS</div></div>
+                            </th>
+             
+                        </tr>
+                    </thead>
+                     <tbody>
+
+                                    <tr ng-repeat="contact in contactList" on-last-repeat>
+                                        <td class="max-width-100">
+                                        <div class="icons-effect">
+                                            <img src="assets/images/portfolio/image01_th.jpg" class="img-responsive img-rounded" alt="">
+                                            <div class="mask mask-rounded">
+                                                <div class="icons-wrapper">
+                                                    <div class="icons">
+                                                        <a href="#" class="icon">
+                                                            <span class="fa-stack fa-2x"> <i class="fa fa-circle fa-stack-2x text-white"></i> <i class="fa fa-search fa-stack-1x text-extra-large text-light"></i> </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div></td>
+                                        <td>
+                                        <div class="padding-10">
+                                            <div class="block">
+                                                <strong>THAILAND :</strong><span class="text-muted">{{contact.collectionid}}</span>
+                                            </div>
+                                            <span class="text-small text-muted">{{contact.provinceen}} Alt.</span><span class="text-azure">{{contact.collectionmasl}} m</span><br>
+                                            <span class="text-small text-muted">{{contact.collectionlatd}}&#12444;{{contact.collectionlatm}}&#39{{contact.collectionlats}}&quotN {{contact.collectionlongd}}&#12444;{{contact.collectionlongm}}&#39{{contact.collectionlongs}}&quotE</span><br>
+                                            <span class="text-small text-muted">{{contact.collectionenddate}} {{contact.collectionmethodsdetails}}</span><br>
+                                            <div class="block margin-top-10">
+                                                <span class="label label-success">{{contact.collectorsen}}</span>
+                                            </div>
+                                        </div></td>
+                                        <td class="hidden-xs">
+                                        <div class="block">
+                                            <a href="#" class="margin-right-10 block">
+                                                <i class="fa fa-comments text-azure"></i> DELETE
+                                            </a>
+                                            <a href="#" class="block">
+                                                <i class="fa fa-retweet text-green"></i> EDIT
+                                            </a>
+                                        </div></td>
+                                        <td class="visible-lg">
+                                        <div class="form-group">
+                                        
+                                        <input id="demo4" type="text" value="0" name="demo4" touchspin data-verticalbuttons="true" data-verticalupclass="ti-angle-up" data-verticaldownclass="ti-angle-down">
+                                    </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                </table>
+            </div>
+           
+        </div>
+    </div>

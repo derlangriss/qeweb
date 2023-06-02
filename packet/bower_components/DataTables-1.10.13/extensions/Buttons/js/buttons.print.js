@@ -1,8 +1,3 @@
-/*!
- * Print button for Buttons and DataTables.
- * 2016 SpryMedia Ltd - datatables.net/license
- */
-
 (function( factory ){
 	if ( typeof define === 'function' && define.amd ) {
 		// AMD
@@ -102,6 +97,8 @@ DataTable.ext.buttons.print = {
 		if ( config.footer && data.footer ) {
 			html += '<tfoot>'+ addRow( data.footer, 'th' ) +'</tfoot>';
 		}
+		html += '</table>';
+
 
 		// Open a new window for the printable table
 		var win = window.open( '', '' );
@@ -146,9 +143,14 @@ DataTable.ext.buttons.print = {
 
 		$(win.document.body).addClass('dt-print-view');
 
+		$('img', win.document.body).each( function ( i, img ) {
+			img.setAttribute( 'src', _relToAbs( img.getAttribute('src') ) );
+		} );
+
 		if ( config.customize ) {
 			config.customize( win );
 		}
+	
 
 		setTimeout( function () {
 			if ( config.autoPrint ) {
@@ -158,11 +160,11 @@ DataTable.ext.buttons.print = {
 		}, 250 );
 	},
 
-	title: '*',
+	title: 'รายการครุภัณฑ์',
 
-	message: '',
+	message: 'พิพิธภัณฑ์แมลง ปี 2538-2558',
 
-	exportOptions: {},
+	exportOptions: {stripHtml: true},
 
 	header: true,
 

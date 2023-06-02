@@ -1,0 +1,94 @@
+
+% This file is a valid PHP file and also a valid LaTeX file
+% When processed with LaTeX, it will generate a blank template
+% Loading with PHP will fill it with details
+
+\documentclass{article}
+% Required for proper escaping
+\usepackage{textcomp} % Symbols
+\usepackage[T1]{fontenc} % Input format
+
+\usepackage{xltxtra}
+\XeTeXlinebreaklocale "th_TH"
+\font\T="AngsanaUPC:script=thai" at 16pt
+\font\E="Times New Roman:script=english" at 14pt
+
+% Because Unicode etc. 
+\usepackage{fontspec} % For loading fonts
+\setmainfont{Liberation Serif} % Has a lot more symbols than Computer Modern
+
+% Make placeholders visible
+\newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
+
+% Defaults for each variable
+\newcommand{\collfullnum}{\placeholder{collfullnum}}
+\newcommand{\counteachspec}{\placeholder{counteachspec}}
+\newcommand{\countspecmonth}{\placeholder{countspecmonth}}
+\newcommand{\monthDisplay}{\placeholder{monthDisplay}}
+\newcommand{\pictureref}{\placeholder{durable_no_main}}
+
+
+
+
+
+% LaTeX code for the invoice
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\graphicspath{{D:/Apache24/htdocs/QedatamanagementRealestate/packet/LAYOUT-2/assets/duimage/}}
+\definecolor{tableShade}{gray}{0.9}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+ % <?php echo "\n" . "\\renewcommand{\\pictureref}{" . LatexTemplate::escape($data[0]['durable_no_main']) . "}\n"; ?>
+
+\begin{document}
+\rowcolors{3}{tableShade}{white}  %% start alternating shades from 3rd row
+\section*{Insect Museum.}
+
+
+	% Table of customer details
+	\begin{tabular}{l l}
+		Date	& dfdfd \\
+	\end{tabular}
+
+	% Table of items on this invoice
+	\vspace{15mm}
+	\begin{tabularx}{\textwidth}{X r r | r}
+
+	\textbf{Collection Number} &  &  & \textbf{Quantity.}\\
+
+	\hline
+	
+	%<?php																		/*
+	% */ foreach($data as $reportitem) {						/*
+	% */ ?>
+
+   
+
+	%<?php																		/*
+	% */ 	echo "\n " ."\T ". LatexTemplate::escape($reportitem['durable_name_main']) . " & ";	?>  
+
+	%<?php																		/*
+	% */	echo "\n " . " & ";			/*
+	% */ ?>
+    
+	%<?php																		/*
+	% */	echo "\n ". " & "; /*
+	% */ ?>
+    \includegraphics[width=0.25\textwidth]{\pictureref} 
+	%<?php /*
+	% */	echo "\n " ."\\\\\n";		/*
+	% */ } ?>
+	\hline
+	Summary & & & \countspecmonth{} \\
+	\end{tabularx}
+	
+	% Footer
+	\vfill
+	QSBG insects museum.
+
+\end{document}
+
+
+
+

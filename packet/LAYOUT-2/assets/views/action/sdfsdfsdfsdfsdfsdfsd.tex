@@ -1,0 +1,95 @@
+\documentclass[letter,10pt]{letter}
+% load ticket.sty with the appropriate ticket definition
+\usepackage[qsbglabel,rowmode,crossmark]{ticket}%boxed, crossmark,circlemark,emptycrossmark,cutmark
+\unitlength=1mm
+\hoffset=3mm%\hoffset=-10mm
+\voffset=0.5mm
+
+\ticketNumbers{6}{20}
+%\ticketNumbers{2}{2}
+
+\ticketSize{35}{10} % in unitlength \ticketSize{36}{10}
+\ticketDistance{0}{0} %in unitlength 0.65
+% load misc stuff
+\usepackage{graphicx}
+\usepackage{geometry}
+ \geometry{
+ letterpaper,
+ total={216mm,279mm}
+ }
+\usepackage{calc}
+\usepackage{ragged2e}
+\usepackage{textcomp}
+\usepackage[T1]{fontenc} 
+
+\usepackage{fontspec} 
+\usepackage{upquote}
+\setmainfont[Scale=1.5]{TH SarabunPSK}
+\linespread{1.3}\selectfont
+\usepackage{qrcode}
+% now what do you like to put in your ticket
+\newcommand{\qsbglabelitem}[1]{\ticket{%
+    \put(0.3,4){#1}
+}}
+
+% Make placeholders visible
+\newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
+
+% Defaults for each variable
+\newcommand{\specimenfullnumber}{\placeholder{specimens_full_number}}
+\newcommand{\provinceen}{\placeholder{province_en}}
+\newcommand{\amphuren}{\placeholder{amphur_en}}
+\newcommand{\locality}{\placeholder{coll_locality}}
+\newcommand{\colllatd}{\placeholder{coll_lat_d}}
+\newcommand{\colllatm}{\placeholder{coll_lat_m}}
+\newcommand{\colllats}{\placeholder{coll_lat_s}}
+\newcommand{\colllongd}{\placeholder{coll_long_d}}
+\newcommand{\colllongm}{\placeholder{coll_long_m}}
+\newcommand{\colllongs}{\placeholder{coll_long_s}}
+\newcommand{\collmasl}{\placeholder{coll_masl}}
+\newcommand{\colldatecomp}{\placeholder{coll_date_comp}}
+\newcommand{\method}{\placeholder{method}}
+\newcommand{\collectorfullall}{\placeholder{collectorfullall}}
+
+
+% LaTeX code for produce QSBGinsects label
+\begin{document}
+\RaggedRight
+%\miniscule
+\bfseries
+\fontsize{3.5}{2.8}\selectfont
+%\sffamily
+%<?php                                    /*
+% */ $i = 0;       /*
+% */ foreach($data as $labelitem) {           /*
+% */  $i++;          /*
+% */  echo "\n" . "\\renewcommand{\\specimenfullnumber}{" . LatexTemplate::escape($labelitem['specimens_full_number']) . "}\n".    /*
+% */       "\n" . "\\renewcommand{\\provinceen}{" . LatexTemplate::escape($labelitem['province_en']) . "}\n".                      /*
+% */       "\n" . "\\renewcommand{\\amphuren}{" . LatexTemplate::escape($labelitem['amphur_en']) . "}\n".                          /*
+% */       "\n" . "\\renewcommand{\\locality}{" . LatexTemplate::escape($labelitem['coll_locality']) . "}\n".                      /*
+% */       "\n" . "\\renewcommand{\\colllatd}{" . LatexTemplate::escape($labelitem['coll_lat_d']) . "}\n".                         /*
+% */       "\n" . "\\renewcommand{\\colllatm}{" . LatexTemplate::escape($labelitem['coll_lat_m']) . "}\n".                         /*
+% */       "\n" . "\\renewcommand{\\colllats}{" . LatexTemplate::escape($labelitem['coll_lat_s']) . "}\n".                         /*
+% */       "\n" . "\\renewcommand{\\colllongd}{" . LatexTemplate::escape($labelitem['coll_long_d']) . "}\n".                       /*
+% */       "\n" . "\\renewcommand{\\colllongm}{" . LatexTemplate::escape($labelitem['coll_long_m']) . "}\n".                       /*
+% */       "\n" . "\\renewcommand{\\colllongs}{" . LatexTemplate::escape($labelitem['coll_long_s']) . "}\n".                       /*
+% */       "\n" . "\\renewcommand{\\collmasl}{" . LatexTemplate::escape($labelitem['coll_masl']) . "}\n".                          /*
+% */       "\n" . "\\renewcommand{\\colldatecomp}{" . LatexTemplate::escape($labelitem['coll_date_comp']) . "}\n".                   /*
+% */       "\n" . "\\renewcommand{\\collectorfullall}{" . LatexTemplate::escape($labelitem['collectorfullall']) . "}\n".                   /*
+% */       "\n" . "\\renewcommand{\\method}{" . LatexTemplate::escape($labelitem['method']) . "}\n"; ?>
+
+\qsbglabelitem{ 
+ \parbox[l][10mm][t]{10mm}{\qrcode[level=M,height=0.8cm]{www.qsbginsects.org/database/spessssssssssssssssssssssssssssssssssssssssssssssssssssscimens\specimenfullnumber}}
+ \parbox[l][10mm][t]{24mm}{THAILAND: \specimenfullnumber{}\\ \provinceen{},\amphuren{} Dist.\\ \locality{}  \\ \colllatd{}\textdegree\colllatm{}\textquotesingle\colllats{}\textquotedbl\ S \colllongd{}\textdegree\colllongm{}\textquotesingle\colllongs{}\textquotedbl\ E, \collmasl{} m. \\ \colldatecomp{}, \method{} \\ \collectorfullall{} \def\bsq#1{%both single quotes
+\lq{#1}\rq}}
+                                                         
+}
+
+% <?php /* 
+% */ if($i == 1000){           /*
+% */ ?>  
+\newpage
+
+%<?php /* % */ } }?>  
+
+\end{document}

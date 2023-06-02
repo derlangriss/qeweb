@@ -1,0 +1,1 @@
+alter table presales alter column code type numeric(10,0) using code::numeric;

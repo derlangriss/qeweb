@@ -1,0 +1,119 @@
+<div class="row">
+    <div class="panel-body">
+        <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+            <fieldset>
+                <legend>
+                    Select Report of the month
+                    <a ui-sref="app.form.container_manage">
+                        <i class="fa fa-plus-square">
+                        </i>
+                    </a>
+                </legend>
+                <div class="gf-row-2 gf-large">
+                    <div class="gf-col-1">
+                        <select class="cs-select cs-skin-elastic" ng-model="reportModel.month">
+                            <option disabled="" value="">
+                                Month
+                            </option>
+                            <option value="1">
+                                January
+                            </option>
+                            <option value="2">
+                                February
+                            </option>
+                            <option value="3">
+                                March
+                            </option>
+                            <option value="4">
+                                April
+                            </option>
+                            <option value="5">
+                                May
+                            </option>
+                            <option value="6">
+                                June
+                            </option>
+                            <option value="7">
+                                July
+                            </option>
+                            <option value="8">
+                                August
+                            </option>
+                            <option value="9">
+                                September
+                            </option>
+                            <option value="10">
+                                October
+                            </option>
+                            <option value="11">
+                                November
+                            </option>
+                            <option value="12">
+                                December
+                            </option>
+                        </select>
+                    </div>
+                    <div class="gf-col-1">
+                        <select class="cs-select cs-skin-elastic" ng-model="reportModel.year">
+                            <option disabled="" value="">
+                                Year
+                            </option>
+                            <option value="2015">
+                                2015
+                            </option>
+                            <option value="2016">
+                                2016
+                            </option>
+                            <option value="2017">
+                                2017
+                            </option>
+                            <option value="2018">
+                                2018
+                            </option>
+                            <option value="2019">
+                                2019
+                            </option>
+                            <option value="2020">
+                                2020
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div class="panel panel-azure no-border no-radius">
+    <div class="panel-body no-padding">
+        <div class="space10 padding-15">
+            <h5 class="text-bold text-small label label-inverse text-uppercase no-margin">
+                {{monthshow01}}
+                <i class="fa fa-arrow-circle-o-right">
+                </i>
+            </h5>
+            <div class="block margin-top-15 margin-bottom-10 ">
+                <span class="counter" count-to="{{allspecimens}}" duration="1" filter="number" ng-model="allspecimens" value="0">
+                    {{allspecimens}}
+                </span>
+                <span class="counter-symbol">
+                    <i class="fa fa-bug">
+                    </i>
+                </span>
+            </div>
+        </div>
+        <div class="padding-bottom-20">
+            <uib-progressbar class="progress-xs no-radius background-dark no-margin" type="white" value="80">
+            </uib-progressbar>
+            <p class="margin-10">
+                <span class="text-extra-small text-light pull-right">
+                    <span class="label label-inverse text-white margin-top-10 margin-right-5">
+                        +11%
+                    </span>
+                    <span class="text-extra-small text-white">
+                        Previous period
+                    </span>
+                </span>
+            </p>
+        </div>
+    </div>
+</div>

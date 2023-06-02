@@ -62,7 +62,7 @@ app.controller('knobCtrl4', function ($scope) {
     $scope.value = 70;
     $scope.options = {
         displayPrevious: true,
-        barCap: 25,
+        barCap: 7,
         trackWidth: 30,
         barWidth: 20,
         trackColor: 'rgba(255,0,0,.1)',

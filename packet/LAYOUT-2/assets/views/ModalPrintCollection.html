@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{modalTitle}}</h3>
+</div>
+<div class="modal-body" ng-bind-html="modalContent">
+
+
+</div>
+<div class="modal-footer">
+    <fieldset>
+    
+    <legend>Number Of Items</legend>
+    <form name="labelinfo" id="labelinfo"> 
+    <INPUT type="text" id="txtnumberofitems" name="txtnumberofitems" value="1">
+    </form>
+</fieldset>
+
+
+    <button class="btn btn-primary" ng-click="Labelinsert()">OK</button>
+    <button class="btn btn-primary btn-o" ng-click="cancel()">Cancel</button>
+</div>
+
+

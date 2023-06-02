@@ -1,0 +1,223 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.MREPORT">
+        FORM ELEMENTS
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<div class="container-fluid container-fullw">
+    <div class="panel panel-white">  
+        <div class="panel-body">
+            <div ng-controller="ReportMreportCtrl">
+                <div class="row">
+                    <div class="col-md-9">
+                        <form class="gf" id="specimens_printqueue" name="specimens_printqueue" ng-submit="msearch()">
+                            <fieldset>
+                                <legend>
+                                    SEARCH MONTH
+                                </legend>
+                                <div class="gf-row-1 gf-large">
+                                    <!--div class="gf-col-1" data-column="6" id="filter_col1">
+                                        <label>
+                                            CODE
+                                        </label>
+                                        <input autofocus="" class="column_filter_printcoll" id="col6_filter" name="txtcoll_code_inter" type="text">
+                                        </input>
+                                    </div>
+                                    <div class="gf-col-1" data-column="7" id="filter_col2">
+                                        <label>
+                                            YEAR
+                                        </label>
+                                        <input autofocus="" class="column_filter_printcoll number" id="col7_filter" name="txtcoll_year_inter" type="text">
+                                        </input>
+                                    </div>
+                                    <div class="gf-col-1">
+                                        <label>
+                                            NUMBER
+                                        </label>
+                                        <div class="input-group">
+                                            <input autofocus="" id="col8_filter" type="text">
+                                            </input>
+                                        </div>
+                                    </div-->
+                                    <div class="gf-col-1">
+                                        <label>
+                                            MONTH
+                                        </label>
+                                        <div class="input-group">
+                                            <input id="date" name="txtcoll_number_inter" ng-model="mreport_date" type="text">
+                                            </input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="">
+                                        <div class="">
+                                            <p>
+                                                <div class="btn-group btn-group-justified">
+                                                    <a class="btn btn-primary" ng-click="msearch();">
+                                                        SEARCH
+                                                    </a>
+                                                    <a class="btn btn-primary" ng-click="mreset();">
+                                                        RESET
+                                                    </a>
+                                                </div>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>
+                                    Collection List
+                                </legend>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>
+                                        </label>
+                                        <table cellspacing="0" class="table compact table-striped table-condensed nowrap " id="ReportSpecTbl" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                    </th>
+                                                    <th>
+                                                        Specimen Number
+                                                    </th>
+                                                    <th>
+                                                        Order
+                                                    </th>
+                                                    <th>
+                                                        Family
+                                                    </th>
+                                                    <th>
+                                                        Genus
+                                                    </th>
+                                                    <th>
+                                                        Species
+                                                    </th>
+                                                    <th>
+                                                        coll_code
+                                                    </th>
+                                                    <th>
+                                                        coll_year
+                                                    </th>
+                                                    <th>
+                                                        coll_number
+                                                    </th>
+                                                    <th>
+                                                        specimen_number
+                                                    </th>
+                                                    <th>
+                                                        Report Date
+                                                    </th>
+                                                    <th>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-12">
+                                <div class="panel panel-white no-radius no-border">
+                                    <div class="partition-light-grey padding-15 text-center margin-bottom-25">
+                                        <h5 class="text-bold">
+                                            Monthly Statistics
+                                        </h5>
+                                        <span class="label label-warning">
+                                            {{ngmodelMothDisplay}}
+                                        
+                                            {{ngmodelYearDisplay}}
+                                        </span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="panel-scroll height-300" perfect-scrollbar="" suppress-scroll-x="true" wheel-propagation="false">
+                                                    <table class="table no-margin">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="center">
+                                                                    <div class="block margin-top-15 margin-bottom-10 text-orange">
+                                                                        <span class="counter-symbol">
+                                                                            <i class="fa fa-bug">
+                                                                            </i>
+                                                                        </span>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="text-small block text-light">
+                                                                        Specimens
+                                                                    </span>
+                                                                    <a href="#">
+                                                                        Peter Clark
+                                                                    </a>
+                                                                </td>
+                                                                <td class="text-right">
+                                                                    <span class="counter-symbol" count-to="{{ngmodelMothlysum}}" duration="1" filter="number" ng-model="ngmodelMothlysum" value="0">
+                                                                        {{ngmodelMothlysum}}
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr ng-repeat="rp in getCountspecimens">
+                                                                <td class="center">
+                                                                    <span class="text-extra-large">
+                                                                        <i class="fa fa-tag">
+                                                                        </i>
+                                                                    </span>
+                                                                </td>
+                                                                <td>
+                                                                    <span>
+                                                                        {{rp.collfullnum}}
+                                                                    </span>
+                                                                </td>
+                                                                <td class="text-right">
+                                                                    <span class="badge badge-inverse">
+                                                                        {{rp.counteachspec}}
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="btn btn-primary btn-outline btn-sm" ng-click="PrintReport('MReport')">
+                                        Print Report
+                                    </a>
+                                     <!--a class="btn btn-primary btn-outline btn-sm" ng-click="PrintDurable('DuReport')"> 
+                                        Print DuReport
+                                    </a-->
+                                    <!--div class="partition-light-grey padding-15 text-center margin-bottom-25">
+                                        <h5 class="text-bold">
+                                            TEST STATUSITIC
+                                        </h5>
+                                        <span class="label label-warning">
+                                        </span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="panel-scroll height-300" perfect-scrollbar="" suppress-scroll-x="true" wheel-propagation="false">
+                                                    <table class="table no-margin">
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

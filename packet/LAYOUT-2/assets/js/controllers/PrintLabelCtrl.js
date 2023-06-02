@@ -3,19 +3,24 @@
   * controllers for GoogleMap 
   * AngularJS Directive 
 */  
-app.controller("PrintLabelCtrl", ["$scope", "$http", "$timeout", "$stateParams", "SweetAlert", "test","$uibModal", "$log",
-    function($scope, $http, $timeout, $stateParams, SweetAlert, test,$uibModal, $log) {
+app.controller("PrintLabelCtrl", ["$scope", "$http", "$timeout", "$stateParams", "SweetAlert", "test","$uibModal", "$log","printsum",
+    function($scope, $http, $timeout, $stateParams, SweetAlert, test,$uibModal, $log,printsum) {
 
+        printsum.totaldata("collection").success(function(datacollection) {
+                 $scope.totallabelcollection = datacollection[0].totallabel;                 
+                 $scope.papersizecollection = datacollection[0].totalpapersize;
+        })
+ 
         var selected = [];
         var table = $('#collectionview').DataTable({
             "processing": true,
             "serverSide": true,
             "ajax": {
-                "url": "assets/scripts/server_processing_simpletest.php",
+                "url": "assets/scripts/server_processing_collectionlabel.php",
                 "type": "POST"
             },
             "dom": '<"top"pl><"clear">rti',
-            "scrollX": true,
+            "scrollX": true, 
             "scrollY": "300px",
             "scrollCollapse": true,
             "columnDefs": [
@@ -44,7 +49,7 @@ app.controller("PrintLabelCtrl", ["$scope", "$http", "$timeout", "$stateParams",
                     width: '80px',
                     targets: 5
         },
-                {
+                { 
                     width: '320px',
                     targets: 6
         },
@@ -73,11 +78,34 @@ app.controller("PrintLabelCtrl", ["$scope", "$http", "$timeout", "$stateParams",
                     targets: 12
         },
 
+                {
+                    width: '150px',
+                    targets: 13
+        },
+
+                { "visible": false,
+                    width: '150px',
+                    targets: 14
+        },
+
+                { "visible": false,
+                    width: '150px',
+                    targets: 15
+        },
+                {   
+                     "visible": false,
+                    width: '150px',
+                    targets: 16
+        },
+
+
 
         ]
 
 
         });
+
+
 
 function format(d) {
     return '<form><table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
@@ -108,20 +136,21 @@ function testformat(d,n) {
     return d[n];
 }
 
-$scope.loadData = function () {
+$scope.loadData = function (type) {
             var dataHandler = $(".user_profile_list_a");
             dataHandler.html("");
-
+            var data = "tlabel_type=" + type;
+            
             $.ajax({
-            type: "GET",
-            data:"",
-            url: "assets/views/action/printsum.php",
+            type: "POST",
+            data: data,
+            url: "assets/views/action/printqueue.php",
             success: function(result){
                 var resultObj = JSON.parse(result);
                
                 $.each(resultObj,function(key,val){
                     var newRow = $("<li>");
-                    newRow.html("<a href='javascript:void(0)'><img src='assets/images/team-2.jpg' alt='' height='38' width='38'><p>"+val.collectionid+"<span><span class='text-muted'><br>Number of Print:</span>"+val.numberofitemstoprint+"</span><br><a id='"+val.idlabelprintqueue+"'class='del'>Delete</a></p></a>'"); 
+                    newRow.html("<a href='javascript:void(0)'><img src='assets/images/team-2.jpg' alt='' height='38' width='38'><p>"+val.collectionid+"<span><span class='text-muted'><br>Number of Print:</span>"+val.numberofitemstoprint+"</span><br><a id='"+val.idlabelprintqueue+"'class='del'>Delete</a></p></a>"); 
                 
 
                     dataHandler.append(newRow);
@@ -132,38 +161,26 @@ $scope.loadData = function () {
         });
         }
 
+        function filterColumncollection(i) {
+           $('#collectionview').DataTable().column(i).search(
+               $('#col' + i + '_filter').val(),
+               $('#col' + i + '_regex').prop('checked'),
+               $('#col' + i + '_smart').prop('checked')
+           ).draw();
+       }
 
 
-$('#collectionview tbody').on('click', 'tr', function(size) {
-    if ($(this).hasClass('selected')) {
-        $(this).removeClass('selected');
-    } else {
-        table.$('tr.selected').removeClass('selected');
-        $(this).addClass('selected');
-    }
+       $('input.column_filter_printcoll').on('keyup', function() {
+           filterColumncollection($(this).parents('DIV').attr('data-column'));
+       });
 
-    var tr = $(this).closest('tr');
-    var row = table.row(tr);
-    var labelid = table.row('.selected').data();
+function ajax(action,id){
+               
+        
+        if(action == "delete"){
+           var data = "action="+action+"&item_id="+id;
+        }
 
-    $scope.items = ["item1", "item2", "item3"], 
-    $scope.open = function(size) {
-     var a = row.data()
-     var b = format(a);
-
-    
-    function insertprintqueue(action) {
-         var data;
-         var c = labelid[0];
-         var pmeters = "&tlabel_id=" + c +
-             "&tnumber_of_items=" + encodeURI(document.getElementById("txtnumberofitems").value) +
-             "&action=" + action;
-
-         if (action == "save")
-             data = pmeters
-         else if (action == "delete") {
-             data = "action=" + action + "&item_id=" + id;
-         }
         $.ajax({
             type: "POST", 
             url: "assets/views/action/ajaxpostgres.php", 
@@ -172,7 +189,13 @@ $('#collectionview tbody').on('click', 'tr', function(size) {
             success: function(response){
                 if(response.success == "1"){
                     if(action == "save"){
-                        $scope.loadData();
+                        
+                        $(".user_profile_list_a").load("<li><a id='"+response.row_id+"' class='del'>Delete</a></li>");  
+                            
+                                
+                    }else if(action == "delete"){
+                        var row_id = response.item_id;
+                        $("a[id='"+row_id+"']").closest("li").fadeOut();
                     }
                 }else{
                     alert("unexpected error occured, Please check your database connection");
@@ -184,65 +207,105 @@ $('#collectionview tbody').on('click', 'tr', function(size) {
         });
     }
 
-    var modalInstance = $uibModal.open({
+$('#collectionlist').on("click",'.del',function(){
+        if(confirm("Do you really want to delete this record ?")){
+            ajax("delete",$(this).attr("id"));
+        }
+});  
+
+$('#collectionview tbody').on('click', 'tr', function() {
+
+    var tr = $(this).closest('tr');
+    var row = table.row(tr);
 
 
-                templateUrl: "assets/views/myModalContent.html",
-                controller: function($scope, $uibModalInstance) {
+    $scope.open = function(size) {
+        var modalInstance = $uibModal.open({
+            templateUrl: "assets/views/ModalPrintCollection.html",
+            controller: function($scope, $uibModalInstance) {
                 $scope.modalTitle = "Collection Print Setting";
-                
-                $scope.modalContent = b ;
-             
+                $scope.modalContent = b;
                 $scope.Labelinsert = function() {
-                 insertprintqueue("save");                   
-                }
-                $scope.ok = function() {
+                    insertprintqueue("save");
                     $uibModalInstance.close()
-                };
+                }               
                 $scope.cancel = function() {
                     $uibModalInstance.dismiss("cancel")
                 }
             },
-                size: size,
-                resolve: {
-                    items: function() {
-                        return $scope.items
+            size: size
+        });
+
+        modalInstance.result.then(function(selectedItem) {
+            $scope.selected = selectedItem
+        }, function() {
+            $log.info("Modal dismissed at: " + new Date)
+        })
+    }
+
+    function insertprintqueue(action) {
+        var data;
+        var c = labelid[0];
+        var pmeters = "&tlabel_id=" + c +
+            "&tnumber_of_items=" + encodeURI(document.getElementById("txtnumberofitems").value) +
+            "&tlabel_type=collection" +
+            "&action=" + action;
+
+        if (action == "save")
+            data = pmeters
+        else if (action == "delete") {
+            data = "action=" + action + "&item_id=" + id;
+        }
+        $.ajax({
+            type: "POST",
+            url: "assets/views/action/ajaxpostgres.php",
+            data: data,
+            dataType: "json",
+            success: function(response) {
+                if (response.success == "1") {
+                    if (action == "save") {
+                         printsum.totaldata("collection").success(function(datacollection) {
+                 $scope.totallabelcollection = datacollection[0].totallabel;                 
+                 $scope.papersizecollection = datacollection[0].totalpapersize;
+        })
+                        $scope.loadData('collection');
                     }
+                } else {
+                    alert("unexpected error occured, Please check your database connection");
                 }
-            });
-            modalInstance.result.then(function(selectedItem) {
-                $scope.selected = selectedItem
-            }, function() {
-                $log.info("Modal dismissed at: " + new Date)
-            })
-    
+            },
+            error: function(res) {
+                alert("Unexpected error! Try again.");
+            }
+        });
+    }
+    if ($(this).hasClass('selected')) {
+        $(this).removeClass('selected');
+    } else {
+        table.$('tr.selected').removeClass('selected');
+        $(this).addClass('selected');
+        $scope.open('sm');
+        var labelid = table.row('.selected').data();
+        var a = row.data();
+        var b = format(a);
     }
     
-     $scope.test = function(){
+    });
 
-        var a = row.data()
-        var b = format(a);
-        var c = testformat(a,1);
-
-        alert(c);
-
-     }  
- 
-   
-     $scope.open('sm');
-});
-
-
-
-$("#content-1").mCustomScrollbar({
-                    theme:"minimal"
-                });
-
-
-
-
-
-
+    $scope.config = {
+        autoHideScrollbar: true,
+        setHeight: 510,
+        scrollInertia: 500,
+        theme: 'light',
+        axis: 'yx',
+        advanced: {
+            updateOnContentResize: false
+        },
+        scrollButtons: {
+            scrollAmount: 'auto', // scroll amount when button pressed
+            enable: true // enable scrolling buttons by default
+        }
+    }
 
 }])
 

@@ -1,5 +1,5 @@
 <!-- start: BREADCRUMB -->
-<div class="breadcrumb-wrapper">
+<div class="breadcrumb-wrapper"> 
     <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.ELEMENTS">FORM ELEMENTS</h4>
     <div ncy-breadcrumb class="pull-right"></div>
 </div>     
@@ -14,27 +14,27 @@
                     <form class="gf">
                         <fieldset>
                          <legend>Specimen Data Entry</legend>
-                           <div class="gf-row-12 ">
-<div class="gf-col-7 gf-col-bg">
+                           <div class="gf-row-12 "> 
+<div class="gf-col-7 gf-col-bg"> 
     <fieldset>
         <legend>SEARCH SPECIMENS IN COLLECTION</legend>
         <div class="gf-row-5 gf-large">
-            <div class="gf-col-1" data-column="4">
+            <div class="gf-col-1" data-column="5">
                 <label>Code</label>
-                <input type="text" class="column_filterspec" id="col4_filter"  autofocus>
+                <input type="text" class="column_filterspec" id="col5_filter"  autofocus>
               
             </div>
 
-            <div class="gf-col-1" data-column="5">
+            <div class="gf-col-1" data-column="6">
                 <label>Year</label>
-                <input type="text" class="column_filterspec" id="col5_filter"  autofocus>
+                <input type="text" class="column_filterspec" id="col6_filter"  autofocus>
                
             </div>
        
 
-            <div class="gf-col-1" data-column="6">
+            <div class="gf-col-1" data-column="7">
                 <label>Number</label>
-                <INPUT type="text" class="column_filterspec"  id="col6_filter" autofocus>
+                <INPUT type="text" class="column_filterspec"  id="col7_filter" autofocus>
               
             </div>
         </div>
@@ -44,75 +44,53 @@
        
         <a class="btn btn-light-azure btn-xs" href="#"><i class="fa fa-search"></i> SEARCH</a>
     </fieldset>
-    <fieldset>
-                        <legend>Specimen List</legend>
-                      <div class="row">
-    <div class="col-md-12">
-        <label>&nbsp;</label>
-       
-   
-      <table id="Coll_Specimenlist" class="table compact table-striped table-condensed nowrap" cellspacing="0" width="100%" >
-        <thead>
-          <tr>
-            
-            
-           
-            <th>NO.</th>
-                                                <th>Collection Number</th>
-                                                <th>idcollection</th>
-                                                <th>trash</th>
-                                                <th>coll_code</th>
-                                                <th>coll_year</th>
-                                                <th>coll_number</th>
-                                                <th>Order</th>
-                                                <th>Family</th>
-                                                <th>Genus</th>
-                                                <th>Species</th>
-                                                <th>specimen_number</th>
-                                                
-                                                
-                                                
-            
-                                              
-            
-                                              
-                                              
-          </tr>
-        </thead>
+<fieldset>
+    <legend>Specimen List</legend>
+    <div class="row">
+        <div class="col-md-12">
+            <label>&nbsp;</label>
+            <table id="Coll_Specimenlist" class="table compact table-striped table-condensed nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>specimenfullnumber</th>
+                        <th>collectionid</th>
+                        <th>idcollection</th>
+                        <th>trash</th>
+                        <th>coll_code</th>
+                        <th>coll_year</th>
+                        <th>coll_number</th>
+                        <th>tordername</th>
+                        <th>familyname</th>
+                        <th>genusname</th>
+                        <th> speciesname</th>
+                        <th>specimen_number</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>No.</th>
+                        <th>specimenfullnumber</th>
+                        <th>collectionid</th>
+                        <th>idcollection</th>
+                        <th>trash</th>
+                        <th>coll_code</th>
+                        <th>coll_year</th>
+                        <th>coll_number</th>
+                        <th>tordername</th>
+                        <th>familyname</th>
+                        <th>genusname</th>
+                        <th> speciesname</th>
+                        <th>specimen_number</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</fieldset>
 
-        <tfoot>
-          <tr>
-            
-            
-           
-              <th>NO.</th>
-                                                <th>Collection Number</th>
-                                                <th>idcollection</th>
-                                                <th>trash</th>
-                                                <th>coll_code</th>
-                                                <th>coll_year</th>
-                                                  <th>coll_number</th>
-                                                <th>Order</th>
-                                                <th>Family</th>
-                                                <th>Genus</th>
-                                                <th>Species</th>
-                                                <th>specimen_number</th>
-                                                
-                                               
-                                                
-                                               
-            
-                                                
-                                               
-          </tr>
-        </tfoot>
-      </table>
 
-      
-    
-      
-</div>
-                    </fieldset>   
+  
 </div>
 <div class="gf-col-5 gf-col-bg">
     <fieldset>
@@ -154,10 +132,10 @@
         <div class="gf-row-2 gf-large">
             <div class="gf-col-2">
                 <label>Order</label>
-                <select ng-model="idtorder" ng-change="onChangedOrder(idtorder)"  ng-options="getOrder.idtorder as getOrder.tordername for getOrder in getOrder track by getOrder.idtorder" name="ff" id="txtOrder">
-                 <option value="">Select Order</option>                    
+                <select ng-model="selectedCountry" ng-options="item.idtorder as item.tordername for item in getOrders" name="ff" id="txtOrder">
+                   
                 </select>
-               
+               {{selectedCountry | json}}
                 
             </div>
           

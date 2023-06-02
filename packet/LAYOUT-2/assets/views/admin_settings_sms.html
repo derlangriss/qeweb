@@ -1,0 +1,10 @@
+<div ng-controller="AdminSettingsSmsCtrl" style="margin-top: 15px;">
+  <ul class="nav nav-tabs">
+      <li role="presentat" ng-repeat="tab in smsTabs" ui-sref-active="active">
+          <a ui-sref="{{tab.route}}">
+              {{tab.name}}
+          </a>
+      </li>
+  </ul>
+  <div ui-view></div>
+</div>

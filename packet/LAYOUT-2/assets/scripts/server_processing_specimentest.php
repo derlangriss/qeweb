@@ -44,7 +44,7 @@ $columns = array(
 $sql_details = array(
 	'user' => 'mkmorgangling',
 	'pass' => 'nepenthes',
-	'db'   => 'qsbgcoll',
+	'db'   => 'QEinsectsDB',
 	'host' => 'localhost'
 );
 

@@ -1,0 +1,401 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="">
+        Specimens Report
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw ">
+    <div ng-controller="reporttab">
+        <div class="col-sm-12">
+            <div class="panel panel-white no-radius">
+                <div class="panel-heading partition-azure border-light">
+                    <h4 class="panel-title">
+                        การจัดการตัวอย่างแมลง ปีงบประมาณ 2562
+                    </h4>
+                    <ct-paneltool class="panel-tools" tool-refresh="load1">
+                    </ct-paneltool>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="user-left no-border">
+                                <div class="center">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form class="form-inline" role="form">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            @
+                                                        </div>
+                                                        <input class="form-control" placeholder="Enter Fiscal Year" type="email">
+                                                        </input>
+                                                    </div>
+                                                </div>
+                                                
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 no-padding">
+                                            <div class="panel panel-white height-300 no-radius no-border">
+                                                <div class="panel-heading padding-5 padding-bottom-0">
+                                                    <span class="triangle-top-right text-light pull-right">
+                                                    </span>
+                                                    <h4 class="text-bold text-dark-transparent text-uppercase no-margin space10 padding-10">
+                                                        <i class="fa fa-sort-up small text-green margin-right-5">
+                                                        </i>
+                                                        <span class="text-bold text-dark margin-right-10">
+                                                            SPECIMENS
+                                                        </span>
+                                                    </h4>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="text-center">
+                                                        <div class="inline-block">
+                                                            <ui-knob options="options" value="valuespec">
+                                                            </ui-knob>
+                                                            <span class="text-white block">
+                                                                CPU used
+                                                            </span>
+                                                        </div>
+                                                        <h4 class="text-bold text-light">
+                                                            {{countallyear}} SPECIMENS
+                                                        </h4>
+                                                        <p>
+                                                            <span class="text-light margin-right-5">
+                                                                KPI:
+                                                            </span>
+                                                            <span>
+                                                                รวบรวมตัวอย่างแห้ง 3600 หมายเลข
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="center">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 no-padding">
+                                            <div class="panel panel-white no-radius no-border">
+                                                <div class="panel-heading padding-5 padding-bottom-0">
+                                                    <span class="triangle-top-right text-light pull-right">
+                                                    </span>
+                                                    <h4 class="text-bold text-dark-transparent text-uppercase no-margin space10 padding-10">
+                                                        <i class="fa fa-sort-up small text-green margin-right-5">
+                                                        </i>
+                                                        <span class="text-bold text-dark margin-right-10">
+                                                            FAMILIES
+                                                        </span>
+                                                    </h4>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="text-center">
+                                                        <div class="inline-block">
+                                                            <ui-knob options="options2" value="avgbarknobdisplay">
+                                                            </ui-knob>
+                                                            <span class="text-white block">
+                                                                CPU used
+                                                            </span>
+                                                        </div>
+                                                        <h4 class="text-bold text-light">
+                                                            {{countallyearfamily}} FAMILIES
+                                                        </h4>
+                                                        <p>
+                                                            <span class="text-light margin-right-5">
+                                                                KPI:
+                                                            </span>
+                                                            <span>
+                                                                จำแนกตัวอย่างแมลงระดับวงศ์ 80 วงศ์
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="panel panel-light-grey panel-carousel dots-left no-border no-radius">
+                                                <div class="panel-body no-padding height-200">
+                                                    <!-- start: CAROUSEL -->
+                                                    <slick arrows="false" autoplay="true" autoplay-speed="6000" class="carousel" dots="true" infinite="false" slides-to-scroll="1" slides-to-show="1" speed="300">
+                                                        <div class="slide padding-20 height-200" style="background: url('assets/images/carousel/03.jpg')">
+                                                            <h5 class="text-bold text-extra-small text-dark-transparent text-uppercase">
+                                                                MAXIMUM FAMILY OF THE YEAR
+                                                                <i class="fa fa-arrow-circle-o-right">
+                                                                </i>
+                                                            </h5>
+                                                            <h3 class="inline-block">
+                                                                {{countmaxfamilyname}}
+                                                            </h3>
+                                                            <span class="cl-effect-3 links block margin-top-10">
+                                                                <a class="uppercase text-dark text-uppercase text-bold text-extra-small" href="#">
+                                                                    {{countmaxfamily}} Specimens
+                                                                    <i class="padding-left-5 fa fa-angle-right">
+                                                                    </i>
+                                                                </a>
+                                                            </span>
+                                                            <div class="block margin-top-10 ">
+                                                                <span class="label background-dark text-white margin-top-10 margin-right-5">
+                                                                    {{avgfamilymaxcountdisplay}} %
+                                                                </span>
+                                                                <span class="cl-effect-19">
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slide padding-20 height-200" style="background: url('assets/images/carousel/02EX.jpg')">
+                                                            <h5 class="text-bold text-extra-small text-dark-transparent text-uppercase">
+                                                                MAXIMUM SPECIMENS OF THE YEAR
+                                                                <i class="fa fa-arrow-circle-o-right">
+                                                                </i>
+                                                            </h5>
+                                                            <letter-icon box="round" class="margin-right-5" color="#7F8C8D" data="{{countexpecyear}}" size="lg">
+                                                            </letter-icon>
+                                                            <h3 class="inline-block">
+                                                                {{countexpecyear}}
+                                                            </h3>
+                                                            <span class="cl-effect-3 links block margin-top-10">
+                                                                <a class="uppercase text-dark text-uppercase text-bold text-extra-small" href="#">
+                                                                    {{countmaxmonth}} Specimens
+                                                                    <i class="padding-left-5 fa fa-angle-right">
+                                                                    </i>
+                                                                </a>
+                                                            </span>
+                                                            <div class="block margin-top-10 ">
+                                                                <span class="label background-dark text-white margin-top-10 margin-right-5">
+                                                                    {{avgbarspec}} %
+                                                                </span>
+                                                                <span class="cl-effect-19">
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </slick>
+                                                    <!-- end: CAROUSEL -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row space20">
+                                <div class="panel-body">
+                                    <!-- end: EMAIL READER -->
+                                    <div class="">
+                                        <ul class="nav nav-tabs">
+                                            <li ng-class="{ active: isSet(1) }">
+                                                <a aria-expanded="false" data-toggle="tab" ng-click="setTab(1)" title="Report">
+                                                    <span class="round-tabs four">
+                                                        <i class="fa fa-book">
+                                                        </i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li ng-class="{ active: isSet(2) }">
+                                                <a aria-expanded="false" data-toggle="tab" ng-click="setTab(2)" title="FamilyList">
+                                                    <span class="round-tabs four">
+                                                        <i class="fa fa-list-alt">
+                                                        </i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel">
+                                        <div class="tab-pane" id="tab-table1">
+                                            <div class="tab-content">
+                                                <div class="container bootstrap snippet no-padding">
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="tab-table1">
+                                                <div class="animate-show-hide margin-top-5" ng-show="isSet(1)">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div id="tab-table2">
+                                                                <div class="panel no-border panel-white no-radius">
+                                                                    <div class="">
+                                                                        <table class="table table-bordered table-hover no-padding" id="sample-table-5">
+                                                                            <thead>
+                                                                                <tr class="uppercase label-default ">
+                                                                                    <th>
+                                                                                        <span class="label-change ">
+                                                                                            Month
+                                                                                        </span>
+                                                                                    </th>
+                                                                                    <th class="hidden-xs">
+                                                                                        <span class="label-change ">
+                                                                                            QTY
+                                                                                        </span>
+                                                                                    </th>
+                                                                                    <th>
+                                                                                        <span class="label-change ">
+                                                                                            <i class="fa fa-time">
+                                                                                            </i>
+                                                                                            Uploaded(%)
+                                                                                        </span>
+                                                                                    </th>
+                                                                                    <th class="hidden-xs">
+                                                                                        <span class="label-change ">
+                                                                                            Status
+                                                                                        </span>
+                                                                                    </th>
+                                                                                    <th>
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr ng-repeat="m in mreportspeclist">
+                                                                                    <td>
+                                                                                        {{m.fullmonth}} {{m.reportyear}}
+                                                                                    </td>
+                                                                                    <td class="hidden-xs">
+                                                                                        {{m.countspecea}}
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        {{m.uploadedpercent}}
+                                                                                    </td>
+                                                                                    <td class="hidden-xs">
+                                                                                        <span class="label label-sm {{m.uploadprogressaction}}">
+                                                                                            {{m.uploadprogress}}
+                                                                                        </span>
+                                                                                    </td>
+                                                                                    <td class="center">
+                                                                                        <div class="">
+                                                                                            <a <a="" class="btn btn-transparent btn-xs" tooltip-placement="top" ui-sref="app.specimens.managespec.specimens_report" uib-tooltip="Report">
+                                                                                                <i class="fa fa-book">
+                                                                                                </i>
+                                                                                            </a>
+                                                                                            <a class="btn btn-transparent btn-xs" ng-click="ReportSearch(m.reportmonth,m.reportyear)" tooltip-placement="top" uib-tooltip="Identify">
+                                                                                                <i class="fa fa-search-plus">
+                                                                                                </i>
+                                                                                            </a>
+                                                                                            <a class="btn btn-transparent btn-xs tooltips" ng-click="LabelSearch(m.reportmonth,m.reportyear)" tooltip-placement="top" uib-tooltip="Label">
+                                                                                                <i class="fa fa-tags">
+                                                                                                </i>
+                                                                                            </a>
+                                                                                            <a class="btn btn-transparent btn-xs tooltips" href="#" ng-click="PrintReport('MReport',m.reportmonth,m.reportyear)" tooltip-placement="top" uib-tooltip="Print">
+                                                                                                <i class="fa fa-print fa fa-white">
+                                                                                                </i>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr ng-repeat-end="">
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="tab-table1">
+                                                <div class="animate-show-hide margin-top-5" ng-show="isSet(2)">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="">
+                                                                <table class="table table-bordered table-bordered-fixed table-hover no-padding" id="fiscaltbl" width="100%">
+                                                                    <thead>
+                                                                        <tr class="uppercase label-default ">
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    family id
+                                                                                </span>
+                                                                            </th>
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    family name
+                                                                                </span>
+                                                                            </th>
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    jan
+                                                                                </span>
+                                                                            </th>
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    feb
+                                                                                </span>
+                                                                            </th>
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    mar
+                                                                                </span>
+                                                                            </th>
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    apr
+                                                                                </span>
+                                                                            </th>
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    may
+                                                                                </span>
+                                                                            </th>
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    jun
+                                                                                </span>
+                                                                            </th>
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    jul
+                                                                                </span>
+                                                                            </th>
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    augu
+                                                                                </span>
+                                                                            </th>
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    sep
+                                                                                </span>
+                                                                            </th>
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    oct
+                                                                                </span>
+                                                                            </th>
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    nov
+                                                                                </span>
+                                                                            </th>
+                                                                            <th>
+                                                                                <span class="label-change ">
+                                                                                    dec
+                                                                                </span>
+                                                                            </th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: USER PROFILE -->

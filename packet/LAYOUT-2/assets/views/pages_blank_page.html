@@ -1,8 +1,214 @@
 <!-- start: BREADCRUMB -->
 <div class="breadcrumb-wrapper">
-    <h4 class="mainTitle no-margin" translate="sidebar.nav.pages.BLANKPAGE">STARTER PAGE</h4>
-
-    <div ncy-breadcrumb class="pull-right"></div>
+    <h4 class="mainTitle no-margin">
+        General Information
+        <span class="text-bold">
+            ID: {{collection_id}}
+        </span>
+    </h4>
+</div>
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12 no-border">
+                        <div class="panel panel-primary no-border">
+                            <div class="panel-heading no-border">
+                                <h4 class="panel-title">
+                                    {{coll_full_id}}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="panel panel-white no-radius no-border">
+                            <div class="col-md-12">
+                                <div>
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3">
+                                                    Date Collection
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-md-4">
+                                                    Start Date
+                                                </td>
+                                                <td>
+                                                    {{coll_start_date}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-4">
+                                                    End Date
+                                                </td>
+                                                <td>
+                                                    {{coll_end_date}}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3">
+                                                    Location Coordinate
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-md-4">
+                                                    lattitude
+                                                </td>
+                                                <td>
+                                                    <a href="">
+                                                        {{coll_lat_d}}° {{coll_lat_m}}' {{coll_lat_s}}"
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-4">
+                                                    longitude
+                                                </td>
+                                                <td>
+                                                    <a href="">
+                                                        {{coll_long_d}}° {{coll_long_m}}' {{coll_long_s}}"
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-4">
+                                                    MASL
+                                                </td>
+                                                <td>
+                                                    {{coll_masl}}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3">
+                                                    Location Adminstrative
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-md-4">
+                                                    Amphur
+                                                </td>
+                                                <td>
+                                                    {{amphur_en}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-4">
+                                                    Province
+                                                </td>
+                                                <td>
+                                                    {{province_en}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-4">
+                                                    Locality
+                                                </td>
+                                                <td>
+                                                    {{coll_locality}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-4">
+                                                    Specific Locality
+                                                </td>
+                                                <td>
+                                                    <a href="#">
+                                                        {{coll_specific_locality}}
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-4">
+                                                    Status
+                                                </td>
+                                                <td>
+                                                    <span class="label label-sm label-info">
+                                                        Administrator
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3">
+                                                    Collection Details
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-md-4">
+                                                    Collection Method
+                                                </td>
+                                                <td>
+                                                    {{collmethod}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-md-4">
+                                                    Donation
+                                                </td>
+                                                <td>
+                                                    {{donation}}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3">
+                                                    Collector List
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat-start="d in collectorlist">
+                                                <td class="col-md-4">
+                                                    <span class="badge badge-info">
+                                                        {{d.queue}}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    {{d.collector_firstname_en}} {{d.collector_lastname_en}}
+                                                </td>
+                                            </tr>
+                                            <tr ng-repeat-end="">
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="text-right">
+                                        <a class="btn btn-primary btn-o btn-wide" href="#" ng-click="editActive = true">
+                                            Edit Account
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- end: BREADCRUMB -->
 <!-- start: YOUR CONTENT HERE -->

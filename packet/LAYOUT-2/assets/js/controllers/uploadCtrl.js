@@ -1,11 +1,11 @@
 'use strict';
 /** 
-  * controllers for Angular File Upload
+  * controllers for Angular File Upload 
 */
 app.controller('UploadCtrl', ['$scope', 'FileUploader',
 function ($scope, FileUploader) {
     var uploaderImages = $scope.uploaderImages = new FileUploader({
-        url: 'upload.php'
+        url: 'assets/views/action/upload.php'
     });
 
     // FILTERS
@@ -13,7 +13,7 @@ function ($scope, FileUploader) {
     uploaderImages.filters.push({
         name: 'imageFilter',
         fn: function (item/*{File|FileLikeObject}*/, options) {
-            var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+            var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|'; 
             return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
         }
     });

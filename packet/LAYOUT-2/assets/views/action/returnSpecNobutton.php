@@ -1,9 +1,5 @@
 <?php
-$hostname = "localhost";
-$dbUser = "mkmorgangling";
-$dbPass = "nepenthes"; $dbName = "qsbgcoll"; 
-// connect to the database
-$objConnect = pg_connect("host=$hostname dbname=$dbName user=$dbUser password=$dbPass") or die("Cannot connect to the database");
+require 'connectdb.php';
 
 
 	$strSQL = "SELECT * FROM collection

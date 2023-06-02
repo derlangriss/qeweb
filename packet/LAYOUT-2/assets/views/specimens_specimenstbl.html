@@ -1,0 +1,268 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.specimens.SPECIMENS">
+        Specimens Table
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: DYNAMIC TABLE -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div ng-controller="SpecimensTblCtrl">
+            <div class="panel-body no-padding">
+                <div class="col-md-12 col-xs-12 text-left">
+                    <form class="form-inline" id="specimens_form" name="SpecimensTaxa_Form" ng-submit="filterGlobal()">
+                        <div class="gf-row-12 no-padding no-border">
+                            <div class="gf-col-12 no-padding" data-column="2">
+                                <div class="dropdown ">
+                                    <div class="input-group">
+                                        <div class="btn-group">
+                                            <button class="btn btn-xs btn-danger btn-squared" type="submit">
+                                                <i class="fa fa-search">
+                                                </i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <input class="form-control noborderfixed input-vsm" ng-model="filterGlobaltext" placeholder="Search" type="text"/>
+                                    <a class="btn btn-xs" data-toggle="dropdown">
+                                        <i class="fa fa-chevron-circle-down">
+                                        </i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-add-wide dropdown-menu-left">
+                                        <div class="panel-body hasDatepicker">
+                                            <div class="panel-heading">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <form class="form-horizontal" role="form">
+                                                            <div class="row">
+                                                                <div class="form-group-edit">
+                                                                    <label class="col-sm-3 control-label">
+                                                                        <span class="badge badge-inverse">
+                                                                            Collection Number
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm-9">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-4">
+                                                                                <input class="form-navi-fixed underline" ng-change="searchmodel(11)" ng-model="collcode" placeholder="Code" type="text">
+                                                                                </input>
+                                                                            </div>
+                                                                            <div class="col-sm-4">
+                                                                                <input class="form-navi-fixed underline" ng-change="searchmodel(12)" ng-model="collyear" placeholder="year" type="text">
+                                                                                </input>
+                                                                            </div>
+                                                                            <div class="col-sm-4">
+                                                                                <input class="form-navi-fixed underline" ng-change="searchmodel(13)" ng-model="collnumber" placeholder="Number" type="text">
+                                                                                </input>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group-edit">
+                                                                    <label class="col-sm-3 control-label">
+                                                                        <span class="badge badge-inverse">
+                                                                            Provice
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm-9">
+                                                                        <input class="form-navi-fixed underline" ng-change="searchmodel(4)" ng-model="collprovince" type="text">
+                                                                        </input>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group-edit">
+                                                                    <label class="col-sm-3 control-label">
+                                                                        <span class="badge badge-inverse">
+                                                                            Amphur
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm-9">
+                                                                        <input class="form-navi-fixed underline" ng-change="searchmodel(3)" ng-model="collamphur" type="text">
+                                                                        </input>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group-edit">
+                                                                    <label class="col-sm-3 control-label">
+                                                                        <span class="badge badge-inverse">
+                                                                            Date Collection
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm-9">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group" id="sandbox-startdate">
+                                                                                    <div class="input-group date">
+                                                                                        <div class="input-group-addon input-group-clear">
+                                                                                            <a class="searchdate" title="calendar">
+                                                                                                <i class="fa fa-calendar" id="txtstartdate">
+                                                                                                </i>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        <input class="form-navi-fixed underline" ng-model="collstart" placeholder="Start Date" type="email">
+                                                                                        </input>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!--input class="form-navi-fixed underline" ng-change="searchmodel(5)" ng-model="collstart" id="txtpreinsdate" placeholder="Start Date" type="text">
+                                                                                </input>
+                                                                                <a aria-expanded="false" data-toggle="tab" ng-click="showDatePicker()" title="Event">
+                                                                                    <i class="fa fa-calendar" id="showdate">
+                                                                                    </i>
+                                                                                </a-->
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group" id="sandbox-enddate">
+                                                                                    <div class="input-group date">
+                                                                                        <div class="input-group-addon input-group-clear">
+                                                                                            <a class="searchdate" ng-click="showDatePicker()" title="calendar">
+                                                                                                <i class="fa fa-calendar" id="txtenddate">
+                                                                                                </i>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        <input class="form-navi-fixed underline" placeholder="End Date" type="email">
+                                                                                        </input>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!--input class="form-navi-fixed underline" ng-change="searchmodel(6)" ng-model="collend" placeholder="End Date" type="text">
+                                                                                </input-->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group-edit">
+                                                                    <label class="col-sm-3 control-label">
+                                                                        <span class="badge badge-inverse">
+                                                                            Trap
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="col-sm-9">
+                                                                        <input class="form-navi-fixed underline" ng-change="searchmodel(2)" ng-model="colltrap" type="text">
+                                                                        </input>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group-edit">
+                                                                    <label class="col-sm-12 control-label text-right">
+                                                                        <a class="btn btn-sm btn-orange" ng-click="closefilter()">
+                                                                            Search
+                                                                        </a>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel-body" ng-show="IsVisible">
+                    <div class="col-sm-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="btn-group">
+                                    <a class="btn btn-transparent btn-xs" ng-click="HideShow()" tooltip-placement="top" uib-tooltip="Close">
+                                        <span class="label">
+                                            <i class="ti ti-close">
+                                            </i>
+                                        </span>
+                                    </a>
+                                    <span>
+                                        Search Result
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="no-padding partition-dark-primary">
+                                <div class="col-md-12 partition-light-primary no-padding">
+                                    <div class="padding-15">
+                                        <p>
+                                            {{filterGlobaltext}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <table cellspacing="0" class="table table-condensed table-hover" id="SpecimensTbl" width="100%">
+                    <thead>
+                        <tr class="uppercase label-default ">
+                            <th>
+                            </th>
+                            <th>
+                                <span class="label-change ">
+                                    Specimens  Number
+                                </span>
+                            </th>
+                            <th>
+                                <span class="label-change ">
+                                    Order
+                                </span>
+                            </th>
+                            <th>
+                                <span class="label-change ">
+                                    Family
+                                </span>
+                            </th>
+                             <th>
+                                <span class="label-change ">
+                                    Genus
+                                </span>
+                            </th>
+                            <th>
+                                <span class="label-change ">
+                                   Species
+                                </span>
+                            </th>
+                            <th>
+                                <span class="label-change ">
+                                    coll code
+                                </span>
+                            </th>
+                            <th>
+                                <span class="label-change ">
+                                   coll year
+                                </span>
+                            </th>
+                            <th>
+                                <span class="label-change ">
+                                   coll number
+                                </span>
+                            </th>
+                             <th>
+                                <span class="label-change ">
+                                   coll spec number
+                                </span>
+                            </th>
+                            <th>
+                                <span class="label-change ">
+                                    Specimens  id
+                                </span>
+                            </th>
+                            <th>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: DYNAMIC TABLE -->
