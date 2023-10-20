@@ -1,0 +1,49 @@
+\documentclass[a4paper,headsepline]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[ngerman]{babel}
+
+\usepackage[usegeometry]{typearea}
+\usepackage[hmargin=.65in,vmargin=1.1in]{geometry}
+\usepackage[manualmark]{scrlayer-scrpage}
+\clearpairofpagestyles
+\ohead{LOGO}
+\ihead{CargoSoft Dokumentation}
+\ofoot*{\flushright\begin{minipage}{0.9\textwidth}
+sdfsdfasdf
+\end{minipage} }
+\addtokomafont{pageheadfoot}{\upshape}
+
+\usepackage{hyperref}
+
+\definecolor{cargosoft}{RGB}{1,107,181}
+\newcommand{\myRule}[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
+
+\usepackage{blindtext}% only for dummy text
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    LOGO
+    {\scshape\LARGE Company name \par}
+    \vspace{1.5cm}
+    \myRule[cargosoft]{8cm}{0.4pt} \par
+    \vspace{0.5cm}
+    {\huge\bfseries document name\par}
+    \vspace{0.5cm}
+    \myRule[cargosoft]{8cm}{0.4pt} \par
+    \vspace{2cm}
+    \vfill
+    {\large \today\par}
+\end{titlepage}
+
+\Blindtext
+
+\cleardoublepage
+\KOMAoptions{paper=landscape}
+\recalctypearea
+\newgeometry{hmargin=.65in,vmargin=1.1in}
+\Blindtext
+
+\end{document}

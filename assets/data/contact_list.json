@@ -1,0 +1,37 @@
+[
+    {
+        "contactId": 3666,
+        "name": "Karl McKenzie Jr.",
+        "avatar": "assets\/img\/avatars\/avatar10_tn.png",
+        "company": "Bergstrom-Langosh",
+        "email": "jeramie.flatley@herzogwindler.biz"
+    },
+    {
+        "contactId": 6892,
+        "name": "Lelah Roberts",
+        "avatar": "assets\/img\/avatars\/avatar05_tn.png",
+        "company": "Klocko LLC",
+        "email": "brenna60@toy.com"
+    },
+    {
+        "contactId": 6816,
+        "name": "Sabrina Quitzon",
+        "avatar": "assets\/img\/avatars\/avatar07_tn.png",
+        "company": "Klocko LLC",
+        "email": "vzieme@oberbrunner.com"
+    },
+    {
+        "contactId": 1498,
+        "name": "Devyn Weber",
+        "avatar": "assets\/img\/avatars\/avatar10_tn.png",
+        "company": "Witting-Johnston",
+        "email": "durgan.elwin@yahoo.com"
+    },
+    {
+        "contactId": 6769,
+        "name": "Harold Wunsch",
+        "avatar": "assets\/img\/avatars\/avatar06_tn.png",
+        "company": "Cruickshank-White",
+        "email": "mlabadie@gmail.com"
+    }
+]

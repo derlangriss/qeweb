@@ -1,0 +1,302 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper"> 
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.ELEMENTS">FORM ELEMENTS</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>     
+<!-- end: BREADCRUMB -->
+<!-- start: BASIC EXAMPLE -->  
+<div class="container-fluid container-fullw">
+    <div class="row"> 
+        <div class="col-md-12">   
+            <div class="panel panel-white">
+                <div class="panel-body">
+                <div ng-controller="GridFormSpecimenCtrl">
+                    <form class="gf">
+                        <fieldset>
+                         <legend>Specimen Data Entry</legend>
+                           <div class="gf-row-12 "> 
+<div class="gf-col-7 gf-col-bg"> 
+    <fieldset>
+        <legend>SEARCH SPECIMENS IN COLLECTION</legend>
+        <div class="gf-row-5 gf-large">
+            <div class="gf-col-1" data-column="5">
+                <label>Code</label>
+                <input type="text" class="column_filterspec" id="col5_filter"  autofocus>
+              
+            </div>
+
+            <div class="gf-col-1" data-column="6">
+                <label>Year</label>
+                <input type="text" class="column_filterspec" id="col6_filter"  autofocus>
+               
+            </div>
+       
+
+            <div class="gf-col-1" data-column="7">
+                <label>Number</label>
+                <INPUT type="text" class="column_filterspec"  id="col7_filter" autofocus>
+              
+            </div>
+        </div>
+    </fieldset>
+    
+    <fieldset>
+       
+        <a class="btn btn-light-azure btn-xs" href="#"><i class="fa fa-search"></i> SEARCH</a>
+    </fieldset>
+<fieldset>
+    <legend>Specimen List</legend>
+    <div class="row">
+        <div class="col-md-12">
+            <label>&nbsp;</label>
+            <table id="Coll_Specimenlist" class="table compact table-striped table-condensed nowrap" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>specimenfullnumber</th>
+                        <th>collectionid</th>
+                        <th>idcollection</th>
+                        <th>trash</th>
+                        <th>coll_code</th>
+                        <th>coll_year</th>
+                        <th>coll_number</th>
+                        <th>tordername</th>
+                        <th>familyname</th>
+                        <th>genusname</th>
+                        <th> speciesname</th>
+                        <th>specimen_number</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>No.</th>
+                        <th>specimenfullnumber</th>
+                        <th>collectionid</th>
+                        <th>idcollection</th>
+                        <th>trash</th>
+                        <th>coll_code</th>
+                        <th>coll_year</th>
+                        <th>coll_number</th>
+                        <th>tordername</th>
+                        <th>familyname</th>
+                        <th>genusname</th>
+                        <th> speciesname</th>
+                        <th>specimen_number</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</fieldset>
+
+
+  
+</div>
+<div class="gf-col-5 gf-col-bg">
+    <fieldset>
+        <legend>Specimen Number</legend>
+        <div class="gf-row-8 gf-large">
+            <div class="gf-col-2">
+                <label>code</label>
+                <INPUT class='numberdecimal' ng-model="specdata.coll_code" ng-change="onChangedCollcode();" type="text" id="txtcoll_code" name="txtcoll_code" autofocus>
+            </div>
+            <div class="gf-col-2">
+                <label>year</label>
+                <INPUT class='numberdecimal' ng-model="specdata.coll_year" ng-change="onChangedCollyear();" type="text" id="txtcoll_year" name="txtcoll_year" autofocus>
+            </div>
+            <div class="gf-col-2">
+                <label>number</label>
+                <INPUT class='numberdecimal' ng-model="specdata.coll_number" ng-change="onChangedCollnumber();"type="text" id="txtcoll_number" name="txtcoll_number" autofocus>
+            </div>
+            <div class="gf-col-2" data-column="11">
+                <label>Specimen ID</label>
+                <INPUT type="text" name="txtspecimen_number" id="txtspecimen_number" value="{{specdata.specimen_number}}" autofocus>
+
+            </div>
+        </div>
+        <INPUT name="txtidspecimens" id="txtidspecimens" type="hidden" value="{{specdata.idspecimens}}" autofocus>
+        <INPUT name="txtidcollection" id="txtidcollection" type="hidden" value="{{specdata.idcollection}}" autofocus>
+    </fieldset>
+    <fieldset>
+    <a class="btn btn-light-azure btn-xs" ng-click="generateAUTO();" href="#"><i class="fa fa-refresh"></i> GENERATE RECENT NUMBER!</a>
+    <a class="btn btn-light-azure btn-xs" ng-click="specSEARCH();" href="#"><i class="fa fa-search"></i> SEARCH</a>
+        
+    </fieldset>
+    <!--fieldset>
+           <select name = "mySelect" id = "mySelect" ng-options="data.DisplayText for data in ScopeObject.ArrayData track by data.DisplayID" ng-model="ScopeObject.SelectedData"
+        </select>
+    </fieldset-->
+   
+    <fieldset>
+        <legend>Specimen Details</legend>
+        <div class="gf-row-2 gf-large">
+            <div class="gf-col-2">
+                <label>Order</label>
+                <select ng-model="selectedCountry" ng-options="item.idtorder as item.tordername for item in getOrders" name="ff" id="txtOrder">
+                   
+                </select>
+               {{selectedCountry | json}}
+                
+            </div>
+          
+        </div>
+        <div class="gf-row-4 gf-large">
+            <div class="gf-col-2">
+                <label>family</label>
+                <select ng-model="idfamily" ng-change="onChangedFamily(idfamily)" ng-options="getFamily.idfamily as getFamily.familyname for getFamily in getFamily track by getFamily.idfamily" name="ff" id="txtFamily">
+                    <option value="">Select Family</option>
+                </select>
+            </div>
+            <div class="gf-col-2">
+                <label>Sub family</label>
+                <INPUT type="text" id="txtSub_family" name="txtSub_family" value="" autofocus>
+            </div>
+        </div>
+
+        <div class="gf-row-2 gf-large">
+            <div class="gf-col-1">
+                <label>Genus</label>
+                
+<select ng-model="idgenus" ng-change="onChangedGenus(idgenus)"
+        ng-options="getGenus.idgenus as getGenus.genusname for getGenus in getGenus track by getGenus.idgenus" name="ff" id="txtGenus" >
+
+  
+    <option value="">Select Genus</option>
+</select>
+
+
+
+
+            </div>
+            <div class="gf-col-1">
+                <label>Sub Genus</label>
+                <INPUT type="text" id="txtSub_Genus" name="txtSub_Genus" value="" autofocus>
+            </div>
+        </div>
+        <div class="gf-row-2 gf-large">
+            <div class="gf-col-2">
+                <label>Species</label>
+                
+
+<select ng-model="idspecies" ng-change="onChangedSpecies(idspecies)"
+        ng-options="getSpecies.idspecies as getSpecies.speciesname for getSpecies in getSpecies track by getSpecies.idspecies" name="ff" id="txtSpecies" >
+ <option value="">Select Species
+ </option>
+  
+   
+</select>
+
+
+
+
+
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+         <legend>Type Specimen</legend>
+        <div class="gf-row-6 gf-large">
+            <div class="gf-col-2 " >
+            <div class="radio-primary">
+            <input type="radio" id="Normal" name="typespecimen" value="0" checked="checked">
+                                                <label for="Normal">
+                                                    Normal
+                                                </label>
+                                                </div>
+               
+            </div>
+            <div class="gf-col-2">
+            <div class="radio-primary">
+             <input type="radio" id="Holotype" name="typespecimen" value="1">
+                                                <label for="Holotype">
+                                                    Holotype
+                                                </label>
+               
+            </div>
+            </div>
+            <div class="gf-col-2">
+             <div class="radio-primary">
+            <input type="radio" id="Paratype" name="typespecimen" value="2" >
+                                                <label for="Paratype">
+                                                    Paratype
+                                                </label>
+                
+            </div>
+            </div>
+           
+        </div>
+        <div class="gf-row-6 gf-large">
+            <div class="gf-col-2 ">
+            <div class="radio-primary">
+            <input type="radio" id="Neotype" name="typespecimen" value="3" >
+                                                <label for="Neotype">
+                                                    Neotype
+                                                </label>
+                                               </div> 
+                                               </div>
+            <div class="gf-col-2 ">
+            <div class="radio-primary">
+             <input type="radio" id="Syntype" name="typespecimen" value="4">
+                                                <label for="Syntype">
+                                                    Syntype
+                                                </label>
+                                                </div>
+                                                </div>
+            <div class="gf-col-2 ">
+             <div class="radio-primary">
+            <input type="radio" id="Lectotype" name="typespecimen" value="5" >
+                                                <label for="Lectotype">
+                                                    Lectotype
+                                                </label>
+                                                </div>
+           
+        </div>
+        </div>
+        <div class="gf-row-2 gf-large">
+            <div class="gf-col-2">
+            <div class=" radio-primary">
+            <input type="radio" id="Paralectotype" name="typespecimen" value="3" >
+                                                <label for="Paralectotype">
+                                                    Paralectotype
+                                                </label>
+                                                </div>
+                                                </div>
+           
+        </div>
+        
+    </fieldset>
+
+
+
+
+   
+    <fieldset>
+        <a class="btn btn-light-azure btn-xs" href="#" ng-click="Insectspec('ADD');"><i class="fa fa-refresh"></i> EDIT</a>
+    <a class="btn btn-light-azure btn-xs" href="#"><i class="fa fa-search"></i> DIFFERENT</a>
+    <a class="btn btn-light-azure btn-xs" href="#"><i class="fa fa-refresh"></i> SIMILAR</a>
+
+    </fieldset>
+</div>
+
+                           </div>
+
+
+
+
+
+
+                         </fieldset>
+                       
+                       
+                        
+
+
+                        
+                       
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

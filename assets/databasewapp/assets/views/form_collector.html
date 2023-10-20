@@ -1,0 +1,254 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.tables.COLLECTOR">
+        Donation Form
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: DYNAMIC TABLE -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <div ng-controller="collectorTblCtrl">
+                        <!-- start: collector form -->
+                        <div class="col-md-4">
+                            <fieldset id="collectorform">
+                                <div class="panel-body">
+                                    <form role="form">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div>
+                                                    <div class="center">
+                                                        <h4>
+                                                            {{collectordetail.collectorfirstEN}} {{collectordetail.collectorlastEN }}
+                                                        </h4>
+                                                        <div flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-file-success="uploader.controllerFn($flow, $file, $message)" flow-init="{singleFile:true}" flow-name="obj.flow" flow-object="obj.flow">
+                                                            <div class="user-image">
+                                                                <div class="thumbnail">
+                                                                    <img alt="" ng-if="!obj.flow.files.length && noImage" src="{{collectordetail.avatar}}">
+                                                                        <img alt="" ng-if="!obj.flow.files.length && !noImage" ng-src="{{collectordetail.avatar}}">
+                                                                            <img flow-img="obj.flow.files[0]" ng-if="obj.flow.files.length">
+                                                                            </img>
+                                                                        </img>
+                                                                    </img>
+                                                                </div>
+                                                                <div class="user-image-buttons" ng-if="obj.flow.files.length">
+                                                                    <span class="btn btn-primary btn-file">
+                                                                        <i class="fa fa-pencil">
+                                                                        </i>
+                                                                        <input flow-btn="" type="file"/>
+                                                                    </span>
+                                                                    <span class="btn btn-danger" ng-click="obj.flow.cancel()">
+                                                                        <i class="fa fa-times">
+                                                                        </i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="user-image-buttons" ng-if="!obj.flow.files.length">
+                                                                    <span class="btn btn-primary btn-file">
+                                                                        <i class="fa fa-pencil">
+                                                                        </i>
+                                                                        <input flow-btn="" type="file"/>
+                                                                    </span>
+                                                                    <span class="btn btn-danger" ng-click="removeImage()" ng-if="!noImage">
+                                                                        <i class="fa fa-times">
+                                                                        </i>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--hr>
+                                                            <div class="social-icons block">
+                                                                <ul>
+                                                                    <li class="social-twitter tooltips" data-original-title="Twitter" data-placement="top">
+                                                                        <a href="#" target="_blank">
+                                                                            Twitter
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="social-facebook tooltips" data-original-title="Facebook" data-placement="top">
+                                                                        <a href="#" target="_blank">
+                                                                            Facebook
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="social-google tooltips" data-original-title="Google" data-placement="top">
+                                                                        <a href="#" target="_blank">
+                                                                            Google+
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="social-linkedin tooltips" data-original-title="LinkedIn" data-placement="top">
+                                                                        <a href="#" target="_blank">
+                                                                            LinkedIn
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="social-github tooltips" data-original-title="Github" data-placement="top">
+                                                                        <a href="#" target="_blank">
+                                                                            Github
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <hr>
+                                                            </hr>
+                                                        </hr-->
+                                                    </div>
+                                                    <table class="table table-condensed">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="3">
+                                                                    Collector Information (ข้อมูลผู้เก็บตัวอย่าง)
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    FirstName
+                                                                </td>
+                                                                <td>
+                                                                    <input class="form-control noborder input-vsm" ng-model="collectordetail.collectorfirstEN" type="text">
+                                                                    </input>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    LastName
+                                                                </td>
+                                                                <td>
+                                                                    <input class="form-control noborder input-vsm" ng-model="collectordetail.collectorlastEN" type="text">
+                                                                    </input>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    ชื่อ
+                                                                </td>
+                                                                <td>
+                                                                    <input class="form-control noborder input-vsm" id="txtcollectorfirstTH" name="txtcollectorfirstTH" ng-model="collectordetail.collectorfirstTH" type="text">
+                                                                    </input>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    นามสกุล
+                                                                </td>
+                                                                <td>
+                                                                    <input class="form-control noborder input-vsm" id="txtcollectorlastTH" name="txtcollectorlastTH" ng-model="collectordetail.collectorlastTH" type="text">
+                                                                    </input>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <table class="table table-condensed">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="3">
+                                                                    General information (ข้อมูลทั่วไป)
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    Position
+                                                                </td>
+                                                                <td>
+                                                                    <input class="form-control noborder input-vsm" id="" name="" type="text">
+                                                                    </input>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Status
+                                                                </td>
+                                                                <td>
+                                                                    <input class="form-control noborder input-vsm" id="" name="" type="text">
+                                                                    </input>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <table class="table table-condensed">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="3">
+                                                                    Additional information (ข้อมูลเพิ่มเติม)
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    Groups
+                                                                </td>
+                                                                <td>
+                                                                    <input class="form-control noborder input-vsm" id="form-field-13" type="text">
+                                                                    </input>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="text-right">
+                                                        <a class="btn btn-primary btn-o btn-wide" href="#" ng-click="collectorIns('ADD')">
+                                                            Save
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <!-- end: collector form -->
+                        <!-- start: collector table -->
+                        <div class="col-md-8">
+                            <div class="table-responsive">
+                                <fieldset>
+                                    <table cellspacing="0" class="table compact table-striped table-condensed nowrap" id="collectorTbl" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">
+                                                </th>
+                                                <th class="center" colspan="2">
+                                                    English Name
+                                                </th>
+                                                <th class="center" colspan="2">
+                                                    Thai Name
+                                                </th>
+                                                <th class="center" rowspan="2">
+                                                    Action
+                                                </th>
+                                                <th class="center" rowspan="2">
+                                                    Action
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th class="hidden-xs">
+                                                    First Name
+                                                </th>
+                                                <th class="hidden-xs">
+                                                    Last Name
+                                                </th>
+                                                <th class="hidden-xs">
+                                                    ชื่อ
+                                                </th>
+                                                <th class="hidden-xs">
+                                                    นามสกุล
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <!-- end: collector table -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: DYNAMIC TABLE -->

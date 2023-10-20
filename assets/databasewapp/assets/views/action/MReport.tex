@@ -1,0 +1,68 @@
+% This file is a valid PHP file and also a valid LaTeX file
+% When processed with LaTeX, it will generate a blank template
+% Loading with PHP will fill it with details
+
+\documentclass{article}
+% Required for proper escaping
+\usepackage{textcomp} % Symbols
+\usepackage[T1]{fontenc} % Input format
+
+% Because Unicode etc. 
+\usepackage{fontspec} % For loading fonts
+\setmainfont{Liberation Serif} % Has a lot more symbols than Computer Modern
+
+% Make placeholders visible
+\newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
+
+% Defaults for each variable
+\newcommand{\collfullnum}{\placeholder{collfullnum}}
+\newcommand{\counteachspec}{\placeholder{counteachspec}}
+\newcommand{\countspecmonth}{\placeholder{countspecmonth}}
+\newcommand{\monthDisplay}{\placeholder{monthDisplay}}
+\newcommand{\yearDisplay}{\placeholder{yearDisplay}}
+
+% <?php echo "\n" . "\\renewcommand{\\monthDisplay}{" . LatexTemplate::escape($data[0]['monthDisplay']) . "}\n"; ?>
+% <?php echo "\n" . "\\renewcommand{\\countspecmonth}{" . LatexTemplate::escape($data[0]['countspecmonth']) . "}\n"; ?>
+% <?php echo "\n" . "\\renewcommand{\\yearDisplay}{" . LatexTemplate::escape($data[0]['yearDisplay']) . "}\n"; ?>
+
+% LaTeX code for the invoice
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\definecolor{tableShade}{gray}{0.9}
+\setlength{\parindent}{0pt}
+\pagestyle{empty} 
+ 
+
+\begin{document}
+\rowcolors{3}{tableShade}{white}  %% start alternating shades from 3rd row
+\section*{Insect Museum.}
+
+	% Table of customer details
+	\begin{tabular}{l l}
+		Date	& \monthDisplay{} \yearDisplay{} \\
+	\end{tabular}
+
+	% Table of items on this invoice
+	\vspace{15mm}
+	\begin{tabularx}{\textwidth}{X r r | r}
+
+	\textbf{Collection Number} &  &  & \textbf{Quantity.}\\
+
+	\hline
+
+	%<?php																		/*
+	% */ foreach($data as $reportitem) {						/*
+	% */ 	echo "\n" . LatexTemplate::escape($reportitem['collfullnum']) . " & " .	/*
+	% */		" " . " & " .			/*
+	% */		" " . " & " .			/*
+	% */		LatexTemplate::escape($reportitem['counteachspec']) . "\\\\\n";		/*
+	% */ } ?>
+	\hline
+	Summary & & & \countspecmonth{} \\
+	\end{tabularx}
+	
+	% Footer
+	\vfill
+	QSBG insects museum.
+	
+\end{document}

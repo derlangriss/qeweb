@@ -1,0 +1,2 @@
+putty and win SCP ip server 1.179.141.60 port 4422 
+sompong Rabanastre@04062524

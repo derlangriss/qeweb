@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{colortbl}
+
+% Make placeholders visible
+\newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
+
+% Defaults for each variable
+\newcommand{\collfullnum}{\placeholder{collfullnum}}
+\newcommand{\counteachspec}{\placeholder{sompong}}
+\newcommand{\countspecmonth}{\placeholder{countspecmonth}}
+\newcommand{\monthDisplay}{\placeholder{monthDisplay}}
+\newcommand{\yearDisplay}{\placeholder{yearDisplay}}
+
+
+
+
+\tcbuselibrary{skins}
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+
+\tcbset{tab1/.style={fonttitle=\bfseries\large,fontupper=\normalsize\sffamily,
+colback=yellow!10!white,colframe=red!75!black,colbacktitle=Salmon!40!white,
+coltitle=black,center title,freelance,frame code={
+\foreach \n in {north east,north west,south east,south west}
+{\path [fill=red!75!black] (interior.\n) circle (3mm); };},}}
+
+\tcbset{tab2/.style={enhanced,fonttitle=\bfseries,fontupper=\normalsize\sffamily,
+colback=yellow!10!white,colframe=red!50!black,colbacktitle=Salmon!40!white,
+coltitle=black,center title}}
+
+
+
+
+% LaTeX code for produce QSBGinsects label
+\begin{document}
+
+
+
+
+\begin{tcolorbox}[tab2,tabularx={X||Y},title=Report Of the Month,boxrule=0.5pt]
+Collection Number & Number of Specimens          \\\hline\hline
+
+
+
+%<?php                                    /*
+% */ foreach($data as $reportitem) {           /*
+% */  echo "\n" . "\\renewcommand{\\collfullnum}{" . LatexTemplate::escape($reportitem['collfullnum']) . "}\n".    /*
+% */       "\n" . "\\renewcommand{\\countspecmonth}{" . LatexTemplate::escape($reportitem['countspecmonth']) . "}\n"; ?>
+\collfullnum{}   & \counteachspec{}  \\
+
+%<?php /* % */ } ?>  
+
+
+
+
+
+
+
+
+
+
+
+
+\end{tcolorbox}
+
+
+
+\end{document}

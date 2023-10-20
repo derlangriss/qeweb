@@ -1,0 +1,57 @@
+<!doctype html>
+<html ng-app="loginModules">
+<head>
+<meta charset="UTF-8">
+<title>AngularJS</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/angular.min.js"></script>
+</head>
+ 
+<body>
+<div class="container">
+
+<ul class="nav nav-pills" role="tablist">
+        <li role="presentation" class="active"><a href="index.html">Home</a></li>
+        <li role="presentation"><a href="register.html">Register</a></li>
+        <li role="presentation"><a href="#job">Jobs Report</a></li>
+</ul>
+<h3>Add New Driver</h3>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+    <h3 class="panel-title">Register: </h3>
+    </div>
+	<div class="panel-body">
+    	<form ng-controller="loginController" name="regForm" novalidate>
+
+        <p>Username:<br>
+        <input class="form-control" type="text" name="first_name" ng-model="username" required>
+        <span class="alert alert-danger" ng-show="regForm.username.$dirty && regForm.username.$invalid">
+        <span ng-show="regForm.first_name.$error.required">Username required.</span>
+        </span>
+        </p>
+        
+        <p>Password:<br>
+        <input class="form-control" type="text" name="password" ng-model="password" required>
+        <span class="alert alert-danger" ng-show="regForm.password.$dirty && regForm.password.$invalid">
+        <span ng-show="regForm.last_name.$error.required">Password is required.</span>
+        </span>
+        </p>
+        <p>
+        <input type="submit" value="Login" class="btn btn-sm btn-success" ng-click="login()"
+        ng-disabled="
+        regForm.username.$dirty && regForm.username.$invalid ||  
+        regForm.password.$dirty && regForm.password.$invalid">
+        </p>
+        <p>
+        <br/>
+        <span id="message" class="alert alert-success">{{message}}</span>
+        </p>
+        </form>
+    </div>
+</div>
+
+</div>
+
+<script src="controller/login.js"></script>
+</body>
+</html>

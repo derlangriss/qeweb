@@ -1,0 +1,324 @@
+<!-- end: BREADCRUMB -->
+<!-- start: TABS -->
+<!-- /// controller:  'TabsDemoCtrl' -  localtion: assets/js/controllers/bootstrapCtrl.js /// -->
+<div ng-controller="FormMainSpecCtrl">
+    <!-- start: FIFTH  SECTION -->
+    <div class="container-fluid container-fullw">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="panel panel-white">
+                    <div class="panel-body">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        @
+                                    </div>
+                                    <select class="cs-select cs-skin-elastic" ng-model="reportModel.month">
+                                        <option disabled="" value="">
+                                            Month
+                                        </option>
+                                        <option value="1">
+                                            January
+                                        </option>
+                                        <option value="2">
+                                            February
+                                        </option>
+                                        <option value="3">
+                                            March
+                                        </option>
+                                        <option value="4">
+                                            April
+                                        </option>
+                                        <option value="5">
+                                            May
+                                        </option>
+                                        <option value="6">
+                                            June
+                                        </option>
+                                        <option value="7">
+                                            July
+                                        </option>
+                                        <option value="8">
+                                            August
+                                        </option>
+                                        <option value="9">
+                                            September
+                                        </option>
+                                        <option value="10">
+                                            October
+                                        </option>
+                                        <option value="11">
+                                            November
+                                        </option>
+                                        <option value="12">
+                                            December
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <select class="cs-select cs-skin-elastic" ng-model="reportModel.year">
+                                    <option disabled="" value="">
+                                        Year
+                                    </option>
+                                    <option value="2015">
+                                        2015
+                                    </option>
+                                    <option value="2016">
+                                        2016
+                                    </option>
+                                    <option value="2017">
+                                        2017
+                                    </option>
+                                    <option value="2018">
+                                        2018
+                                    </option>
+                                    <option value="2019">
+                                        2019
+                                    </option>
+                                    <option value="2020">
+                                        2020
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox clip-check check-primary">
+                                    <input id="checkbox3" type="checkbox" value="1">
+                                        <label for="checkbox3">
+                                            Remember me
+                                        </label>
+                                    </input>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" ng-click="ReportSearch()" ng-model="actionModel.search" type="submit">
+                                Search
+                            </button>
+                            <button class="btn btn-primary" ng-click="ReportSearchnew()" ng-model="actionModel.search" type="submit">
+                                Search new
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                <div class="panel panel-white no-radius no-margin">
+                    <div class="panel-heading border-light padding-30">
+                        <div class="row">
+                            <div class="col-lg-4 col-xs-5">
+                                Specimens Report 2018 Budget
+                            </div>
+                            <div class="col-lg-8 col-xs-7 text-right">
+                                <div class="btn-group margin-top-5" ng-init="selected='Newest'" uib-dropdown="">
+                                    <button class="btn btn-azure btn-sm" id="split-button" type="button">
+                                        Sort by:
+                                        <span class="text-bold">
+                                            {{selected}}
+                                        </span>
+                                    </button>
+                                    <button class="btn btn-azure btn-sm" type="button" uib-dropdown-toggle="">
+                                        <span class="caret">
+                                        </span>
+                                        <span class="sr-only">
+                                            Split button!
+                                        </span>
+                                    </button>
+                                    <ul aria-labelledby="split-button" role="menu" uib-dropdown-menu="">
+                                        <li role="menuitem">
+                                            <a href="#" ng-click="selected='Newest'">
+                                                Newest
+                                            </a>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a href="#" ng-click="selected='Oldest'">
+                                                Oldest
+                                            </a>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a href="#" ng-click="selected='Approved'">
+                                                Approved
+                                            </a>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a href="#" ng-click="selected='In Review'">
+                                                In Review
+                                            </a>
+                                        </li>
+                                        <li class="divider">
+                                        </li>
+                                        <li role="menuitem">
+                                            <a href="#" ng-click="selected='Declined'">
+                                                Declined
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body padding-top-0">
+                        <table class="table no-margin">
+                            <tbody>
+                                <tr ng-repeat="d in mreportspeclist">
+                                    <td class="max-width-100">
+                                        <i class="fa fa-archive">
+                                        </i>
+                                    </td>
+                                    <td>
+                                        <div class="padding-10">
+                                            <div class="block">
+                                                <strong>
+                                                    {{d.head}}
+                                                </strong>
+                                                <span class="text-muted">
+                                                     {{d.fullmonth}}
+                                                </span>
+                                            </div>
+                                            <span class="text-small text-muted">
+                                                {{d.syear}}
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="hidden-xs">
+                                        <div class="block">
+                                            <a class="block" href="#">
+                                                <i class="fa fa-comments text-azure">
+                                                </i>
+                                                จำนวนแมลงทั้งหมด
+                                            </a>
+                                            <a class="block" href="#">
+                                                <i class="fa fa-bug text-orange">
+                                                </i>
+                                                {{d.countspecea}}
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td class="visible-lg">
+                                        <div class="col-xs-3 no-padding text-center">
+                                            <div class="border-right border-dark padding-5">
+                                                <small class="text-muted">
+                                                    Order
+                                                    <br>
+                                                        <strong>
+                                                            {{d.fullmonth}}
+                                                        </strong>
+                                                    </br>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3 no-padding text-center">
+                                            <div class="border-right border-dark padding-5">
+                                                <small class="text-muted">
+                                                    Family
+                                                    <br>
+                                                        <strong>
+                                                            {{d.family}}
+                                                        </strong>
+                                                    </br>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3 no-padding text-center">
+                                            <div class="border-right border-dark padding-5">
+                                                <small class="text-muted">
+                                                    Genus
+                                                    <br>
+                                                        <strong>
+                                                            {{d.genus}}
+                                                        </strong>
+                                                    </br>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3 no-padding text-center">
+                                            <div class="padding-5">
+                                                <small class="text-muted">
+                                                    Species
+                                                    <br>
+                                                        <strong>
+                                                            {{d.species}}
+                                                        </strong>
+                                                    </br>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr ng-repeat-end="">
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer no-border padding-top-0">
+                        <p class="no-margin">
+                            <a href="#">
+                                <i class="fa fa-arrow-circle-o-down text-green">
+                                </i>
+                            </a>
+                            <span class="text-light margin-left-10">
+                                Show more details
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="panel panel-white no-radius no-border">
+                    <div class="panel-body">
+                        <div class="partition-light-grey padding-15 text-center margin-bottom-25">
+                            <h4 class="no-margin">
+                                Annual Statistics
+                            </h4>
+                            <span class="text-light">
+                                based on the major browsers
+                            </span>
+                        </div>
+                        <v-accordion class="vAccordion--default">
+                            <!-- add expanded attribute to open first section -->
+                            <v-pane ng-repeat="d in reportboxlist">
+                                <v-pane-header>
+                                    {{d.a}}
+                                </v-pane-header>
+                                <v-pane-content>
+                                    <table class="table margin-bottom-5">
+                                        <tbody>
+                                            <tr ng-repeat="c in d.boxlist">
+                                                <td>
+                                                    {{c.collboxno}}
+                                                </td>
+                                                <td class="center">
+                                                    {{c.boxstatus}}
+                                                </td>
+                                                 <td class="center">
+                                                    {{c.boxlocate}}
+                                                </td>
+                                                <td>
+                                                    <i class="fa fa-caret-down text-red">
+                                                    </i>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </v-pane-content>
+                            </v-pane>
+                        </v-accordion>
+                    </div>
+                    <div class="panel-footer border-light">
+                        <p class="no-margin">
+                            <a href="#">
+                                <i class="fa fa-arrow-circle-o-down text-green">
+                                </i>
+                            </a>
+                            <span class="text-light margin-left-10">
+                                Show more details
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: FIFTH SECTION -->
+</div>

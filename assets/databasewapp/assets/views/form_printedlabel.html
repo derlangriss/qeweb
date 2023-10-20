@@ -1,0 +1,158 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.PRINTEDLABEL">
+        FORM ELEMENTS
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div> 
+<!-- end: BREADCRUMB -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <div ng-controller="FormPrintedLabelCtrl">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <form class="gf" id="specimens_printqueue" name="specimens_printqueue">
+                                    <fieldset>
+                                        <legend>
+                                            Search Collection
+                                        </legend>
+                                        <div class="gf-row-3 gf-large">
+                                            <div class="gf-col-1" data-column="6" id="filter_col1">
+                                                <label>
+                                                    CODE
+                                                </label> 
+                                                <input autofocus="" class="column_filter_printcoll" id="col6_filter" name="txtcoll_code_inter" type="text">
+                                                </input>
+                                            </div>
+                                            <div class="gf-col-1" data-column="7" id="filter_col2">
+                                                <label>
+                                                    YEAR
+                                                </label>
+                                                <input autofocus="" class="column_filter_printcoll number" id="col7_filter" name="txtcoll_year_inter" type="text">
+                                                </input>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>
+                                                    NUMBER
+                                                </label>
+                                                <div class="input-group" data-column="8" id="filter_col3">
+                                                    <input autofocus="" class="column_filter_printcoll number " id="col8_filter" name="txtcoll_number_inter" type="text">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input autofocus="" id="txtidcollection" name="txtidcollection" type="hidden" value="{{data.idcollection}}">
+                                        </input>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>
+                                            Collection List
+                                        </legend>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>
+                                                </label>
+                                                <!--table id="collectionview" class="table compact table-striped table-bordered" cellspacing="0" width="100%"-->
+                                                <table cellspacing="0" class="table compact table-striped table-condensed nowrap stripe" id="SpecimensListPrintTbl" width="100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>
+                                                            </th>
+                                                            <th>
+                                                                Specimen Number
+                                                            </th>
+                                                            <th>
+                                                                Order
+                                                            </th>
+                                                            <th>
+                                                                Family
+                                                            </th>
+                                                            <th>
+                                                                Genus
+                                                            </th>
+                                                            <th>
+                                                                Species
+                                                            </th>
+                                                            <th>
+                                                                coll_code
+                                                            </th>
+                                                            <th>
+                                                                coll_year
+                                                            </th>
+                                                            <th>
+                                                                coll_number
+                                                            </th>
+                                                            <th>
+                                                                specimen_number
+                                                            </th>
+                                                            <th>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="partition-light-grey padding-15 text-center margin-bottom-25">
+                                    <h4 class="no-margin">
+                                        Collection Print Queue
+                                    </h4>
+                                </div>
+                                <div class="row margin-top-15">
+                                    <div class="col-xs-6 text-center">
+                                        <div class="rate">
+                                            <i class="fa fa-caret-up text-green margin-right-5">
+                                            </i>
+                                            <span class="value">
+                                                {{totallabelcollection}}
+                                            </span>
+                                        </div>
+                                        <small class="text-muted">
+                                            Collection Labels
+                                        </small>
+                                    </div>
+                                    <div class="col-xs-6 text-center">
+                                        <div class="rate">
+                                            <i class="fa fa-caret-up text-green margin-right-5">
+                                            </i>
+                                            <span class="value">
+                                                {{papersizecollection}}
+                                            </span>
+                                        </div>
+                                        <small class="text-muted">
+                                            Number of Papers
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="content" id="LabelPrintQueue" ng-init="loadData('specimens');" ng-scrollbars="" ng-scrollbars-config="config">
+                                    <ul class="user_profile_list_a">
+                                        <li>
+                                        </li>
+                                        <!--
+                    <a href="javascript:void(0)">
+                        <img ng-src="assets/img/avatars/avatar09_tn.png" alt="" height="38" width="38">
+                        <p>{{contact.collectionid}}<span><span class="text-muted"><br>Number of Print:</span>{{contact.numberofitemstoprint}}</span><br><a id="{{contact.idlabelprintqueue}}" class="del">Delete</a></p>
+                        
+                    </a>
+                </li>
+               -->
+                                    </ul>
+                                </div>
+                                <a class="btn btn-primary btn-outline btn-sm" ui-sref="app.report.form_printpreview">
+                                    Check Out
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

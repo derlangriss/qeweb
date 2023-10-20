@@ -1,0 +1,115 @@
+%%%%
+%
+% ticket.sty example file for a pin for conferences
+%
+%%%%
+% use the corresponding paper size for your ticket definition
+\documentclass[letter,10pt]{letter}
+
+% load ticket.sty with the appropriate ticket definition
+\usepackage[qsbglabel,rowmode,crossmark]{ticket}%boxed, crossmark,circlemark,emptycrossmark,cutmark
+\ticketNumbers{6}{26}
+% load misc stuff
+\usepackage{graphicx}
+\usepackage{geometry}
+ \geometry{
+ letterpaper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+%\usepackage{eso-pic}
+\usepackage{calc}
+%\usepackage{pst-barcode}
+%\usepackage{auto-pst-pdf}
+\usepackage{ragged2e}
+
+
+\usepackage{textcomp} % Symbols
+\usepackage[T1]{fontenc} % Input format
+
+% Because Unicode etc.
+\usepackage{fontspec} 
+\setmainfont[Scale=1.25]{Arial} % Has a lot more symbols than Computer Modern
+\linespread{1.3}\selectfont
+\usepackage{qrcode}
+
+%\makeatletter
+%\ifcase \@ptsize \relax% 10pt
+%  \newcommand{\miniscule}{\@setfontsize\miniscule{4}{5}}% \tiny: 5/6
+%\or% 11pt
+ %\newcommand{\miniscule}{\@setfontsize\miniscule{5}{6}}% \tiny: 6/7
+%\or% 12pt
+% \newcommand{\miniscule}{\@setfontsize\miniscule{5}{6}}% \tiny: 6/7
+%\fi
+%\makeatother
+
+
+
+
+
+
+
+\renewcommand{\ticketdefault}{%
+}
+
+
+
+% now what do you like to put in your ticket
+\newcommand{\qsbglabelitem}[1]{\ticket{%
+    \put(0.6,4.0){#1}
+}}
+
+% Make placeholders visible
+\newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
+% Defaults for each variable
+\newcommand{\specimenfullnumber}{\placeholder{specimenfullnumber}}
+\newcommand{\tordername}{\placeholder{tordername}}
+\newcommand{\familyname}{\placeholder{familyname}}
+\newcommand{\genusname}{\placeholder{genusname}}
+\newcommand{\speciesname}{\placeholder{speciesname}}
+
+% LaTeX code for the invoice
+
+\begin{document}
+\RaggedRight
+%\miniscule
+\bfseries
+\fontsize{3}{3}\selectfont
+%\sffamily
+%<?php																		/*
+	% */ foreach($data as $labelitem) {						/*
+      
+	
+	
+        
+      % */  echo "\n" . "\\renewcommand{\\specimenfullnumber}{" . LatexTemplate::escape($labelitem['specimenfullnumber']) . "}\n".    /*
+      % */       "\n" . "\\renewcommand{\\tordername}{" . LatexTemplate::escape($labelitem['tordername']) . "}\n".    /*
+      % */       "\n" . "\\renewcommand{\\familyname}{" . LatexTemplate::escape($labelitem['familyname']) . "}\n".    /*
+      % */       "\n" . "\\renewcommand{\\genusname}{" . LatexTemplate::escape($labelitem['genusname']) . "}\n".    /*     
+      % */       "\n" . "\\renewcommand{\\speciesname}{" . LatexTemplate::escape($labelitem['speciesname']) . "}\n"; ?>
+      
+      
+
+
+        \qsbglabelitem{ 
+\parbox[r][8mm][c]{8mm}{
+ \vspace{-3mm}
+ \hspace{0mm}
+\qrcode[level=M,height=0.7cm]{\specimenfullnumber}
+
+
+
+
+ }
+ \parbox[l][10mm][t]{24mm}{\specimenfullnumber{}\\ORDER: \tordername{}\\FAMILY: \familyname{}\\GENUS: \genusname{}\\SPECIES: \speciesname{}}
+
+ }
+ 
+            %<?php	 /*
+ 
+ % */ } ?>  
+ 
+
+
+\end{document}

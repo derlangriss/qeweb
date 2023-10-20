@@ -1,0 +1,77 @@
+<!-- start: SEARCH FORM -->
+<div class="search-form hidden-md hidden-lg">
+    <form class="navbar-form" role="search">
+        <div class="form-group">
+            <input class="form-control" placeholder="{{ 'search.PLACEHOLDER' | translate }}" type="text">
+                <button class="btn search-button" type="submit">
+                    <i class="ti-search">
+                    </i>
+                </button>
+            </input>
+        </div>
+    </form>
+</div>
+<!-- end: SEARCH FORM -->
+<!-- start: USER OPTIONS -->
+<!--div class="nav-user-wrapper">
+    <div class="media">
+        <div class="media-left">
+            <a class="profile-card-photo" href="#">
+                <img alt="" src="{{avartar}}"/>
+            </a>
+        </div>
+        <div class="media-body">
+            <span class="media-heading text-white uppercase">
+                {{firstname}}
+            </span>
+            <span class="media-heading text-white uppercase">
+                {{lastname}}
+            </span>
+            <div class="text-small text-white-transparent">
+                {{usstatus}}
+            </div>
+        </div>
+        <div class="media-right media-middle">
+            <div is-open="status.isopen" uib-dropdown="">
+                <a class="dropdown-toggle btn btn-transparent text-white" href="" uib-dropdown-toggle="">
+                    <i class="fa fa-caret-down">
+                    </i>
+                </a>
+                <ul class="dropdown-menu pull-right animated fadeInRight">
+                    <li>
+                        <a translate="topbar.user.PROFILE" ui-sref="app.pages.user">
+                            My Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a translate="topbar.user.CALENDAR" ui-sref="app.pages.calendar">
+                            My Calendar
+                        </a>
+                    </li>
+                    <li>
+                        <a translate="topbar.user.MESSAGES" ui-sref="app.pages.messages">
+                            My Messages (3)
+                        </a>
+                    </li>
+                    <li>
+                        <a translate="topbar.user.LOCKSCREEN" ui-sref="login.lockscreen">
+                            Lock Screen
+                        </a>
+                    </li>
+                    <li class="divider">
+                    </li>
+                    <li>
+                        <a translate="topbar.user.LOGOUT" ui-sref="login.signin">
+                            Log Out
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div-->
+<!-- end: USER OPTIONS -->
+<!-- start: SIDEBAR -->
+<nav data-ng-include=" 'assets/views/partials/nav.html' ">
+</nav>
+<!-- end: SIDEBAR -->

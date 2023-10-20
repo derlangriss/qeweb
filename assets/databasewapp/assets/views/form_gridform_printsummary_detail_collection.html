@@ -1,0 +1,81 @@
+
+
+<!--a ui-sref="app.form.gridform_printsummary.detail({ id : 'jim'})"-->
+
+
+
+        <!-- fixed header table markup example -->
+        <div class="table-wrapper content">
+            <!-- overall wrapper -->
+            <table class="table-testtest">
+                <!-- header -->
+                <thead>
+                    <tr>
+                        <th colspan="2" class="max-width-100"></th>
+                    </tr>
+                    <tr>
+                        <th>COLLECTION DETAILS</th>
+                        <th></th>
+                        <th class="hidden-xs">ACTIONS</th>
+                        <th class="visible-lg">NUMBER OF ITEMS</th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="table no-margin" ng-scrollbars ng-scrollbars-config="config">
+                <!-- the element with the custom scrollbar -->
+                <table>
+                    <!-- body -->
+                    <tbody>
+                        <!-- auto-generated data (see js function below) -->
+                        <tr ng-repeat="collection in collectionlist" on-last-repeat>
+                            <td class="max-width-100">
+                                <div class="icons-effect">
+                                    <img src="assets/images/portfolio/image01_th.jpg" class="img-responsive img-rounded" alt="">
+                                    <div class="mask mask-rounded">
+                                        <div class="icons-wrapper">
+                                            <div class="icons">
+                                                <a href="#" class="icon">
+                                                    <span class="fa-stack fa-2x"> <i class="fa fa-circle fa-stack-2x text-white"></i> <i class="fa fa-search fa-stack-1x text-extra-large text-light"></i> </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="padding-10">
+                                    <div class="block">
+                                        <strong>THAILAND :</strong><span class="label label-warning">{{collection.collectionid}}</span>
+                                    </div>
+                                    <span class="text-small text-muted">{{collection.provinceen}} Alt.</span><span class="text-azure">{{collection.collectionmasl}} m</span>
+                                    <br>
+                                    <span class="text-small text-muted">{{collection.collectionlatd}}&#12444;{{collection.collectionlatm}}&#39{{collection.collectionlats}}&quotN {{collection.collectionlongd}}&#12444;{{collection.collectionlongm}}&#39{{collection.collectionlongs}}&quotE</span>
+                                    <br>
+                                    <span class="text-small text-muted">{{collection.collectionenddate}} {{collection.collectionmethodsdetails}}</span>
+                                    <br>                                
+                                     <span class="text-small text-muted">{{collection.collectorsen}}</span>
+                                    <br> 
+                                    <br>
+                                   
+                                </div>
+                            </td>
+                            <td class="hidden-xs">
+                                <div class="block">
+                                    <a href="#" class="margin-right-30 block">
+                                        <i class="fa fa-comments text-azure"></i> EDIT
+                                    </a>
+                                    <a href="#" class="margin-right-30  block">
+                                        <i class="fa fa-retweet text-green"></i> DELETE
+                                    </a>
+                                </div>
+                            </td>
+                            <td class="visible-lg">
+                                <div class="form-group">
+                                    <input id="demo4" type="text" value="{{collection.numberofitemstoprint}}" name="demo4" data-verticalbuttons="true" data-verticalupclass="ti-angle-up" data-verticaldownclass="ti-angle-down">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+

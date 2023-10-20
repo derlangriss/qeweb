@@ -1,0 +1,350 @@
+
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8" />
+<title>Collection simpleform</title> <link rel="stylesheet"
+href="collection_assets/css/simpleform.css" /> <script
+src="collection_assets/js/1.9.1/jquery-ui-1.9.2.custom.min"></script> <script
+src="collection_assets/js/jquery.formalize.js"></script>
+
+<script language="JavaScript">
+           var HttPRequest = false;
+
+           function doCallAjaxinterface(Mode) {
+                  HttPRequest = false; if (window.XMLHttpRequest) { // Mozilla,
+                  Safari,...
+                         HttPRequest = new XMLHttpRequest(); if
+                         (HttPRequest.overrideMimeType) {
+                                HttPRequest.overrideMimeType('text/html');
+                         }
+                  } else if (window.ActiveXObject) { // IE
+                         try {
+                                HttPRequest = new
+                                ActiveXObject("Msxml2.XMLHTTP");
+                         } catch (e) {
+                                try {
+                                   HttPRequest = new
+                                   ActiveXObject("Microsoft.XMLHTTP");
+                                } catch (e) {}
+                         }
+                  }
+
+                  if (!HttPRequest) {
+                         alert('Cannot create XMLHTTP instance'); return false;
+                  }
+
+                  var url = 'dbinsert.php';
+                   var pmeters = "tcollection_ID=" + encodeURI(
+                   document.getElementById("txtcollection_ID").value) +
+                                "&tcollection_start_date=" + encodeURI(
+                                document.getElementById("txtcollection_start_date").value
+                                ) + "&tcollection_end_date=" + encodeURI(
+                                document.getElementById("txtcollection_end_date").value
+                                ) + "&tcollection_method_ID=" + encodeURI(
+                                document.getElementById("txtcollection_method_ID").value
+                                ) + "&tamphur_ID=" + encodeURI(
+                                document.getElementById("txtamphur_ID").value )
+                                + "&tspecific_locality=" + encodeURI(
+                                document.getElementById("txtspecific_locality").value
+                                ) + "&tlocality=" + encodeURI(
+                                document.getElementById("txtlocality").value ) +
+                                "&thabitat=" + encodeURI(
+                                document.getElementById("txthabitat").value ) +
+                                "&tlat_d=" + encodeURI(
+                                document.getElementById("txtlat_d").value ) +
+                                "&tlat_m=" + encodeURI(
+                                document.getElementById("txtlat_m").value ) +
+                                "&tlat_s=" + encodeURI(
+                                document.getElementById("txtlat_s").value ) +
+                                "&tlong_d=" + encodeURI(
+                                document.getElementById("txtlong_d").value ) +
+                                "&tlong_m=" + encodeURI(
+                                document.getElementById("txtlong_m").value ) +
+                                "&tlong_s=" + encodeURI(
+                                document.getElementById("txtlong_s").value ) +
+                                "&tMASL=" + encodeURI(
+                                document.getElementById("txtMASL").value ) +
+                                "&tUTM=" + encodeURI(
+                                document.getElementById("txtUTM").value ) +
+                                "&tcollector_ID=" + encodeURI(
+                                document.getElementById("txtcollector_ID").value
+                                ) + "&tMode=" + Mode;
+
+                        HttPRequest.open('POST',url,true);
+
+                        HttPRequest.setRequestHeader("Content-type",
+                        "application/x-www-form-urlencoded");
+                        HttPRequest.setRequestHeader("Content-length",
+                        pmeters.length);
+                        HttPRequest.setRequestHeader("Connection", "close");
+                        HttPRequest.send(pmeters);
+
+
+                        HttPRequest.onreadystatechange = function() {
+
+                                 if(HttPRequest.readyState == 3) // Loading
+                                 Request
+                                  {
+                                   document.getElementById("mySpan").innerHTML =
+                                   "Now is Loading...";
+                                  }
+
+                                 if(HttPRequest.readyState == 4) // Return
+                                 Request
+                                  {
+                                   document.getElementById("mySpan").innerHTML =
+                                   HttPRequest.responseText;
+
+                                   document.getElementById("txtcollection_start_date").value
+                                   = '';
+                                   document.getElementById("txtcollection_end_date").value
+                                   = '';
+                                   document.getElementById("txtcollection_method_ID").value
+                                   = '';
+                                   document.getElementById("txtamphur_ID").value
+                                   = '';
+                                   document.getElementById("txtspecific_locality").value
+                                   = '';
+                                   document.getElementById("txtlocality").value
+                                   = '';
+                                   document.getElementById("txthabitat").value =
+                                   ''; document.getElementById("txtlat_d").value
+                                   = '';
+                                   document.getElementById("txtlat_m").value =
+                                   ''; document.getElementById("txtlat_s").value
+                                   = '';
+                                   document.getElementById("txtlong_d").value =
+                                   '';
+                                   document.getElementById("txtlong_m").value =
+                                   '';
+                                   document.getElementById("txtlong_s").value =
+                                   ''; document.getElementById("txtMASL").value
+                                   = ''; document.getElementById("txtUTM").value
+                                   = '';
+                                   document.getElementById("txtcollector_ID").value
+                                   = '';
+
+                                  }
+
+                        }
+
+           }
+
+
+        </script>
+</head> <body Onload="JavaScript:doCallAjaxinterface('LIST');"> <div
+id="wrapper">
+  <h1>
+    Collection Data Entry Form
+  </h1>
+
+
+
+
+
+
+    <table class="horiz">
+      <tr>
+        <td>
+          <label for="search">
+            Collection-id autogenerate
+          </label> <br /> <span id="mySpan"></span> <input type="hidden"
+          name="txtcollection_ID" id="txtcollection_ID" size="20">
+        </td>
+
+      </tr> <tr>
+         <td>
+          <label for="date">
+            Date Start
+          </label> <br /> <input type="date" id="date" name="date" />
+        </td>
+          <td> <label for="date">
+            Date End
+          </label> <br /> <input type="date" id="date" name="date" />
+        </td>
+      </tr> <tr>
+
+        <td>
+            <table class="horiz">
+              <tr>
+           <td>
+            <label for="search">
+              Lat dec
+            </label> <br /> <input type="search" id="search" name="search" />
+          </td>
+           <td>
+            <label for="search">
+              Lat h
+            </label> <br /> <input type="search" id="search" class="input_tiny"
+            name="search" />
+          </td>
+           </tr> </table>
+        </td>
+
+
+         <td>
+                      <table class="horiz">
+                     <tr>
+                  <td>
+                   <label for="search">
+                     Long dec
+                   </label> <br /> <input type="search" id="search"
+                   name="search" />
+                 </td>
+                  <td>
+                   <label for="search">
+                     Long h
+                   </label> <br /> <input type="search" id="search"
+                   class="input_tiny" name="search" />
+                 </td>
+                  </tr> </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+
+              <table class="horiz"> <tr> <td>
+                  <label for="search"> Lat d </label> <br /> <input
+                  type="search" id="search" class="input_tiny" name="search" />
+              </td>
+               <td>
+                  <label for="search"> Lat m </label> <br /> <input
+                  type="search" id="search" class="input_tiny" name="search" />
+              </td> <td>
+                  <label for="search"> Lat s </label> <br /> <input
+                  type="search" id="search" class="input_tiny" name="search" />
+              </td> </tr> </table>
+        </td>
+
+
+          <td>
+              <table class="horiz"> <tr> <td>
+                  <label for="search"> Long d </label> <br /> <input
+                  type="search" id="search" class="input_tiny" name="search" />
+              </td>
+               <td>
+                  <label for="search"> Long m </label> <br /> <input
+                  type="search" id="search" class="input_tiny" name="search" />
+              </td> <td>
+                  <label for="search"> Long s </label> <br /> <input
+                  type="search" id="search" class="input_tiny" name="search" />
+              </td> </tr> </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="datetime-local">
+            northing
+          </label> <br /> <input type="search" id="search" class="input_small"
+          name="search" />
+        </td> <td>
+          <label for="number">
+            easting
+          </label> <br /> <input type="search" id="search" class="input_small"
+          name="search" />
+        </td>
+
+      </tr> <tr>
+        <td>
+                     <table class="horiz">
+
+                         <tr>
+                                    <td>
+
+                                    <label for="datetime">
+                                      province English (thai)
+                                    </label> <br /> <input type="datetime"
+                                    id="datetime" name="datetime" />
+                                  </td>
+
+
+                          </tr> <tr>
+
+                             <td>
+                              <label for="month">
+                                Amphur English (thai)
+                              </label> <br /> <input type="datetime"
+                              id="datetime" name="datetime" />
+                            </td>
+
+                          </tr>
+                           <tr>
+
+                             <td>
+                              <label for="month">
+                                tambon English (thai)
+                              </label> <br /> <input type="datetime"
+                              id="datetime" name="datetime" />
+                            </td>
+
+                          </tr>
+
+                           <tr>
+
+                             <td>
+                               <button>Link to gazette</button>
+                            </td>
+
+                          </tr>
+                    </table>
+        </td>
+      <td>
+
+        <div id="googleMap" style="width:600px;height:400px;"></div>
+      </td>
+
+
+      </tr>
+
+           <tr> <td>
+            <label for="search">
+              Locality
+            </label> <br /> <input type="search" id="search" name="search" />
+          </td>
+           <td>
+            <label for="search">
+              Specific Locality
+            </label> <br /> <input type="search" id="search" name="search" />
+          </td>
+           </tr>
+
+         <tr>
+           <td>
+            <label for="search">
+              Collection Method
+            </label> <br /> <input type="search" id="search" name="search" />
+          </td>
+           <td>
+            <label for="search">
+              Collector
+            </label> <br /> <input type="search" id="search" name="search" />
+          </td>
+           </tr>
+
+
+
+    </table> <p>
+      <input type="submit" value="Different collection" /> &nbsp; <input
+      type="button" value="Similar collection" /> &nbsp; <input type="reset"
+      value="Done-leave interface" /> &nbsp;
+
+    </p>
+  </form>
+</div> </body> </html>
+
+<script> function initialize() {
+  var mapProp = {
+    center: new google.maps.LatLng(51.508742,-0.120850), zoom:7, mapTypeId:
+    google.maps.MapTypeId.ROADMAP
+  }; var map = new
+  google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+
+function loadScript() {
+  var script = document.createElement("script"); script.type =
+  "text/javascript"; script.src =
+  "http://maps.googleapis.com/maps/api/js?key=AIzaSyBRfahPGNMgp1CG_dKaT889WsDMWahBq7Q&sensor=false&callback=initialize";
+  document.body.appendChild(script);
+}
+
+window.onload = loadScript; </script> 

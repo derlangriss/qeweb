@@ -1,0 +1,109 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.2.19)  1 MAR 2016 16:40
+entering extended mode
+**C:/Apache24/htdocs/QRtest/web-pdf-master/label/ticket/doc/ex_flashcard.tex
+(C:/Apache24/htdocs/QRtest/web-pdf-master/label/ticket/doc/ex_flashcard.tex
+LaTeX2e <2015/10/01> patch level 2
+Babel <3.9n> and hyphenation patterns for 69 languages loaded.
+("C:\Program Files (x86)\MiKTeX2.9\tex\latex\base\letter.cls"
+Document Class: letter 2014/09/29 v1.2z Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX2.9\tex\latex\base\size10.clo"
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\longindentation=\dimen102
+\indentedwidth=\dimen103
+\labelcount=\count79
+)
+("C:\Program Files (x86)\MiKTeX2.9\tex\latex\ticket\ticket.sty"
+Package: ticket 2010/11/30 v0.4b
+
+Package: `ticket' v0.4b <2010/11/30> (Thomas Emmel)
+("C:\Program Files (x86)\MiKTeX2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files (x86)\MiKTeX2.9\tex\latex\tools\calc.sty"
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count80
+\calc@Bcount=\count81
+\calc@Adimen=\dimen104
+\calc@Bdimen=\dimen105
+\calc@Askip=\skip41
+\calc@Bskip=\skip42
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count82
+\calc@Cskip=\skip43
+)
+\c@ticket@x=\count83
+\c@ticket@y=\count84
+\c@ticket@num@X=\count85
+\c@ticket@num@Y=\count86
+\ticketWidth=\dimen106
+\ticketHeight=\dimen107
+\ticket@dis@X=\dimen108
+\ticket@dis@Y=\dimen109
+
+load flashCard.tdf
+("C:\Program Files (x86)\MiKTeX2.9\tex\latex\ticket\flashCard.tdf")
+\ticket@shift@x=\dimen110
+\ticket@shift@y=\dimen111
+\back@shift=\dimen112
+)
+("C:\Program Files (x86)\MiKTeX2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files (x86)\MiKTeX2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 94.
+
+("C:\Program Files (x86)\MiKTeX2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files (x86)\MiKTeX2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files (x86)\MiKTeX2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen113
+\Gin@req@width=\dimen114
+)
+("C:\Program Files (x86)\MiKTeX2.9\tex\latex\base\syntonly.sty"
+Package: syntonly 1999/09/17 v2.1e Standard LaTeX2e package
+)
+
+! LaTeX Error: File `fancybox.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.13 
+      
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 947 strings out of 493634
+ 12870 string characters out of 3141701
+ 66198 words of memory out of 3000000
+ 4377 multiletter control sequences out of 15000+200000
+ 3666 words of font info for 15 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 27i,0n,19p,328b,36s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

@@ -1,0 +1,286 @@
+<!-- start: MAIN NAVIGATION MENU -->
+<div class="navbar-title">
+    <span translate="sidebar.heading.NAVIGATION">
+        Main Navigation
+    </span>
+</div>
+<ul class="main-navigation-menu">
+    <li ui-sref-active="active">
+        <a ui-sref="app.dashboard">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-home">
+                    </i>
+                </div>
+                <div class="item-inner">
+                    <span class="title" translate="sidebar.nav.dashboard.MAIN">
+                        Dashboard
+                    </span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li ng-class="{'active open':$state.includes('app.table')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-table">
+                    </i>
+                </div>
+                <div class="item-inner">
+                    <span class="title" translate="sidebar.nav.tables.MAIN">
+                        Tables
+                    </span>
+                    <i class="icon-arrow">
+                    </i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ui-sref-active="active">
+                <a ui-sref="app.table.collectionTbl">
+                    <span class="title" translate="sidebar.nav.tables.COLLECTION">
+                        Collection
+                    </span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.table.specimensTbl">
+                    <span class="title" translate="sidebar.nav.tables.SPECIMENS">
+                        Specimens
+                    </span>
+                </a>
+            </li>
+            <!--li ui-sref-active="active">
+                <a ui-sref="app.table.data">
+                    <span class="title" translate="sidebar.nav.tables.COLLECTOR">
+                        collector
+                    </span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.table.methodTbl">
+                    <span class="title" translate="sidebar.nav.tables.TRAPPING">
+                        Trapping
+                    </span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.table.data">
+                    <span class="title" translate="sidebar.nav.tables.LOCATION">
+                        Location
+                    </span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.table.data">
+                    <span class="title" translate="sidebar.nav.tables.DONATION">
+                        Donation
+                    </span>
+                </a>
+            </li-->
+        </ul>
+    </li>
+    <!--li ng-class="{'active open':$state.includes('app.form')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-pencil">
+                    </i>
+                </div>
+                <div class="item-inner">
+                    <span class="title" translate="sidebar.nav.forms.MAIN">
+                        Forms
+                    </span>
+                    <i class="icon-arrow">
+                    </i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ui-sref-active="active">
+                <a ui-sref="app.form.collection_data">
+                    <span class="title" translate="sidebar.nav.forms.COLLECTION">
+                        Collection Data
+                    </span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.form.specimens_data">
+                    <span class="title" translate="sidebar.nav.forms.SPECIMENS">
+                        Specimens Data
+                    </span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.form.form_collector">
+                    <span class="title" translate="sidebar.nav.forms.COLLECTOR">
+                        Collector Data
+                    </span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.form.preins_specdata">
+                    <span class="title" translate="sidebar.nav.forms.PREINSSPEC">
+                        PreIns Spec Data
+                    </span>
+                </a> 
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.form.specimens_taxa">
+                    <span class="title" translate="sidebar.nav.forms.MASSSPECIMENS">
+                        PreIns Spec Data
+                    </span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.form.mainspec">
+                    <span class="title" translate="sidebar.nav.forms.BOXSPECIMENS">
+                        Specimens Box
+                    </span>
+                </a>
+            </li-->
+            <!--li ui-sref-active="active">
+                <a ui-sref="app.form.managespecimens">
+                    <span class="title" translate="sidebar.nav.forms.MANAGESPEC">
+                        Specimens Box NEW
+                    </span>
+                </a>
+            </li-->
+            <!--li ui-sref-active="active">
+                <a ui-sref="app.form.gridform_durable">
+                    <span class="title" translate="sidebar.nav.forms.DURABLE">
+                        GridForm Durable
+                    </span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.form.form_method">
+                    <span class="title" translate="sidebar.nav.forms.TRAPPING">
+                        GridForm Durable
+                    </span>
+                </a>
+            </li-->
+        </ul>
+    </li>
+</ul>
+<!-- end: MAIN NAVIGATION MENU -->
+<!-- start: FEATURES -->
+<!--div class="navbar-title">
+    <span translate="sidebar.heading.REPORT">
+        REPORT
+    </span>
+</div>
+<ul class="folders">
+    <li ng-class="{'active open':$state.includes('app.label')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-folder-open">
+                    </i>
+                </div>
+                <div class="item-inner">
+                    <span class="title" translate="sidebar.nav.4label.MAIN">
+                        Label
+                    </span>
+                    <i class="icon-arrow">
+                    </i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ui-sref-active="active">
+                <a ui-sref="app.label.form_printedlabel">
+                    <span class="title" translate="sidebar.nav.4label.PRINTED">
+                        PrintedLabel
+                    </span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.label.form_printlabel">
+                    <span class="title" translate="sidebar.nav.4label.NONPRINTED">
+                        Non-Printed
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li ng-class="{'active open':$state.includes('app.report')}">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-folder-open">
+                    </i>
+                </div>
+                <div class="item-inner">
+                    <span class="title" translate="sidebar.nav.report.MAIN">
+                        Label
+                    </span>
+                    <i class="icon-arrow">
+                    </i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ui-sref-active="active">
+                <a ui-sref="app.report.report_mreport">
+                    <span class="title" translate="sidebar.nav.report.MREPORT">
+                        Monthly Report
+                    </span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.report.report_yreport">
+                    <span class="title" translate="sidebar.nav.report.YREPORT">
+                        Annual Report
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.maps">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-map-marker">
+                    </i>
+                </div>
+                <div class="item-inner">
+                    <span class="title" translate="sidebar.nav.maps.MAIN">
+                        Maps
+                    </span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.charts">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-pie-chart">
+                    </i>
+                </div>
+                <div class="item-inner">
+                    <span class="title" translate="sidebar.nav.charts.MAIN">
+                        Charts
+                    </span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a ui-sref="landing.welcome">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-gift">
+                    </i>
+                </div>
+                <div class="item-inner">
+                    <span class="title" translate="sidebar.nav.gallery.MAIN">
+                        Gallery
+                    </span>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul-->

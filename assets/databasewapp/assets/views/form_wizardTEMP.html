@@ -1,0 +1,84 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.WIZARD">FORM WIZARD</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: WIZARD DEMO -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12"> 
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <h5 class="over-title margin-bottom-15">Wizard <span class="text-bold">demo</span></h5>
+                    <p>
+                        Some textboxes in this example is required.
+                    </p>
+                    <!-- /// controller:  'WizardCtrl' -  localtion: assets/js/controllers/wizardCtrl.js /// -->
+                    <div ng-controller="WizardCtrl">
+                        <!-- start: WIZARD FORM -->
+                        <form name="Form" id="form" novalidate>
+                            <div id="wizard" class="swMain">
+                                <!-- start: WIZARD SEPS -->
+                               
+                                <!-- end: WIZARD SEPS -->
+                                <!-- start: WIZARD STEP 1 -->
+                                <div id="step-1" ng-show="currentStep == 1">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="padding-30">
+                                                <h2 class="StepTitle"><i class="ti-face-smile fa-2x text-primary block margin-bottom-10"></i> Enter your personal information</h2>
+                                                <p>
+                                                    This is an added measure against fraud and to help with billing issues.
+                                                </p>
+                                                <p class="text-small">
+                                                    Enter security questions in case you lose access to your account.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <fieldset>
+                                                <legend>
+                                                    Personal Information
+                                                </legend>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group" ng-class="{'has-error':Form.firstName.$dirty && Form.firstName.$invalid, 'has-success':Form.firstName.$valid}">
+                                                            <label> First Name <span class="symbol required"></span> </label>
+                                                            <input type="text" placeholder="Enter your First Name" class="form-control" name="firstName" ng-model="myModel.firstName" ng-required="currentStep == 1" />
+                                                            <span class="error text-small block" ng-if="Form.firstName.$dirty && Form.firstName.$invalid"> </span>
+                                                            <span class="success text-small" ng-if="Form.firstName.$valid">Thank You!</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group" ng-class="{'has-error':Form.lastName.$dirty && Form.lastName.$invalid, 'has-success':Form.lastName.$valid}">
+                                                            <label class="control-label"> Last Name <span class="symbol required"></span> </label>
+                                                            <input type="text" placeholder="Enter your Last Name" class="form-control" name="lastName" ng-model="myModel.lastName" ng-required="currentStep == 1" />
+                                                            <span class="error text-small block" ng-if="Form.lastName.$dirty && Form.lastName.$invalid"></span>
+                                                            <span class="success text-small" ng-if="Form.lastName.$valid">Wonderful!</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                             </fieldset>
+                                            <div class="form-group">
+                                                <button class="btn btn-primary btn-o next-step btn-wide pull-right" ng-click="form(Form)">
+                                                    Next <i class="fa fa-arrow-circle-right"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end: WIZARD STEP 1 -->
+                                
+                            </div>
+                            <pre class="code margin-top-20">{{ myModel | json }}</pre>
+                        </form>
+                        <!-- end: WIZARD FORM -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- start: WIZARD DEMO -->

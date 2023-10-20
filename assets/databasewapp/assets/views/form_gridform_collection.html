@@ -1,0 +1,238 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">   
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.ELEMENTS">FORM ELEMENTS</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->  
+<!-- start: BASIC EXAMPLE -->  
+<div map-lazy-load="https://maps.google.com/maps/api/js?key=AIzaSyAON6nxRhnYXVSGjVszJZ8J_mkQT3hNyPI">
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <div ng-controller="GridFormCollectionCtrl">
+ <form class="gf">
+    <fieldset>
+        <legend>Collection DataEntry</legend>
+        <div class="gf-row-6 ">
+            <div class="gf-col-2 gf-col-bg">
+                <fieldset>
+                    <legend>Collection Number</legend>
+                    <div class="gf-row-3 gf-large">
+                        <div class="gf-col-1">
+                            <label>Code</label>
+                            <INPUT name="txtcoll_code_inter" id="txtcoll_code_inter" type="text" value="{{data.coll_code}}" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>Year</label>
+                            <INPUT class='number ' onkeyup="search_number(); " name="txtcoll_year_inter" id="txtcoll_year_inter" type="text" value="{{data.coll_year}}" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>Number</label>
+                            <INPUT class='number ' name="txtcoll_number_inter" id="txtcoll_number_inter" type="text" value="{{data.coll_number}}" autofocus>
+                        </div>
+                        <INPUT name="txtidcollection" id="txtidcollection" type="hidden" value="{{data.idcollection}}" autofocus>
+                        <INPUT name="txtcollection_ID" id="txtcollection_ID" type="hidden" autofocus>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="gf-col-4 gf-col-bg">
+                <fieldset>
+                    <legend>Date Collection</legend>
+                    <div id="sandbox-container">
+                        <div class="gf-row-3 gf-large input-daterange input-group" id="datepicker">
+                            <div class="gf-col-1">
+                                <label>Date Start</label>
+                                <INPUT placeholder="YYYY - MM - DD" name="txtcollection_start_date" id="txtcollection_start_date" type="text" value="" autofocus>
+                            </div>
+                            <div class="gf-col-1">
+                                <label>Date End</label>
+                                <INPUT placeholder="YYYY - MM - DD" onfocus=n ame="txtcollection_end_date" id="txtcollection_end_date" type="text" value="" autofocus>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="gf-row-7 ">
+            <div class="gf-col-4 gf-col-bg">
+                <fieldset>
+                    <legend>Location Coordinate</legend>
+                    <div class="gf-row-6 gf-large">
+                        <div class="gf-col-2">
+                            <label>Lat dec</label>
+                            <INPUT class='numberdecimal' placeholder="Only Digits" ng-keyup="doCallAjaxautofill('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" type="text" id="txtlatdec" name="txtlatdec" value="{{data.collectionlatdec}}" ng-model="data.collectionlatdec" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>LatH</label>
+                            <INPUT type="text" id="txtlath" class="input_tiny" name="txtlath" value="N" autofocus>
+                        </div>
+                        <div class="gf-col-2">
+                            <label>Long dec</label>
+                            <INPUT class='numberdecimal' placeholder="Only Digits" ng-keyup="doCallAjaxautofill('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" type="text" id="txtlongdec" name="txtlongdec" value="{{data.collectionlongdec}}" ng-model="data.collectionlongdec" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>LongH</label>
+                            <INPUT type="text" id="txtlongh" name="txtlongh" class="input_tiny" value="E" autofocus>
+                        </div>
+                    </div>
+                    <div class="gf-row-6 gf-large">
+                        <div class="gf-col-1">
+                            <label>Lat D</label>
+                            <INPUT ng-keyup="                                                getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" class="input_tiny" name="txtlat_d" id="txtlat_d" type="text" value="{{data.collectionlatd}}" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>Lat M</label>
+                            <INPUT class='number input_tiny' ng-keyup="getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlat_m" id="txtlat_m" type="text" value="{{data.collectionlatm}}" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>Lat S</label>
+                            <INPUT class='numberdecimal input_tiny' ng-keyup="getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlat_s" id="txtlat_s" type="text" value="{{data.collectionlats}}" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>Long D</label>
+                            <INPUT class='number input_tiny validate[custom[integer],max[180]]' ng-keyup="getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlong_d" id="txtlong_d" type="text" value="{{data.collectionlongd}}" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>Long M</label>
+                            <INPUT class='number input_tiny' ng-keyup="getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlong_m" id="txtlong_m" type="text" value="{{data.collectionlongm}}" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>Long S</label>
+                            <INPUT class='numberdecimal input_tiny' ng-keyup="getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlong_s" id="txtlong_s" type="text" value="{{data.collectionlongs}}" autofocus>
+                        </div>
+                    </div>
+                    <div class="gf-row-2 gf-large">
+                        <div class="gf-col-1">
+                            <label>northing</label>
+                            <INPUT type="text" id="txtNorthing" name="txtNorthing" class="input_small" value="{{data.collectionnorthing}}" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>easting</label>
+                            <INPUT type="text" id="txtEasting" name="txtEasting" class="input_small" value="{{data.collectioneasting}}" autofocus>
+                        </div>
+                    </div>
+                    <div class="gf-row-2 gf-large">
+                        <div class="gf-col-1">
+                            <label>UTM</label>
+                            <INPUT name="txtUTM" id="txtUTM" type="text" value="{{data.collectionutm}}" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>MASL</label>
+                            <INPUT class='numberdecimal validate[custom[integer],max[2800]] text-input' name="txtMASL" id="txtMASL" type="text" value="{{data.collectionmasl}}" autofocus>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Location Administrative</legend>
+                    <div class="gf-row-3 gf-large">
+                        <div class="gf-col-1">
+                            <label>province English (thai)</label>
+                            <INPUT class="disabletextbox" readonly type="text" id="txtprovinceen" name="txtprovinceen" value="{{data.provinceen}}" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>Amphur English (thai)</label>
+                            <INPUT readonly class="disabletextbox" type="text" id="txtamphuren" name="txtamphuren" value="{{data.amphuren}}" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>tambon English (thai)</label>
+                            <INPUT readonly type="text" id="txttambon" name="txttambon" class="disabletextbox" value="{{data.tambonen}}" autofocus>
+                        </div>
+                    </div>
+                    <div class="gf-row-2 gf-large">
+                        <div class="gf-col-1">
+                            <label>Locality</label>
+                            <INPUT type="text" name="txtlocality" id="txtlocality" value="{{data.collectionlocality}}" autofocus>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>Specific Locality</label>
+                            <INPUT type="text" name="txtspecific_locality" id="txtspecific_locality" value="{{data.collectionspecificlocality}}" autofocus>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Collection Details</legend>
+                    <div class="gf-row-3 gf-large">
+                        <div class="gf-col-3">
+                            <label>Habitat</label>
+                            <INPUT type="text" name="txthabitat" id="txthabitat" value="" autofocus>
+                        </div>
+                    </div>
+                    <div class="gf-row-2 gf-large">
+                        <div class="gf-col-1">
+                            <label>COLLECTION METHOD</label>
+                            <select ng-model="data.idcollectionmethods" ng-options="data.idcollectionmethods as data.collectionmethodsdetails for data in getmethod track by data.idcollectionmethods" name="txtcollection_method_ID" id="txtcollection_method_ID">
+                                <option value='{{data.idcollectionmethods}}'></option>
+                                <option value="">Select Collection Method</option>
+                            </select>
+                        </div>
+                        <div class="gf-col-1">
+                            <label>Collector</label>
+                            <select ng-model="data.idcollectors" ng-options="data.idcollectors as data.collectorsen for data in getcollector track by data.idcollectors" name="txtcollector_ID" id="txtcollector_ID">
+                                <option value="{{data.idcollectors}}"></option>
+                                <option value="">Select Collector</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+               
+                     <div class="panel-body">
+                                    
+                                    
+               
+                                    <div class="radio clip-radio radio-primary radio-sm radio-inline">
+                                        <input type="radio" id="radio1" name="savetype" value="1"  checked="checked">
+                                        <label for="radio1">
+                                            Different
+                                        </label>
+                                    </div>
+                                    <div class="radio clip-radio radio-primary radio-sm radio-inline">
+                                        <input type="radio" id="radio2" name="savetype" value="0">
+                                        <label for="radio2">
+                                            Similar
+                                        </label>
+                                    </div>
+                             
+                       
+                                    <p> 
+                                        <a class="btn btn-sm btn-primary" ng-click="doCallAjaxinterface('ADD');" href="#"><i class="fa fa-save"></i> Save</a>
+                                        <a class="btn btn-sm btn-red" href="#"><i class="fa fa-eraser"></i> Delete</a>
+                                        <a class="btn btn-sm btn-purple" ng-click="doCallAjaxinterface('UPDATE');" href="#"><i class="fa fa-edit"> Edit </i> </a>
+                                        <a class="btn btn-sm btn-blue" href="#"><i class="fa fa-ban"></i>Reset</a>
+                                    </p>
+                          
+                                </div>
+                </fieldset>
+            </div>
+            <div id="googleMap" class="gf-col-3 gf-col-bg">
+                <!--a id="edit" ng-click="clearmap()" class="btn btn-primary btn-outline btn-sm btn-purple">RemoveMarker</a>
+                                  <a id="edit" ng-click="moveMap()" class="btn btn-primary btn-outline btn-sm btn-purple">Addmarker</a-->
+                <div class="container-fluid container-fullw">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-white">
+                                <div class="panel-body">
+                                    <h5 class="over-title margin-bottom-15">Map <span class="label label-danger"> Marker</span></h5>
+                                    <ng-map zoom="6">
+                                    </ng-map>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end: BASIC MAP -->
+        </div>
+    </fieldset>
+    <INPUT type="hidden" id="txtcoll_autonumber_on_inter" name="autonumber_inter">
+    <INPUT type="hidden" id="txtamphur_ID" name="txtamphur_ID">
+    <INPUT type="hidden" name="txtcollection_ID_inter" id="txtcollection_ID_inter" size="20">
+</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    

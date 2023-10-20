@@ -1,0 +1,145 @@
+<?php
+require_once 'LatexTemplate.php';
+require 'connectdb.php';
+// connect to the database
+
+$conn = pg_connect("host=$hostname dbname=$dbName user=$dbUser password=$dbPass") or die("Cannot connect to the database");
+
+if (isset($_GET['labeltype'])) {
+
+    if ($_GET['labeltype'] == "collection") {
+
+        $strSQL = " SELECT * FROM label_print_queue
+                    LEFT JOIN collection
+                    LEFT JOIN method ON method.method_id=collection.method_method_id
+                    LEFT JOIN amphur ON amphur.amphur_id=collection.amphur_amphur_id
+                    LEFT JOIN province ON province.province_id = collection.province_province_id
+                    WHERE labeltype = '" . $_GET["labeltype"] . "'";
+
+    }
+    if ($_GET['labeltype'] == "specimens") {
+
+        $strSQL = " SELECT specimens_id FROM label_print_queue
+                    LEFT JOIN specimens ON specimens.specimens_id = label_print_queue.label_id_to_print
+                    LEFT JOIN collection ON specimens.collection_coll_id = collection.coll_id
+                    LEFT JOIN method ON method.method_id=collection.method_method_id
+                    LEFT JOIN amphur ON amphur.amphur_id=collection.amphur_amphur_id
+                    LEFT JOIN province ON province.province_id = amphur.province_province_id
+                    LEFT JOIN species ON species.species_id = specimens.species_species_id
+                    LEFT JOIN genus ON genus.genus_id = species.genus_genus_id
+                    LEFT JOIN family ON family.family_id = genus.family_family_id
+                    LEFT JOIN torder ON torder.torder_id = family.torder_torder_id
+                    WHERE label_type ='" . $_GET["labeltype"] . "'
+                    AND print_queue = 'TRUE'";
+
+
+
+
+
+
+
+
+
+
+    }
+
+}
+
+$objQuery    = pg_query($strSQL);
+$intNumField = pg_num_fields($objQuery);
+$resultArray = array();
+while ($obResult = pg_fetch_array($objQuery)) {
+
+    $arrCol = array();
+    for ($i = 0; $i < $intNumField; $i++) {
+        $arrCol[pg_field_name($objQuery, $i)] = $obResult[$i];
+    }
+
+}
+
+$objQuery    = pg_query($strSQL);
+$intNumField = pg_num_fields($objQuery);
+$resultArray = array();
+
+while ($obResult = pg_fetch_array($objQuery)) {
+    $arrCol = array();
+    for ($i = 0; $i < $intNumField; $i++) {
+
+        $arrCol[pg_field_name($objQuery, $i)] = $obResult[$i];
+    }
+    array_push($resultArray, $arrCol);
+}
+
+foreach ($resultArray as $row) //Extract the Array Values by using Foreach Loop
+{
+
+    $specimens_id_arr = $row["specimens_id"];
+
+     $strSQL02 = "  SELECT specimens_id,coll_id,coll_full_id,collector_firstname_en,collector_lastname_en,specimens_full_number FROM label_print_queue
+                    LEFT JOIN specimens ON specimens.specimens_id = label_print_queue.label_id_to_print
+                    LEFT JOIN collection ON specimens.collection_coll_id = collection.coll_id
+                    LEFT JOIN method ON method.method_id=collection.method_method_id
+                    LEFT JOIN amphur ON amphur.amphur_id=collection.amphur_amphur_id
+                    LEFT JOIN province ON province.province_id = amphur.province_province_id
+                    LEFT JOIN species ON species.species_id = specimens.species_species_id
+                    LEFT JOIN genus ON genus.genus_id = species.genus_genus_id
+                    LEFT JOIN family ON family.family_id = genus.family_family_id
+                    LEFT JOIN torder ON torder.torder_id = family.torder_torder_id
+                    LEFT JOIN collection_has_collector on collection_has_collector.collection_coll_id = collection.coll_id
+                    LEFT JOIN collector on collection_has_collector.collector_collector_id = collector.collector_id
+                    WHERE label_type ='" . $_GET["labeltype"] . "'
+                    AND print_queue = 'TRUE'
+                    AND specimens_id = '" . $specimens_id_arr . "'               
+                    GROUP BY coll_id,coll_full_id,collector_firstname_en,collector_lastname_en, specimens_full_number,specimens_id,collectorseq
+                    ORDER BY collectorseq"; 
+
+
+    $objQuery02        = pg_query($strSQL02);
+    $intRowsColl02     = pg_num_rows($objQuery02);
+    $intNumField02     = pg_num_fields($objQuery02);
+    $resultCollector   = array();
+    $resultCollector01 = array();
+    $resultCollectorsp = array();
+    $collectorfullarr  = array();
+    $arrCol02 = array();
+
+    if ($intRowsColl02 >= 3) {        
+        $ii       = 0;
+        while ($obResult02 = pg_fetch_array($objQuery02)) {
+            for ($i = 0; $i < $intNumField02; $i++) {
+
+                if (pg_field_name($objQuery02, $i) == 'collector_firstname_en') {
+
+                    $obResult02[$i] = $obResult02[$i];
+                }
+
+                $arrCol02[pg_field_name($objQuery02, $i)] = $obResult02[$i];
+
+            }
+
+            $arrCol02['collectorfullname'] = $arrCol02['collector_firstname_en'] . " " . $arrCol02['collector_lastname_en'] . " et al.";
+            array_push($resultCollector01, $arrCol02);         
+        }              
+    } else {
+        $arrCol03 = array();
+        $test = 0;
+        while ($obResult02 = pg_fetch_array($objQuery02)) {
+            $resultCollectortest = array();
+            $arrCol03            = array();
+            for ($i = 0; $i < $intNumField02; $i++) {
+
+                $arrCol03[pg_field_name($objQuery02, $i)] = $obResult02[$i];
+            }
+            $arrCol03['collectorfullname'] = $arrCol03['collector_firstname_en'] . " " . $arrCol03['collector_lastname_en'];
+            array_push($resultCollector, $arrCol03);
+            if ($test == 1) {
+                $arrCol03['collectorfullall'] = $resultCollector[0]['collector_firstname_en'] . " " . $resultCollector[0]['collector_lastname_en'] . ", " . $arrCol03['collector_firstname_en'] . " " . $arrCol03['collector_lastname_en'];
+                array_push($resultCollectortest, $arrCol03);
+            }
+
+            $test++;
+
+        }       
+}
+echo json_encode($resultCollector01);
+pg_close($conn);

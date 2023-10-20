@@ -1,0 +1,792 @@
+
+.colorpicker {
+    background: url("../img/colorpicker/colorpicker_background.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: none;
+    font-family: Arial,Helvetica,sans-serif;
+    height: 176px;
+    overflow: hidden;
+    position: absolute;
+    width: 356px;
+}
+.colorpicker_color {
+    background: none repeat scroll 0 0 red;
+    cursor: crosshair;
+    height: 150px;
+    left: 14px;
+    overflow: hidden;
+    position: absolute;
+    top: 13px;
+    width: 150px;
+}
+.colorpicker_color div {
+    background: url("../img/colorpicker/colorpicker_overlay.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 150px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 150px;
+}
+.colorpicker_color div div {
+    background: url("../img/colorpicker/colorpicker_select.gif") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 11px;
+    left: 0;
+    margin: -5px 0 0 -5px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 11px;
+}
+.colorpicker_hue {
+    cursor: n-resize;
+    height: 150px;
+    left: 171px;
+    position: absolute;
+    top: 13px;
+    width: 35px;
+}
+.colorpicker_hue div {
+    background: url("../img/colorpicker/colorpicker_indic.gif") repeat scroll left top rgba(0, 0, 0, 0);
+    height: 9px;
+    left: 0;
+    margin: -4px 0 0;
+    overflow: hidden;
+    position: absolute;
+    width: 35px;
+}
+.colorpicker_new_color {
+    background: none repeat scroll 0 0 red;
+    height: 30px;
+    left: 213px;
+    position: absolute;
+    top: 13px;
+    width: 60px;
+}
+.colorpicker_current_color {
+    background: none repeat scroll 0 0 red;
+    height: 30px;
+    left: 283px;
+    position: absolute;
+    top: 13px;
+    width: 60px;
+}
+.colorpicker input {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: #898989;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    height: 11px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 11px;
+    text-align: right;
+    top: 4px;
+}
+.colorpicker_hex {
+    background: url("../img/colorpicker/colorpicker_hex.png") repeat scroll center top rgba(0, 0, 0, 0);
+    height: 22px;
+    left: 212px;
+    position: absolute;
+    top: 142px;
+    width: 72px;
+}
+.colorpicker_hex input {
+    right: 6px;
+}
+.colorpicker_field {
+    background-position: center top;
+    height: 22px;
+    position: absolute;
+    width: 62px;
+}
+.colorpicker_field span {
+    cursor: n-resize;
+    height: 22px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 12px;
+}
+.colorpicker_rgb_r {
+    background-image: url("../img/colorpicker/colorpicker_rgb_r.png");
+    left: 212px;
+    top: 52px;
+}
+.colorpicker_rgb_g {
+    background-image: url("../img/colorpicker/colorpicker_rgb_g.png");
+    left: 212px;
+    top: 82px;
+}
+.colorpicker_rgb_b {
+    background-image: url("../img/colorpicker/colorpicker_rgb_b.png");
+    left: 212px;
+    top: 112px;
+}
+.colorpicker_hsb_h {
+    background-image: url("../img/colorpicker/colorpicker_hsb_h.png");
+    left: 282px;
+    top: 52px;
+}
+.colorpicker_hsb_s {
+    background-image: url("../img/colorpicker/colorpicker_hsb_s.png");
+    left: 282px;
+    top: 82px;
+}
+.colorpicker_hsb_b {
+    background-image: url("../img/colorpicker/colorpicker_hsb_b.png");
+    left: 282px;
+    top: 112px;
+}
+.colorpicker_submit {
+    background: url("../img/colorpicker/colorpicker_submit.png") repeat scroll center top rgba(0, 0, 0, 0);
+    height: 22px;
+    left: 322px;
+    overflow: hidden;
+    position: absolute;
+    top: 142px;
+    width: 22px;
+}
+.colorpicker_focus {
+    background-position: center center;
+}
+.colorpicker_hex.colorpicker_focus, .colorpicker_slider, .colorpicker_submit.colorpicker_focus {
+    background-position: center bottom;
+}
+.invisible {
+    visibility: visible;
+}
+.demo-container {
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 560px;
+}
+.demo-container-hotspot {
+    margin: 0 auto;
+    max-width: 560px;
+}
+#hb-shell, .demo-container-hotspot-editor {
+    width: 100%;
+}
+#hb-shell td {
+    font-size: 12px;
+}
+#hb-main-wrap {
+    clear: none;
+    float: none;
+}
+.clear {
+    clear: both;
+}
+#hb-shell {
+    color: #181818;
+    display: inline-block;
+    font: 11px/18px helvetica,tahoma,sans-serif;
+}
+.hb-main-wrap {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    clear: left;
+    float: left;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+#hb-bottom-wrap, #hb-top-wrap {
+    float: none;
+}
+#submit-wrap {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+#hb-live-preview {
+    background: none repeat scroll 0 0 #f0f0f0;
+    display: block;
+    padding: 1px;
+}
+#hb-map-wrap {
+    background: none repeat scroll 0 0 #f0f0f0;
+    float: left;
+    padding: 1px;
+    position: relative;
+}
+#hb-map-wrap img {
+    display: block;
+}
+.hb-rect-spot, .hb-spot {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+}
+.hb-spot.visible {
+    background: none repeat scroll 0 0 #e52929;
+    border-radius: 20px;
+}
+.hb-rect-spot.visible {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 2px solid #e52929;
+    border-radius: 3px;
+    margin: -2px 0 0 -2px;
+}
+.hb-scale-handle {
+    background: url("../img/scale.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    bottom: 0;
+    cursor: pointer;
+    height: 16px;
+    position: absolute;
+    right: 0;
+    width: 16px;
+    z-index: 9;
+}
+.hb-move-handle {
+    background: url("../img/move.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    height: 16px;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    z-index: 8;
+}
+.hb-spot-object.selected::before {
+    border: 1px dashed #222;
+    content: "";
+    display: block;
+    height: 100%;
+    left: -4px;
+    padding: 3px;
+    position: absolute;
+    top: -4px;
+    width: 100%;
+}
+#hb-settings-wrap {
+    float: left;
+    margin-right: 20px;
+    width: 300px;
+}
+#hb-global-settings-wrap {
+    width: 600px;
+}
+table {
+    margin: 10px 0;
+    width: 100%;
+}
+table tr {
+    height: 28px;
+}
+table tr td {
+    padding: 0 10px;
+    vertical-align: top;
+}
+textarea {
+    height: 100px;
+    width: 100%;
+}
+.form-help {
+    color: #666;
+    font: 9px/14px helvetica,tahoma,sans-serif;
+    margin: 8px 0 16px;
+}
+#input-tint-color, #tooltip-width {
+    width: 100px;
+}
+#input-tint-color {
+    border: 1px solid #000;
+    text-indent: -4000px;
+}
+h1 {
+    font-size: 18px;
+    line-height: 48px;
+}
+h2 {
+    font-size: 14px;
+    line-height: 18px;
+}
+.hb-tooltip-wrap {
+    display: none;
+    position: absolute;
+}
+.hb-tooltip {
+    background: none repeat scroll 0 0 #181818;
+    border-radius: 3px;
+    color: #fff;
+    display: block;
+    font: 11px/18px helvetica,tahoma,sans-serif;
+    min-height: 18px;
+    padding: 15px;
+    position: relative;
+}
+.hb-tooltip h1 {
+    font: 700 14px/22px helvetica,tahoma,sans-serif;
+}
+.hb-tooltip h2 {
+    font: 700 12px/22px helvetica,tahoma,sans-serif;
+}
+.hb-tooltip h3 {
+    font: 700 11px/22px helvetica,tahoma,sans-serif;
+}
+.hb-tooltip p {
+    font: 11px/18px helvetica,tahoma,sans-serif;
+    margin-bottom: 10px;
+}
+.hb-tooltip *:last-child {
+    margin-bottom: 0;
+}
+.hb-spot-object.always .hb-tooltip-wrap, .hb-spot-object.click.visible-tooltip .hb-tooltip-wrap, .hb-spot-object.mouseover:hover .hb-tooltip-wrap {
+    display: block;
+}
+.hb-spot-object.left .hb-tooltip-wrap {
+    padding-right: 16px;
+    right: 100%;
+    top: 0;
+}
+.hb-spot.left .hb-tooltip-wrap {
+    top: -12px;
+}
+.hb-spot-object.left .hb-tooltip::before {
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #181818;
+    border-top: 8px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    right: -8px;
+    top: 8px;
+    width: 0;
+}
+.hb-spot.left .hb-tooltip::before {
+    top: 16px;
+}
+.hb-spot-object.top .hb-tooltip-wrap {
+    bottom: 100%;
+    left: 0;
+    padding-bottom: 16px;
+}
+.hb-spot.top .hb-tooltip-wrap {
+    left: -5px;
+}
+.hb-spot-object.top .hb-tooltip::before {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #181818;
+    bottom: -8px;
+    content: "";
+    display: block;
+    height: 0;
+    left: 8px;
+    position: absolute;
+    width: 0;
+}
+.hb-spot-object.right .hb-tooltip-wrap {
+    left: 100%;
+    padding-left: 16px;
+    top: 0;
+}
+.hb-spot.right .hb-tooltip-wrap {
+    top: -12px;
+}
+.hb-spot-object.right .hb-tooltip::before {
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #181818;
+    border-top: 8px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    left: -8px;
+    position: absolute;
+    top: 8px;
+    width: 0;
+}
+.hb-spot.right .hb-tooltip::before {
+    top: 16px;
+}
+.hb-spot-object.bottom .hb-tooltip-wrap {
+    left: 0;
+    padding-top: 16px;
+    top: 100%;
+}
+.hb-spot.bottom .hb-tooltip-wrap {
+    left: -4px;
+}
+.hb-spot-object.bottom .hb-tooltip::before {
+    border-bottom: 8px solid #000;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    left: 8px;
+    position: absolute;
+    top: -8px;
+    width: 0;
+}
+#hb-html-code, #hb-javascript-code {
+    height: 300px;
+}
+#hb-bottom-wrap .left, #hb-bottom-wrap .right {
+    box-sizing: border-box;
+    float: left;
+    width: 50%;
+}
+#hb-bottom-wrap .left {
+    padding-right: 20px;
+}
+#hb-help-tooltip {
+    background: none repeat scroll 0 0 #222;
+    color: #fff;
+    display: none;
+    font: 11px/18px helvetica,tahoma,sans-serif;
+    opacity: 0.8;
+    padding: 0 10px;
+    position: absolute;
+    z-index: 999999;
+}
+.ndd-button-green-regular {
+    -moz-user-select: none;
+    background: none repeat scroll 0 0 #82c92f !important;
+    border: 1px solid #6baf1b !important;
+    border-radius: 3px !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    font: 14px/44px GothamBoldRegular,helvetica,tahoma,sans-serif !important;
+    height: 44px !important;
+    margin: 20px auto !important;
+    padding: 0 15px !important;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 0 #6baf1b !important;
+    width: 150px;
+}
+.ndd-button-green-regular:hover::before {
+    border: 1px solid #6baf1b;
+    border-radius: 4px;
+    content: "";
+    display: block;
+    height: 100%;
+    left: -3px;
+    padding: 2px;
+    position: absolute;
+    top: -3px;
+    width: 100%;
+}
+.ndd-button-green-regular:active, .ndd-button-submit:active {
+    background: none repeat scroll 0 0 #6baf1b !important;
+}
+.ndd-button-green-regular:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.hs-wrap {
+    position: relative;
+}
+.hs-wrap * {
+    box-sizing: content-box !important;
+    display: none;
+}
+.hs-wrap img, .hs-wrap * {
+    display: block;
+}
+.hs-wrap.responsive, .hs-wrap.responsive img {
+    width: 100%;
+}
+.hs-spot-object {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+}
+.hs-spot-object.visible-tooltip {
+    z-index: 9999;
+}
+.hs-spot.visible .hs-spot-shape {
+    background: none repeat scroll 0 0 #000;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    height: 100%;
+    left: -1px;
+    opacity: 0.15;
+    position: absolute;
+    top: -1px;
+    transform: scale3d(1, 1, 1);
+    transition: all 0.25s cubic-bezier(0.55, 0, 0.1, 1) 0s;
+    width: 100%;
+    z-index: 0;
+}
+.hs-spot.visible .hs-spot-shape-inner {
+    background: none repeat scroll 0 0 #da0606;
+    border-radius: 30px;
+    height: 18px;
+    left: 50%;
+    margin: -9px 0 0 -9px;
+    position: absolute;
+    top: 50%;
+    transform: scale3d(1, 1, 1);
+    transition: all 0.25s cubic-bezier(0.55, 0, 0.1, 1) 0s;
+    width: 18px;
+    z-index: 1;
+}
+.hs-spot.visible:hover .hs-spot-shape-inner {
+    transform: scale3d(1.4, 1.4, 1.4);
+}
+.hs-rect {
+    border: medium none;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+}
+.hs-rect.visible .hs-spot-shape {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 3px solid #da0606;
+    border-radius: 6px;
+    height: 100%;
+    left: -3px;
+    position: absolute;
+    top: -3px;
+    transform: scale3d(1, 1, 1);
+    transition: all 0.25s cubic-bezier(0.55, 0, 0.1, 1) 0s;
+    width: 100%;
+    z-index: 1;
+}
+.hs-rect.visible .hs-spot-shape-inner {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 8px solid #000;
+    border-radius: 8px;
+    height: 100%;
+    left: -8px;
+    opacity: 0.15;
+    position: absolute;
+    top: -8px;
+    transform: scale3d(1, 1, 1);
+    transition: all 0.25s cubic-bezier(0.55, 0, 0.1, 1) 0s;
+    width: 100%;
+    z-index: 0;
+}
+.hs-rect.visible:hover .hs-spot-shape {
+    border-width: 5px;
+    left: -5px;
+    top: -5px;
+}
+.hs-rect.visible:hover .hs-spot-shape-inner {
+    border-width: 7px;
+    left: -7px;
+    top: -7px;
+}
+.hs-spot-object .hs-spot-tooltip-outer {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.hs-tooltip-wrap {
+    position: absolute;
+}
+.hs-tooltip {
+    background: none repeat scroll 0 0 #181818;
+    border-radius: 3px;
+    color: #fff;
+    display: block;
+    font: 11px/18px helvetica,tahoma,sans-serif;
+    min-height: 18px;
+    padding: 15px;
+    position: relative;
+}
+.hs-wrap.click .hs-spot-object.left .hs-spot-tooltip-outer, .hs-wrap.mouseover .hs-spot-object.left .hs-spot-tooltip-outer {
+    left: -30px;
+    position: absolute;
+    top: 0;
+}
+.hs-spot-object.left .hs-tooltip-wrap {
+    padding-right: 16px;
+    right: 100%;
+    top: 0;
+}
+.hs-spot.left .hs-tooltip-wrap {
+    top: -12px;
+}
+.hs-spot-object.left .hs-tooltip::before {
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #181818;
+    border-top: 8px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    right: -8px;
+    top: 8px;
+    width: 0;
+}
+.hs-spot.left .hs-tooltip::before {
+    top: 16px;
+}
+.hs-wrap.click .hs-spot-object.top .hs-spot-tooltip-outer, .hs-wrap.mouseover .hs-spot-object.top .hs-spot-tooltip-outer {
+    left: 0;
+    position: absolute;
+    top: -30px;
+}
+.hs-spot-object.top .hs-tooltip-wrap {
+    bottom: 100%;
+    left: 0;
+    padding-bottom: 16px;
+}
+.hs-spot.top .hs-tooltip-wrap {
+    left: -1px;
+}
+.hs-spot-object.top .hs-tooltip::before {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #181818;
+    bottom: -8px;
+    content: "";
+    display: block;
+    height: 0;
+    left: 8px;
+    position: absolute;
+    width: 0;
+}
+.hs-wrap.click .hs-spot-object.right .hs-spot-tooltip-outer, .hs-wrap.mouseover .hs-spot-object.right .hs-spot-tooltip-outer {
+    left: 30px;
+    position: absolute;
+    top: 0;
+}
+.hs-spot-object.right .hs-tooltip-wrap {
+    left: 100%;
+    padding-left: 16px;
+    top: 0;
+}
+.hs-spot.right .hs-tooltip-wrap {
+    top: -12px;
+}
+.hs-spot-object.right .hs-tooltip::before {
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #181818;
+    border-top: 8px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    left: -8px;
+    position: absolute;
+    top: 8px;
+    width: 0;
+}
+.hs-spot.right .hs-tooltip::before {
+    top: 16px;
+}
+.hs-wrap.click .hs-spot-object.bottom .hs-spot-tooltip-outer, .hs-wrap.mouseover .hs-spot-object.bottom .hs-spot-tooltip-outer {
+    left: 0;
+    position: absolute;
+    top: 30px;
+}
+.hs-spot-object.bottom .hs-tooltip-wrap {
+    left: 0;
+    padding-top: 16px;
+    top: 100%;
+}
+.hs-spot.bottom .hs-tooltip-wrap {
+    left: -1px;
+}
+.hs-spot-object.bottom .hs-tooltip::before {
+    border-bottom: 8px solid #000;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    content: "";
+    display: block;
+    height: 0;
+    left: 8px;
+    position: absolute;
+    top: -8px;
+    width: 0;
+}
+.hs-tooltip-buffer {
+    background: none repeat scroll 0 0 #00f;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+.hs-spot-object.bottom .hs-tooltip-buffer {
+    height: 16px;
+    top: 100%;
+}
+.hs-spot-object.top .hs-tooltip-buffer {
+    bottom: 100%;
+    height: 16px;
+    top: auto;
+}
+.hs-spot-object.left .hs-tooltip-buffer {
+    left: auto;
+    right: 100%;
+    width: 16px;
+}
+.hs-spot-object.right .hs-tooltip-buffer {
+    left: 100%;
+    width: 16px;
+}
+.hs-tooltip h1 {
+    font: 700 14px/14px helvetica,tahoma,sans-serif;
+    margin-bottom: 10px;
+}
+.hs-tooltip h2 {
+    font: 700 12px/12px helvetica,tahoma,sans-serif;
+    margin-bottom: 10px;
+}
+.hs-tooltip h3 {
+    font: 700 11px/11px helvetica,tahoma,sans-serif;
+    margin-bottom: 10px;
+}
+.hs-tooltip p {
+    font: 11px/18px helvetica,tahoma,sans-serif;
+    margin-bottom: 10px;
+}
+.hs-tooltip *:last-child {
+    margin-bottom: 0;
+}
+.hs-tooltip a {
+    color: #fff !important;
+    text-decoration: underline !important;
+}
+.hs-tooltip a:hover {
+    text-decoration: none !important;
+}
+.hs-wrap.always .hs-spot-tooltip-outer {
+    height: 100% !important;
+    left: 0 !important;
+    opacity: 1;
+    top: 0 !important;
+    width: 100% !important;
+}
+.hs-wrap.always .hs-tooltip, .hs-wrap.always .hs-tooltip-wrap {
+    display: block;
+}
+.hs-spot-object .hs-spot-tooltip-outer {
+    height: 0 !important;
+    opacity: 0;
+    transform: scale3d(1, 1, 1);
+    transition: all 0.25s cubic-bezier(0.55, 0, 0.1, 1) 0s;
+    width: 0 !important;
+}
+.hs-spot-object .hs-tooltip, .hs-spot-object .hs-tooltip-wrap {
+    display: none;
+}
+.hs-spot-object.visible-tooltip .hs-spot-tooltip-outer {
+    height: 100% !important;
+    left: 0 !important;
+    opacity: 1;
+    top: 0 !important;
+    width: 100% !important;
+}
+.hs-spot-object.visible-tooltip .hs-tooltip, .hs-spot-object.visible-tooltip .hs-tooltip-wrap {
+    display: block;
+}

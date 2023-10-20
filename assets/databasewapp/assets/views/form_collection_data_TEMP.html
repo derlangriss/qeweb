@@ -1,0 +1,116 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.ELEMENTS">
+        Collection From
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: BASIC EXAMPLE -->
+<div map-lazy-load="https://maps.google.com/maps/api/js?key=AIzaSyAON6nxRhnYXVSGjVszJZ8J_mkQT3hNyPI">
+    <div class="container-fluid container-fullw">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-white">
+                    <div class="panel-body">
+                        <div ng-controller="CollectionDataCtrl">
+                            <form class="gf">
+                                <fieldset>
+                                    <legend>
+                                        Collection Data Entry Form
+                                    </legend>
+                                    <div class="gf-row-6 gf-testlarge">
+                                        <div class="gf-col-2 gf-col-bg gf-none-border">
+                                            <fieldset>
+                                                <legend>
+                                                    <span class="label label-default">
+                                                        Collection Number
+                                                    </span>
+                                                </legend>
+                                                <div class="gf-row-3 gf-large">
+                                                    <div class="gf-col-1">
+                                                        <label>
+                                                            Code
+                                                        </label>
+                                                        <input autofocus="" id="txtcoll_code_inter" name="txtcoll_code_inter" type="text" value="{{data.coll_code}}">
+                                                        </input>
+                                                    </div>
+                                                    <div class="gf-col-1">
+                                                        <label>
+                                                            Year
+                                                        </label>
+                                                        <input autofocus="" class="number " id="txtcoll_year_inter" name="txtcoll_year_inter" ng-keyup="search_number(); " type="text" value="{{data.coll_year}}">
+                                                        </input>
+                                                    </div>
+                                                    <div class="gf-col-1">
+                                                        <label>
+                                                            Number
+                                                        </label>
+                                                        <input autofocus="" class="number " id="txtcoll_number_inter" name="txtcoll_number_inter" type="text" value="{{data.coll_number}}">
+                                                        </input>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset>
+                                                <div class="gf-row-6 ">
+                                                    <nav class="links cl-effect-2" id="cl-effect-2">
+                                                        <a href="" ng-click="GETNERATEAUTOCOLLNO();">
+                                                            <span data-hover="RECENT NUMBER!" ng-click="GETNERATEAUTOCOLLNO();">
+                                                                <i class="fa fa-refresh">
+                                                                </i>
+                                                                RECENT NUMBER!
+                                                            </span>
+                                                        </a>
+                                                        <a href="" ng-click="test();">
+                                                            <span data-hover="SEARCH">
+                                                                <i class="fa fa-search">
+                                                                </i>
+                                                                SEARCH
+                                                            </span>
+                                                        </a>
+                                                    </nav>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="gf-col-4 gf-col-bg gf-none-border">
+                                            <fieldset>
+                                                <legend>
+                                                    <span class="label label-default">
+                                                        Date Collection
+                                                    </span>
+                                                </legend>
+                                                <div id="sandbox-container">
+                                                    <div class="gf-row-4 gf-large input-daterange input-group" id="dp_range">
+                                                        <div class="gf-col-2">
+                                                            <label>
+                                                                Date start
+                                                            </label>
+                                                            <input autofocus="" id="txtcollection_start_date" name="txtcollection_start_date" placeholder="YYYY - MM - DD" type="text" value="">
+                                                            </input>
+                                                        </div>
+                                                        <div class="gf-col-2">
+                                                            <label>
+                                                                Date End
+                                                            </label>
+                                                            <input autofocus="" id="txtcollection_end_date" name="txtcollection_end_date" placeholder="YYYY - MM - DD" type="text" value="">
+                                                            </input>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="gf-row-7 gf-testlarge">
+                                        <div class="gf-col-4 gf-col-bg gf-none-border">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

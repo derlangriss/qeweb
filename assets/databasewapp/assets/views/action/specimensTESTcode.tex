@@ -1,0 +1,46 @@
+\documentclass[letter,10pt]{letter}
+% load ticket.sty with the appropriate ticket definition
+\usepackage[qsbglabel,rowmode,crossmark]{ticket}%boxed, crossmark,circlemark,emptycrossmark,cutmark
+\ticketNumbers{6}{26}
+% load misc stuff
+\usepackage{graphicx}
+\usepackage{geometry}
+ \geometry{
+ letterpaper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\usepackage{calc}
+\usepackage{ragged2e}
+\usepackage{textcomp}
+\usepackage[T1]{fontenc} 
+
+\usepackage{fontspec} 
+\usepackage{upquote}
+\setmainfont[Scale=1.25]{TH SarabunPSK}
+\linespread{1.3}\selectfont
+\usepackage{qrcode}
+% now what do you like to put in your ticket
+\newcommand{\qsbglabelitem}[1]{\ticket{%
+    \put(0.6,4.0){#1}
+}}
+
+% Make placeholders visible
+\newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
+
+% Defaults for each variable
+\newcommand{\firstname}{\placeholder{firstname}}
+
+
+
+\begin{document}
+
+%<?php                                    /*
+% */ foreach($data as $labelitem) {           /*
+% */  echo "\n" . "\\renewcommand{\\firstname}{" . LatexTemplate::escape($labelitem['firstname']) . "}\n"; ?>
+
+\firstname{}
+
+%<?php /* % */ } ?>  
+\end{document}

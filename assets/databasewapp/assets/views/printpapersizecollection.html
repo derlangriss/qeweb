@@ -1,0 +1,48 @@
+<ct-paneltool class="panel-tools" tool-expand="tool-expand"></ct-paneltool>
+<h3 class="text-white padding-top-10">Print Summary</h3>
+<table class="table margin-bottom-5">
+    <tbody>
+       
+        <tr>
+            <td><span class="text-white">COLLECTION LABEL</span></td>
+            <td>
+                <div class="pull-right margin-top-5">
+                 <span class="counter text-bold text-white" count-to="{{totallabelcollection}}" value="0" duration="0.4" filter="number">{{totallabelcollection}}</span>  
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><span class="text-white">NUMBER OF PAPERS</span></td>
+            <td>
+                <div class="pull-right margin-top-5">
+                <span class="counter text-bold text-white">{{papersizecollection}}</span>  
+                
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="block text-dark text-center">
+     <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-transparent">
+                                <div class="panel-heading">
+                                    <div class="panel-title">
+                                        Produce LABEL pdf file
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <p>
+                                        NOTE!! You shold consider the number of label before you print so the label paper sheet contain 50 label 
+                                    </p>
+                                   
+                                    <button type="button" class="btn btn-danger btn-wide btn-scroll btn-scroll-left fa fa-print" ng-click="downloadPdf('collection')">
+                                        <span>DOWNLOAD PDF</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+   
+    <!-- /// controller:  'LineCtrl' -  localtion: assets/js/controllers/dashboardCtrl.js /// -->
+</div>

@@ -1,0 +1,580 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.WIZARD">
+    FORM WIZARD
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: WIZARD DEMO -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <h5 class="over-title margin-bottom-15">
+                    Location Administrative
+                    <span class="text-bold">
+                        Manual
+                    </span>
+                    </h5>
+                    <p>
+                        Some textboxes in this form is required.
+                    </p>
+                    <!-- /// controller:  'WizardCtrl' -  localtion: assets/js/controllers/wizardCtrl.js /// -->
+                    <div ng-controller="LocationManualCtrl">
+                        <!-- start: WIZARD FORM -->
+                        <form id="form" name="Form" novalidate="">
+                            <div class="swMain" id="wizard">
+                                <!-- start: WIZARD SEPS -->
+                                <ul>
+                                    <li ng-click="form.goTo(Form, 1)">
+                                        <a href="" ng-class="{'selected' : currentStep >= 1, 'done' : currentStep > 1}">
+                                            <div class="stepNumber">
+                                                1
+                                            </div>
+                                            <span class="stepDesc text-small">
+                                                COUNTRY
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li ng-click="form.goTo(Form, 2)">
+                                        <a href="" ng-class="{'selected' : currentStep >= 2, 'done' : currentStep > 2}">
+                                            <div class="stepNumber">
+                                                2
+                                            </div>
+                                            <span class="stepDesc text-small">
+                                                PROVINCE
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li ng-click="form.goTo(Form, 3)">
+                                        <a href="" ng-class="{'selected' : currentStep >= 3, 'done' : currentStep > 3}">
+                                            <div class="stepNumber">
+                                                3
+                                            </div>
+                                            <span class="stepDesc text-small">
+                                                AMPHUR
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li ng-click="form.goTo(Form, 4)">
+                                        <a href="" ng-class="{'selected' : currentStep >= 4, 'done' : currentStep > 4}">
+                                            <div class="stepNumber">
+                                                4
+                                            </div>
+                                            <span class="stepDesc text-small">
+                                                TAMBON
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li ng-click="form.goTo(Form, 5)">
+                                        <a href="" ng-class="{'selected' : currentStep >= 5, 'done' : currentStep > 5}">
+                                            <div class="stepNumber">
+                                                5
+                                            </div>
+                                            <span class="stepDesc text-small">
+                                                COMPLETE
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- end: WIZARD SEPS -->
+                                <!-- start: WIZARD STEP 1 -->
+                                <div id="step-1" ng-show="currentStep == 1">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="padding-30">
+                                                <h2 class="StepTitle">
+                                                <i class="ti-face-smile fa-2x text-primary block margin-bottom-10">
+                                                </i>
+                                                Enter your personal information
+                                                </h2>
+                                                <p>
+                                                    This is an added measure against fraud and to help with billing issues.
+                                                </p>
+                                                <p class="text-small">
+                                                    Enter security questions in case you lose access to your account.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <fieldset>
+                                                <legend>
+                                                    Add Country Information
+                                                </legend>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Country English Name
+                                                            </label>
+                                                            <input class="form-control" id="country_direct_en_enter" name="country_direct_en_enter" placeholder="Enter Country English Name" type="text"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            Country Thai Name
+                                                            
+                                                        </label>
+                                                        <input class="form-control" id="country_direct_th_enter" name="country_direct_th_enter" placeholder="Enter Country Thai Name" type="text"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <button class="btn btn-o btn-primary" ng-click="CountryIns('ADD');" type="submit">
+                                                    Submit
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <legend>
+                                                Select Country Information
+                                            </legend>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group" ng-class="{'has-error':Form.country_direct_en.$dirty && Form.country_direct_en.$invalid, 'has-success':Form.country_direct_en.$valid}">
+                                                        <label>
+                                                            Country English Name
+                                                            <span class="symbol required">
+                                                            </span>
+                                                        </label>
+                                                        <input class="form-control" id="country_direct_en" name="country_direct_en" ng-model="myModel" ng-required="currentStep == 1" placeholder="Enter Country English Name" type="text" typeahead-loading="loadingCountry" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.country_direct_en for o in getcountry($viewValue)"/>
+                                                        <span class="error text-small block" ng-if="Form.country_direct_en.$dirty && Form.country_direct_en.$invalid">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group" ng-class="{'has-error':Form.country_direct_th.$dirty && Form.country_direct_th.$invalid, 'has-success':Form.country_direct_th.$valid}">
+                                                        <label class="control-label">
+                                                            Country Thai Name
+                                                            <span class="symbol required">
+                                                            </span>
+                                                        </label>
+                                                        <input class="form-control" id="country_direct_th" name="country_direct_th" ng-model="myModel.country_direct_th" ng-required="currentStep == 1" placeholder="Enter Country Thai Name" type="text"/>
+                                                        <span class="error text-small block" ng-if="Form.country_direct_th.$dirty && Form.country_direct_th.$invalid">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </fieldset>
+                                        <div class="form-group">
+                                            <button class="btn btn-primary btn-o next-step btn-wide pull-right" ng-click="form.next(Form)">
+                                            Next
+                                            <i class="fa fa-arrow-circle-right">
+                                            </i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end: WIZARD STEP 1 -->
+                            <!-- start: WIZARD STEP 2 -->
+                            <div id="step-2" ng-show="currentStep == 2">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="padding-30">
+                                            <h2 class="StepTitle">
+                                            <i class="ti-face-smile fa-2x text-primary block margin-bottom-10">
+                                            </i>
+                                            Enter the Country as you know
+                                            </h2>
+                                            <p>
+                                                This is an added measure against the lattitude and lontitude auto add location administrative
+                                            </p>
+                                            <p class="text-small">
+                                                Enter the location manually along with your data.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <fieldset>
+                                            <legend>
+                                                Add Province Details
+                                            </legend>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6">
+                                                    <div class="form-group" >
+                                                        <label class="control-label">
+                                                            Country English Name
+                                                            
+                                                        </label>
+                                                        <input class="form-control" ng-model="myModel.country_direct_en"   type="text"/>
+                                                        
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>
+                                                        Province English Name
+                                                    </label>
+                                                    <input class="form-control" id="province_direct_en_enter" name="province_direct_en_enter" placeholder="Enter Country English Name" type="text"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>
+                                                        Province English Name
+                                                    </label>
+                                                    <input class="form-control" id="province_direct_th_enter" name="province_direct_th_enter"   placeholder="Enter Province thai Name" type="text"/>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <button class="btn btn-o btn-primary" ng-click="ProvinceIns('ADD');" type="submit">
+                                                Submit
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>
+                                            Select Province Information
+                                        </legend>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group" ng-class="{'has-error':Form.province_direct_en.$dirty && Form.province_direct_en.$invalid, 'has-success':Form.province_direct_en.$valid}">
+                                                    <label>
+                                                        Province English Name
+                                                        <span class="symbol required">
+                                                        </span>
+                                                    </label>
+                                                    <input class="form-control" id="province_direct_en" name="province_direct_en" ng-model="myModelPro" ng-required="currentStep == 2" placeholder="Enter Province English Name" type="text" typeahead-loading="loadingProvince" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.province_direct_en for o in getprovince($viewValue)"/>
+                                                    <span class="error text-small block" ng-if="Form.province_direct_en.$dirty && Form.province_direct_en.$invalid">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group" ng-class="{'has-error':Form.province_direct_th.$dirty && Form.province_direct_th.$invalid, 'has-success':Form.province_direct_th.$valid}">
+                                                    <label class="control-label">
+                                                        Province Thai Name
+                                                        <span class="symbol required">
+                                                        </span>
+                                                    </label>
+                                                    <input class="form-control" id="province_direct_th" name="province_direct_th" ng-model="myModelPro.province_direct_th" ng-required="currentStep == 2" placeholder="Enter Province Thai Name" type="text"/>
+                                                    <span class="error text-small block" ng-if="Form.province_direct_th.$dirty && Form.province_direct_th.$invalid">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-o back-step btn-wide pull-left" ng-click="form.prev(Form)">
+                                        <i class="fa fa-circle-arrow-left">
+                                        </i>
+                                        Back
+                                        </button>
+                                        <button class="btn btn-primary btn-o next-step btn-wide pull-right" ng-click="form.next(Form)">
+                                        Next
+                                        <i class="fa fa-arrow-circle-right">
+                                        </i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end: WIZARD STEP 2 -->
+                        <!-- start: WIZARD STEP 3 -->
+                        <div id="step-3" ng-show="currentStep == 3">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="padding-30">
+                                        <h2 class="StepTitle">
+                                        <i class="ti-face-smile fa-2x text-primary block margin-bottom-10">
+                                        </i>
+                                        Enter the Country as you know
+                                        </h2>
+                                        <p>
+                                            This is an added measure against the lattitude and lontitude auto add location administrative
+                                        </p>
+                                        <p class="text-small">
+                                            Enter the location manually along with your data.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <fieldset>
+                                        <legend>
+                                            Add amphur Details
+                                        </legend>
+                                        <div class="row">
+                                            
+                                            <div class="col-md-6">
+                                                <div class="form-group" >
+                                                    <label class="control-label">
+                                                        Country English Name
+                                                        
+                                                    </label>
+                                                    <input class="form-control" ng-model="myModel.country_direct_en"   type="text"/>
+                                                    
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group" >
+                                                <label class="control-label">
+                                                    amphur English Name
+                                                    
+                                                </label>
+                                                <input class="form-control" ng-model="myModelPro.province_direct_en"   type="text"/>
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>
+                                                amphur English Name
+                                            </label>
+                                            <input class="form-control" id="amphur_direct_en_enter" name="amphur_direct_en_enter" placeholder="Enter Country English Name" type="text"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>
+                                                amphur Thai Name
+                                            </label>
+                                            <input class="form-control" id="amphur_direct_th_enter" name="amphur_direct_th_enter"   placeholder="Enter amphur thai Name" type="text"/>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button class="btn btn-o btn-primary" ng-click="AmphurIns('ADD');" type="submit">
+                                        Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>
+                                    Select amphur Information
+                                </legend>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group" ng-class="{'has-error':Form.amphur_direct_en.$dirty && Form.amphur_direct_en.$invalid, 'has-success':Form.amphur_direct_en.$valid}">
+                                            <label>
+                                                amphur English Name
+                                                <span class="symbol required">
+                                                </span>
+                                            </label>
+                                            <input class="form-control" id="amphur_direct_en" name="amphur_direct_en" ng-model="myModelAmp" ng-required="currentStep == 3" placeholder="Enter amphur English Name" type="text" typeahead-loading="loadingamphur" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.amphur_direct_en for o in getamphur($viewValue)"/>
+                                            <span class="error text-small block" ng-if="Form.amphur_direct_en.$dirty && Form.amphur_direct_en.$invalid">
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group" ng-class="{'has-error':Form.amphur_direct_th.$dirty && Form.amphur_direct_th.$invalid, 'has-success':Form.amphur_direct_th.$valid}">
+                                            <label class="control-label">
+                                                amphur Thai Name
+                                                <span class="symbol required">
+                                                </span>
+                                            </label>
+                                            <input class="form-control" id="amphur_direct_th" name="amphur_direct_th" ng-model="myModelAmp.amphur_direct_th" ng-required="currentStep == 3" placeholder="Enter amphur Thai Name" type="text"/>
+                                            <span class="error text-small block" ng-if="Form.amphur_direct_th.$dirty && Form.amphur_direct_th.$invalid">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-o back-step btn-wide pull-left" ng-click="form.prev(Form)">
+                                <i class="fa fa-circle-arrow-left">
+                                </i>
+                                Back
+                                </button>
+                                <button class="btn btn-primary btn-o next-step btn-wide pull-right" ng-click="form.next(Form)">
+                                Next
+                                <i class="fa fa-arrow-circle-right">
+                                </i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: WIZARD STEP 3 -->
+                <!-- start: WIZARD STEP 4 -->
+                <div id="step-4" ng-show="currentStep == 4">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="padding-30">
+                                <h2 class="StepTitle">
+                                <i class="ti-face-smile fa-2x text-primary block margin-bottom-10">
+                                </i>
+                                Enter the Country as you know
+                                </h2>
+                                <p>
+                                    This is an added measure against the lattitude and lontitude auto add location administrative
+                                </p>
+                                <p class="text-small">
+                                    Enter the location manually along with your data.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <fieldset>
+                                <legend>
+                                    Add tambon Details
+                                </legend>
+                                <div class="row">
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-group" >
+                                            <label class="control-label">
+                                                Country English Name
+                                                
+                                            </label>
+                                            <input class="form-control" ng-model="myModel.country_direct_en"   type="text"/>
+                                            
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" >
+                                        <label class="control-label">
+                                            Province English Name
+                                            
+                                        </label>
+                                        <input class="form-control" ng-model="myModelPro.province_direct_en"   type="text"/>
+                                        
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            
+                            <div class="col-md-6">
+                                <div class="form-group" >
+                                    <label class="control-label">
+                                        Amphur English Name
+                                        
+                                    </label>
+                                    <input class="form-control" ng-model="myModelAmp.amphur_direct_en"   type="text"/>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>
+                                    tambon English Name
+                                </label>
+                                <input class="form-control" id="tambon_direct_en_enter" name="tambon_direct_en_enter" placeholder="Enter Country English Name" type="text"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>
+                                    tambon Thai Name
+                                </label>
+                                <input class="form-control" id="tambon_direct_th_enter" name="tambon_direct_th_enter"   placeholder="Enter tambon thai Name" type="text"/>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-o btn-primary" ng-click="TambonIns('ADD');" type="submit">
+                            Submit
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        Select tambon Information
+                    </legend>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group" ng-class="{'has-error':Form.tambon_direct_en.$dirty && Form.tambon_direct_en.$invalid, 'has-success':Form.tambon_direct_en.$valid}">
+                                <label>
+                                    tambon English Name
+                                    <span class="symbol required">
+                                    </span>
+                                </label>
+                                <input class="form-control" id="tambon_direct_en" name="tambon_direct_en" ng-model="myModelTam" ng-required="currentStep == 4" placeholder="Enter tambon English Name" type="text" typeahead-loading="loadingtambon" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.tambon_direct_en for o in gettambon($viewValue)"/>
+                                <span class="error text-small block" ng-if="Form.tambon_direct_en.$dirty && Form.tambon_direct_en.$invalid">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" ng-class="{'has-error':Form.tambon_direct_th.$dirty && Form.tambon_direct_th.$invalid, 'has-success':Form.tambon_direct_th.$valid}">
+                                <label class="control-label">
+                                    tambon Thai Name
+                                    <span class="symbol required">
+                                    </span>
+                                </label>
+                                <input class="form-control" id="tambon_direct_th" name="tambon_direct_th" ng-model="myModelTam.tambon_direct_th" ng-required="currentStep == 4" placeholder="Enter tambon Thai Name" type="text"/>
+                                <span class="error text-small block" ng-if="Form.tambon_direct_th.$dirty && Form.tambon_direct_th.$invalid">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-o back-step btn-wide pull-left" ng-click="form.prev(Form)">
+                    <i class="fa fa-circle-arrow-left">
+                    </i>
+                    Back
+                    </button>
+                    <button class="btn btn-primary btn-o next-step btn-wide pull-right" ng-click="form.next(Form)">
+                    Next
+                    <i class="fa fa-arrow-circle-right">
+                    </i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: WIZARD STEP 4 -->
+    <!-- start: WIZARD STEP 5 -->
+    <div id="step-5" ng-show="currentStep == 5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <h1 class=" ti-check block text-primary">
+                    </h1>
+                    <h2 class="StepTitle">
+                    Congratulations!
+                    </h2>
+                    <p class="text-large">
+                        Your tutorial is complete.
+                    </p>
+                    <p class="text-small">
+                        Thank you for your registration. Your transaction has been completed, and a receipt for your purchase has been emailed to you.  You may log into your account to view details of this transaction.
+                    </p>
+                    <a class="btn btn-primary btn-o" href="" ng-click="form.goTo(Form, 1)">
+                        Back to first step
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: WIZARD STEP 5 -->
+</div>
+<pre class="code margin-top-20">{{ myModel | json }}</pre>
+</form>
+<!-- end: WIZARD FORM -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- start: WIZARD DEMO -->

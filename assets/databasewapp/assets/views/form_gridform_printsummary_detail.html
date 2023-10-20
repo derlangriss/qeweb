@@ -1,0 +1,129 @@
+
+
+<!--a ui-sref="app.form.gridform_printsummary.detail({ id : 'jim'})"-->
+
+
+
+        <!-- fixed header table markup example -->
+        <div class="table-wrapper content">
+            <!-- overall wrapper -->
+            <table class="table-testtest">
+                <!-- header -->
+                <thead> 
+                    <tr>
+                        <th colspan="2" class="max-width-100"></th>
+                    </tr>
+                    <tr>
+                        <th>COLLECTION DETAILS</th>
+                        <th></th>
+                        <th class="hidden-xs">ACTIONS</th>
+                        <th class="visible-lg">NUMBER OF ITEMS</th>
+                    </tr>
+                </thead> 
+            </table>
+            <div class="table no-margin" ng-scrollbars ng-scrollbars-config="config">
+                <!-- the element with the custom scrollbar -->
+                <table>
+                    <!-- body -->
+                    <tbody>
+                        <!-- auto-generated data (see js function below) -->
+                        <tr ng-repeat="contact in contactList" on-last-repeat>
+                            <td class="max-width-100">
+                                <div class="icons-effect">
+                                    <img src="assets/images/portfolio/image01_th.jpg" class="img-responsive img-rounded" alt="">
+                                    <div class="mask mask-rounded">
+                                        <div class="icons-wrapper">
+                                            <div class="icons">
+                                                <a href="#" class="icon">
+                                                    <span class="fa-stack fa-2x"> <i class="fa fa-circle fa-stack-2x text-white"></i> <i class="fa fa-search fa-stack-1x text-extra-large text-light"></i> </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="padding-10">
+                                    <div class="block">
+                                        <strong>THAILAND :</strong><span class="text-muted">{{contact.specimenfullnumber}}</span>
+                                    </div>
+                                    <span class="text-small text-muted">ORDER:{{contact.tordername}}</span>
+                                    <br>
+                                    <span class="text-small text-muted">FAMILY:{{contact.familyname}}</span>
+                                    <br>
+                                    <span class="text-small text-muted">GENUS:{{contact.genusname}}</span>
+                                    <br>
+                                    <div class="block margin-top-10">
+                                        <span class="label label-success">SPECIES:{{contact.speciesname}}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="hidden-xs">
+                                <div class="block">
+                                    <a href="#" class="margin-right-30 block">
+                                        <i class="fa fa-comments text-azure"></i> EDIT
+                                    </a>
+                                    <a href="#" class="margin-right-30  block">
+                                        <i class="fa fa-retweet text-green"></i> DELETE
+                                    </a>
+                                </div>
+                            </td>
+                            <td class="visible-lg">
+                                <div class="form-group">
+                                    <input id="demo4" type="text" value="{{contact.numberofitemstoprint}}" name="demo4" data-verticalbuttons="true" data-verticalupclass="ti-angle-up" data-verticaldownclass="ti-angle-down">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4 col-lg-3 no-padding">
+                    <div class="panel panel-azure no-border no-radius no-margin">
+                        <div class="panel-body">
+                            <ct-paneltool class="panel-tools" tool-expand="tool-expand"></ct-paneltool>
+                            <h3 class="text-white padding-top-10">In Review</h3>
+                            <table class="table margin-bottom-5">
+                                <tbody>
+                                    <tr>
+                                        <td><span class="text-white">Multi-slot transclusion</span></td>
+                                        <td>
+                                        <div class="pull-right margin-top-5">
+                                            <switch ng-model="switchsetting" ng-init="switchsetting = false" tooltip-placement="top" uib-tooltip="Approve" class="light"></switch>
+                                        </div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="text-white">Command Line Interface</span></td>
+                                        <td>
+                                        <div class="pull-right margin-top-5">
+                                            <switch ng-model="switchsetting2" ng-init="switchsetting2 = false" tooltip-placement="top" uib-tooltip="Approve" class="light"></switch>
+                                        </div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="text-white">Tools and Training</span></td>
+                                        <td>
+                                        <div class="pull-right margin-top-5">
+                                            <switch ng-model="switchsetting3" ng-init="switchsetting3 = true" tooltip-placement="top" uib-tooltip="Approve" class="light"></switch>
+                                        </div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="text-white">Angular 2 integration</span></td>
+                                        <td>
+                                        <div class="pull-right margin-top-5">
+                                            <switch ng-model="switchsetting4" ng-init="switchsetting4 = false" tooltip-placement="top" uib-tooltip="Approve" class="light"></switch>
+                                        </div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="block text-dark text-center">
+                                <span class="counter text-bold text-white" count-to="12" value="0" duration="0.4" filter="number">{{totaltestspecimen}}</span>
+                                <h4 class="text-uppercase text-white no-margin">Proposal</h4>
+                                <span class="line-separator line-sm text-white"></span>
+                                <p class="no-margin">
+                                    <span class="text-white-transparent">Last Month: </span><span class="label background-light text-bold text-dark">16</span>
+                                </p>
+                                <!-- /// controller:  'LineCtrl' -  localtion: assets/js/controllers/dashboardCtrl.js /// -->
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>

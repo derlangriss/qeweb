@@ -1,0 +1,238 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.ELEMENTS">
+        FORM ELEMENTS
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB --> 
+<!-- start: BASIC EXAMPLE -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <div ng-controller="FormSpecimensTaxaCtrl">
+                        <!-- start: collector form -->
+                        <div class="col-md-3">
+                            <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                <fieldset>
+                                    <legend>
+                                        Specimen Data Entry
+                                    </legend>
+                                    <div class="gf-row-6 gf-large">
+                                        <div class="gf-col-2" data-column="6">
+                                            <label>
+                                                code
+                                            </label>
+                                            <input autofocus="" class="numberdecimal column_filterspec" id="col6_filter" name="txtcoll_code" ng-change="onChangedCollcode();" ng-model="specdata.coll_code" type="text">
+                                            </input>
+                                        </div>
+                                        <div class="gf-col-2" data-column="7">
+                                            <label>
+                                                year
+                                            </label>
+                                            <input autofocus="" class="numberdecimal column_filterspec" id="col7_filter" name="txtcoll_year" ng-change="onChangedCollyear();" ng-model="specdata.coll_year" type="text">
+                                            </input>
+                                        </div>
+                                        <div class="gf-col-2" data-column="8">
+                                            <label>
+                                                number
+                                            </label>
+                                            <input autofocus="" class="numberdecimal column_filterspec" id="col8_filter" name="txtcoll_number" ng-change="onChangedCollnumber();" ng-model="specdata.coll_number" type="text">
+                                            </input>
+                                        </div>
+                                    </div>
+                                    <input autofocus="" id="txtidspecimens" name="txtidspecimens" type="hidden" value="{{specdata.idspecimens}}">
+                                        <input autofocus="" id="txtidcollection" name="txtidcollection" type="hidden" value="{{specdata.idcollection}}">
+                                        </input>
+                                    </input>
+                                </fieldset>
+                                <fieldset id="specimensdetails">
+                                    <legend>
+                                        <letter-icon char-count="2" custom-class="letter-custom" data="3">
+                                        </letter-icon>
+                                        <span class="text-light text-bold margin-left-5">
+                                            Specimen Details
+                                        </span>
+                                        <span>
+                                            <a ui-sref="app.form.taxadetails">
+                                                <i class="fa fa-plus-square">
+                                                </i>
+                                            </a>
+                                        </span>
+                                    </legend>
+                                    <div class="gf-row-2 gf-large">
+                                        <div class="gf-col-2">
+                                            <div ng-class="{'has-error':Specimens_Form.order.$dirty && Specimens_Form.order.$invalid, 'has-success':Specimens_Form.order.$valid}">
+                                                <label>
+                                                    Order
+                                                    <span class="symbol required">
+                                                    </span>
+                                                </label>
+                                                <input class="form-control" id="order" name="order" ng-change="changeOrder()" ng-model="specModelOrder" ng-required="currentStep == 1" placeholder="Enter Order Name" type="text" typeahead-loading="loadingOrder" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.torder_name for o in OrderKeyup($viewValue)"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gf-row-4 gf-large">
+                                        <div class="gf-col-4">
+                                            <div ng-class="{'has-error':Specimens_Form.family.$dirty && Specimens_Form.family.$invalid, 'has-success':Specimens_Form.family.$valid}">
+                                                <label>
+                                                    family
+                                                    <span class="symbol required">
+                                                    </span>
+                                                </label>
+                                                <input class="form-control" id="family" name="family" ng-change="changeFamily()" ng-model="specModelFamily" ng-required="currentStep == 1" placeholder="Enter Family Name" type="text" typeahead-loading="loadingFamily" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.family_name for o in FamilyKeyup($viewValue)"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gf-row-2 gf-large">
+                                        <div class="gf-col-2">
+                                            <div ng-class="{'has-error':Specimens_Form.genus.$dirty && Specimens_Form.genus.$invalid, 'has-success':Specimens_Form.genus.$valid}">
+                                                <label>
+                                                    Genus
+                                                    <span class="symbol required">
+                                                    </span>
+                                                </label>
+                                                <input class="form-control" id="genus" name="genus" ng-change="changeGenus()" ng-model="specModelGenus" ng-required="currentStep == 1" placeholder="Enter Genus Name" type="text" typeahead-loading="loadingGenus" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.genus_name for o in GenusKeyup($viewValue)"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gf-row-2 gf-large">
+                                        <div class="gf-col-2">
+                                            <div ng-class="{'has-error':Specimens_Form.species.$dirty && Specimens_Form.species.$invalid, 'has-success':Specimens_Form.species.$valid}">
+                                                <label>
+                                                    Species
+                                                    <span class="symbol required">
+                                                    </span>
+                                                </label>
+                                                <input class="form-control" id="species" name="species" ng-model="specModelSpecies" ng-required="currentStep == 1" placeholder="Enter Species Name" type="text" typeahead-loading="loadingSpecies" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.species_name for o in SpeciesKeyup($viewValue)"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <!-- savetype -->
+                                <fieldset>
+                                    <div class="radio clip-radio radio-primary radio-sm radio-inline">
+                                        <input checked="checked" id="testradio1" name="savetype" ng-model="savetype" type="radio" value="1">
+                                            <label for="testradio1">
+                                                Different
+                                            </label>
+                                        </input>
+                                    </div>
+                                    <div class="radio clip-radio radio-primary radio-sm radio-inline">
+                                        <input id="testradio2" name="savetype" ng-model="savetype" type="radio" value="0">
+                                            <label for="testradio2">
+                                                Similar
+                                            </label>
+                                        </input>
+                                    </div>
+                                </fieldset>
+                                <!-- save botton -->
+                                <fieldset>
+                                    <a class="btn btn-light-azure btn-xs" href="#" ng-click="specimensUpdate('UPDATE',SpecimensTaxa_Form);">
+                                        <i class="fa fa-save">
+                                        </i>
+                                        Save
+                                    </a>
+                                    <a class="btn btn-light-azure btn-xs" href="#" ng-click="resetspecformBtn();">
+                                        <i class="fa fa-ban">
+                                        </i>
+                                        Reset Field
+                                    </a>
+                                    <a class="btn btn-light-azure btn-xs" href="#" ng-click="resetAllfieldBtn();">
+                                        <i class="fa fa-ban">
+                                        </i>
+                                        Reset Form
+                                    </a>
+                                    <!--a class="btn btn-light-azure btn-xs" href="#" ng-click="checkalert();">
+                                                <i class="fa fa-ban">
+                                                </i>
+                                                check alert
+                                            </a-->
+                                </fieldset>
+                            </form>
+                            <br>
+                                <!--form class="gf" id="specimens_date_form" name="specimens_date_form">
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3">
+                                                    Date Report (วันที่รายงานผล)
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    DATE
+                                                </td>
+                                                <td>
+                                                    <input class="date form-control noborder input-vsm" id="txtspecdate" name="txtspecdate" ng-model="specDate.specdate" type="text"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="text-right">
+                                        <a class="btn btn-light-azure btn-xs" href="#" ng-click="specimensdate('UPDATE',specimens_date_form);">
+                                            <i class="fa fa-save">
+                                            </i>
+                                            Save
+                                        </a>
+                                    </div>
+                                </form-->
+                            </br>
+                        </div>
+                        <div class="col-md-9">
+                            <!-- specimens table -->
+                            <table cellspacing="0" class="table compact table-striped table-condensed nowrap " id="SpecimensListTbl" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                        </th>
+                                        <th>
+                                            Specimen Number
+                                        </th>
+                                        <th>
+                                            Order
+                                        </th>
+                                        <th>
+                                            Family
+                                        </th>
+                                        <th>
+                                            Genus
+                                        </th>
+                                        <th>
+                                            Species
+                                        </th>
+                                        <th>
+                                            coll_code
+                                        </th>
+                                        <th>
+                                            coll_year
+                                        </th>
+                                        <th>
+                                            coll_number
+                                        </th>
+                                        <th>
+                                            specimen_number
+                                        </th>
+                                        <th>
+                                            Report Date
+                                        </th>
+                                        <th>
+                                            Report Date
+                                        </th>
+                                        <th>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

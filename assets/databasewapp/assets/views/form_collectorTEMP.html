@@ -1,0 +1,347 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.tables.DYNAMIC">
+        Donation Form
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: DYNAMIC TABLE -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <h5 class="over-title margin-bottom-15">
+                        Collector
+                        <span class="text-bold">
+                            Data Entry
+                        </span>
+                    </h5>
+                    <p>
+                        Add the row by pressing the submit button. Alternatively, play around by adding and deleting/removing the rows.
+                    </p>
+                    <!-- /// controller:  'ngTableCtrl' -  localtion: assets/js/controllers/ngTableCtrl.js /// -->
+                    <div ng-controller="collectorTblCtrl">
+                        <div class="col-md-4">
+                            <fieldset id="collectorform">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">
+                                        Collector Form
+                                    </h5>
+                                </div>
+                                <div class="panel-body">
+                                    <form role="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>
+                                                        First Name
+                                                    </label>
+                                                    <input class="form-control" id="txtcollectorfirstEN" name="txtcollectorfirstEN" placeholder="Enter First Name" type="text">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        Last Name
+                                                    </label>
+                                                    <input class="form-control" id="txtcollectorlastEN" name="txtcollectorlastEN" placeholder="Enter Last Name" type="text">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>
+                                                        ชื่อ
+                                                    </label>
+                                                    <input class="form-control" id="txtcollectorfirstTH" name="txtcollectorfirstTH" placeholder="ชื่อ" type="text">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        นามสกุล
+                                                    </label>
+                                                    <input class="form-control" id="txtcollectorlastTH" name="txtcollectorlastTH" placeholder="นามสกุล" type="text">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div >
+                                                    <div class="center">
+                                                        <h4>
+                                                            {{userInfo.firstName}} {{userInfo.lastName}}
+                                                        </h4>
+                                                        <div flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-init="{singleFile:true}" flow-name="obj.flow">
+                                                            <div class="user-image">
+                                                                <div class="thumbnail">
+                                                                    <img alt="" ng-if="!obj.flow.files.length && noImage" src="assets/images/default-user.png">
+                                                                        <img alt="" ng-if="!obj.flow.files.length && !noImage" ng-src="{{userInfo.avatar}}">
+                                                                            <img flow-img="obj.flow.files[0]" ng-if="obj.flow.files.length">
+                                                                            </img>
+                                                                        </img>
+                                                                    </img>
+                                                                </div>
+                                                                <div class="user-image-buttons" ng-if="obj.flow.files.length">
+                                                                    <span class="btn btn-primary btn-file">
+                                                                        <i class="fa fa-pencil">
+                                                                        </i>
+                                                                        <input flow-btn="" type="file"/>
+                                                                    </span>
+                                                                    <span class="btn btn-danger" ng-click="obj.flow.cancel()">
+                                                                        <i class="fa fa-times">
+                                                                        </i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="user-image-buttons" ng-if="!obj.flow.files.length">
+                                                                    <span class="btn btn-primary btn-file">
+                                                                        <i class="fa fa-pencil">
+                                                                        </i>
+                                                                        <input flow-btn="" type="file"/>
+                                                                    </span>
+                                                                    <span class="btn btn-danger" ng-click="removeImage()" ng-if="!noImage">
+                                                                        <i class="fa fa-times">
+                                                                        </i>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                            <div class="social-icons block">
+                                                                <ul>
+                                                                    <li class="social-twitter tooltips" data-original-title="Twitter" data-placement="top">
+                                                                        <a href="#" target="_blank">
+                                                                            Twitter
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="social-facebook tooltips" data-original-title="Facebook" data-placement="top">
+                                                                        <a href="#" target="_blank">
+                                                                            Facebook
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="social-google tooltips" data-original-title="Google" data-placement="top">
+                                                                        <a href="#" target="_blank">
+                                                                            Google+
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="social-linkedin tooltips" data-original-title="LinkedIn" data-placement="top">
+                                                                        <a href="#" target="_blank">
+                                                                            LinkedIn
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="social-github tooltips" data-original-title="Github" data-placement="top">
+                                                                        <a href="#" target="_blank">
+                                                                            Github
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <hr>
+                                                            </hr>
+                                                        </hr>
+                                                    </div>
+                                                    <table class="table table-condensed">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="3">
+                                                                    Contact Information
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    url
+                                                                </td>
+                                                                <td>
+                                                                    <a href="#">
+                                                                        {{userInfo.url}}
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    email:
+                                                                </td>
+                                                                <td>
+                                                                    <a href="">
+                                                                        {{userInfo.email}}
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    phone:
+                                                                </td>
+                                                                <td>
+                                                                    {{userInfo.phone}}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    skye
+                                                                </td>
+                                                                <td>
+                                                                    <a href="">
+                                                                        {{userInfo.skype}}
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <table class="table table-condensed">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="3">
+                                                                    General information
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    Position
+                                                                </td>
+                                                                <td>
+                                                                    UI Designer
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Last Logged In
+                                                                </td>
+                                                                <td>
+                                                                    56 min
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Position
+                                                                </td>
+                                                                <td>
+                                                                    Senior Marketing Manager
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Supervisor
+                                                                </td>
+                                                                <td>
+                                                                    <a href="#">
+                                                                        Kenneth Ross
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Status
+                                                                </td>
+                                                                <td>
+                                                                    <span class="label label-sm label-info">
+                                                                        Administrator
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <table class="table table-condensed">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="3">
+                                                                    Additional information
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    Groups
+                                                                </td>
+                                                                <td>
+                                                                    New company web site development, HR Management
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="text-right">
+                                                        <a class="btn btn-primary btn-o btn-wide" href="#" ng-click="editActive = true">
+                                                            Edit Account
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-o btn-primary" ng-click="collectorIns('ADD');" type="submit">
+                                            Submit
+                                        </button>
+                                    </form>
+                                    <pre class="code margin-top-20">{{ obj.flow.FlowFile.name | json }}</pre>
+                                </div>
+
+
+
+
+
+
+
+
+
+                                
+                            </fieldset>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="table-responsive">
+                                <fieldset>
+                                    <table cellspacing="0" class="table table-condensed table-hover" id="collectorTbl" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs center" rowspan="2">
+                                                    No.
+                                                </th>
+                                                <th class="center" colspan="2">
+                                                    English Name
+                                                </th>
+                                                <th class="center" colspan="2">
+                                                    Thai Name
+                                                </th>
+                                                <th class="hidden-xs center" rowspan="2">
+                                                    Label Alias
+                                                </th>
+                                                <th class="center" rowspan="2">
+                                                    Action
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th class="hidden-xs">
+                                                    First Name
+                                                </th>
+                                                <th class="hidden-xs">
+                                                    Last Name
+                                                </th>
+                                                <th class="hidden-xs">
+                                                    ชื่อ
+                                                </th>
+                                                <th class="hidden-xs">
+                                                    นามสกุล
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: DYNAMIC TABLE -->

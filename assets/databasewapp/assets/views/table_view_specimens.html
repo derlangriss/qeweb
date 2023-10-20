@@ -1,0 +1,276 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.tables.SPECIMENSDETAILS">
+        Collection List
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: DYNAMIC TABLE -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <div ng-controller="SpecimensDetailsCtrl">
+                        <div class="invoice">
+                            <div class="partition-light-grey01 padding-15 text-center margin-bottom-25 panel-header">
+                                <h4 class="no-margin">
+                                    Specimens Details
+                                </h4>
+                                <span class="text-light">
+                                    Specimens Information details
+                                </span>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="user-left">
+                                        <div class="center">
+                                            <div class="pricing-table pricing-red">
+                                                <ul class="plan plan1">
+                                                    <li class="plan-name">
+                                                        {{specdata.specfullnumber}}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <h4>
+                                            </h4>
+                                            <div class="thumbnail-specimens">
+                                                <img alt="" src="assets/images/NA.jpg">
+                                                </img>
+                                            </div>
+                                        </div>
+                                        <div class="pricing-table pricing-red">
+                                            <ul class="plan plan1">
+                                                <li class="plan-name">
+                                                    SCIENCTIFIC NAME
+                                                </li>
+                                                <li class="plan-price">
+                                                    <h3>
+                                                        <i>
+                                                            {{specdata.genusname}} {{specdata.speciesname}}
+                                                        </i>
+                                                    </h3>
+                                                </li>
+                                                <li>
+                                                    <strong>
+                                                        ORDER
+                                                    </strong>
+                                                    <span class="badge float-right">
+                                                        {{specdata.tordername}}
+                                                    </span>
+                                                </li>
+                                                <li class="sompong">
+                                                    <strong>
+                                                        FAMILY
+                                                    </strong>
+                                                    <span class="badge">
+                                                        {{specdata.familyname}}
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <strong>
+                                                        GENUS
+                                                    </strong>
+                                                    <span class="badge">
+                                                        <i>
+                                                            {{specdata.genusname}}
+                                                        </i>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <strong>
+                                                        SPECIES
+                                                    </strong>
+                                                    <span class="badge">
+                                                        <i>
+                                                            {{specdata.speciesname}}
+                                                        </i>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row space20">
+                                        <div class="col-sm-3">
+                                            <nav class="links cl-effect-9 " id="cl-effect-9" ng-class="{ clmenu: changestyle(1) }">
+                                                <a href="" ng-class="{ active: isSet(1) }" ng-click="setTab(1)">
+                                                    <span>
+                                                        Overall
+                                                    </span>
+                                                    <span>
+                                                        All collection information
+                                                    </span>
+                                                </a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-white" id="activities">
+                                        <div class="panel-heading border-light">
+                                            <h4 class="panel-title">
+                                                Overview
+                                            </h4>
+                                            <paneltool class="panel-tools" tool-collapse="tool-collapse" tool-dismiss="tool-dismiss" tool-refresh="load1">
+                                            </paneltool>
+                                        </div>
+                                        <div class="panel-wrapper" ng-init="activities=false" uib-collapse="activities">
+                                            <div class="panel-body">
+                                                <ul class="timeline-xs">
+                                                    <li class="timeline-item danger">
+                                                        <div class="margin-left-15">
+                                                            <div class="text-muted text-small">
+                                                                <span class="label label-inverse">
+                                                                    Collect Date
+                                                                </span>
+                                                            </div>
+                                                            <p class="text-small margin-top-5">
+                                                                <strong>
+                                                                    {{specdata.startdate}} - {{specdata.enddate}}
+                                                                </strong>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="timeline-item danger">
+                                                        <div class="margin-left-15">
+                                                            <div class="text-muted text-small">
+                                                                <span class="label label-inverse">
+                                                                    Collection Method
+                                                                </span>
+                                                            </div>
+                                                            <p class="text-small margin-top-5">
+                                                                <strong>
+                                                                    {{specdata.method}}
+                                                                </strong>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="timeline-item danger">
+                                                        <div class="margin-left-15">
+                                                            <div class="text-muted text-small">
+                                                                <span class="label label-inverse">
+                                                                    Locality
+                                                                </span>
+                                                            </div>
+                                                            <p class="text-small margin-top-5">
+                                                                <strong>
+                                                                    {{specdata.locality}}
+                                                                </strong>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="timeline-item danger">
+                                                        <div class="margin-left-15">
+                                                            <div class="text-muted text-small">
+                                                                <span class="label label-inverse">
+                                                                    Specific Locality
+                                                                </span>
+                                                            </div>
+                                                            <p class="text-small margin-top-5">
+                                                                <strong>
+                                                                    {{specdata.specificlocality}}
+                                                                </strong>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="timeline-item danger">
+                                                        <div class="margin-left-15">
+                                                            <div class="text-muted text-small">
+                                                                <span class="label label-inverse">
+                                                                    Habitat
+                                                                </span>
+                                                            </div>
+                                                            <p class="text-small margin-top-5">
+                                                                <strong>
+                                                                    {{specdata.habitat}}
+                                                                </strong>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="timeline-item danger">
+                                                        <div class="margin-left-15">
+                                                            <div class="text-muted text-small">
+                                                                <span class="label label-inverse">
+                                                                    Province
+                                                                </span>
+                                                            </div>
+                                                            <p class="text-small margin-top-5">
+                                                                <strong>
+                                                                    {{specdata.province}}
+                                                                </strong>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="timeline-item danger">
+                                                        <div class="margin-left-15">
+                                                            <div class="text-muted text-small">
+                                                                <span class="label label-inverse">
+                                                                    Amphur
+                                                                </span>
+                                                            </div>
+                                                            <p class="text-small margin-top-5">
+                                                                <strong>
+                                                                    {{specdata.amphur}}
+                                                                </strong>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="timeline-item danger">
+                                                        <div class="margin-left-15">
+                                                            <div class="text-muted text-small">
+                                                                <span class="label label-inverse">
+                                                                    lattitude (round int)
+                                                                </span>
+
+                                                            </div>
+                                                            <p class="text-small margin-top-5">
+                                                                <strong>
+                                                                    {{specdata.latdecimal}}
+                                                                </strong>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="timeline-item danger">
+                                                        <div class="margin-left-15">
+                                                            <div class="text-muted text-small">
+                                                                <span class="label label-inverse">
+                                                                    longitude (round int)
+                                                                </span>
+                                                            </div>
+                                                            <p class="text-small margin-top-5">
+                                                                <strong>
+                                                                    {{specdata.longdecimal}}
+                                                                </strong>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="timeline-item danger">
+                                                        <div class="margin-left-15">
+                                                            <div class="text-muted text-small">
+                                                                <span class="label label-inverse">
+                                                                    MASL
+                                                                </span>
+                                                            </div>
+                                                            <p class="text-small margin-top-5">
+                                                                <strong>
+                                                                    {{specdata.masl}}
+                                                                </strong>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: DYNAMIC TABLE -->
+            </div>
+        </div>
+    </div>
+</div>

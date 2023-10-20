@@ -1,0 +1,461 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.ELEMENTS">
+        FORM ELEMENTS
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: BASIC EXAMPLE -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12"> 
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <div ng-controller="FormSpecimensDataCtrl">
+                        <!-- Begin form -->
+                        <form class="gf" id="specimens_form" name="Specimens_Form">
+                            <fieldset>
+                                <legend>
+                                    Specimen Data Entry
+                                </legend>
+                                <div class="gf-row-12 ">
+                                    <div class="gf-col-7 gf-col-bg">
+                                        <!-- start: COLLECTION NUMBER -->
+                                        <fieldset>
+                                            <legend>
+                                                <letter-icon char-count="1" custom-class="letter-custom" data="Generate Auto Number">
+                                                </letter-icon>
+                                                <span class="text-light text-bold margin-left-5">
+                                                    Generate auto Collection Number
+                                                </span>
+                                            </legend>
+                                            <div class="gf-row-6 gf-testlarge">
+                                                <div class="gf-col-1 gf-col-bg gf-none-border">
+                                                    <label>
+                                                        Code
+                                                    </label>
+                                                    <div class="form-group">
+                                                        <span class="clip-select">
+                                                            <select class="form-control" id="gencoll_code" name="gencoll_code" ng-model="gencoll_code" ng-options="item.collection_code_id as item.collection_code for item in GETcollectioncode">
+                                                                <option disabled="" value="">
+                                                                    CODE
+                                                                </option>
+                                                            </select>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-col-1 gf-col-bg gf-none-border">
+                                                    <label>
+                                                        year
+                                                    </label>
+                                                    <input class="number" id="gencoll_year" name="gencoll_year" ng-model="gencoll_year" type="text"/>
+                                                </div>
+                                                <div class="gf-col-1 gf-col-bg gf-none-border">
+                                                    <label>
+                                                        number
+                                                    </label>
+                                                    <input class="number" id="gencoll_number" name="gencoll_number" ng-model="gencoll_number" type="text"/>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="gf-col-3 gf-col-bg gf-none-border">
+                                                <nav class="links cl-effect-2" id="cl-effect-2">
+                                                    <a href="" ng-click="AUTOSPECNO();">
+                                                        <span data-hover="GENERATE NUMBER!">
+                                                            <i class="fa fa-refresh">
+                                                            </i>
+                                                            GENERATE NUMBER!
+                                                        </span>
+                                                    </a>
+                                                </nav>
+                                            </div>
+                                        </fieldset>
+                                        <!-- end: COLLECTION NUMBER -->
+                                        <!-- specimens table -->
+                                        <fieldset>
+                                            <legend>
+                                                <letter-icon char-count="1" custom-class="letter-custom" data="Specimens List">
+                                                </letter-icon>
+                                                <span class="text-light text-bold margin-left-5">
+                                                    Specimens List
+                                                </span>
+                                            </legend>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>
+                                                        &nbsp;
+                                                    </label>
+                                                    <table cellspacing="0" class="table compact table-striped table-condensed nowrap" id="SpecimensListTbl" width="100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>
+                                                                </th>
+                                                                <th>
+                                                                    Specimen Number
+                                                                </th>
+                                                                <th>
+                                                                    Order
+                                                                </th>
+                                                                <th>
+                                                                    Family
+                                                                </th>
+                                                                <th>
+                                                                    Genus
+                                                                </th>
+                                                                <th>
+                                                                    Species
+                                                                </th>
+                                                                <th>
+                                                                    coll_code
+                                                                </th>
+                                                                <th>
+                                                                    coll_year
+                                                                </th>
+                                                                <th>
+                                                                    coll_number
+                                                                </th>
+                                                                <th>
+                                                                    specimen_number
+                                                                </th>
+                                                                <th>
+                                                                    identify_check
+                                                                </th>
+                                                                <th>
+                                                                  
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="gf-col-5 gf-col-bg">
+                                        <!-- Specimens Number -->
+                                        <fieldset>
+                                            <legend>
+                                                <letter-icon char-count="1" custom-class="letter-custom" data="1">
+                                                </letter-icon>
+                                                <span class="text-light text-bold margin-left-5">
+                                                    Specimen Number
+                                                </span>
+                                            </legend>
+                                            <div class="gf-row-8 gf-large">
+                                                <div class="gf-col-2" data-column="6">
+                                                    <label>
+                                                        code
+                                                    </label>
+                                                    <input autofocus="" class="numberdecimal column_filterspec" id="col6_filter" name="txtcoll_code" ng-change="onChangedCollcode();" ng-model="specdata.coll_code" readonly="" type="text">
+                                                    </input>
+                                                </div>
+                                                <div class="gf-col-2" data-column="7">
+                                                    <label>
+                                                        year
+                                                    </label>
+                                                    <input autofocus="" class="numberdecimal column_filterspec" id="col7_filter" name="txtcoll_year" ng-change="onChangedCollyear();" ng-model="specdata.coll_year" readonly="" type="text">
+                                                    </input>
+                                                </div>
+                                                <div class="gf-col-2" data-column="8">
+                                                    <label>
+                                                        number
+                                                    </label>
+                                                    <input autofocus="" class="numberdecimal column_filterspec" id="col8_filter" name="txtcoll_number" ng-change="onChangedCollnumber();" ng-model="specdata.coll_number" readonly=""  type="text">
+                                                    </input>
+                                                </div>
+                                                <div class="gf-col-2">
+                                                    <label>
+                                                        Specimen ID
+                                                    </label>
+                                                    <input autofocus="" id="txtspecimens_number" name="txtspecimen_number" ng-model="specdata.specimens_number" readonly="" type="text">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                            <input autofocus="" id="txtidspecimens" name="txtidspecimens" type="hidden" value="{{specdata.idspecimens}}">
+                                                <input autofocus="" id="txtidcollection" name="txtidcollection" type="hidden" value="{{specdata.idcollection}}">
+                                                </input>
+                                            </input>
+                                        </fieldset>
+                                        <!-- specimens auto number botton -->
+                                        <!--fieldset>
+                                            <a class="btn btn-light-azure btn-xs" href="#" ng-click="autonumber();">
+                                                <i class="fa fa-refresh">
+                                                </i>
+                                                GENERATE RECENT NUMBER!
+                                            </a>
+                                        </fieldset-->
+                                        <!-- Number of Records -->
+                                        <fieldset>
+                                            <legend>
+                                                <letter-icon char-count="2" custom-class="letter-custom" data="2">
+                                                </letter-icon>
+                                                <span class="text-light text-bold margin-left-5">
+                                                    Number of Records
+                                                </span>
+                                            </legend>
+                                            <div class="gf-col-2">
+                                                <div class="form-group">
+                                                    <input data-verticalbuttons="true" data-verticaldownclass="ti-angle-down" data-verticalupclass="ti-angle-up" id="txtnumberOFrecord" name="txtnumberOFrecord" ng-model="numberOFrecord" touchspin="" type="text" value="1">
+                                                    </input>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <a class="btn btn-light-azure btn-xs" href="#" ng-click="saveasunknown(Specimens_Form);">
+                                                <i class="fa fa-save">
+                                                </i>
+                                                Save As Unknown
+                                            </a>
+                                        </fieldset>
+                                        <!-- specimensdetails -->
+                                        <fieldset id="specimensdetails">
+                                            <legend>
+                                                <letter-icon char-count="2" custom-class="letter-custom" data="3">
+                                                </letter-icon>
+                                                <span class="text-light text-bold margin-left-5">
+                                                    Specimen Details
+                                                </span>
+                                                <span>
+                                                    <a ui-sref="app.form.taxadetails">
+                                                        <i class="fa fa-plus-square">
+                                                        </i>
+                                                    </a>
+                                                </span>
+                                            </legend>
+                                            <div class="gf-row-2 gf-large">
+                                                <div class="gf-col-2">
+                                                    <div ng-class="{'has-error':Specimens_Form.order.$dirty && Specimens_Form.order.$invalid, 'has-success':Specimens_Form.order.$valid}">
+                                                        <label>
+                                                            Order
+                                                            <span class="symbol required">
+                                                            </span>
+                                                        </label>
+                                                        <input class="form-control" id="order" name="order" ng-change="changeOrder()" ng-model="specModelOrder" ng-required="currentStep == 1" placeholder="Enter Order Name" type="text" typeahead-loading="loadingOrder" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.torder_name for o in OrderKeyup($viewValue)"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gf-row-4 gf-large">
+                                                <div class="gf-col-2">
+                                                    <div ng-class="{'has-error':Specimens_Form.family.$dirty && Specimens_Form.family.$invalid, 'has-success':Specimens_Form.family.$valid}">
+                                                        <label>
+                                                            family
+                                                            <span class="symbol required">
+                                                            </span>
+                                                        </label>
+                                                        <input class="form-control" id="family" name="family" ng-change="changeFamily()" ng-model="specModelFamily" ng-required="currentStep == 1" placeholder="Enter Family Name" type="text" typeahead-loading="loadingFamily" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.family_name for o in FamilyKeyup($viewValue)"/>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-col-2">
+                                                    <label>
+                                                        Sub family
+                                                    </label>
+                                                    <input autofocus="" class="form-control" id="txtSub_Genus" name="txtSub_Genus" ng-model="specModelGenus.sub_family" placeholder="Enter subGenus Name" type="text"/>
+                                                </div>
+                                            </div>
+                                            <div class="gf-row-2 gf-large">
+                                                <div class="gf-col-1">
+                                                    <div ng-class="{'has-error':Specimens_Form.genus.$dirty && Specimens_Form.genus.$invalid, 'has-success':Specimens_Form.genus.$valid}">
+                                                        <label>
+                                                            Genus
+                                                            <span class="symbol required">
+                                                            </span>
+                                                        </label>
+                                                        <input class="form-control" id="genus" name="genus" ng-change="changeGenus()" ng-model="specModelGenus" ng-required="currentStep == 1" placeholder="Enter Genus Name" type="text" typeahead-loading="loadingGenus" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.genus_name for o in GenusKeyup($viewValue)"/>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-col-1">
+                                                    <label>
+                                                        Sub Genus
+                                                    </label>
+                                                    <input autofocus="" class="form-control" id="txtSub_Genus" name="txtSub_Genus" ng-model="specModelSpecies.sub_genus" placeholder="Enter subGenus Name" type="text"/>
+                                                </div>
+                                            </div>
+                                            <div class="gf-row-2 gf-large">
+                                                <div class="gf-col-2">
+                                                    <div ng-class="{'has-error':Specimens_Form.species.$dirty && Specimens_Form.species.$invalid, 'has-success':Specimens_Form.species.$valid}">
+                                                        <label>
+                                                            Species
+                                                            <span class="symbol required">
+                                                            </span>
+                                                        </label>
+                                                        <input class="form-control" id="species" name="species" ng-model="specModelSpecies" ng-required="currentStep == 1" placeholder="Enter Species Name" type="text" typeahead-loading="loadingSpecies" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.species_name for o in SpeciesKeyup($viewValue)"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <!-- typespecimen -->
+                                        <fieldset>
+                                            <legend>
+                                                <letter-icon char-count="2" custom-class="letter-custom" data="4">
+                                                </letter-icon>
+                                                <span class="text-light text-bold margin-left-5">
+                                                    Type Specimen
+                                                </span>
+                                            </legend>
+                                            <div class="gf-row-6 gf-large">
+                                                <div class="gf-col-2 ">
+                                                    <div class="radio-primary">
+                                                        <input checked="checked" id="Normal" name="typespecimen" ng-model="typespecimen" type="radio" value="0">
+                                                            <label for="Normal">
+                                                                Normal
+                                                            </label>
+                                                        </input>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-col-2">
+                                                    <div class="radio-primary">
+                                                        <input id="Holotype" name="typespecimen" ng-model="typespecimen" type="radio" value="1">
+                                                            <label for="Holotype">
+                                                                Holotype
+                                                            </label>
+                                                        </input>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-col-2">
+                                                    <div class="radio-primary">
+                                                        <input id="Paratype" name="typespecimen" ng-model="typespecimen" type="radio" value="2">
+                                                            <label for="Paratype">
+                                                                Paratype
+                                                            </label>
+                                                        </input>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gf-row-6 gf-large">
+                                                <div class="gf-col-2 ">
+                                                    <div class="radio-primary">
+                                                        <input id="Neotype" name="typespecimen" ng-model="typespecimen" type="radio" value="3">
+                                                            <label for="Neotype">
+                                                                Neotype
+                                                            </label>
+                                                        </input>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-col-2 ">
+                                                    <div class="radio-primary">
+                                                        <input id="Syntype" name="typespecimen" ng-model="typespecimen" type="radio" value="4">
+                                                            <label for="Syntype">
+                                                                Syntype
+                                                            </label>
+                                                        </input>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-col-2 ">
+                                                    <div class="radio-primary">
+                                                        <input id="Lectotype" name="typespecimen" ng-model="typespecimen" type="radio" value="5">
+                                                            <label for="Lectotype">
+                                                                Lectotype
+                                                            </label>
+                                                        </input>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gf-row-2 gf-large">
+                                                <div class="gf-col-2">
+                                                    <div class=" radio-primary">
+                                                        <input id="Paralectotype" name="typespecimen" ng-model="typespecimen" type="radio" value="3">
+                                                            <label for="Paralectotype">
+                                                                Paralectotype
+                                                            </label>
+                                                        </input>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <!-- specificdata -->
+                                        <fieldset>
+                                            <legend>
+                                                <letter-icon char-count="2" custom-class="letter-custom" data="5">
+                                                </letter-icon>
+                                                <span class="text-light text-bold margin-left-5">
+                                                    Specific Data
+                                                </span>
+                                            </legend>
+                                            <div class="gf-row-2 gf-large">
+                                                <div class="gf-col-1">
+                                                    <div ng-class="{'has-error':Specimens_Form.pinor.$dirty && Specimens_Form.pinor.$invalid, 'has-success':Specimens_Form.pinor.$valid}">
+                                                        <label>
+                                                            Pinor
+                                                            <span class="symbol required">
+                                                            </span>
+                                                        </label>
+                                                        <input class="form-control" id="pinor" name="pinor" ng-model="ModelPinor" ng-required="currentStep == 1" placeholder="Enter pinor" type="text" typeahead-loading="loadingpinor" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.p_firstname for o in PinorKeyup($viewValue)"/>
+                                                    </div>
+                                                </div>
+                                                <div class="gf-col-1">
+                                                    <div ng-class="{'has-error':Specimens_Form.labelor.$dirty && Specimens_Form.labelor.$invalid, 'has-success':Specimens_Form.labelor.$valid}">
+                                                        <label>
+                                                            labelor
+                                                            <span class="symbol required">
+                                                            </span>
+                                                        </label>
+                                                        <input class="form-control" id="labelor" name="labelor" ng-model="ModelLabelor" ng-required="currentStep == 1" placeholder="Enter labelor" type="text" typeahead-loading="loadingLabelor" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.l_firstname for o in LabelorKeyup($viewValue)"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gf-row-2 gf-large">
+                                                <div class="gf-col-1">
+                                                    <div ng-class="{'has-error':Specimens_Form.identification.$dirty && Specimens_Form.identification.$invalid, 'has-success':Specimens_Form.identification.$valid}">
+                                                        <label>
+                                                            Identification
+                                                            <span class="symbol required">
+                                                            </span>
+                                                        </label>
+                                                        <input class="form-control" id="identification" name="identification" ng-model="ModelIdentification" ng-required="currentStep == 1" placeholder="Enter Identification" type="text" typeahead-loading="loadingIdentification" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.i_firstname for o in IdentificationKeyup($viewValue)"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <!-- savetype -->
+                                        <fieldset>
+                                            <div class="radio clip-radio radio-primary radio-sm radio-inline">
+                                                <input checked="checked" id="testradio1" name="savetype" ng-model="savetype" type="radio" value="1">
+                                                    <label for="testradio1">
+                                                        Different
+                                                    </label>
+                                                </input>
+                                            </div>
+                                            <div class="radio clip-radio radio-primary radio-sm radio-inline">
+                                                <input id="testradio2" name="savetype" ng-model="savetype" type="radio" value="0">
+                                                    <label for="testradio2">
+                                                        Similar
+                                                    </label>
+                                                </input>
+                                            </div>
+                                        </fieldset>
+                                        <!-- save botton -->
+                                        <fieldset>
+                                            <a class="btn btn-light-azure btn-xs" href="#" ng-click="specimensIns(Specimens_Form);">
+                                                <i class="fa fa-save">
+                                                </i>
+                                                Save
+                                            </a>
+                                            <a class="btn btn-light-azure btn-xs" href="#" ng-click="resetspecformBtn();">
+                                                <i class="fa fa-ban">
+                                                </i>
+                                                Reset Field
+                                            </a>
+                                            <a class="btn btn-light-azure btn-xs" href="#" ng-click="resetAllfieldBtn();">
+                                                <i class="fa fa-ban">
+                                                </i>
+                                                Reset Form
+                                            </a>
+                                            <!--a class="btn btn-light-azure btn-xs" href="#" ng-click="checkalert();">
+                                                <i class="fa fa-ban">
+                                                </i>
+                                                check alert
+                                            </a-->
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <!-- End form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

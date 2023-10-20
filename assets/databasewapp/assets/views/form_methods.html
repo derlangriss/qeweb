@@ -1,0 +1,303 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.tables.DYNAMIC">
+        DYNAMIC TABLES
+    </h4>
+    <div class="pull-right" ncy-breadcrumb="">
+    </div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: DYNAMIC TABLE -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12"> 
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <h5 class="over-title margin-bottom-15">
+                        Dynamic
+                        <span class="text-bold">
+                            Table
+                        </span>
+                    </h5>
+                    <p>
+                        Delete the row by pressing the delete button. Alternatively, play around by adding and deleting/removing the rows.
+                    </p>
+                    <!-- /// controller:  'ngTableCtrl' -  localtion: assets/js/controllers/ngTableCtrl.js /// -->
+                    <div ng-controller="methodTblCtrl">
+                        <div class="col-md-6">
+                            <div class="padding-bottom-20">
+                                <h3>
+                                    Add a Company
+                                </h3>
+                            </div>
+                            <form class="form-horizontal padding-bottom-20" ng-submit="addRow()" role="form">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Name
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input class="form-control" name="name" ng-model="name" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Employees
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input class="form-control" name="employees" ng-model="employees" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Headoffice
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input class="form-control" name="headoffice" ng-model="headoffice" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-4">
+                                        <input class="btn btn-primary btn-wide pull-right" type="submit" value="Submit"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="table-responsive">
+                                <fieldset>
+                                    <table class="table table-condensed table-hover" id="sample-table-4">
+                                        <thead>
+                                            <tr>
+                                                <th class="hidden-xs">
+                                                    Clicks
+                                                </th>
+                                                <th>
+                                                    <i class="fa fa-time">
+                                                    </i>
+                                                    Update
+                                                </th>
+                                                <th class="hidden-xs">
+                                                    Status
+                                                </th>
+                                                <th class="hidden-xs">
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a href="#">
+                                                        alpha.com
+                                                    </a>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    3,330
+                                                </td>
+                                                <td>
+                                                    Feb 13
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <span class="label label-sm label-warning">
+                                                        Expiring
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#">
+                                                        beta.com
+                                                    </a>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    3,330
+                                                </td>
+                                                <td>
+                                                    Jen 15
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <span class="label label-sm label-success">
+                                                        Active
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#">
+                                                        gamma.com
+                                                    </a>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    3,330
+                                                </td>
+                                                <td>
+                                                    Mar 09
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <span class="label label-sm label-danger">
+                                                        Expired
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#">
+                                                        delta.com
+                                                    </a>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    3,330
+                                                </td>
+                                                <td>
+                                                    Feb 10
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <span class="label label-sm label-inverse">
+                                                        Flagged
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#">
+                                                        epsilon.com
+                                                    </a>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    3,330
+                                                </td>
+                                                <td>
+                                                    Feb 18
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <span class="label label-sm label-success">
+                                                        Active
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#">
+                                                        zeta.com
+                                                    </a>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    3,330
+                                                </td>
+                                                <td>
+                                                    Feb 13
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <span class="label label-sm label-warning">
+                                                        Expiring
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#">
+                                                        eta.com
+                                                    </a>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    3,330
+                                                </td>
+                                                <td>
+                                                    Jen 15
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <span class="label label-sm label-success">
+                                                        Active
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#">
+                                                        theta.com
+                                                    </a>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    3,330
+                                                </td>
+                                                <td>
+                                                    Mar 09
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <span class="label label-sm label-danger">
+                                                        Expired
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#">
+                                                        iota.com
+                                                    </a>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    3,330
+                                                </td>
+                                                <td>
+                                                    Feb 10
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <span class="label label-sm label-inverse">
+                                                        Flagged
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="#">
+                                                        kappa.com
+                                                    </a>
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    3,330
+                                                </td>
+                                                <td>
+                                                    Feb 18
+                                                </td>
+                                                <td class="hidden-xs">
+                                                    <span class="label label-sm label-success">
+                                                        Active
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>
+                                        Specimen List
+                                    </legend>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>
+                                            </label>
+                                            <table cellspacing="0" class="table table-condensed table-hover" id="donation" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            No.
+                                                        </th>
+                                                        <th>
+                                                            Donator
+                                                        </th>
+                                                        <th>Action</th>
+                                                       
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: DYNAMIC TABLE -->

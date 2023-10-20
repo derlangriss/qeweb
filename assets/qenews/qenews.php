@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Jukebox - Responsive Music and Band Website Template">
+    <link rel="icon" href="assets/images/favicon.png">
+    
+    <title>Jukebox - Blog Right Sidebar</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/stylesheets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Stylesheets -->
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+    <!-- JQuery -->
+    <script src="assets/javascripts/jquery.min.js"></script>
+
+    <!-- jpreloader -->
+    <link href="assets/javascripts/jpreloader/jpreloader.css" rel="stylesheet">
+    <script src="assets/javascripts/jpreloader/jpreloader.min.js"></script>
+
+    <!-- font-awesome.css -->
+    <link href="assets/stylesheets/css/fontawesome/font-awesome.css" rel="stylesheet">
+
+    <!-- animate.css -->
+    <link href="assets/stylesheets/css/animate.css" rel="stylesheet">
+    
+    <!-- Jplayer -->
+    <link href="assets/javascripts/jplayer/skin/jukebox/css/jplayer.jukebox.css" rel="stylesheet" type="text/css" />
+
+    <!-- Fancybox -->
+    <link href="assets/javascripts/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+
+    <!-- Owl Carousel -->
+    <link href="assets/javascripts/owl.carousel/owl.carousel.css" rel="stylesheet" type="text/css" />
+    <link href="assets/javascripts/owl.carousel/owl.theme.css" rel="stylesheet" type="text/css" />
+  
+    <!-- User Defined Style -->
+    <link href="assets/stylesheets/css/style.css" rel="stylesheet">
+    <link href="assets/stylesheets/css/responsive.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- Splash Screen Begin -->
+    <div id="jSplash" class="preloader">
+      <div id="loader">
+        <div class="shape-wrap">
+          <div class="shape">
+            <h2>Loading</h2>
+          </div>
+        </div>
+        <div id="fadingBarsG">
+          <div id="fadingBarsG_1" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_2" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_3" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_4" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_5" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_6" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_7" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_8" class="fadingBarsG">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Splash Screen End -->
+
+    <!-- Navbar Begin -->
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-page" role="navigation" id="home-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="assets/images/logo-dark.png" alt="Jukebox Logo"></a>
+        </div><!-- /.navbar-header -->
+
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="event-list.html">
+                Event <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu animated fadeIn" role="menu">
+                <li><a href="event-list.html">Event List</a></li>
+                <li><a href="event-single.html">Event Single</a></li>                
+              </ul>
+            </li><!-- /.dropdown -->
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="album-3columns.html">
+                Album <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu animated fadeIn" role="menu">
+                <li><a href="album-3columns.html">Album 3 Columns</a></li>
+                <li><a href="album-3columns-filter.html">Album 3 Columns Filterable</a></li>
+                <li><a href="album-4columns.html">Album 4 Columns</a></li>
+                <li><a href="album-4columns-filter.html">Album 4 Columns Filterable</a></li>
+                <li><a href="album-single.html">Album Single</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#" class="brand"><img src="assets/images/logo-dark.png" alt="Jukebox Logo"></a>
+            </li>
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="gallery-3columns.html">
+                Gallery <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu animated fadeIn" role="menu">
+                <li><a href="gallery-3columns.html">Gallery 3 Columns</a></li>
+                <li><a href="gallery-3columns-filter.html">Gallery 3 Columns Filterable</a></li>
+                <li><a href="gallery-4columns.html">Gallery 4 Columns</a></li>
+                <li><a href="gallery-4columns-filter.html">Gallery 4 Columns Filterable</a></li>
+              </ul>
+            </li><!-- /.dropdown -->
+
+            <li class="dropdown active">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="blog-right-sidebar.html">
+                Blog <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu animated fadeIn" role="menu">
+                <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                <li><a href="blog-masonry-left-sidebar.html">Blog Masonry Left Sidebar</a></li>
+                <li><a href="blog-masonry-right-sidebar.html">Blog Masonry Right Sidebar</a></li>
+                <li><a href="blog-3columns-masonry.html">Blog 3 Columns Masonry</a></li>
+                <li><a href="blog-single.html">Blog Single</a></li>
+              </ul>
+            </li><!-- /.dropdown -->
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="about.html">
+                More <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu animated fadeIn" role="menu">
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="error-404.html">404 Page</a></li>
+              </ul>
+            </li><!-- /.dropdown -->
+            
+          </ul><!-- /.nav -->
+        </div><!--/.nav-collapse -->
+      </div><!--/.container -->
+    </nav><!--/.navbar -->
+    <!-- Navbar End -->
+
+    <!-- Banner Title Begin -->
+    <section class="banner-title blog-banner">
+      <div class="overlay"></div>
+      <div class="container content">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="main-title">
+            <h1>
+              Blog 
+              <span class="light">Single Page</span>
+            </h1>
+            <div class="text-wrap">
+              <div class="text">We Are Awesome Rock Band</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!--/.banner -->
+    <!-- Banner Title End -->
+    
+    <!-- Blog Wrap Begin -->
+    <section class="blog-wrap">
+      <div class="container">
+        <div class="col-md-8 post-section">
+
+          <div class="post-single post-content">
+            <div class="post-meta">
+              <div class="date">
+                <span><strong class="bold">30</strong><br/>Jan</span>
+              </div>
+              <div class="like">
+                <a href="#"><i class="fa fa-heart"></i> 1200</a>
+              </div>
+            </div><!-- /.post-meta -->
+            <div class="post-inner">
+              <div class="post-media">
+                <a href="#"><img src="assets/images/gallery1.jpg" alt="Blog images"></a>
+              </div>
+              <div class="post-head">
+                <div class="title"><a href="#"><h2>Greatest Standar Post</h2></a></div>
+                <div class="subtitle">
+                  <a href="#">Lipet Studio</a> / <a href="#">Events</a> / <a href="#">77 comments</a>
+                </div>
+              </div>
+              <div class="post-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget purus convallis, feugiat mauris a, feugiat libero. Phasellus malesuada ut ante rutrum tristique. Phasellus posuere sodales mauris, eu fringilla nulla maximus at. Cras sollicitudin nec nunc vitae scelerisque. Pellentesque venenatis sem eget tortor viverra, ac gravida nisl pharetra. Sed iaculis sit amet erat sed fringilla. Mauris maximus ante ligula, id consectetur dui dignissim ut.</p>
+
+                <p>Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae. Non equidem invideo, miror magis posuere velit aliquet. Qui ipsorum lingua Celtae, nostra Galli appellantur. Prima luce, cum quibus mons aliud consensu ab eo. Petierunt uti sibi concilium totius Galliae in diem certam indicere.</p>
+
+                <h1>H1 Tag Sample</h1>
+                <p>Vestibulum purus est, dapibus vitae facilisis non, accumsan a ipsum. Quisque sollicitudin elementum iaculis. Curabitur ultricies nunc non augue elementum, eu pharetra lorem hendrerit. Nam ac mi placerat, porttitor lacus id, rutrum urna. Fusce nec feugiat nisi. Etiam nunc purus, cursus eu tincidunt ac, faucibus ac velit. </p>
+
+                <h2>H2 Tag Sample</h2>
+                <p>Vestibulum purus est, dapibus vitae facilisis non, accumsan a ipsum. Quisque sollicitudin elementum iaculis. Curabitur ultricies nunc non augue elementum, eu pharetra lorem hendrerit. Nam ac mi placerat, porttitor lacus id, rutrum urna. Fusce nec feugiat nisi. Etiam nunc purus, cursus eu tincidunt ac, faucibus ac velit. </p>
+
+                <h3>H3 Tag Sample</h3>
+                <p>Vestibulum purus est, dapibus vitae facilisis non, accumsan a ipsum. Quisque sollicitudin elementum iaculis. Curabitur ultricies nunc non augue elementum, eu pharetra lorem hendrerit. Nam ac mi placerat, porttitor lacus id, rutrum urna. Fusce nec feugiat nisi. Etiam nunc purus, cursus eu tincidunt ac, faucibus ac velit. </p>
+
+                <h4>H4 Tag Sample</h4>
+                <p>Vestibulum purus est, dapibus vitae facilisis non, accumsan a ipsum. Quisque sollicitudin elementum iaculis. Curabitur ultricies nunc non augue elementum, eu pharetra lorem hendrerit. Nam ac mi placerat, porttitor lacus id, rutrum urna. Fusce nec feugiat nisi. Etiam nunc purus, cursus eu tincidunt ac, faucibus ac velit. </p>
+
+                <h2>Blockquote</h2>
+                <p>Vestibulum purus est, dapibus vitae facilisis non, accumsan a ipsum. Quisque sollicitudin elementum iaculis. Curabitur ultricies nunc non augue elementum, eu pharetra lorem hendrerit. Nam ac mi placerat, porttitor lacus id, rutrum urna. Fusce nec feugiat nisi. Etiam nunc purus, cursus eu tincidunt ac, faucibus ac velit.</p>
+
+                <blockquote>
+                  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus.
+                  <small>John Doe, CEO</small>
+                </blockquote>
+
+                <h2>Left Image</h2>
+                <p>Vestibulum purus est, dapibus vitae facilisis non, accumsan a ipsum. Quisque sollicitudin elementum iaculis. Curabitur ultricies nunc non augue elementum, eu pharetra lorem hendrerit. Nam ac mi placerat, porttitor lacus id, rutrum urna. Fusce nec feugiat nisi. Etiam nunc purus, cursus eu tincidunt ac, faucibus ac velit.</p>
+
+                <p>
+                  <img src="assets/images/blog-singlepost.jpg" alt="Image" width="300" class="pull-left img-align-left">
+                  Fusce rutrum ultrices augue, nec blandit sapien cursus et. Sed porttitor dui id mauris condimentum vestibulum. Praesent vitae ligula tristique ante malesuada bibendum et in nulla. Nunc ac facilisis diam. Sed non arcu sed nisl tempus eleifend sed eget arcu. Donec viverra adipiscing dignissim. Quisque elementum neque et lacus fringilla, vitae luctus felis tempor. Duis a auctor eros, congue sollicitudin lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                </p>
+
+                <h2>Right Image</h2>
+                <p>
+                  Vestibulum purus est, dapibus vitae facilisis non, accumsan a ipsum. Quisque sollicitudin elementum iaculis. Curabitur ultricies nunc non augue elementum, eu pharetra lorem hendrerit. Nam ac mi placerat, porttitor lacus id, rutrum urna. Fusce nec feugiat nisi. Etiam nunc purus, cursus eu tincidunt ac, faucibus ac velit.
+                </p>
+                <p>
+                  <img src="assets/images/blog-singlepost.jpg" alt="Image" width="300" class="pull-right img-align-right">
+                  Fusce rutrum ultrices augue, nec blandit sapien cursus et. Sed porttitor dui id mauris condimentum vestibulum. Praesent vitae ligula tristique ante malesuada bibendum et in nulla. Nunc ac facilisis diam. Sed non arcu sed nisl tempus eleifend sed eget arcu. Donec viverra adipiscing dignissim. Quisque elementum neque et lacus fringilla, vitae luctus felis tempor. Duis a auctor eros, congue sollicitudin lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                </p>
+              </div>
+
+              <div class="share">
+                <div class="title">
+                  <h2>Share Post</h2>
+                </div>
+                <div class="socmed-wrap">
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a href="#"><i class="fa fa-youtube"></i></a>
+                  <a href="#"><i class="fa fa-soundcloud"></i></a>
+                  <a href="#"><i class="fa fa-envelope"></i></a>
+                </div>
+              </div>
+              <div class="comment">
+                <div class="title">
+                  <h2>Comments</h2>
+                </div>
+
+                <div class="comment-list indent-one">
+                  <div class="comment-container">
+                    <div class="avatar"><img src="assets/images/personnel1.jpg" alt="blog avatar"></div>
+                    <div class="content">
+                      <h4 class="name">
+                        Johnny Doe
+                        <span><a href="#">Aug 11, 10:05 pm</a></span>
+                      </h4><!--/.name-->
+                      <div class="text">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
+                      </div><!--/.text-->
+                      <div class="reply"><a href="#">Reply</a></div>
+                    </div><!--/.content-->
+                  </div><!--/.comment-container-->
+                </div><!--/.comment-list-->
+
+                <div class="comment-list indent-two">
+                  <div class="comment-container">
+                    <div class="avatar"><img src="assets/images/personnel2.jpg" alt="blog avatar"></div>
+                    <div class="content">
+                      <h4 class="name">
+                        Tiffany Morey
+                        <span><a href="#">Aug 11, 10:05 pm</a></span>
+                      </h4><!--/.name-->
+                      <div class="text">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
+                      </div><!--/.text-->
+                      <div class="reply"><a href="#">Reply</a></div>
+                    </div><!--/.content-->
+                  </div><!--/.comment-container-->
+                </div><!--/.comment-list-->
+
+                <div class="comment-list indent-one">
+                  <div class="comment-container">
+                    <div class="avatar"><img src="assets/images/personnel3.jpg" alt="blog avatar"></div>
+                    <div class="content">
+                      <h4 class="name">
+                        Colin Stewart
+                        <span><a href="#">Aug 11, 10:05 pm</a></span>
+                      </h4><!--/.name-->
+                      <div class="text">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
+                      </div><!--/.text-->
+                      <div class="reply"><a href="#">Reply</a></div>
+                    </div><!--/.content-->
+                  </div><!--/.comment-container-->
+                </div><!--/.comment-list-->
+
+                <div class="comment-list indent-one">
+                  <div class="comment-container">
+                    <div class="avatar"><img src="assets/images/personnel4.jpg" alt="blog avatar"></div>
+                    <div class="content">
+                      <h4 class="name">
+                        Tessa William
+                        <span><a href="#">Aug 11, 10:05 pm</a></span>
+                      </h4><!--/.name-->
+                      <div class="text">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
+                      </div><!--/.text-->
+                      <div class="reply"><a href="#">Reply</a></div>
+                    </div><!--/.content-->
+                  </div><!--/.comment-container-->
+                </div><!--/.comment-list-->
+
+              </div><!--/.comment-->
+
+              <div class="respond">
+                <div class="title">
+                  <h2>Leave a reply</h2>
+                </div>
+                <form action="#">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label for="author">Name<span class="required">*</span></label>
+                      <input id="author" class="form-control" name="author" type="text" required>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="email">Email<span class="required">*</span></label>
+                      <input id="email" class="form-control" name="author" type="text" required>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="url">Website<span class="required">*</span></label>
+                      <input id="url" class="form-control" name="url" type="text" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label for="comment">Add Your Comment</label>
+                      <textarea id="comment" class="form-control" name="comment" required></textarea>
+                      <input name="submit" type="submit" id="submit" class="def-button" value="Submit Comment">
+                    </div>
+                  </div>
+                </form>
+              </div><!--/.respond-->
+            </div><!-- /.post-inner -->
+          </div><!-- /.post-content -->
+
+        </div><!-- /.post-section -->
+        <div class="col-md-4 sidebar-section">
+
+          <div class="recent-post">
+            <div class="title">
+              <h3><span class="shape"><i class="fa fa-clock-o"></i></span>  Recent Post</h3>
+            </div>
+            <div class="content">
+              <ul>
+                <li>
+                  <a href="#">Tommorow Land Concert Report</a>
+                  <span class="post-date">February 28, 2015</span>
+                </li>
+                <li>
+                  <a href="#">Xtreme Moshpit Concert</a>
+                  <span class="post-date">January 28, 2015</span>
+                </li>
+                <li>
+                  <a href="#">Hammersonic Concert Cancelled!</a>
+                  <span class="post-date">January 30, 2015</span>
+                </li>
+                <li>
+                  <a href="#">Great Noise In Bandung Berisik</a>
+                  <span class="post-date">March 30, 2015</span>
+                </li>
+              </ul>
+            </div><!--/.content-->
+          </div><!--/.recent-post-->
+
+          <div class="post-archives">
+            <div class="title">
+              <h3><span class="shape"><i class="fa fa-calendar-o"></i></span>  Archives</h3>
+            </div>
+            <div class="content">
+              <ul>
+                <li>
+                  <a href="#"><i class="icon-caret-right"></i> January <span>(13)</span></a>
+                </li>
+                <li>
+                  <a href="#"><i class="icon-caret-right"></i> February <span>(7)</span></a>
+                </li>
+                <li>
+                  <a href="#"><i class="icon-caret-right"></i> March <span>(20)</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#"><i class="icon-caret-right"></i> April <span>(34)</span></a>
+                </li>
+              </ul>
+            </div><!--/.content-->
+          </div><!--/.post-archives-->
+
+          <div class="post-tags">
+            <div class="title">
+              <h3><span class="shape"><i class="fa fa-tag"></i></span> Popular Tags</h3>
+            </div>
+            <div class="content">
+              <a href="#"><span class="tag-label">Concert News</span></a>
+              <a href="#"><span class="tag-label">Event</span></a>
+              <a href="#"><span class="tag-label">Field Report</span></a>
+              <a href="#"><span class="tag-label">Tutorial</span></a>
+              <a href="#"><span class="tag-label">Inside Us</span></a>
+            </div><!--/.content-->
+          </div><!--/.post-tags-->
+
+          <div class="post-archives">
+            <div class="title">
+              <h3><span class="shape"><i class="fa fa-calendar-o"></i></span>  Archives</h3>
+            </div>
+            <div class="content">
+              <ul>
+                <li>
+                  <a href="#"><i class="icon-caret-right"></i> January <span>(13)</span></a>
+                </li>
+                <li>
+                  <a href="#"><i class="icon-caret-right"></i> February <span>(7)</span></a>
+                </li>
+                <li>
+                  <a href="#"><i class="icon-caret-right"></i> March <span>(20)</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#"><i class="icon-caret-right"></i> April <span>(34)</span></a>
+                </li>
+              </ul>
+            </div><!--/.content-->
+          </div><!--/.post-archives-->
+
+          <div class="post-tags">
+            <div class="title">
+              <h3><span class="shape"><i class="fa fa-tag"></i></span> Popular Tags</h3>
+            </div>
+            <div class="content">
+              <a href="#"><span class="tag-label">Web Development</span></a>
+              <a href="#"><span class="tag-label">Web Design</span></a>
+              <a href="#"><span class="tag-label">Graphic Design</span></a>
+              <a href="#"><span class="tag-label">UI/UX Design</span></a>
+              <a href="#"><span class="tag-label">Photography</span></a>
+            </div><!--/.content-->
+          </div><!--/.post-tags-->
+
+        </div><!-- /.sidebar-section -->
+      </div><!-- /.container -->
+    </section><!-- /.blog-wrap -->
+    <!-- Blog Wrap End -->
+
+    <!-- Footer Begin-->
+    <footer class="footer">
+      <div class="container">        
+        <div class="col-md-4 col-sm-4 footer-row">
+          <div class="title"><h4>About Our Band</h4></div>
+          <div class="content">
+            <div class="text">
+              <p>Fusce sed nibh porttitor, scelerisque elit id, pretium justo. Integer venenatis tempus nisi non varius. Sed dui enim, lobortis et tempor.</p>
+              <p>Fusce sed nibh porttitor, scelerisque elit id, pretium justo. Integer venenatis tempus nisi non varius. Sed dui enim, lobortis et tempor.</p>
+            </div><!-- /.content -->
+          </div><!-- /.text -->
+
+          <div class="title"><h4>Keep Connected</h4></div>
+          <p>Connect With Our Social Media.</p>
+          <div class="content">
+            <div class="socmed-wrap">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-youtube"></i></a>
+              <a href="#"><i class="fa fa-soundcloud"></i></a>
+            </div><!-- /.socmed-wrap -->
+          </div><!-- /.content -->
+        </div><!-- /.footer-row -->
+
+        <div class="col-md-4 col-sm-4 footer-row">
+          <div class="title"><h4>Upcoming Events</h4></div>
+          <div class="content">
+            <ul class="upcoming-event">
+              <li>
+                <div class="col-md-1 col-sm-1 col-xs-1 date"><span class="number">20</span><br/>Oct</div>
+                <div class="col-md-10 col-sm-10 col-xs-10 name">New Sound Wave - Camp Nou Stadium <br/> <a href="#" class="buy">Buy Ticket</a></div>
+              </li>
+              <li>
+                <div class="col-md-1 col-sm-1 col-xs-1 date"><span class="number">21</span><br/>Sep</div>
+                <div class="col-md-10 col-sm-10 col-xs-10 name">Glory Sound - Brigif Kujang 15 <br/> <a href="#" class="buy">Buy Ticket</a></div>
+              </li>
+              <li>
+                <div class="col-md-1 col-sm-1 col-xs-1 date"><span class="number">10</span><br/>Nov</div>
+                <div class="col-md-10 col-sm-10 col-xs-10 name">Bandung Berisik - Lanud Sulaeman <br/> <a href="#" class="buy">Buy Ticket</a></div>
+              </li>
+              <li>
+                <div class="col-md-1 col-sm-1 col-xs-1 date"><span class="number">17</span><br/>Dec</div>
+                <div class="col-md-10 col-sm-10 col-xs-10 name">Hammersonic - Gasibu Stadium<br/> <a href="#" class="buy">Buy Ticket</a></div>
+              </li>
+            </ul><!-- /.upcoming-event -->
+          </div><!-- /.content -->
+        </div><!-- /.footer-row -->
+
+        <div class="col-md-4 col-sm-4 footer-row">
+          <div class="title"><h4>Instagram</h4></div>
+          <div class="content">
+            <div class="content footer-images">
+              <a class="fancybox" href="assets/images/footer-image1.jpg" data-fancybox-group="gallery">
+                <div class="image"><img src="assets/images/footer-image1.jpg" alt="footer image"></div>
+              </a>
+              <a class="fancybox" href="assets/images/footer-image2.jpg" data-fancybox-group="gallery">
+                <div class="image"><img src="assets/images/footer-image2.jpg" alt="footer image"></div>
+              </a>
+              <a class="fancybox" href="assets/images/footer-image3.jpg" data-fancybox-group="gallery">
+                <div class="image"><img src="assets/images/footer-image3.jpg" alt="footer image"></div>
+              </a>
+              <a class="fancybox" href="assets/images/footer-image4.jpg" data-fancybox-group="gallery">
+                <div class="image"><img src="assets/images/footer-image4.jpg" alt="footer image"></div>
+              </a>
+            </div><!-- /.footer-images -->
+          </div><!-- /.content -->
+
+          <div class="title"><h4>Tag cloud</h4></div>
+          <div class="content">
+            <div class="tag-wrap">
+              <a href="#" class="tag">Music</a>
+              <a href="#" class="tag">Band</a>
+              <a href="#" class="tag">Rock</a>
+              <a href="#" class="tag">Distortion</a>
+              <a href="#" class="tag">Guitar</a>
+              <a href="#" class="tag">Drum</a>
+              <a href="#" class="tag">Bass</a>
+              <a href="#" class="tag">Jukebox</a>
+              <a href="#" class="tag">Hard</a>
+              <a href="#" class="tag">Metal</a>
+              <a href="#" class="tag">Hardcore</a>
+              <a href="#" class="tag">Punk</a>
+              <a href="#" class="tag">Scream</a>
+              <a href="#" class="tag">Shout</a>
+              <a href="#" class="tag">Progressive</a>
+              <a href="#" class="tag">Fast</a>
+              <a href="#" class="tag">Pop</a>
+            </div><!-- /.tag-wrap -->
+          </div><!-- /.content -->
+        </div><!-- /.foooter-row -->
+      </div><!-- /.container -->
+
+    </footer><!-- /.footer -->
+    <!-- Footer End-->
+
+    <section class="copyright">
+      <div class="container">
+        <p>&copy; Jukebox 2015. All Right Reserved</p>
+      </div>
+    </section>
+    
+    <!-- Javascript Plugins -->
+    <script src="assets/javascripts/bootstrap.min.js"></script>
+    <script src="assets/javascripts/jplayer/jquery.jplayer.min.js"></script>
+    <script src="assets/javascripts/jplayer/add-on/jplayer.playlist.min.js"></script>
+    <script src="assets/javascripts/wow/wow.min.js"></script>
+    <script src="assets/javascripts/modernizr.js"></script>
+    <script src="assets/javascripts/jquery.hoverdir.js"></script>
+    <script src="assets/javascripts/jquery.easing.js"></script>
+    <script src="assets/javascripts/sly.min.js"></script>
+    <script src="assets/javascripts/jquery.parallax-1.1.3.js"></script>
+    <script src="assets/javascripts/owl.carousel/owl.carousel.min.js"></script>
+    <script src="assets/javascripts/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="assets/javascripts/isotope.pkgd.min.js"></script>
+    <script src="assets/javascripts/masonry.pkgd.min.js"></script>
+    
+    <!-- Jukebox javascript customs and settings -->
+    <script src="assets/javascripts/custom.js"></script>
+  </body>
+</html>

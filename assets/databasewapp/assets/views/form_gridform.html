@@ -1,0 +1,182 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.forms.ELEMENTS">FORM ELEMENTS</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: BASIC EXAMPLE -->
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <form class="gf">
+                        <fieldset>
+                            <legend>Collection DataEntry</legend>
+                            <div class="gf-row-6 ">
+                                <div class="gf-col-2 gf-col-bg">
+                                    <fieldset>
+                                        <legend>Collection Number</legend>
+                                        <div class="gf-row-3 gf-large">
+                                            <div class="gf-col-1">
+                                                <label>Code</label>
+                                                <INPUT class=' validate[required,custom[date],past[#txtcollection_end_date]] yyyy_mm_dd' name="txtcollection_start_date" id="txtcollection_start_date" type="text" value="" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>Year</label>
+                                                <INPUT class=' validate[required,custom[date],past[#txtcollection_end_date]] yyyy_mm_dd' name="txtcollection_start_date" id="txtcollection_start_date" type="text" value="" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>Number</label>
+                                                <INPUT class='validate[required,custom[date],future[#txtcollection_start_date]] yyyy_mm_dd' onfocus="autofill();" name="txtcollection_end_date" id="txtcollection_end_date" type="text" value="" autofocus>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="gf-col-4 gf-col-bg">
+                                    <fieldset>
+                                        <legend>Date Collection</legend>
+                                        <div class="gf-row-3 gf-large input-daterange input-group" id="dp_range">
+                                            <div class="gf-col-1">
+                                                <label>Date Start</label>
+                                                <INPUT class=' validate[required,custom[date],past[#txtcollection_end_date]] yyyy_mm_dd' placeholder="YYYY - MM - DD" name="txtcollection_start_date" id="txtcollection_start_date" type="text" value="" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>Date End</label>
+                                                <INPUT class='validate[required,custom[date],future[#txtcollection_start_date]] yyyy_mm_dd' placeholder="YYYY - MM - DD" onfocus="autofill();" name="txtcollection_end_date" id="txtcollection_end_date" type="text" value="" autofocus>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="gf-row-7 ">
+                                <div class="gf-col-4 gf-col-bg">
+                                    <fieldset>
+                                        <legend>Location Coordinate</legend>
+                                        <div class="gf-row-6 gf-large">
+                                            <div class="gf-col-2">
+                                                <label>Lat dec</label>
+                                                <INPUT class='numberdecimal' placeholder="Only Digits" onkeyup="JavaScript:doCallAjaxautofill('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" type="text" id="txtlatdec" name="txtlatdec" value="{{data.collectionlatdec}}" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>LatH</label>
+                                                <INPUT type="text" id="txtlath" class="input_tiny" name="txtlath" value="N" autofocus>
+                                            </div>
+                                            <div class="gf-col-2">
+                                                <label>Long dec</label>
+                                                <INPUT class='numberdecimal' placeholder="Only Digits" onkeyup="JavaScript:doCallAjaxautofill('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" type="text" id="txtlongdec" name="txtlongdec" value="{{data.collectionlongdec}}" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>LongH</label>
+                                                <INPUT type="text" id="txtlongh" name="txtlongh" class="input_tiny" value="E" autofocus>
+                                            </div>
+                                        </div>
+                                        <div class="gf-row-6 gf-large">
+                                            <div class="gf-col-1">
+                                                <label>Lat D</label>
+                                                <INPUT onkeyup="getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" class="input_tiny" name="txtlat_d" id="txtlat_d" type="text" value="{{data.collectionlatd}}" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>Lat M</label>
+                                                <INPUT class='number input_tiny' onkeyup="getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlat_m" id="txtlat_m" type="text" value="{{data.collectionlatm}}" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>Lat S</label>
+                                                <INPUT class='numberdecimal input_tiny' onkeyup="getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlat_s" id="txtlat_s" type="text" value="{{data.collectionlats}}" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>Long D</label>
+                                                <INPUT class='number input_tiny validate[custom[integer],max[180]]' onkeyup="getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlong_d" id="txtlong_d" type="text" value="{{data.collectionlongd}}" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>Long M</label>
+                                                <INPUT class='number input_tiny' onkeyup="getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlong_m" id="txtlong_m" type="text" value="{{data.collectionlongm}}" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>Long S</label>
+                                                <INPUT class='numberdecimal input_tiny' onkeyup="getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlong_s" id="txtlong_s" type="text" value="{{data.collectionlongs}}" autofocus>
+                                            </div>
+                                        </div>
+                                        <div class="gf-row-2 gf-large">
+                                            <div class="gf-col-1">
+                                                <label>northing</label>
+                                                <INPUT type="text" id="txtNorthing" name="txtNorthing" class="input_small" value="{{data.collectionnorthing}}" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>easting</label>
+                                                <INPUT type="text" id="txtEasting" name="txtEasting" class="input_small" value="{{data.collectioneasting}}" autofocus>
+                                            </div>
+                                        </div>
+                                        <div class="gf-row-2 gf-large">
+                                            <div class="gf-col-1">
+                                                <label>UTM</label>
+                                                <INPUT name="txtUTM" id="txtUTM" type="text" value="{{data.collectionutm}}" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>MASL</label>
+                                                <INPUT class='numberdecimal validate[custom[integer],max[2800]] text-input' name="txtMASL" id="txtMASL" type="text" value="{{data.collectionmasl}}" autofocus>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Location Administrative</legend>
+                                        <div class="gf-row-3 gf-large">
+                                            <div class="gf-col-1">
+                                                <label>province English (thai)</label>
+                                                <INPUT class="disabletextbox" readonly type="text" id="txtprovinceen" name="txtprovinceen" value="{{data.provinceen}}" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>Amphur English (thai)</label>
+                                                <INPUT readonly class="disabletextbox" type="text" id="txtamphuren" name="txtamphuren" value="{{data.amphuren}}" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>tambon English (thai)</label>
+                                                <INPUT readonly type="text" id="txttambon" name="txttambon" class="disabletextbox" value="{{data.tambonen}}" autofocus>
+                                            </div>
+                                        </div>
+                                        <div class="gf-row-2 gf-large">
+                                            <div class="gf-col-1">
+                                                <label>Locality</label>
+                                                <INPUT type="text" name="txtlocality" id="txtlocality" value="{{data.collectionlocality}}" autofocus>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>Specific Locality</label>
+                                                <INPUT type="text" name="txtspecific_locality" id="txtspecific_locality" value="{{data.collectionspecificlocality}}" autofocus>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Collection Details</legend>
+                                        <div class="gf-row-3 gf-large">
+                                            <div class="gf-col-3">
+                                                <label>Habitat</label>
+                                                <INPUT type="text" name="txthabitat" id="txthabitat" value="" autofocus>
+                                            </div>
+                                        </div>
+                                        <div class="gf-row-2 gf-large">
+                                            <div class="gf-col-1">
+                                                <label>Collection Method</label>
+                                                <SELECT class="validate[required] form-control" name="txtcollection_method_ID" id="txtcollection_method_ID" autofocus>
+                                                </SELECT>
+                                            </div>
+                                            <div class="gf-col-1">
+                                                <label>Collector</label>
+                                                <SELECT class="validate[required] form-control" name="txtcollector_ID" id="txtcollector_ID" autofocus>
+                                                </SELECT>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="text-center">
+                                        <button class="btn btn-primary" type="button">Send form</button>
+                                        <button class="btn btn-link" type="button">Cancel</button>
+                                    </fieldset>
+                                </div>
+                                <div class="gf-col-3 gf-col-bg">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

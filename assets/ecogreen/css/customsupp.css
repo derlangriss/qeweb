@@ -1,0 +1,622 @@
+.generic-heading
+{
+	float:left;
+	margin:0 0 100px;
+	position:relative;
+	width:100%;
+	text-align: center;
+}
+
+.generic-heading h2
+{
+	color:#FFF;
+	/*font-family:museo100;*/
+	font-size:36px;
+	font-weight:100;
+	line-height:36px;
+	margin:0 0 10px;
+	text-align:center;
+}
+.generic-heading h3
+{
+	color:#000;
+	/*font-family:museo100;*/
+	font-size:36px;
+	font-weight:100;
+	line-height:36px;
+	margin:0 0 10px;
+	text-align:center;
+}
+
+.generic-heading strong.title-line
+{
+	 margin: 0px auto;
+  background: #99cc00;
+  color: #ffffff;
+  font-size: 18px;
+  margin: 0px;
+  vertical-align: middle;
+  padding: 10px;
+  display: inline-block;
+	
+
+
+/*
+	 margin: 0px auto;
+  background: #FF7F00;
+  color: #ffffff;
+  font-size: 22px;
+  margin: 0px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  padding: 10px;
+  display: inline-block;
+  */
+}
+
+.generic-heading strong.title-line:before
+{
+	border:1px solid #f5f5f5;
+	bottom:-22px;
+	content:'';
+	left:0;
+	margin:auto;
+	position:absolute;
+	right:0;
+	width:200px;
+}
+
+.generic-heading strong.title-line:after
+{
+	border:3px solid;
+	bottom:-23px;
+	content:'';
+	left:0;
+	margin:auto;
+	position:absolute;
+	right:0;
+	width:38px;
+}
+
+
+
+
+.our-mission
+{
+ 
+  width:100%;
+  background:url(../../images/DQF_0076.png) fixed;
+  border-bottom:1px solid #d1d1d1;
+  height:450px;
+  padding:25px 0 0;
+}
+
+.our-mission .bx-wrapper
+{
+  float:left;
+  width:100%;
+  margin:0;
+}
+
+.timeline-slider
+{
+  margin:0;
+}
+
+.text-outer
+{
+  float:left;
+  width:100%;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  margin:20px 0 0;
+  padding:0 65px;
+}
+
+.outer-text
+{
+  width:100%;
+  position:relative;
+  margin:0 auto;
+}
+
+.text-outer .frame
+{
+  float:left;
+  width:228px;
+  height:228px;
+  border:5px solid #fff;
+  border-radius:100%;
+  background-color:#c4c4c4;
+  box-shadow:0 0 6px rgba(0,0,0,0.15);
+  -moz-box-shadow:0 0 6px rgba(0,0,0,0.15);
+  -webkit-box-shadow:0 0 6px rgba(0,0,0,0.15);
+  overflow:hidden;
+  position:relative;
+  margin:35px 35px 0 30px;
+}
+
+.outer-text:before
+{
+  content:'';
+  background:url(../images/shadow-bg.png) no-repeat center bottom;
+  position:absolute;
+  left:-5px;
+  bottom:-73px;
+  width:316px;
+  height:33px;
+}
+
+.text-outer .frame img
+{
+  display:block;
+  width:100%;
+  border-radius:100%;
+}
+
+.timeline-text
+{
+  overflow:hidden;
+  padding:65px 0 0;
+}
+
+.timeline-text h3
+{
+  /*font-family:museo500;*/
+  font-weight:500;
+  font-size:30px;
+  line-height:30px;
+  margin:0 0 17px;
+  color:#FFF;
+}
+
+.timeline-text strong.title
+{
+  display:block;
+  color:#FFF;
+  /*font-family:museo100;*/
+  font-weight:300;
+  font-size:24px;
+  line-height:24px;
+  padding:0 0 15px;
+}
+
+.timeline-text p
+{
+  /*font-family:'Open Sans',sans-serif;*/
+  font-size:16px;
+  line-height:24px;
+  color:#FFF;
+  font-weight:300;
+  margin:0;
+}
+
+.timeline-text a.btn-listen
+{
+  border:2px solid rgba(0,0,0,0.3);
+  float:right;
+  text-decoration:none;
+  /*font-family:'Open Sans',sans-serif;*/
+  font-size:14px;
+  color:#fff;
+  font-weight:700;
+  text-transform:uppercase;
+  margin:30px 0 0;
+  padding:15px 30px;
+}
+
+.timeline-text a.btn-listen:hover
+{
+  background-color:rgba(0,0,0,0);
+}
+
+.timeline-text a.btn-listen .fa
+{
+  font-size:16px;
+  padding:0 15px 0 0;
+}
+
+.our-mission #bx-pager-2
+{
+  
+  float:left;
+  width:100%;
+  height:5px;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  padding:0 10px;
+}
+
+.our-mission #bx-pager-2>a
+{
+  float:left;
+  text-decoration:none;
+  outline:none;
+  margin:-42px 0 0;
+}
+
+.our-mission #bx-pager-2>a strong.year
+{
+  /*font-family:museo500;*/
+  font-weight:500;
+  display:block;
+  color:#f5f5f5;
+  font-size:16px;
+  line-height:10px;
+  text-align:center;
+  position:relative;
+  padding:0 10px 15px;
+}
+
+.timeline-box
+{
+  
+}
+
+/*dot*/
+
+.our-mission #bx-pager-2>a strong.year:before
+{
+  content:'';
+
+  position:absolute;
+  bottom:0;
+  left:2px;
+  right:0;
+  width:2px;
+  height:3px;
+  margin:auto;
+}
+
+.our-mission #bx-pager-2>a strong.year:after
+{
+  content:'';
+
+  position:absolute;
+  bottom:-24px;
+  left:2px;
+  right:0;
+  width:2px;
+  height:3px;
+  margin:auto;
+}
+
+
+.timeline-box span
+{
+  width:90px;
+  height:10px;
+  background-color:#f5f5f5;
+  float:left;
+  border-radius:100%;
+  margin:4px;
+}
+
+.our-mission .bx-wrapper .bx-next
+{
+  background:none;
+  right:-48px;
+}
+
+.our-mission .bx-wrapper .bx-next:before
+{
+  color:#f5f5f5;
+  content:"";
+  display:block;
+  font-family:FontAwesome;
+  font-size:40px;
+  line-height:normal;
+  text-align:center;
+  text-decoration:none;
+}
+
+.our-mission .bx-wrapper .bx-prev
+{
+  background:none;
+  left:-50px;
+}
+
+.our-mission .bx-wrapper .bx-next:hover
+{
+  background-position:0 0;
+}
+
+.our-mission .bx-wrapper .bx-controls-direction a
+{
+  font-size:0;
+	text-decoration:none;
+	text-indent:inherit;
+	top:50%;
+	height:32px;
+	margin-top:-16px;
+	outline:0;
+	position:absolute;
+
+}
+
+.our-mission .bx-wrapper .bx-prev:before
+{
+  color:#f5f5f5;
+  content:"";
+  display:block;
+  font-family:FontAwesome;
+  font-size:40px;
+  line-height:normal;
+  text-align:center;
+  text-decoration:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.indicator-section
+{
+	background-color:rgba(0,0,0,0.8);
+	background-image:url(../images/indicator-bg.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	float:left;
+	padding:50px 0;
+	position:relative;
+	width:100%;
+}
+
+.indicator-section .holder
+{
+	margin:0 auto;
+	position:relative;
+	width:100%;
+	z-index:9;
+}
+
+.indicator-section .holder h2
+{
+	color:#fff;
+	/*font-family:museo500;*/
+	font-size:25px;
+	font-weight:500;
+	line-height:36px;
+	margin:0 60px 40px;
+
+}
+.indicator-section .holder h3
+{
+	color:#fff;
+	/*font-family:museo500;*/
+	font-size:20px;
+	font-weight:500;
+	line-height:36px;
+	margin:0 0 20px;
+	
+}
+
+.indicator-section .holder .frame
+{
+	border:5px solid #fff;
+	border-radius:100%;
+	float:left;
+	height:160px;
+	margin:0 30px 0 60px;
+	overflow:hidden;
+	width:160px;
+}
+
+.indicator-section .holder .frame img
+{
+	border-radius:100%;
+	display:block;
+	width:100%;
+}
+
+.indicator-section .holder .frame:hover
+{
+	-moz-box-shadow:0 0 12px rgba(0,0,0,0.8);
+	-moz-transform:rotate(360deg);
+	-webkit-box-shadow:0 0 12px rgba(0,0,0,0.8);
+	-webkit-transform:rotate(360deg);
+	box-shadow:0 0 12px rgba(0,0,0,0.8);
+	opacity:0.4;
+	transform:rotate(360deg);
+}
+
+.indicator-section .holder .text-box
+{
+	overflow:hidden;
+	padding:5px 0 0;
+}
+
+.indicator-section .holder .text-box strong.price
+{
+	display:block;
+	/*font-family:museo500;*/
+	font-size:20px;
+	font-weight:500;
+	line-height:30px;
+	padding:0 0 10px;
+}
+
+.indicator-section .holder .text-box h2
+{
+	color:#fff;
+	/*font-family:museo300;*/
+	font-size:30px;
+	font-weight:300;
+	line-height:30px;
+	margin:0 0 15px;
+}
+
+.indicator-section .holder .text-box .progress-bar .progress
+{
+	background-color:#d4d9de;
+	background-image:none;
+	border-radius:10px;
+	box-shadow:0 1px 2px rgba(0,0,0,0.1) inset;
+	height:20px;
+	margin-bottom:10px;
+	overflow:hidden;
+}
+
+.indicator-section .holder .text-box .progress .bar
+{
+	border-radius:10px;
+}
+
+.indicator-section .holder .text-box a.icon
+{
+	color:#fff;
+	float:left;
+	/*font-family:museo300;*/
+	font-size:14px;
+	font-weight:300;
+	line-height:27px;
+	margin:0 25px 0 0;
+	text-decoration:none;
+}
+
+.indicator-section .holder .text-box a.icon .fa
+{
+	float:left;
+	font-size:26px;
+	padding:0 12px 0 0;
+}
+
+.indicator-section .holder .text-box a.icon .fasupp
+{
+	float:left;
+	font-size:20px;
+	padding:0 12px 0 0;
+}
+
+.indicator-btn-row
+{
+	float:left;
+	margin:22px 0 0;
+	position:relative;
+	width:100%;
+}
+
+.indicator-btn-row a.btn-donate
+{
+	background-color:#FF7F00;
+	border:1px solid rgba(255,255,255,0.30);
+	color:#fff;
+	float:left;
+	/*font-family:museo100;*/
+	font-size:16px;
+	font-weight:100;
+	height:46px;
+	line-height:45px;
+	margin:0 2px 0 0;
+	text-align:center;
+	text-decoration:none;
+	width:100px;
+}
+
+.indicator-btn-row a.btn-donate:hover
+{
+	border:1px solid;
+}
+
+.indicator-btn-row span
+{
+	border-radius:100%;
+	color:#fff;
+	display:block;
+	font-family:museo100;
+	font-size:18px;
+	font-weight:100;
+	height:38px;
+	left:134px;
+	line-height:38px;
+	position:absolute;
+	text-align:center;
+	top:5px;
+	width:38px;
+}
+
+.indicator-section .bx-wrapper .bx-next:before
+{
+	color:#fff;
+	content:"";
+	display:block;
+	font-family:FontAwesome;
+	font-size:55px;
+	line-height:40px;
+	text-align:center;
+	text-decoration:none;
+}
+
+.indicator-section .bx-wrapper .bx-prev:before
+{
+	color:#fff;
+	content:"";
+	display:block;
+	font-family:FontAwesome;
+	font-size:55px;
+	line-height:40px;
+	text-align:center;
+	text-decoration:none;
+}
+
+.indicator-section .bx-wrapper .bx-controls-direction a
+{
+	font-size:0;
+	text-decoration:none;
+	text-indent:inherit;
+	top:50%;
+	height:32px;
+	margin-top:-16px;
+	outline:0;
+	position:absolute;
+
+	/*
+
+	height:32px;
+	margin-top:-16px;
+	outline:0;
+	position:absolute;
+	text-indent:-9999px;
+	top:50%;
+	width:32px;
+	z-index:9999;*/
+}
+
+.indicator-section .bx-wrapper .bx-next
+{
+	background:none;
+	border-radius:100%;
+	height:61px;
+	margin:0;
+	right:0;
+	width:61px;
+
+}
+
+.indicator-section .bx-wrapper .bx-prev
+{
+	background:none repeat scroll 0 0 rgba(0,0,0,0);
+	border-radius:100%;
+	height:61px;
+	margin:0;
+	right:0;
+	width:61px;
+}
+
+#nav li a, .header-btn-search .fa, .services-box, .services-box h3, .services-box strong.title-text, .services-box p, .services-box a.readmore, .services-round, .services-round a.sprite-1, .next-event .caption, .chirty-box, .services-round a.sprite-2, .services-round a.sprite-3, .services-round a.sprite-4, .text-col strong.title, span.close-panel, #banner #bx-pager>a, .pagination-area .pagination ul>li>a, .sidebar-tab .nav-tabs>li>a, .nav-pills>li>a, .sidebar-charity-store .bx-wrapper .bx-prev:before, .sidebar-charity-store .bx-wrapper .bx-next:before, .tag-box ul li a, .tag-box ul li a:before, .social-box ul li a, .address-box .fa, .comments .text-outer-1 a.reply, .funding-detail-map-box, .inner ul li a, .funding-detail-map-box .inner ul li a:hover .fa, .accordion-heading, .about-accordion-box .accordion-heading .accordion-toggle, .team-box ul li a, .about-section-4 .box .text-box, .about-section-4 .box .text-box p, .about-section-4 .box .text-box strong.title, .grid .caption, .gallery-box .text-box, .gallery-box .text-box h2, .gallery-box .text-box p, .gallery-box .frame .caption, .process-box, .process-box .fa, .process-outer a.title, .timeline-text a.btn-listen, .slider-row .right-box a.view, .latest-blog-box .frame img, .blog-round, .sponsor-box .frame img, .sponsor-box .text-box a.support, .featured-video-text .frame, .featured-video-text .text-box a.readmore, .btn-signup, .btn-send-message, .subscribe-newsletter .btn-subscribe, .subscribe-newsletter ul li a .fa, .gallery-box ul li, .accordion-text-box .text-box, .about-box-1 .frame img, .about-accordion-box .accordion-inner .frame img, .team-box .round, .about-section-3 .frame, .about-section-3 .text-box a.readmore, .about-section-4 .box .frame, .view-section .box-1 .frame img, .view-section .box-1 .text-box a.readmore, .top-project .holder ul li a .fa, .detail-box ul li .fa, .slider-row .right-box-2 a.view, .slider-row .left-box img, .event-box .top .frame img, .event-box .top .text-box a, .event-box .bottom a.btn-register, .sidebar-tab-content .frame img, .sidebar-tab-content .thumb img, .sidebar-tab-content a.find-more, .charity-box .frame img, .gallery-box ul li img, .event-btn-send, .blog-box .frame img, .blog-box .text-box .round, .blog-box .text-box a.btn-readmore, .btn-submit2, .crowed-funding .box .frame img, .gallery li img, .funding-detail .frame img, .funding-detail .bottom-row a.btn-detail, .donate-box-2 a.btn-donate, .contact-form input[type="submit"], .contact-twitter .fa, .responsive-section-inner .right-box ul li a, .donate-box a.btn-donate, .donate-box a.btn-donate span, .amount-row, .amount-row a.cart, .chirty-box .frame, .indicator-section .holder .frame, .indicator-btn-row a.btn-donate, .services-box:before {
+	transition: all 0.5s ease 0s;
+	-webkit-transition: all 0.5s ease 0s;
+	-moz-transition: all 0.5s ease 0s;
+	-o-transition: all 0.5s ease 0s;
+}

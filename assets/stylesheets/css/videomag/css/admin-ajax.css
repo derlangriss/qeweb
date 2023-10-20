@@ -1,0 +1,31 @@
+
+/* Main color scheme */
+.content-panel .panel-title, #sidebar > .widget > h3 {
+	background-color: #373737;
+}
+
+/* OT video player background */
+.otplayer-wrapper .otplayer-controls {
+	background-color: #131313;
+}
+
+
+
+/* Background Color/Texture/Image */
+body {
+			background: #F1F1F1;
+	
+}
+
+
+
+/* Main font */
+h1, h2, h3, h4, h5, h6,
+.header #main-menu,
+.big-message strong,
+.video-stats .video-stat-blobs > span strong,
+#comments .comment-text > div .user-nick {
+	font-family: 'Titillium Web';
+}
+
+

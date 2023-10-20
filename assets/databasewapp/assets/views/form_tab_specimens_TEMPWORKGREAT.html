@@ -1,0 +1,614 @@
+<!-- end: BREADCRUMB -->
+<!-- start: TABS -->
+<!-- /// controller:  'TabsDemoCtrl' -  localtion: assets/js/controllers/bootstrapCtrl.js /// -->
+<div ng-controller="FormSpecimensBoxCtrl">
+    <div class="row">
+        <div class="col-md-12 col-lg-3">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                        <fieldset>
+                            <legend>
+                                Current Use box
+                            </legend>
+                            <div class="gf-row-1">
+                                <div class="gf-col-1">
+                                    BOX NO.   {{GETAllcollboxno}} DATE {{GETAllboxdate}}
+                                </div>
+                            </div>
+                            <div class="gf-row-2 gf-large">
+                                <div class="gf-col-1">
+                                    QTY    {{GETAllcountspecinbox}}
+                                </div>
+                                <div class="gf-col-1">
+                                    USER    {{GETAllusername}}
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset id="specimensdetails">
+                            <legend>
+                                Specimen Details
+                            </legend>
+                            <div class="gf-row-2 gf-large">
+                                <div class="gf-col-2">
+                                    <div ng-class="{'has-error':Specimens_Form.order.$dirty && Specimens_Form.order.$invalid, 'has-success':Specimens_Form.order.$valid}">
+                                        <label>
+                                            Order
+                                            <span class="symbol required">
+                                            </span>
+                                        </label>
+                                        <input class="form-control" id="order" name="order" ng-change="changeOrder()" ng-model="specModelOrder" ng-required="currentStep == 1" placeholder="Enter Order Name" type="text" typeahead-loading="loadingOrder" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.torder_name for o in OrderKeyup($viewValue)"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gf-row-4 gf-large">
+                                <div class="gf-col-4">
+                                    <div ng-class="{'has-error':Specimens_Form.family.$dirty && Specimens_Form.family.$invalid, 'has-success':Specimens_Form.family.$valid}">
+                                        <label>
+                                            family
+                                            <span class="symbol required">
+                                            </span>
+                                        </label>
+                                        <input class="form-control" id="family" name="family" ng-change="changeFamily()" ng-model="specModelFamily" ng-required="currentStep == 1" placeholder="Enter Family Name" type="text" typeahead-loading="loadingFamily" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.family_name for o in FamilyKeyup($viewValue)"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gf-row-2 gf-large">
+                                <div class="gf-col-2">
+                                    <div ng-class="{'has-error':Specimens_Form.genus.$dirty && Specimens_Form.genus.$invalid, 'has-success':Specimens_Form.genus.$valid}">
+                                        <label>
+                                            Genus
+                                            <span class="symbol required">
+                                            </span>
+                                        </label>
+                                        <input class="form-control" id="genus" name="genus" ng-change="changeGenus()" ng-model="specModelGenus" ng-required="currentStep == 1" placeholder="Enter Genus Name" type="text" typeahead-loading="loadingGenus" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.genus_name for o in GenusKeyup($viewValue)"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gf-row-2 gf-large">
+                                <div class="gf-col-2">
+                                    <div ng-class="{'has-error':Specimens_Form.species.$dirty && Specimens_Form.species.$invalid, 'has-success':Specimens_Form.species.$valid}">
+                                        <label>
+                                            Species
+                                            <span class="symbol required">
+                                            </span>
+                                        </label>
+                                        <input class="form-control" id="species" name="species" ng-model="specModelSpecies" ng-required="currentStep == 1" placeholder="Enter Species Name" type="text" typeahead-loading="loadingSpecies" typeahead-no-results="noResults" typeahead-on-select="onSelect($item, $model, $label,$event)" uib-typeahead="o as o.species_name for o in SpeciesKeyup($viewValue)"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-group">
+                                <div class="btn-group">
+                                    <label class="btn btn-primary btn-sm" ng-click="specimensUpdate('UPDATE',SpecimensTaxa_Form);" ng-model="myModel.paymentMethod" uib-btn-radio="'creditcard'">
+                                        <i class="fa fa-save">
+                                        </i>
+                                        Save
+                                    </label>
+                                    <label class="btn btn-primary btn-sm" ng-click="resetspecformBtn();" ng-model="myModel.paymentMethod" uib-btn-radio="'paypal'">
+                                        <i class="fa fa-ban">
+                                        </i>
+                                        Cancel
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6">
+            <div class="row">
+                <div class="panel-body">
+                    <div class="partition-light-grey padding-15 text-center">
+                        <h4 class="no-margin">
+                            {{monthshow01}}
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <nav class="links cl-effect-9" id="cl-effect-9">
+                        <a href=""  ng-class="{ active: isSet(1) }" ng-click="setTab(1)">
+                            <span>
+                                Specimens
+                            </span>
+                            <span>
+                                View all Specimens
+                            </span>
+                        </a>
+                    </nav>
+                </div>
+                <div class="col-sm-3">
+                    <nav class="links cl-effect-9" id="cl-effect-9">
+                        <a href="" ng-class="{ active: isSet(2) }" ng-click="setTab(2)">
+                            <span>
+                                Box Details
+                            </span>
+                            <span>
+                                {{BoxShowDetailsBoxno}}
+                            </span>
+                        </a>
+                    </nav>
+                </div>
+                <div class="col-sm-3">
+                    <nav class="links cl-effect-9" id="cl-effect-9">
+                        <a href="" ng-class="{ active: isSet(3) }" ng-click="setTab(3)">
+                            <span>
+                                Unidentify
+                            </span>
+                            <span>
+                                Sumptuous Heart
+                            </span>
+                        </a>
+                    </nav>
+                </div>
+                <div class="col-sm-3">
+                    <nav class="links cl-effect-9" id="cl-effect-9">
+                        <a href="" ng-class="{ active: isSet(4) }" ng-click="setTab(4)">
+                            <span>
+                                Notifications
+                            </span>
+                            <span>
+                                Sumptuous Heart
+                            </span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+            <div class="panel" id="activities">
+                <div class="col-md-12">
+                    <div ng-show="isSet(1)">
+                        <div class="row">
+                            <div class="panel-body">
+                                <div class="partition-light-grey padding-15 text-center">
+                                    <h4 class="no-margin">
+                                        ALL SPECIMENS
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row space20">
+                            <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                <fieldset>
+                                    <legend>
+                                        Specimens Search
+                                    </legend>
+                                    <div class="gf-row-6 gf-large">
+                                        <div class="gf-col-2" data-column="6">
+                                            <label>
+                                                code
+                                            </label>
+                                            <input autofocus="" class="numberdecimal column_filterspec" id="col6_filter" name="txtcoll_code" ng-change="onChangedCollcode();" ng-model="coll_code" type="text">
+                                            </input>
+                                        </div>
+                                        <div class="gf-col-2" data-column="7">
+                                            <label>
+                                                year
+                                            </label>
+                                            <input autofocus="" class="numberdecimal column_filterspec" id="col7_filter" name="txtcoll_year" ng-change="onChangedCollyear();" ng-model="specdata.coll_year" type="text">
+                                            </input>
+                                        </div>
+                                        <div class="gf-col-2" data-column="8">
+                                            <label>
+                                                number
+                                            </label>
+                                            <input autofocus="" class="numberdecimal column_filterspec" id="col8_filter" name="txtcoll_number" ng-change="onChangedCollnumber();" ng-model="specdata.coll_number" type="text">
+                                            </input>
+                                        </div>
+                                    </div>
+                                    <input autofocus="" id="txtidspecimens" name="txtidspecimens" type="hidden" value="{{specdata.idspecimens}}">
+                                        <input autofocus="" id="txtidcollection" name="txtidcollection" type="hidden" value="{{specdata.idcollection}}">
+                                        </input>
+                                    </input>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <table cellspacing="0" class="table compact table-striped table-condensed nowrap " id="SpecimensReportListTbl" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>
+                                    </th>
+                                    <th>
+                                        Specimen Number
+                                    </th>
+                                    <th>
+                                        Order
+                                    </th>
+                                    <th>
+                                        Family
+                                    </th>
+                                    <th>
+                                        Genus
+                                    </th>
+                                    <th>
+                                        Species
+                                    </th>
+                                    <th>
+                                        coll_code
+                                    </th>
+                                    <th>
+                                        coll_year
+                                    </th>
+                                    <th>
+                                        coll_number
+                                    </th>
+                                    <th>
+                                        specimen_number
+                                    </th>
+                                    <th>
+                                        Report Date
+                                    </th>
+                                    <th>
+                                        Report Date
+                                    </th>
+                                    <th>
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="tab-table2">
+                        <div ng-show="isSet(2)">
+                            <div class="row space20">
+                                <div class="row">
+                                    <div class="panel-body">
+                                        <div class="partition-light-grey padding-15 text-center">
+                                            <h4 class="no-margin">
+                                                SPECIMENS IN {{BoxShowDetailsBoxno}}
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form class="gf" id="specimens_form" name="SpecimensTaxa_Form">
+                                    <fieldset>
+                                        <legend>
+                                            Specimens Search
+                                        </legend>
+                                        <div class="gf-row-6 gf-large">
+                                            <div class="gf-col-2" data-column="6">
+                                                <label>
+                                                    code
+                                                </label>
+                                                <input autofocus="" class="numberdecimal column_filterspecbox" id="col6_filterbox" name="txtcoll_code" ng-change="onChangedCollcode();" ng-model="coll_code" type="text">
+                                                </input>
+                                            </div>
+                                            <div class="gf-col-2" data-column="7">
+                                                <label>
+                                                    year
+                                                </label>
+                                                <input autofocus="" class="numberdecimal column_filterspecbox" id="col7_filterbox" name="txtcoll_year" ng-change="onChangedCollyear();" ng-model="specdata.coll_year" type="text">
+                                                </input>
+                                            </div>
+                                            <div class="gf-col-2" data-column="8">
+                                                <label>
+                                                    number
+                                                </label>
+                                                <input autofocus="" class="numberdecimal column_filterspecbox" id="col8_filterbox" name="txtcoll_number" ng-change="onChangedCollnumber();" ng-model="specdata.coll_number" type="text">
+                                                </input>
+                                            </div>
+                                        </div>
+                                        <input autofocus="" id="txtidspecimens" name="txtidspecimens" type="hidden" value="{{specdata.idspecimens}}">
+                                            <input autofocus="" id="txtidcollection" name="txtidcollection" type="hidden" value="{{specdata.idcollection}}">
+                                            </input>
+                                        </input>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <table cellspacing="0" class="table compact table-striped table-condensed nowrap " id="SpecimensBoxListTbl" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                        </th>
+                                        <th>
+                                            Specimen Number
+                                        </th>
+                                        <th>
+                                            Order
+                                        </th>
+                                        <th>
+                                            Family
+                                        </th>
+                                        <th>
+                                            Genus
+                                        </th>
+                                        <th>
+                                            Species
+                                        </th>
+                                        <th>
+                                            coll_code
+                                        </th>
+                                        <th>
+                                            coll_year
+                                        </th>
+                                        <th>
+                                            coll_number
+                                        </th>
+                                        <th>
+                                            specimen_number
+                                        </th>
+                                        <th>
+                                            Report Date
+                                        </th>
+                                        <th>
+                                            Report Date
+                                        </th>
+                                        <th>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab-table3">
+                        <div ng-show="isSet(3)">
+                            <h1>
+                                Messages
+                            </h1>
+                            <p>
+                                Some messages
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-3">
+            <div class="panel panel-white no-radius">
+                <div class="panel-heading border-bottom">
+                    <h4 class="panel-title">
+                        Overview
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <h5 class="text-bold text-uppercase">
+                        Specimens Of the month
+                        <a href='#"' ng-click="PrintSpecBox('SpecList')">
+                            <i class="fa fa-download">
+                            </i>
+                        </a>
+                    </h5>
+                    <p class="text-light text-small">
+                        Based on specimens for each month that managed in to the boxs and move the box to the museum.
+                    </p>
+                    <div class="row">
+                        <div class="col-xs-6 no-padding border-right">
+                            <div class="padding-10 text-center">
+                                <i class="fa fa-bug text-pink large-letters">
+                                </i>
+                                <div class="clearfix">
+                                </div>
+                                <span class="counter" count-to="{{resspecimens}}" duration="1" filter="number" ng-model="resspecimens" value="0">
+                                    {{resspecimens}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 no-padding border-right">
+                            <div class="padding-10 text-center">
+                                <i class="fa fa-globe text-azure large-letters">
+                                </i>
+                                <div class="clearfix">
+                                </div>
+                                <span class="counter" count-to="{{allspecimens}}" duration="1" filter="number" ng-model="allspecimens" value="0">
+                                    {{allspecimens}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padding-top-15">
+                        <h5 class="text-bold text-uppercase">
+                            BOX Selection
+                        </h5>
+                        <p class="text-light text-small">
+                            Please select the box number and lock them to be the onwer.
+                        </p>
+                        <div class="form-group">
+                            <select class="cs-select cs-skin-elastic" id="txtcoll_method_ID" name="txtcoll_method_ID" ng-change="selectbox(BoxModel)" ng-model="BoxModel" ng-options="item.collbox_id as item.collboxno for item in GETAllBoxcode" ng-required="currentStep == 1">
+                                <option data-class="fa fa-dropbox" disabled="" value="">
+                                    SELECT BOX
+                                </option>
+                            </select>
+                        </div>
+                        <div class="row margin-top-15">
+                            <div class="col-xs-12 text-left">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <h3>
+                                            <a href="#" ng-click="BoxlockSelection($event)">
+                                                <i class="fa {{BoxShowDetailsLock}}">
+                                                </i>
+                                            </a>
+                                            <a class="padding-left-15" href="#" ng-click="takeover()" ng-show="TakeOverSignModel">
+                                                <i class="fa {{TakeOverSignModel}}">
+                                                </i>
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <span class="cl-effect-3 links block margin-top-5">
+                                        <a class="uppercase text-dark text-uppercase text-bold text-extra-small">
+                                            BOX STATUS
+                                        </a>
+                                        <i class="fa fa-archive">
+                                        </i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="clearfix padding-5 padding-top-0 padding-bottom-10 space5">
+                        <div class="padding-top-15">
+                            <h5 class="text-bold text-uppercase margin-bottom-15">
+                                Specimens Box Info
+                                <a href='#"' ng-click="PrintSpecBox('SpecInBox')">
+                                    <i class="fa fa-download">
+                                    </i>
+                                </a>
+                            </h5>
+                            <div class="row margin-top-15">
+                                <div class="col-xs-12 text-left">
+                                    <h3>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <h3>
+                                                    <span class="label {{LabelWaringModel}}" ng-bind="BoxShowModel">
+                                                    </span>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 text-center no-padding">
+                            <div class="border-right border-dark">
+                                <span class="text-bold block text-extra-large">
+                                    <a class="padding-left-5" href="#" ng-click="fullbox()">
+                                        <i class="fa {{FullBoxModel}}">
+                                        </i>
+                                    </a>
+                                </span>
+                                <span class="cl-effect-3 links block margin-top-5">
+                                    <a class="uppercase text-dark text-uppercase text-bold text-extra-small" ng-click="PrintSpecBox('SpecInBox')">
+                                        STAUS
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 text-center no-padding">
+                            <div class="border-right border-dark">
+                                <span class="text-bold block text-extra-large">
+                                    {{BoxShowDetailsUser}}
+                                </span>
+                                <span class="cl-effect-3 links block margin-top-5">
+                                    <a class="uppercase text-dark text-uppercase text-bold text-extra-small" ng-click="PrintSpecBox('SpecInBox')">
+                                        USER
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 text-center no-padding">
+                            <div>
+                                <span class="text-bold block text-extra-large">
+                                    {{BoxShowDetailsCount}}
+                                </span>
+                                <span class="cl-effect-3 links block margin-top-5">
+                                    <a class="uppercase text-dark text-uppercase text-bold text-extra-small" ng-click="PrintSpecBox('SpecInBox')">
+                                        STORAGE
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-white no-radius">
+                <div class="panel-heading border-bottom">
+                    <h4 class="panel-title">
+                        Current User
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <h5 class="text-bold text-uppercase">
+                        Specimens Of the month
+                        <a href='#"' ng-click="PrintSpecBox('SpecList')">
+                            <i class="fa fa-download">
+                            </i>
+                        </a>
+                    </h5>
+                    <p class="text-light text-small">
+                        Based on specimens for each month that managed in to the boxs and move the box to the museum.
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel-scroll " perfect-scrollbar="" suppress-scroll-x="true" wheel-propagation="false">
+                                <table class="table no-margin">
+                                    <tbody>
+                                        <tr ng-repeat-start="d in GetBoxViewCurrentUserList">
+                                            <td class="left">
+                                                <div class="userboxavatars">
+                                                    <span class="userboxavatar">
+                                                        <img src="{{d.avartar}}">
+                                                        </img>
+                                                    </span>
+                                                    <span ng-repeat-end="">
+                                                    </span>
+                                                    <!-- Variable amount more avatars -->
+                                                </div>
+                                                <p>
+                                                    {{d.firstname}}
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <span class="text-small block text-left">
+                                                    {{d.collboxno}}
+                                                </span>
+                                                <!--a href="javascript:void(0)" ng-click="editboxstat(d.collbox_id,d.boxstatus)">
+                                                        Edit
+                                                    </a-->
+                                            </td>
+                                            <td>
+                                                <span class="label label-default">
+                                                    {{d.lockbox_mreport}}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr ng-repeat-end="">
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padding-top-15">
+                        <h5 class="text-bold text-uppercase">
+                            All box status
+                        </h5>
+                        <p class="text-light text-small">
+                            Please select the box number and lock them to be the onwer.
+                        </p>
+                        <div class="row margin-top-15">
+                            <div class="col-xs-12 text-left">
+                                <div class="panel-scroll height-200" perfect-scrollbar="" suppress-scroll-x="true" wheel-propagation="false">
+                                    <table class="table no-margin">
+                                        <tbody>
+                                            <tr ng-repeat-start="d in GetBoxViewAvarList">
+                                                <td class="center">
+                                                    <div class="userboxavatars">
+                                                        <span class="userboxavatar" ng-repeat-start="c in d.avartars">
+                                                            <img src="{{c.avartar}}">
+                                                            </img>
+                                                        </span>
+                                                        <span ng-repeat-end="">
+                                                        </span>
+                                                        <!-- Variable amount more avatars -->
+                                                    </div>
+                                                    <p>
+                                                        {{d.countuser}} People
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    {{d.collboxno}}
+                                                </td>
+                                                <td>
+                                                    <span class="label {{d.state_color}}">
+                                                        {{d.boxstatus}}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr ng-repeat-end="">
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

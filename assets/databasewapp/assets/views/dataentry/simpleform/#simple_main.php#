@@ -1,0 +1,323 @@
+<?php
+require_once('_header.php');
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<HTML>
+<HEAD>
+  <META name="generator" content="HTML Tidy for Windows (vers 18 June 2008), see www.w3.org">
+
+  <TITLE>Sompong test Ajax Tutorial</TITLE>
+  <SCRIPT src="js/jquery-1.8.3.js" type="text/javascript">
+</SCRIPT>
+  <SCRIPT language="JavaScript" type="text/javascript">
+
+  function doCallAjaxinterface(Mode) {
+    var pmeters = "tcollection_ID=" + encodeURI(document.getElementById("txtcollection_ID_inter").value) +
+        "&tcollection_start_date=" + encodeURI(document.getElementById("txtcollection_start_date").value) +
+        "&tcollection_end_date=" + encodeURI(document.getElementById("txtcollection_end_date").value) +
+        "&tcollection_method_ID=" + encodeURI(document.getElementById("txtcollection_method_ID").value) +
+        "&tamphur_ID=" + encodeURI(document.getElementById("txtamphur_ID").value) +
+        "&tspecific_locality=" + encodeURI(document.getElementById("txtspecific_locality").value) +
+        "&tlocality=" + encodeURI(document.getElementById("txtlocality").value) +
+        "&thabitat=" + encodeURI(document.getElementById("txthabitat").value) +
+        "&tlat_d=" + encodeURI(document.getElementById("txtlat_d").value) +
+        "&tlat_m=" + encodeURI(document.getElementById("txtlat_m").value) +
+        "&tlat_s=" + encodeURI(document.getElementById("txtlat_s").value) +
+        "&tlong_d=" + encodeURI(document.getElementById("txtlong_d").value) +
+        "&tlong_m=" + encodeURI(document.getElementById("txtlong_m").value) +
+        "&tlong_s=" + encodeURI(document.getElementById("txtlong_s").value) +
+        "&tMASL=" + encodeURI(document.getElementById("txtMASL").value) +
+        "&tUTM=" + encodeURI(document.getElementById("txtUTM").value) +
+        "&tNorthing=" + encodeURI(document.getElementById("txtNorthing").value) +
+        "&tEasting=" + encodeURI(document.getElementById("txtEasting").value) +
+        "&tcollector_ID=" + encodeURI(document.getElementById("txtcollector_ID").value) +
+        "&tcoll_code=" + encodeURI(document.getElementById("txtcoll_code_inter").value) +
+        "&tcoll_year=" + encodeURI(document.getElementById("txtcoll_year_inter").value) +
+        "&tcoll_number=" + encodeURI(document.getElementById("txtcoll_number_inter").value) +
+        "&tMode=" + Mode;
+
+    $.ajax({ 
+        type: "POST",
+        url: "dbinsert.php",
+        data: pmeters,      
+        success: function(response) {
+            $("#mySpan").html(response);
+            autocollectoinid();
+            clearform();
+        }
+
+    });
+  }
+
+  $(document).ready(function(){
+  $("body").ready(function(){doCallAjaxinterface('LIST');});
+  $("#btnAdd").click(function(){doCallAjaxinterface('ADD');});
+  });        
+
+  </SCRIPT>
+</HEAD>
+
+<BODY>
+  <H2>Collection Entry Form</H2>
+
+  <DIV id="collection-method-box" class="login-popup">
+    <A href="#" class="close"><IMG src="css/images/close_pop.png" class="btn_close" title="Close Window" alt="Close"></A>
+
+    <FORM method="post" accept="class=&quot;signin&quot;" action="#">
+      <FIELDSET class="textbox">
+        <LABEL class="username"><SPAN>Collection Method Details</SPAN> <INPUT id="collection-method" name="collection-method" value="" type="text"
+        autocomplete="on" placeholder="collection-method"></LABEL> <INPUT value="submit" onclick="insertcollection_method();" type="button">
+      </FIELDSET>
+    </FORM>
+  </DIV>
+
+  <DIV id="collector-box" class="login-popup">
+    <A href="#" class="close"><IMG src="css/images/close_pop.png" class="btn_close" title="Close Window" alt="Close"></A>
+
+    <FORM method="post" class="signin" action="#">
+      <FIELDSET class="textbox">
+        <LABEL class="username"><SPAN>Collector</SPAN> <INPUT id="collector" name="collector" value="" type="text" autocomplete="on" placeholder=
+        "collector name"></LABEL> <INPUT value="submit" onclick="insertcollector();" type="button">
+      </FIELDSET>
+    </FORM>
+  </DIV>
+
+  <DIV id="wrapper">
+    <FORM name="frmMain" id="formID" method="post">
+      <TABLE class="horiz">
+        <TR>
+          <TD>
+            <DIV id="mySpan"></DIV><INPUT type="hidden" class="collection_number" name="txtcollection_ID_inter" id="txtcollection_ID_inter" size="20"
+            tabindex="0">
+
+            <TABLE>
+              <TR>
+                <TD>
+                  <INPUT type="hidden" id="txtcoll_autonumber_inter" value="">
+
+                  <TABLE class="horiz">
+                    <TR>
+                      <TD>
+                        <LABEL for="latd">COLLECTION-ID</LABEL>
+
+                        <TABLE class="horiz">
+                          <TR>
+                            <TD></TD>
+                          </TR>
+
+                          <TR>
+                            <TD><LABEL for="latd">&nbsp;</LABEL> <INPUT tabindex="7" class='number input_tiny' name="txtcoll_code_inter" id=
+                            "txtcoll_code_inter" type="text" value="QSBG"></TD>
+
+                            <TD><LABEL for="latm">&nbsp;</LABEL> <INPUT tabindex="8" class='number input_tiny' onkeyup="search_number();" name=
+                            "txtcoll_year_inter" id="txtcoll_year_inter" type="text" value=""></TD>
+
+                            <TD><LABEL for="lats">&nbsp;</LABEL> <INPUT tabindex="9" class='number input_tiny' name="txtcoll_number_inter" id=
+                            "txtcoll_number_inter" type="text"></TD>
+                          </TR>
+                        </TABLE>
+                      </TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+
+                <TD></TD>
+              </TR>
+
+              <TR>
+                <TD><LABEL for="date-start">Date Start</LABEL><BR>
+                <INPUT class='validate[required,custom[date],past[#txtcollection_end_date]] yyyy_mm_dd' placeholder="YYYY - MM - DD" name=
+                "txtcollection_start_date" id="txtcollection_start_date" type="text" value="" tabindex="1"></TD>
+
+                <TD><LABEL for="date-end">Date End</LABEL><BR>
+                <INPUT class='validate[required,custom[date],future[#txtcollection_start_date]] yyyy_mm_dd' placeholder="YYYY - MM - DD" onfocus=
+                "autofill();" name="txtcollection_end_date" id="txtcollection_end_date" type="text" value="" tabindex="2"></TD>
+              </TR>
+
+              <TR>
+                <TD>
+                  <TABLE class="horiz">
+                    <TR>
+                      <TD><LABEL for="latdec">Lat dec</LABEL><BR>
+                      <INPUT class='numberdecimal' placeholder="Only Digits" onkeyup=
+                      "JavaScript:doCallAjaxautofill('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" type="text"
+                      id="txtlatdec" name="txtlatdec" value="" tabindex="3"></TD>
+
+                      <TD><LABEL for="lath">Lath</LABEL><BR>
+                      <INPUT type="text" id="txtlath" class="input_tiny" name="txtlath" value="N" tabindex="4"></TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+
+                <TD>
+                  <TABLE class="horiz">
+                    <TR>
+                      <TD><LABEL for="longdec">Long dec</LABEL><BR>
+                      <INPUT class='numberdecimal' placeholder="Only Digits" onkeyup=
+                      "JavaScript:doCallAjaxautofill('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" type="text"
+                      id="txtlongdec" name="txtlongdec" value="" tabindex="5"></TD>
+
+                      <TD><LABEL for="longh">Longh</LABEL><BR>
+                      <INPUT type="text" id="txtlongh" name="txtlongh" class="input_tiny" value="E" tabindex="6"></TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+
+              <TR>
+                <TD>
+                  <TABLE class="horiz">
+                    <TR>
+                      <TD><LABEL for="latd">Lat d</LABEL><BR>
+                      <INPUT tabindex="7" onkeyup="getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');"
+                      class="input_tiny" name="txtlat_d" id="txtlat_d" type="text" value=""></TD>
+
+                      <TD><LABEL for="latm">Lat m</LABEL><BR>
+                      <INPUT tabindex="8" class='number input_tiny' onkeyup=
+                      "getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlat_m" id=
+                      "txtlat_m" type="text" value=""></TD>
+
+                      <TD><LABEL for="lats">Lat s</LABEL><BR>
+                      <INPUT tabindex="9" class='numberdecimal input_tiny' onkeyup=
+                      "getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlat_s" id=
+                      "txtlat_s" type="text" value=""></TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+
+                <TD>
+                  <TABLE class="horiz">
+                    <TR>
+                      <TD><LABEL for="longd">Long d</LABEL><BR>
+                      <INPUT tabindex="10" class='number input_tiny validate[custom[integer],max[180]]' onkeyup=
+                      "getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlong_d" id=
+                      "txtlong_d" type="text" value=""></TD>
+
+                      <TD><LABEL for="longm">Long m</LABEL><BR>
+                      <INPUT tabindex="11" class='number input_tiny' onkeyup=
+                      "getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlong_m" id=
+                      "txtlong_m" type="text" value=""></TD>
+
+                      <TD><LABEL for="longs">Long s</LABEL><BR>
+                      <INPUT tabindex="12" class='numberdecimal input_tiny' onkeyup=
+                      "getmarkerDMS('txtlatdec','txtlongdec','txtprovinceen','txtamphur_ID','txtamphuren','txttambon');" name="txtlong_s" id=
+                      "txtlong_s" type="text" value=""></TD>
+                    </TR>
+                  </TABLE>
+                </TD>
+              </TR>
+
+              <TR>
+                <TD><LABEL for="northing">northing</LABEL><BR>
+                <INPUT tabindex="13" type="text" id="txtNorthing" name="txtNorthing" class="input_small"></TD>
+
+                <TD><LABEL for="easting">easting</LABEL><BR>
+                <INPUT tabindex="14" type="text" id="txtEasting" name="txtEasting" class="input_small"></TD>
+              </TR>
+
+              <TR>
+                <TD><LABEL for="UTM">UTM</LABEL><BR>
+                <INPUT tabindex="15" name="txtUTM" id="txtUTM" type="text" value=""></TD>
+
+                <TD><LABEL for="MASL">MASL</LABEL><BR>
+                <INPUT tabindex="16" class='numberdecimal validate[custom[integer],max[2800]] text-input' name="txtMASL" id="txtMASL" type="text"
+                value=""></TD>
+              </TR>
+            </TABLE>
+          </TD>
+
+          <TD>
+            <DIV id="googleMap" class="c1"></DIV>
+          </TD>
+        </TR>
+      </TABLE><INPUT class="validate[required]" type="hidden" id="txtamphur_ID" name="txtamphur_ID">
+
+      <TABLE class="horiz">
+        <TR>
+          <TD><LABEL for="provinceen">province English (thai)</LABEL><BR>
+          <INPUT class="disabletextbox" readonly type="text" id="txtprovinceen" name="txtprovinceen"></TD>
+
+          <TD><LABEL for="month">Amphur English (thai)</LABEL><BR>
+          <INPUT readonly class="disabletextbox" type="text" id="txtamphuren" name="txtamphuren"></TD>
+
+          <TD><LABEL for="month">tambon English (thai)</LABEL><BR>
+          <INPUT readonly type="text" id="txttambon" name="txttambon" class="disabletextbox"></TD>
+
+          <TD><BR>
+          <INPUT type="button" onclick="window.open('../../../interim/index.php')" value="Link to Gazette"></TD>
+        </TR>
+
+        <TR>
+          <TD><LABEL for="Locality">Locality</LABEL><BR>
+          <INPUT tabindex="17" type="text" name="txtlocality" id="txtlocality" value=""></TD>
+
+          <TD><LABEL for="Slocality">Specific Locality</LABEL><BR>
+          <INPUT tabindex="18" type="text" name="txtspecific_locality" id="txtspecific_locality" value=""></TD>
+
+          <TD><LABEL for="habitat">Habitat</LABEL><BR>
+          <INPUT tabindex="19" type="text" name="txthabitat" id="txthabitat" value=""></TD>
+
+          <TD><LABEL for="collection_method">Collection Method</LABEL><BR>
+          <SELECT class="validate[required]" tabindex="20" id="txtcollection_method_ID" name="txtcollection_method_ID">
+            <OPTION value="">
+              Collection Method
+            </OPTION><?
+                                                                     $strSQL = "SELECT * FROM collectionmethods ORDER BY idcollectionmethods ASC ";
+                                                                    $result = pg_query($conn,$strSQL);
+                                                                    @pg_query("SET NAMES UTF8");
+                                                                     while($objResult = pg_fetch_array($result))
+                                                                    {
+                                                                     extract($objResult);
+                                                                      ?>
+
+            <OPTION value="&lt;?=$idcollectionmethods?&gt;">
+              <?=$collectionmethodsdetails?>
+              </OPTION><?
+                                                                    }
+                                                                    ?>
+            </SELECT></TD>
+
+          <TD>
+            <UL id="icons" class="ui-widget ui-helper-clearfix">
+              <LI class="ui-state-default ui-corner-all" title=".ui-icon-circle-plus"><A href="#collection-method-box" class="login-window"></A></LI>
+            </UL>
+          </TD>
+        </TR>
+
+        <TR>
+          <TD><LABEL for="Collector">Collector</LABEL><BR>
+          <SELECT class="validate[required]" tabindex="21" name="txtcollector_ID" id="txtcollector_ID" style="width:160px">
+            <OPTION value="">
+              Choose Collector
+            </OPTION><?
+                                                                      $strSQL = "SELECT * FROM  collectors ORDER BY idcollectors ASC ";
+                                                                      $objQuery = pg_query($strSQL) or die ("Error Query [".$strSQL."]");
+                                                                      while($objResult = pg_fetch_array($objQuery))
+                                                                      {
+                                                              extract($objResult);
+                                                                   ?>
+
+            <OPTION value="&lt;?=$idcollectors?&gt;">
+              <?=$collectorsen?>
+              </OPTION><?
+                                                                     }
+                                                                     ?>
+            </SELECT></TD>
+
+          <TD>
+            <UL id="icons" class="ui-widget ui-helper-clearfix">
+              <LI class="ui-state-default ui-corner-all" title=".ui-icon-circle-plus"><A href="#collector-box" class="login-window"></A></LI>
+            </UL>
+          </TD>
+        </TR>
+      </TABLE>
+
+      <P><INPUT id="different" name="different" type="button" onclick="JavaScript:doCallAjaxinterface('ADD');" value="Different collection" tabindex=
+      "22"> &nbsp; <INPUT id="similar" name="similar" type="button" onclick="JavaScript:doCallAjaxinterfacesimilar('ADD');" value=
+      "Similar collection"> &nbsp; <INPUT type="reset" value="Done-leave interface"> &nbsp;</P>
+    </FORM>
+  </DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="QE - Queen Sirikit Botanic Garden Entomology Section">
+    <link rel="icon" href="assets/images/favicon.png">
+    
+    <title>Butterfly - Butterflies list in QSBG</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/stylesheets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Font Stylesheets -->
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+    <!-- JQuery -->
+    <script src="assets/javascripts/jquery.min.js"></script>
+
+    <!-- jpreloader -->
+    <link href="assets/javascripts/jpreloader/jpreloader.css" rel="stylesheet">
+    <script src="assets/javascripts/jpreloader/jpreloader.min.js"></script>
+
+    <!-- font-awesome.css -->
+    <link href="assets/stylesheets/css/fontawesome/font-awesome.css" rel="stylesheet">
+
+    <!-- animate.css -->
+    <link href="assets/stylesheets/css/animate.css" rel="stylesheet">
+    
+    <!-- Jplayer -->
+    <link href="assets/javascripts/jplayer/skin/jukebox/css/jplayer.jukebox.css" rel="stylesheet" type="text/css" />
+
+    <!-- Fancybox -->
+    <link href="assets/javascripts/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+
+    <!-- Owl Carousel -->
+    <link href="assets/javascripts/owl.carousel/owl.carousel.css" rel="stylesheet" type="text/css" />
+    <link href="assets/javascripts/owl.carousel/owl.theme.css" rel="stylesheet" type="text/css" />
+  
+    <!-- User Defined Style -->
+    <link href="assets/stylesheets/css/style.css" rel="stylesheet">
+    <link href="assets/stylesheets/css/responsive.css" rel="stylesheet">
+      
+    <!-- Image Map -->  
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/css/product.css">
+    
+    <!-- Jquery Datatable -->    
+    <link rel="stylesheet" type="text/css" href="assets/DataTables-1.10.19/media/css/jquery.dataTables.css">
+    <!--link rel="stylesheet" type="text/css" href="DataTables-1.10.7/extensions/FixedHeader/css/dataTables.fixedHeader.css"-->
+    <link rel="stylesheet" type="text/css" href="assets/DataTables-1.10.19/examples/resources/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="assets/DataTables-1.10.19/examples/resources/demo.css">
+    <style type="text/css" class="init">
+
+td.details-control {
+  background: url('assets/DataTables-1.10.19/examples/resources/details_open.png') no-repeat center center;
+  cursor: pointer;
+}
+td.details  {
+  background: url('assets/DataTables-1.10.19/examples/resources/details_close.png') no-repeat center center;
+}
+
+
+  td.highlight {
+    font-weight: bold;
+    color: blue;
+  }
+
+  </style>
+
+    <script type="text/javascript" language="javascript" src="assets/DataTables-1.10.19/media/js/jquery.dataTables.js"></script>
+    <!--script type="text/javascript" language="javascript" src="DataTables-1.10.7/extensions/FixedHeader/js/dataTables.fixedHeader.js"></script-->
+
+    <script type="text/javascript" language="javascript" class="init">
+      function format ( d ) {
+  return 'assets/static/'+d[0]+'/images.html';
+      }
+
+$(document).ready(function() {
+
+  var dt = $('#example').DataTable( {
+    "processing": true,
+    "serverSide": true,
+    "ajax": "assets/DataTables-1.10.19/examples/server_side/scripts/server_processing_butterfly.php",
+                "sDom":'lfrtip',
+    "lengthMenu": [[25, 50, -1], [25, 50, 100]],
+     scrollY:        '50vh',
+        scrollCollapse: true,
+        paging:         true,
+    
+    "columns": [ 
+      {
+        
+        "class": 'details-control',
+        "orderable":      false,
+        "data": null,
+        "defaultContent": ""
+      },
+      { "class":"fontitalic" },
+      { "class":"fontitalic" },
+      {  },
+      {  }
+    ],
+    "createdRow": function ( row, data, index ) {
+      if ( data[0]==null ) {
+      $('td', row).eq(0).addClass('details'); 
+      }
+      
+    },
+    
+    
+    "order": [[1, 'asc']]
+  } );
+  
+  var detailRows = [];
+
+  $('#example tbody').on( 'click', 'tr td.details-control', function () {
+    var tr = $(this).closest('tr');
+    var row = dt.row( tr );
+    var test = dt.row( tr ).data();
+    
+    var idx = $.inArray( tr.attr('id'), detailRows );
+               
+    if ( test[0]==null) {
+      
+    }
+    else {
+        window.location.href = 'assets/static/'+test[0]+'/images.html';
+    }
+  } );
+  
+  
+
+  
+} );
+
+  </script>
+  </head>
+  <body>
+    <!-- Splash Screen Begin -->
+    <div id="jSplash" class="preloader">
+      <div id="loader">
+        <div class="shape-wrap">
+          <div class="shape">
+            <h2>Loading</h2>
+          </div>
+        </div>
+        <div id="fadingBarsG">
+          <div id="fadingBarsG_1" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_2" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_3" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_4" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_5" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_6" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_7" class="fadingBarsG">
+          </div>
+          <div id="fadingBarsG_8" class="fadingBarsG">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Splash Screen End -->
+
+     <!-- Navbar Begin -->
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-page" role="navigation" id="home-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="assets/images/QE-logo2.png" alt="Jukebox Logo"></a>
+        </div>
+        <!-- /.navbar-header -->
+        
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class"active"><a href="index.html">Home</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="event-list.html">
+                Event <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu animated fadeIn" role="menu">
+                <li><a href="event-list.html">Event List</a></li>
+                <li><a href="event-single.html">Event Single</a></li>
+              </ul>
+            </li>
+            <!-- /.dropdown -->
+            
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="album-3columns.html">
+                Database <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu animated fadeIn" role="menu">
+                <li><a href="album-3columns.html">Specimen Database</a></li>
+                <li><a href="album-3columns-filter.html">Butterfly Database</a></li>
+                <li><a href="album-4columns.html">Species Database</a></li>
+                <li><a href="album-4columns-filter.html">Collection Database</a></li>
+                
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="brand"><img src="assets/images/QE-logo2.png" alt="Jukebox Logo"></a>
+            </li>
+            <li><a href="staff.html">staff</a></li>
+            
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="about.html">
+                QE Wonders <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu animated fadeIn" role="menu">
+                <li><a href="articles.php">QE Articles</a></li>
+                <li><a href="">QE News</a></li>
+                <li><a href="poster.php">QE Poster</a></li>
+                <li><a href="project.php">QE Project</a></li>
+                <li><a href="project.php">QE Gallery</a></li>
+              </ul>
+            </li>
+            <!-- /.dropdown -->
+            
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="about.html">
+                More <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu animated fadeIn" role="menu">
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="links.php">Links</a></li>
+              </ul>
+            </li>
+            <!-- /.dropdown -->
+            
+          </ul>
+          <!-- /.nav -->
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+      <!--/.container -->
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Banner Title Begin -->
+    <section class="banner-title blog-banner">
+      <div class="overlay"></div>
+      <div class="container content">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="main-title">
+            <h1>             
+              Butterflies           
+            </h1>
+            <div class="text-wrap">
+              <div class="text">Butterflies - Butterflies List in QSBG</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!--/.banner -->
+    <!-- Banner Title End -->
+    
+    <!-- Blog Wrap Begin -->
+     <section class="blog-wrap">
+      <div class="container">
+        <div class="col-md-11 post-section">
+           <div class="post-single post-content">
+      
+      <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+          <tr >
+            <th>Images</th>
+            <th class="fontnormal">Genus</th>
+            <th class="fontnormal">Species</th>
+            <th>Thai name</th>                                                
+            <th>Family</th>                                             
+          
+          </tr>
+        </thead>
+
+        <tfoot>
+          <tr>
+            <th>Images</th>
+            
+            <th class="fontnormal">Genus</th>
+            <th class="fontnormal">Species</th>
+            <th>Thai name</th>                                                
+            <th>Family</th>         
+            
+            
+          </tr>
+        </tfoot>
+      </table>
+           </div>
+        </div>
+      </div>
+      
+      
+    </section>
+  
+
+  
+    <!-- Blog Wrap End -->
+
+    
+    <!-- Footer End-->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="col-md-4 col-sm-4 footer-row">
+          <div class="title"><h4>About Queen Sirikit Entomoloy Section </h4>
+          </div>
+          <div class="content">
+            <div class="text">
+              <p>QSBG Entomology Section (QE) is the one section of research and development in Queen Sirikit Botanic Garden</p>
+              <p>In more recent times QSBG has become more active in entomological research in Thailand aimed at developing taxonomic and biodiversity inventory skills in Thailand.</p>
+            </div>
+            <!-- /.content -->
+          </div>
+          <!-- /.text -->
+          <div class="title"><h4>Keep Connected</h4>
+          </div>
+          <p>Connect With Our Social Media.</p>
+          <div class="content">
+            <div class="socmed-wrap">
+              <a href="https://www.facebook.com/qsbge"><i class="fa fa-facebook"></i></a>
+            </div>
+            <!-- /.socmed-wrap -->
+          </div>
+          <!-- /.content -->
+        </div>
+        <!-- /.footer-row -->
+        <div class="col-md-4 col-sm-4 footer-row">
+          <div class="title"><h4>Upcoming Events</h4>
+          </div>
+          <div class="content">
+            <ul class="upcoming-event">
+              <li>
+                <!--div class="col-md-1 col-sm-1 col-xs-1 date"><span class="number">20</span><br />Oct</div-->
+                <div class="col-md-10 col-sm-10 col-xs-10 name">Comming Soon!! - upcomming event will be available later<br /> <a href="#" class="buy">More Details</a></div>
+              </li>
+              
+            </ul>
+            <!-- /.upcoming-event -->
+          </div>
+          <!-- /.content -->
+        </div>
+        <!-- /.footer-row -->
+        <div class="col-md-4 col-sm-4 footer-row">
+          <div class="title"><h4>Contact Us</h4>
+          </div>
+          <div class="content">
+            <div class="content footer-images">
+              <div class="image"><img src="assets/images/QSBG_logo.png" alt="footer image"></div>
+              <div class="image"><img src="assets/images/ENTO-logo.png" alt="footer image"></div>
+            </div>
+          </div>
+          <!-- /.content -->
+          
+          <div class="content">
+            <div class="tag-wrap">
+              <div class="text">
+                <span class="sectiontext">
+                  Entomology, Queen Sirikit Botanic Garden
+                </span>
+                <p>
+                  <span class="bold">
+                    <span class="shape"><i class="fa fa-map-marker"></i></span> Address :
+                  </span>
+                  P.O. Box 7 Mae Rim, Chiang Mai 50180
+                  <br>
+                  <span class="bold">
+                    <span class="shape"><i class="fa fa-envelope-o"></i></span> Email :
+                  </span>
+                  QEentomology@gmail.com
+                  <br>
+                  <span class="bold">
+                    <span class="shape"><i class="fa fa-phone"></i></span> Phone :
+                  </span>
+                  +66-(053)-841-000 EXT. 4002
+                </p>
+                
+              </div>
+            </div>
+            <!-- /.tag-wrap -->
+          </div>
+          <!-- /.content -->
+        </div>
+        <!-- /.foooter-row -->
+      </div>
+      <!-- /.container -->
+    </footer>
+    <!--// Page Content //-->
+    <section class="copyright">
+      <div class="container">
+        <p>&copy; <a class="orange" href="http://www.qsbg.org">Queen Sirikit Botanic Garden 2019.</a> All Right Reserved</p>
+      </div>
+    </section>
+    
+    <!-- Javascript Plugins -->
+    <script src="assets/javascripts/bootstrap.min.js"></script>
+    <script src="assets/javascripts/jplayer/jquery.jplayer.min.js"></script>
+    <script src="assets/javascripts/jplayer/add-on/jplayer.playlist.min.js"></script>
+    <script src="assets/javascripts/wow/wow.min.js"></script>
+    <script src="assets/javascripts/modernizr.js"></script>
+    <script src="assets/javascripts/jquery.hoverdir.js"></script>
+    <script src="assets/javascripts/jquery.easing.js"></script>
+    <script src="assets/javascripts/sly.min.js"></script>
+    <script src="assets/javascripts/jquery.parallax-1.1.3.js"></script>
+    <script src="assets/javascripts/owl.carousel/owl.carousel.min.js"></script>
+    <script src="assets/javascripts/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="assets/javascripts/isotope.pkgd.min.js"></script>
+    <script src="assets/javascripts/masonry.pkgd.min.js"></script>
+    
+
+
+ 
+    <!-- Jukebox javascript customs and settings -->
+    <script src="assets/javascripts/custom.js"></script>
+    
+   
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<h3>This is Contact</h3>
+                    <ul>
+                    <li ng-repeat="contact in contacts">
+                    <a ui-sref="app.form.gridform_printsummary_test.detail({ id : contact.name})">{{contact.name}}
+                    </li>
+                    </ul>
+                    <div ui-view></div>
