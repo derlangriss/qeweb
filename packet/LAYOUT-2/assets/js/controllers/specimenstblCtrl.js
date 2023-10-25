@@ -4,9 +4,9 @@
  * AngularJS Directive  
  */
 app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams", "$state", "SweetAlert", "info", "ngNotify", "ServicePDF", "$aside",
-    function($scope, $http, $timeout, $stateParams, $state, SweetAlert, info, ngNotify, ServicePDF, $aside) {
+    function ($scope, $http, $timeout, $stateParams, $state, SweetAlert, info, ngNotify, ServicePDF, $aside) {
         function getIfNotSet(value, newValue, overwriteNull) {
-            if (typeof(value) === 'undefined' && overwriteNull === true) {
+            if (typeof (value) === 'undefined' && overwriteNull === true) {
                 return newValue;
             } else if (value === null && overwriteNull === true) {
                 return newValue;
@@ -20,7 +20,7 @@ app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams
         }
         $.fn.dataTable.ext.buttons.transfertomuseum = {
             className: 'buttons-alert',
-            action: function(e, dt, node, config) {}
+            action: function (e, dt, node, config) { }
         };
         var dataarrspecimenstbl = [];
         var tableSpecimens = $('#SpecimensTbl').DataTable({
@@ -30,22 +30,22 @@ app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams
                 "url": "assets/scripts/server_processing_specimens.php",
                 "type": "POST"
             },
-            "createdRow": function(row, data, index) {
+            "createdRow": function (row, data, index) {
                 if (data[1] == 'Unknown') {
                     $(row).addClass('highlight');
                 }
             },
-            "rowCallback": function(row, data) {
+            "rowCallback": function (row, data) {
                 var rowid = data.DT_RowId;
                 var rowidres = rowid.substring(4);
                 if ($.inArray(rowidres, dataarrspecimenstbl) !== -1) {
                     $(row).addClass('selected');
                 }
             },
-            stateSaveCallback: function(settings, data) {
+            stateSaveCallback: function (settings, data) {
                 localStorage.setItem('DataTables_' + settings.sInstance, JSON.stringify(data))
             },
-            stateLoadCallback: function(settings) {
+            stateLoadCallback: function (settings) {
                 return JSON.parse(localStorage.getItem('DataTables_' + settings.sInstance))
             },
             "scrollCollapse": true,
@@ -57,7 +57,7 @@ app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams
             "renderer": 'bootstrap',
             "buttons": [{}, {
                 text: '<i id="checkitem" class="fa fa-square-o"></i>',
-                action: function(row) {
+                action: function (row) {
                     $(row).removeClass('selected');
                     if (dataarrspecimenstbl.length > 0) {
                         tableSpecimens.rows().deselect();
@@ -82,7 +82,7 @@ app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams
                 enabled: true
             }, {
                 text: '<i class="fa fa-repeat"></i>',
-                action: function(row) {
+                action: function (row) {
                     tableSpecimens.draw(false)
                 },
                 className: 'btn btn-wide-40 btn-transparent',
@@ -125,28 +125,32 @@ app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams
                 "orderable": true,
                 "visible": false
             }, {
+                // collection code
                 "data": "6",
                 "width": "15%",
                 "orderable": true,
                 "visible": false
             }, {
+                // collection year
                 "data": "7",
                 "width": "15%",
                 "orderable": true,
                 "visible": false
             }, {
+                // collection number
                 "data": "8",
                 "width": "15%",
                 "orderable": true,
                 "visible": false
             }, {
+                // spec number
                 "data": "9",
                 "width": "15%",
                 "orderable": true,
                 "visible": false
             }],
             "columnDefs": [{
-                render: function(data, type, full, meta) {
+                render: function (data, type, full, meta) {
                     return '<a ' + 'class="details-control no-padding margin-right-5 btn btn-transparent btn-xs"' + '>' + '<i class="' + 'fa fa-eye' + '"></i>' + '</a>' + '<a href="' + "#/app/form/collection_data/" + full[9] + '"' + 'class="no-padding margin-right-5 btn btn-transparent btn-xs"' + '>' + '<i class="' + 'fa fa-pencil' + '"></i>' + '</a>' + '<a ' + 'class="delete btn-transparent no-padding  btn-xs"' + '>' + '<i class="' + 'fa fa-trash fa fa-white' + '"></i>' + '</a>';
                 },
                 targets: 11
@@ -158,22 +162,22 @@ app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams
                 [9, 'asc']
             ]
         });
-        $('#SpecimensTbl tbody').on('click', '.details-control', function() {
-            $scope.openAside = function(position, specimensid) {
+        $('#SpecimensTbl tbody').on('click', '.details-control', function () {
+            $scope.openAside = function (position, specimensid) {
                 $aside.open({
                     templateUrl: 'assets/views/aside_spec_view.html',
                     placement: position,
                     size: 'md',
                     backdrop: true,
-                    controller: function($scope, $uibModalInstance) {
+                    controller: function ($scope, $uibModalInstance) {
                         $scope.tab = 1;
-                        $scope.setTab = function(newTab) {
+                        $scope.setTab = function (newTab) {
                             var Boxidmodel = getIfNotSet($scope.BoxShowDetailsBoxid, 0, true);
-                            if (newTab == 2) {}
-                            if (newTab == 3) {}
+                            if (newTab == 2) { }
+                            if (newTab == 3) { }
                             $scope.tab = newTab;
                         };
-                        $scope.isSet = function(tabNum) {
+                        $scope.isSet = function (tabNum) {
                             return $scope.tab === tabNum;
                         };
                         var data = $.param({
@@ -186,7 +190,7 @@ app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams
                             headers: {
                                 'Content-Type': 'application/x-www-form-urlencoded'
                             },
-                        }).success(function(response) {
+                        }).success(function (response) {
                             console.log(response)
                             $scope.specimens_id = response[0].specimens_id;
                             $scope.specimens_full_number = response[0].specimens_full_number;
@@ -232,5 +236,41 @@ app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams
             var tablespecimensid = tablespecimensdata[9]
             $scope.openAside('right', tablespecimensid)
         });
+        $scope.filterGlobal = function () {
+            $scope.IsVisible = $scope.IsVisible = true;
+            $('#SpecimensTbl').DataTable().search($scope.filterGlobaltext).draw();
+        }
+        $scope.searchmodel = function (i) {
+            if (i == 2) {
+                var ii = $scope.torder;
+                $('#SpecimensTbl').DataTable().column(i).search(ii).draw();
+            }
+            if (i == 3) {
+                var ii = $scope.family;
+                $('#SpecimensTbl').DataTable().column(i).search(ii).draw();
+            }
+            if (i == 6) {
+                var ii = $scope.collcode;
+                $('#SpecimensTbl').DataTable().column(i).search(ii).draw();
+            }
+            if (i == 7) {
+                var ii = $scope.collyear;
+                $('#SpecimensTbl').DataTable().column(i).search(ii).draw();
+            }
+            if (i == 8) {
+                var ii = $scope.collnumber;
+                $('#SpecimensTbl').DataTable().column(i).search(ii).draw();
+            }
+            if (i == 9) {
+                var ii = $scope.specnumber;
+                $('#SpecimensTbl').DataTable().column(i).search(ii).draw();
+            }
+        }
+        $scope.HideShow = function () {
+            $scope.filterGlobal();
+            $scope.IsVisible = false;
+            $scope.filterGlobaltext = '';
+            $('#SpecimensTbl').DataTable().search('').draw();
+        }
     }
 ]);
