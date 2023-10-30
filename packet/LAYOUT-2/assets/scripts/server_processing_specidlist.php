@@ -73,7 +73,7 @@ $sql_details = array(
     'host' => 'localhost',
 );
 
-$whereadd = "specimens_trash = 1 AND container_type = 0";
+$whereadd = "specimens_trash = 1 AND container_type = 0 ";
 
 if (isset($_POST) && count($_POST)) {
     $report_month = $_POST['treport_month'];

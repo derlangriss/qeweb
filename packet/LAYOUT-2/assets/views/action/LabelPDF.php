@@ -300,7 +300,7 @@ while ($obResult = pg_fetch_array($objQuery)) {
     }
 
 }
-//echo json_encode($resultArray01);
+
 $labeltype = $_GET['labeltype'] . ".tex";
 
 try {

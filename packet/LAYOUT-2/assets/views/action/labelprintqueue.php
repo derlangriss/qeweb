@@ -1,13 +1,16 @@
 <?php
 error_reporting(0);
 require 'connectdb.php';
+
 if (isset($_POST) && count($_POST)) {
 
     $action            = $_POST['action'];
     $label_ids         = $_POST["tspecimens_ids"];
     $arr_decode_specid = json_decode($label_ids, true);
     $labeltype         = $_POST["tlabel_type"];
-    $lidarr            = array();
+    $lidarr            = array(); 
+
+
 
     if ($action == "save") {
         $countspecid = count($arr_decode_specid);
@@ -120,7 +123,9 @@ if (isset($_POST) && count($_POST)) {
     } else if ($action == "saveall") {
 
         $monthlabel = $_POST['tmonth'];
-        $yearlabel  = $_POST["tyear"];
+        $yearlabel  = $_POST["tyear"]; 
+
+      
 
         if ($yearlabel && $monthlabel !== 0) {
             $print_status      = "TRUE";
@@ -128,9 +133,11 @@ if (isset($_POST) && count($_POST)) {
             $i                 = 0;
 
             $strSQLChecklabel = "SELECT * FROM  specimens ";
-            $strSQLChecklabel .= "WHERE print_status = 'TRUE'";
-            $strSQLChecklabel .= "AND EXTRACT(MONTH from sreport_date) =" . $monthlabel . " AND EXTRACT(YEAR from sreport_date) =" . $yearlabel;
-            $strSQLChecklabel .= "AND specimens_trash = 1";
+            $strSQLChecklabel .= "WHERE print_status = 'TRUE' ";
+            $strSQLChecklabel .= "AND EXTRACT(MONTH from sreport_date) =" . $monthlabel . " AND EXTRACT(YEAR from sreport_date) =" . $yearlabel." ";
+            $strSQLChecklabel .= "AND specimens_trash = 1"; 
+
+    
             $objQueryChecklabel = pg_query($strSQLChecklabel);
             $intRowsChecklabel  = pg_num_rows($objQueryChecklabel);
 

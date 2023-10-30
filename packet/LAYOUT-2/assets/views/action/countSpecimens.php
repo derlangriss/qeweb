@@ -100,7 +100,7 @@ if (isset($_GET) && count($_GET)) {
     $strSQL04 .= "left join family on genus.family_family_id = family.family_id ";
     $strSQL04 .= "left join torder on family.torder_torder_id = torder.torder_id ";
     $strSQL04 .= "where specimens_trash = 1 AND EXTRACT(MONTH FROM sreport_date) = " . $month . " AND EXTRACT(YEAR FROM sreport_date) = " . $year . " ";
-    $strSQL04 .= "AND container_type = 0";
+    $strSQL04 .= "AND container_type = 0 ";
     $strSQL04 .= "AND torder_id > 0)+";
     $strSQL04 .= "(SELECT count(specimens_id) FROM specimens ";
     $strSQL04 .= "left join species on specimens.species_species_id  = species.species_id ";
