@@ -147,7 +147,7 @@ require_once('./assets/include/function.php');
                                 <figure><a href="assets/databasewapp/index.html#/app/table/specimensTbl"><img src="assets/images/dbisn03.png" alt=""></a></figure>
                                 <div class="kode-blog-info">
                                     <p>Specimens data is the details of the specimens data from collection of specimens that qsbg collected from many project </p>
-                                    <a href="./databasewapp/index.html#/app/table/specimensTbl" class="kode-blog-btn">Read More</a>
+                                    <a href="assets/databasewapp/index.html#/app/table/specimensTbl" class="kode-blog-btn">Read More</a>
                                     <div class="clearfix"></div>
                                 </div>
                             </li>

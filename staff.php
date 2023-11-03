@@ -80,7 +80,7 @@ require_once('./assets/include/function.php');
                 <p>Get to know FirstPerson personally: </p>
             </div>
             <div class="personnel-wrap">
-                <div class="col-md-6 col-sm-6 personnel wow animated fadeIn" data-wow-delay="0.2s">
+                <!-- <div class="col-md-6 col-sm-6 personnel wow animated fadeIn" data-wow-delay="0.2s">
                     <div class="col-md-5 photo-wrap">
                         <div class="shape photo item" style="background: url(assets/images/QEstaff/songsri_s.jpg);">
                             <a class="overlay fancybox" href="staff_single.php?id=0" data-fancybox-group="personnel">
@@ -88,7 +88,7 @@ require_once('./assets/include/function.php');
                                     Songsri Govittavavong
                                 </div>
                             </a>
-                        </div><!-- /.photo -->
+                        </div> 
                     </div>
                     <div class="col-md-7 description">
                         <div class="title">
@@ -97,8 +97,8 @@ require_once('./assets/include/function.php');
                         <div class="position">Supervisor</div>
                         <div class="text">songsrinoy99@gmail.com </div>
                         <div class="text">Ph: +66-(053)-841000 EXT.4075</div>
-                    </div><!-- /.description -->
-                </div><!-- /.personnel -->
+                    </div> 
+                </div>  -->
                 <div class="col-md-6 col-sm-6 personnel wow animated fadeIn" data-wow-delay="0.6s">
                     <div class="col-md-5 photo-wrap">
                         <div class="shape photo item" style="background: url(assets/images/QEstaff/srisuka_s.jpg);">
