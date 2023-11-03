@@ -67,7 +67,7 @@ while ($row = pg_fetch_array($objQuery)) {
                             echo "<br>";
 
                             $strSQL04 = "INSERT INTO specimensbox ";
-                            $strSQL04 .= "(spec_box,subcabinet_subcabinet_id,subcabinet_code)";
+                            $strSQL04 .= "(spec_box,subcabinet_subcabinet_id,subcabinet_code) ";
                             $strSQL04 .= "VALUES ";
                             $strSQL04 .= "('" . $drawername . "','" . $subcabinet_id . "','" . $drawer . "')";
                             $Result04 = pg_query($strSQL04);
@@ -107,7 +107,7 @@ while ($row = pg_fetch_array($objQuery)) {
         } else {
 
             $strSQL04 = "INSERT INTO cabinet ";
-            $strSQL04 .= "(cabinet,rcabinet_rcabinet_id,cabinet_code)";
+            $strSQL04 .= "(cabinet,rcabinet_rcabinet_id,cabinet_code) ";
             $strSQL04 .= "VALUES ";
             $strSQL04 .= "('" . $mixlowerchar . "','" . $rcabinet_id . "','" . $count . "')";
             $Result04 = pg_query($strSQL04);

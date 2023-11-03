@@ -24,7 +24,7 @@ if (isset($_GET) && count($_GET)) {
         if ($countUserExist !== 0) {
 
             $strSQLcheckBox = "SELECT * FROM userlockbox  ";
-            $strSQLcheckBox .= "WHERE EXTRACT(MONTH FROM lockbox_mreport) = " . $month . " AND EXTRACT(YEAR FROM lockbox_mreport) = " . $year;
+            $strSQLcheckBox .= "WHERE EXTRACT(MONTH FROM lockbox_mreport) = " . $month . " AND EXTRACT(YEAR FROM lockbox_mreport) = " . $year." ";
             $strSQLcheckBox .= "ORDER BY lockbox_boxid";
 
             $objQuerycheckBox = pg_query($strSQLcheckBox);
@@ -33,7 +33,7 @@ if (isset($_GET) && count($_GET)) {
             if ($CountCheckBox === 0) {
                 $initboxid          = 1;
                 $strSQLinsAndUpdate = "INSERT INTO userlockbox ";
-                $strSQLinsAndUpdate .= "(lockbox_boxid,lockbox_mreport)";
+                $strSQLinsAndUpdate .= "(lockbox_boxid,lockbox_mreport) ";
                 $strSQLinsAndUpdate .= "VALUES ";
                 $strSQLinsAndUpdate .= "('";
                 $strSQLinsAndUpdate .= $initboxid;
@@ -71,7 +71,7 @@ if (isset($_GET) && count($_GET)) {
                     if ($CountCheckBox01 === 0) {
 
                         $strSQLinsAndUpdate = "INSERT INTO userlockbox ";
-                        $strSQLinsAndUpdate .= "(lockbox_boxid,lockbox_mreport)";
+                        $strSQLinsAndUpdate .= "(lockbox_boxid,lockbox_mreport) ";
                         $strSQLinsAndUpdate .= "VALUES ";
                         $strSQLinsAndUpdate .= "('";
                         $strSQLinsAndUpdate .= $boxplus;
