@@ -3,7 +3,6 @@ if (!ini_get('date.timezone')) {
     date_default_timezone_set('GMT');
 }
 require 'connectdb.php'; 
-require 'collnoeditlib.php';
 
 if (isset($_GET['specid'])) {
     $strSQL = "SELECT * FROM specimens
