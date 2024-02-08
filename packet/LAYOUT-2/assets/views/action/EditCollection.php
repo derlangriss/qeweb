@@ -7,7 +7,8 @@ require 'collnoeditlib.php';
 
 $resultArray = array();
 
-if (isset($_GET['collid'])) {
+if (isset($_GET['collid'])) {  
+
     $strSQL = "SELECT * FROM collection as coll
 left join method on coll.method_method_id=method.method_id
 left join tambon on coll.tambon_tambon_id=tambon.tambon_id

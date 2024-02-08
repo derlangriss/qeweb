@@ -85,7 +85,7 @@ if (isset($_POST) && count($_POST)) {
         $month = $report_month;
         $year  = $report_year;
 
-        $whereadd .= "AND EXTRACT(MONTH FROM sreport_date) = " . $month . " AND EXTRACT(YEAR FROM sreport_date) = " . $year;
+        $whereadd .= "AND EXTRACT(MONTH FROM sreport_date) = " . $month . " AND EXTRACT(YEAR FROM sreport_date) = " . $year." ";
     }
 }
 

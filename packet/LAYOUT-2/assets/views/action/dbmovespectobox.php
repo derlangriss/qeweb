@@ -57,7 +57,7 @@ if (isset($_POST) && count($_POST)) {
                 $strSQLCountSpecimensInbox .= "SELECT COUNT(specimens_id)+1 AS allcount from specimens ";
                 $strSQLCountSpecimensInbox .= "WHERE container_type = '" . $tcontainer_id . "' ";
                 $strSQLCountSpecimensInbox .= "AND container_type = '" . $tcontainer_type . "' ";
-                $strSQLCountSpecimensInbox .= "AND specimens_trash = " . $specimens_trash_n;
+                $strSQLCountSpecimensInbox .= "AND specimens_trash = " . $specimens_trash_n."  ";
                 $strSQLCountSpecimensInbox .= "AND EXTRACT(MONTH FROM sreport_date) = " . $treport_month . " AND EXTRACT(YEAR FROM sreport_date) = " . $treport_year . " ";
                 $strSQLCountSpecimensInbox .= " ), selectspecimensfullid as ( ";
                 $strSQLCountSpecimensInbox .= "SELECT specimens_full_number from specimens ";
@@ -85,7 +85,7 @@ if (isset($_POST) && count($_POST)) {
                 $strSQLCountSpecimensInbox .= "SELECT COUNT(specimens_id)+1 AS allcount from specimens ";
                 $strSQLCountSpecimensInbox .= "WHERE container_type = '" . $tcontainer_id . "' ";
                 $strSQLCountSpecimensInbox .= "AND container_type = '" . $tcontainer_type . "' ";
-                $strSQLCountSpecimensInbox .= "AND specimens_trash = " . $specimens_trash_n;
+                $strSQLCountSpecimensInbox .= "AND specimens_trash = " . $specimens_trash_n."  ";
                 $strSQLCountSpecimensInbox .= "AND EXTRACT(MONTH FROM sreport_date) = " . $treport_month . " AND EXTRACT(YEAR FROM sreport_date) = " . $treport_year . " ";
                 $strSQLCountSpecimensInbox .= " ), selectspecimensfullid as ( ";
                 $strSQLCountSpecimensInbox .= "SELECT specimens_full_number from specimens ";
@@ -115,7 +115,7 @@ if (isset($_POST) && count($_POST)) {
                 $strSQLCountSpecimensInbox .= "SELECT COUNT(specimens_id)+1 AS allcount from specimens ";
                 $strSQLCountSpecimensInbox .= "WHERE container_type = '" . $tcontainer_id . "' ";
                 $strSQLCountSpecimensInbox .= "AND container_type = '" . $tcontainer_type . "' ";
-                $strSQLCountSpecimensInbox .= "AND specimens_trash = " . $specimens_trash_n;
+                $strSQLCountSpecimensInbox .= "AND specimens_trash = " . $specimens_trash_n."  ";
                 $strSQLCountSpecimensInbox .= "AND EXTRACT(MONTH FROM sreport_date) = " . $treport_month . " AND EXTRACT(YEAR FROM sreport_date) = " . $treport_year . " ";
                 $strSQLCountSpecimensInbox .= " ), selectspecimensfullid as ( ";
                 $strSQLCountSpecimensInbox .= "SELECT specimens_full_number from specimens ";
@@ -145,7 +145,7 @@ if (isset($_POST) && count($_POST)) {
                 $strSQLCountSpecimensInbox .= "SELECT COUNT(specimens_id)+1 AS allcount from specimens ";
                 $strSQLCountSpecimensInbox .= "WHERE container_type = '" . $tcontainer_id . "' ";
                 $strSQLCountSpecimensInbox .= "AND container_type = '" . $tcontainer_type . "' ";
-                $strSQLCountSpecimensInbox .= "AND specimens_trash = " . $specimens_trash_n;
+                $strSQLCountSpecimensInbox .= "AND specimens_trash = " . $specimens_trash_n."  ";
                 $strSQLCountSpecimensInbox .= "AND EXTRACT(MONTH FROM sreport_date) = " . $treport_month . " AND EXTRACT(YEAR FROM sreport_date) = " . $treport_year . " ";
                 $strSQLCountSpecimensInbox .= " ), selectspecimensfullid as ( ";
                 $strSQLCountSpecimensInbox .= "SELECT specimens_full_number from specimens ";

@@ -81,7 +81,7 @@ if (isset($_POST) && count($_POST)) {
     $specbox_id   = $_POST['tspecbox_id'];
 
     if ($specbox_id === '0' ) {
-        $whereadd .= "AND EXTRACT(MONTH FROM sreport_date) = " . $report_month . " AND EXTRACT(YEAR FROM sreport_date) = " . $report_year;
+        $whereadd .= "AND EXTRACT(MONTH FROM sreport_date) = " . $report_month . " AND EXTRACT(YEAR FROM sreport_date) = " . $report_year." ";
     } else {
         $month = $report_month;
         $year  = $report_year;

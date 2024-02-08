@@ -151,7 +151,7 @@ app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams
             }],
             "columnDefs": [{
                 render: function (data, type, full, meta) {
-                    return '<a ' + 'class="details-control no-padding margin-right-5 btn btn-transparent btn-xs"' + '>' + '<i class="' + 'fa fa-eye' + '"></i>' + '</a>' + '<a href="' + "#/app/form/collection_data/" + full[9] + '"' + 'class="no-padding margin-right-5 btn btn-transparent btn-xs"' + '>' + '<i class="' + 'fa fa-pencil' + '"></i>' + '</a>' + '<a ' + 'class="delete btn-transparent no-padding  btn-xs"' + '>' + '<i class="' + 'fa fa-trash fa fa-white' + '"></i>' + '</a>';
+                    return '<a ' + 'class="details-control no-padding margin-right-5 btn btn-transparent btn-xs"' + '>' + '<i class="' + 'fa fa-eye' + '"></i>' + '</a>' + '<a ' + 'class="edit-control no-padding margin-right-5 btn btn-transparent btn-xs"' + '>' + '<i class="' + 'fa fa-pencil' + '"></i>' + '</a>' + '<a ' + 'class="delete btn-transparent no-padding  btn-xs"' + '>' + '<i class="' + 'fa fa-trash fa fa-white' + '"></i>' + '</a>';
                 },
                 targets: 11
             }],
@@ -272,5 +272,9 @@ app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams
             $scope.filterGlobaltext = '';
             $('#SpecimensTbl').DataTable().search('').draw();
         }
+
+        $('#SpecimensTbl tbody').on('click', '.edit-control', function () {
+             console.log('sdff')
+        });
     }
 ]);
