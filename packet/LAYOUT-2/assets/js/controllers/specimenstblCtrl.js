@@ -274,7 +274,15 @@ app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams
         }
 
         $('#SpecimensTbl tbody').on('click', '.edit-control', function () {
-             console.log('sdff')
+            var tr = $(this).closest('tr');
+            var row = tableSpecimens.row(tr);
+            var tablespecimensdata = row.data() 
+            var tablespecimensid = tablespecimensdata[9]  
+
+            $state.go("app.form.specimens_data",{
+                specid:tablespecimensid
+            });
+          
         });
     }
 ]);
