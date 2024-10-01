@@ -248,7 +248,7 @@ app.controller("FormlabelmanagementCtrl", ["$scope", "$http", "$timeout", "$stat
                     a.href = fileURL;
                     a.download = fileName;
                     a.click();
-                    $scope.cleardata('specimens');
+                    // $scope.cleardata('specimens');
                     $scope.totallabelcollection = 0;
                     $scope.papersizecollection = 0;
                     $scope.getcollection = [];
