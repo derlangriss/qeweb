@@ -36,6 +36,12 @@ app.controller("DurableMainCtrl", ["$scope", "$uibModal", "$log", "$http", "$tim
                 $scope.PrintDurable("NormalDuReport")
             }
         };
+        $.fn.dataTable.ext.buttons.downloadtags = {
+            className: 'buttons-alert',
+            action: function(e, dt, node, config) {
+                $scope.PrintDurable("DUTABLE_TAGS")
+            }
+        };
         $.fn.dataTable.ext.buttons.downloadabnormal = {
             className: 'buttons-alert',
             action: function(e, dt, node, config) {
@@ -218,6 +224,11 @@ app.controller("DurableNormalCtrl", ["$scope", "$uibModal", "$log", "$http", "$t
             }, {
                 extend: 'downloadnormal',
                 text: '<i class="fa fa-download"></i>',
+                enabled: true,
+                className: 'btn btn-wide-40 btn-transparent',
+            }, {
+                extend: 'downloadtags',
+                text: '<i class="fa fa-tags"></i>',
                 enabled: true,
                 className: 'btn btn-wide-40 btn-transparent',
             }, {

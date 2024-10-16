@@ -8,7 +8,6 @@
 \usepackage{multirow}
 \usepackage{hyperref}
 
-\usepackage{amssymb}
 
 \newcommand*{\plogo}{\fbox{$\mathcal{PL}$}} % Generic dummy publisher logo
 
@@ -55,7 +54,7 @@ BoldItalicFont={TH SarabunPSK Bold Italic},
 \usepackage{graphicx}
 \usepackage{setspace}
 
-\graphicspath{{F:/xampp/htdocs/Qedatamanagement/packet/LAYOUT-2/assets/duimage/}}
+\graphicspath{{I:/xampp/htdocs/Qedatamanagement/packet/LAYOUT-2/assets/duimage/}}
 \definecolor{tableShade}{gray}{0.9}
 \setlength{\parindent}{0pt}
 \usepackage{fancyhdr}
@@ -69,9 +68,9 @@ BoldItalicFont={TH SarabunPSK Bold Italic},
   \\
   \textbf{ประเภท :} 
 	\begin{Form}
-	\hfill{} \makebox[5pt][l]{\Large $\square$}\raisebox{.8ex}{\hspace{0.5em}}  ครุภัณฑ์
-	\hfill{} \makebox[5pt][l]{\Large $\square$}\raisebox{.8ex}{\hspace{0.5em}}  วัสดุคงทน
-	\hfill{} \makebox[5pt][l]{\Large $\square$}\raisebox{.8ex}{\hspace{0.5em}}  สิ่งก่อสร้าง
+	\hfill{} \mbox{\CheckBox[width=11pt,height=11pt,bordercolor=0 0 0,name=first]{\ignorespaces}}  ครุภัณฑ์
+	\hfill{} \mbox{\CheckBox[width=11pt,height=11pt,bordercolor=0 0 0,name=second]{\ignorespaces}}  วัสดุคงทน
+	\hfill{}  \mbox{\CheckBox[width=11pt,height=11pt,bordercolor=0 0 0,name=third]{\ignorespaces}}  สิ่งก่อสร้าง
 	\end{Form}
 \end{tabular}}
 \fancyhead[R]{\begin{tabular}[t]{@{}>{\raggedright}p{5cm}@{}}
@@ -130,13 +129,13 @@ BoldItalicFont={TH SarabunPSK Bold Italic},
   % */  " " . LatexTemplate::escape($reportitem['owner']) . " & ".    /*
   % */  " " . LatexTemplate::escape($reportitem['response_name']) . " & ".    /*
     % */  " " . LatexTemplate::escape($reportitem['explace']) . " & ";  ?>  
-    \vspace{-3.2mm}
+    \vspace{0mm}
   %<?php                                    /*  
 % */  echo "\n" . "\\renewcommand{\\pictureref}{" . LatexTemplate::escape($reportitem['pic_name']) . "}\n"; ?>
 \begin{minipage}{0.15\textwidth}
 \includegraphics[width=0.5\textwidth,height=0.5\textwidth]{\pictureref} 
 \end{minipage}
-\vspace{-1.5mm}
+\vspace{-1.6mm}
 \hspace*{-25cm}% 
 &
  %<?php                                    /*
