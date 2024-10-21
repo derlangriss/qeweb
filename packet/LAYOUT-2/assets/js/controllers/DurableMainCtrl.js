@@ -265,7 +265,7 @@ app.controller("DurableNormalCtrl", ["$scope", "$uibModal", "$log", "$http", "$t
                 "visible": false
             }, {
                 "data": "4",
-                "visible": false
+                "visible": true
             }, {
                 "data": "5",
                 "width": "15%",
