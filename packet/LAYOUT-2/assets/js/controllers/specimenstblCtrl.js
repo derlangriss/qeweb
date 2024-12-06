@@ -109,15 +109,23 @@ app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams
                 "orderable": true
             }, {
                 "data": "2",
-                "width": "15%",
+                "width": "12%",
                 "orderable": true
             }, {
                 "data": "3",
-                "width": "20%",
+                "width": "13%",
                 "orderable": true
             }, {
                 "data": "4",
-                "width": "30%",
+                "width": "15%",
+                "orderable": true
+            }, {
+                "data": "10",
+                "width": "15%",
+                "orderable": true
+            }, {
+                "data": "10",
+                "width": "10%",
                 "orderable": true
             }, {
                 "data": "5",
@@ -153,7 +161,12 @@ app.controller("SpecimensTblCtrl", ["$scope", "$http", "$timeout", "$stateParams
                 render: function (data, type, full, meta) {
                     return '<a ' + 'class="details-control no-padding margin-right-5 btn btn-transparent btn-xs"' + '>' + '<i class="' + 'fa fa-eye' + '"></i>' + '</a>' + '<a ' + 'class="edit-control no-padding margin-right-5 btn btn-transparent btn-xs"' + '>' + '<i class="' + 'fa fa-pencil' + '"></i>' + '</a>' + '<a ' + 'class="delete btn-transparent no-padding  btn-xs"' + '>' + '<i class="' + 'fa fa-trash fa fa-white' + '"></i>' + '</a>';
                 },
-                targets: 11
+                targets: 13
+            },{
+                render: function (data, type, full, meta) {
+                    return full[12]+'/'+full[11];
+                },
+                targets: 6
             }],
             "order": [
                 [6, 'asc'],

@@ -15,7 +15,7 @@ if (isset($_GET['specid'])) {
                LEFT JOIN taxatype ON taxatype.taxatype_id = specimens.taxatype_taxatype_id
                WHERE specimens.specimens_id   = '" . $_GET["specid"] . "'";
 
-    $objQuery    = pg_query($strSQL);
+    $objQuery    = pg_query($conn,$strSQL);
     $intNumField = pg_num_fields($objQuery);
     $resultArray = array();
     while ($obResult = pg_fetch_array($objQuery)) {
@@ -42,7 +42,7 @@ if (isset($_GET['specid'])) {
 } else {
 
     $strSQL         = "SELECT coll_id, coll_full_id FROM collection";
-    $objQuery       = pg_query($strSQL);
+    $objQuery       = pg_query($conn,$strSQL);
     $intRowsColl    = pg_num_rows($objQuery);
     $newspec_number = 1;
     $resultArray    = array();
@@ -50,7 +50,7 @@ if (isset($_GET['specid'])) {
     if ($intRowsColl > 0) {
 
         $strSQLcheck_max_collno   = "SELECT coll_code,coll_year,coll_number FROM collection ORDER BY coll_year DESC,coll_number DESC LIMIT 1";
-        $objQuerycheck_max_collno = pg_query($strSQLcheck_max_collno);
+        $objQuerycheck_max_collno = pg_query($conn,$strSQLcheck_max_collno);
         $obResultcheck_max_collno = pg_fetch_array($objQuerycheck_max_collno);
         extract($obResultcheck_max_collno);
 
@@ -62,7 +62,7 @@ if (isset($_GET['specid'])) {
                      ORDER BY coll_year DESC,coll_number DESC,specimens_number DESC
                      LIMIT 1";
 
-        $objQuery_check_specimens    = pg_query($strSQL_check_specimens);
+        $objQuery_check_specimens    = pg_query($conn,$strSQL_check_specimens);
         $intRowsColl_check_specimens = pg_num_rows($objQuery_check_specimens);
         if ($intRowsColl_check_specimens > 0) {
 
@@ -74,7 +74,7 @@ if (isset($_GET['specid'])) {
                     WHERE collection_code_id = 1
                     ORDER BY coll_year DESC,coll_number DESC,specimens_number DESC
                     LIMIT 1";
-            $objQuery_check_specimens    = pg_query($strSQL_check_specimens);
+            $objQuery_check_specimens    = pg_query($conn,$strSQL_check_specimens);
             $intRowsColl_check_specimens = pg_num_rows($objQuery_check_specimens);
             $obResult_max_collno         = pg_fetch_array($objQuery_check_specimens);
             extract($obResult_max_collno);
@@ -87,7 +87,7 @@ if (isset($_GET['specid'])) {
             $countspecimens_number = 1;
 
             $strSQLcheck_max_collno   = "SELECT coll_id,coll_code,coll_year,coll_number FROM collection ORDER BY coll_year DESC,coll_number DESC LIMIT 1";
-            $objQuerycheck_max_collno = pg_query($strSQLcheck_max_collno);
+            $objQuerycheck_max_collno = pg_query($conn,$strSQLcheck_max_collno);
             $obResultcheck_max_collno = pg_fetch_array($objQuerycheck_max_collno);
             extract($obResultcheck_max_collno);
             $txtnewcoll_number = sprintf('%04d', $coll_number);

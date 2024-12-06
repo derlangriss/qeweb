@@ -25,7 +25,8 @@ left join collection on collection.coll_id = specimens.collection_coll_id
 left join species on species.species_id = specimens.species_species_id
 left join genus on genus.genus_id = species.genus_genus_id
 left join family on family.family_id = genus.family_family_id
-left join torder on torder.torder_id = family.torder_torder_id
+left join torder on torder.torder_id = family.torder_torder_id 
+LEFT JOIN specimensbox on specimensbox.spec_box_id = specimens.specbox_spec_box_id
 ";
 
 // Table's primary key
@@ -58,7 +59,10 @@ $columns = array(
     array('as' => 'as8', 'tb' => 'collection', 'db' => 'coll_year', 'dt' => 6),
     array('as' => 'as9', 'tb' => 'collection', 'db' => 'coll_number', 'dt' => 7),
     array('as' => 'as10', 'tb' => 'specimens', 'db' => 'specimens_number', 'dt' => 8),
-    array('as' => 'as11', 'tb' => 'specimens', 'db' => 'specimens_id', 'dt' => 9)
+    array('as' => 'as11', 'tb' => 'specimens', 'db' => 'specimens_id', 'dt' => 9),
+    array('as' => 'as12', 'tb' => 'specimensbox', 'db' => 'spec_box_code', 'dt' => 10),
+    array('as' => 'as13', 'tb' => 'specimens', 'db' => 'sreport_year', 'dt' => 11),
+    array('as' => 'as14', 'tb' => 'specimens', 'db' => 'sreport_month', 'dt' => 12)
 
 );
 

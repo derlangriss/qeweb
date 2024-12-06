@@ -4,7 +4,7 @@ function collnofn()
 {
     require_once 'connectdb.php';
     $strSQL   = "SELECT coll_code,coll_year, (coll_number)+1 as coll_number from collection  order by coll_year desc,coll_number desc limit 1";
-    $objQuery = pg_query($strSQL);
+    $objQuery = pg_query($conn ,$strSQL);
     $row      = pg_fetch_array($res);
     extract($row);
     $arr = array('coll_code' => $coll_code, 'coll_year' => $coll_year, 'coll_number' => $coll_number);
@@ -26,9 +26,9 @@ function collnofnfake()
             $curyear = date('Y');
 
             $sql01 = "UPDATE collection_counter SET year = " . $_POST["tcoll_year"] . ", count = " . $_POST["tcoll_number"];
-            $res   = pg_query($sql01);
+            $res   = pg_query($conn,$sql01);
             $sql02 = "select * from collection_counter LIMIT 1";
-            $res   = pg_query($sql02);
+            $res   = pg_query($conn,$sql02);
             $row   = pg_fetch_array($res);
             extract($row);
             $newcount     = $count + 1;
@@ -39,7 +39,7 @@ function collnofnfake()
         } else {
 
             $checkCollection = "SELECT * FROM collection";
-            $res             = pg_query($checkCollection);
+            $res             = pg_query($conn,$checkCollection);
             $intRows         = pg_num_rows($res);
 
             if ($intRows > 0) {
@@ -48,10 +48,10 @@ function collnofnfake()
                 $sql2     = "INSERT INTO collection_counter(count,year)
                   SELECT DISTINCT MAX(coll_number)+1," . $collyear . " FROM collection WHERE coll_year = '" . $collyear . "' ";
 
-                $res = pg_query($sql2);
+                $res = pg_query($conn,$sql2);
 
                 $sql3 = "select * from collection_counter LIMIT 1";
-                $res  = pg_query($sql3);
+                $res  = pg_query($conn,$sql3);
 
                 $row = pg_fetch_array($res);
                 extract($row);
@@ -80,9 +80,9 @@ function collnofnfake()
         if ($intRowsCount > 0) {
 
             $sql01 = "UPDATE collection_counter SET year = " . $_POST["tcoll_year"] . " , count = 100";
-            $res   = pg_query($sql01);
+            $res   = pg_query($conn,$sql01);
             $sql02 = "select * from collection_counter LIMIT 1";
-            $res   = pg_query($sql02);
+            $res   = pg_query($conn,$sql02);
             $row   = pg_fetch_array($res);
             extract($row);
 
@@ -95,9 +95,9 @@ function collnofnfake()
         } else {
 
             $sql = "INSERT INTO collection_counter(count,year) VALUES (" . $_POST["tcoll_year"] . "," . $_POST["tcoll_number"] . ")";
-            $res = pg_query($sql);
+            $res = pg_query($conn,$sql);
             $sql = "select * from collection_counter LIMIT 1";
-            $res = pg_query($sql);
+            $res = pg_query($conn,$sql);
 
             $row = pg_fetch_array($res);
             extract($row);
@@ -117,15 +117,16 @@ function collnofnfake()
 
 function nocollfn()
 {
+    require_once 'connectdb.php';
     $checkCollection = "SELECT * FROM collection";
-    $resColl         = pg_query($checkCollection);
+    $resColl         = pg_query($conn,$checkCollection);
     $intRowsColl     = pg_num_rows($resColl);
     $curyear         = date('Y');
     $arrpush         = array();
 
     if ($intRowsColl > 0) {
         $sql = "SELECT DISTINCT MAX(coll_number)+1 as coll_number,coll_year,coll_code FROM collection WHERE coll_year = '" . $curyear . "' GROUP BY coll_year, coll_code  ";
-        $res = pg_query($sql);
+        $res = pg_query($conn,$sql);
         $row = pg_fetch_array($res);
         extract($row);
         $count = sprintf('%04d', $coll_number);
