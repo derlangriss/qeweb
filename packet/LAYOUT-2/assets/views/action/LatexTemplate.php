@@ -35,9 +35,9 @@ class LatexTemplate {
         exec($cmd, $foo, $ret);
     
         // No need for these files anymore
-        @unlink($tex_f);
-        @unlink($aux_f);
-        @unlink($log_f);
+        // @unlink($tex_f);
+        // @unlink($aux_f);
+        // @unlink($log_f);
     
         // Test here
         if(!file_exists($pdf_f)) {
@@ -53,8 +53,8 @@ class LatexTemplate {
         fpassthru($fp);
     
         // Final cleanup
-        @unlink($pdf_f);
-        @unlink($f);
+        // @unlink($pdf_f);
+        // @unlink($f);
     }
     
     /**

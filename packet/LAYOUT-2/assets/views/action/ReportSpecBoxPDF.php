@@ -20,7 +20,7 @@ if (isset($_GET['reportspectype'])) {
             $strSQL .= "left join genus on species.genus_genus_id = genus.genus_id ";
             $strSQL .= "left join family on genus.family_family_id = family.family_id ";
             $strSQL .= "left join torder on family.torder_torder_id = torder.torder_id ";
-            $strSQL .= "WHERE collbox_id ='" . $boxid . "' AND container_type ='" . $containertype . "' ";
+            $strSQL .= "WHERE collbox_id ='" . $boxid . "' ";
             $strSQL .= "AND EXTRACT(MONTH FROM sreport_date) = " . $month . " AND EXTRACT(YEAR FROM sreport_date) = " . $year . " ";
             $strSQL .= "AND specimens_trash = 1 ";
             $strSQL .= "GROUP BY torder_name,coll_full_id,family_name,sreport_date,collboxno ";
@@ -28,7 +28,7 @@ if (isset($_GET['reportspectype'])) {
 
             $strSQL02 = "SELECT count(*) AS allcount from specimens ";
             $strSQL02 .= "left join collectionresbox on collectionresbox.collbox_id = specimens.container_id ";
-            $strSQL02 .= "WHERE collbox_id ='" . $boxid . "' AND container_type ='" . $containertype . "' ";
+            $strSQL02 .= "WHERE collbox_id ='" . $boxid . "' ";
             $strSQL02 .= "AND EXTRACT(MONTH FROM sreport_date) = " . $month . " AND EXTRACT(YEAR FROM sreport_date) = " . $year . " ";
             $strSQL02 .= "AND specimens_trash = 1 ";
             $objQuery02 = pg_query($strSQL02);

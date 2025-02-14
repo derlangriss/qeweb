@@ -1213,17 +1213,7 @@ app.controller("SpecManageIdentifyCtrl", ["$scope", "$uibModal", "$log", "$http"
             ]
         });
         $scope.PrintSpecBox = function(a,b) {
-            /*
-            var datenow = new Date();
-            var name = "SpecimensBox";
-            var getyear = datenow.getFullYear();
-            var getdate = datenow.getDate();
-            var getmonth = monthstr();
-            var gethours = datenow.getHours();
-            var getsecond = datenow.getSeconds();
-            var getMilliseconds = datenow.getMilliseconds();
-            var filename = name.concat('SpecimensBox', getyear, getmonth, getdate, gethours, getsecond, getMilliseconds);
-            */
+             
             if (a == 'SpecList') {
                 var sreporttype = a;
                 var monthreport = $stateParams.monthid;
@@ -1232,6 +1222,7 @@ app.controller("SpecManageIdentifyCtrl", ["$scope", "$uibModal", "$log", "$http"
                 var specboxno = '';
                 var specmonth = $scope.monthshow01;
                 var filename = name.concat('SpecimensBox', specmonth, specboxno);
+                
                 var value = 0;
                 var containertype = 1;
                 var fileName = filename + ".pdf";
@@ -1250,6 +1241,7 @@ app.controller("SpecManageIdentifyCtrl", ["$scope", "$uibModal", "$log", "$http"
                 }, 2000);
             }
             if (a == 'SpecInBox') {
+                // testhere
                 var specboxid = getIfNotSet(b, '', true);
                 var sreporttype = a;
                 if (specboxid == '') {
@@ -1264,6 +1256,8 @@ app.controller("SpecManageIdentifyCtrl", ["$scope", "$uibModal", "$log", "$http"
                     var containertype = 1;
                     var fileName = filename + ".pdf";
                     var a = document.createElement("a");
+
+                    console.log(b)
                     document.body.appendChild(a);
                     $timeout(function() {
                         ServicePDF.downloadSpecBox(sreporttype, monthreport, yeareport, containertype, specboxid).then(function(result) {
@@ -1274,6 +1268,7 @@ app.controller("SpecManageIdentifyCtrl", ["$scope", "$uibModal", "$log", "$http"
                             a.href = fileURL;
                             a.download = fileName;
                             a.click();
+                            panel.removeSpinner = removeSpinner, $this.trigger(refreshEvent, [panel])
                         });
                     }, 2000);
                 }
