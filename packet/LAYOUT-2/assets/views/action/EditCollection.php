@@ -12,7 +12,7 @@ if (isset($_GET['collid'])) {
     $strSQL = "SELECT * FROM collection as coll
 left join method on coll.method_method_id=method.method_id
 left join tambon on coll.tambon_tambon_id=tambon.tambon_id
-left join amphur on coll.amphur_amphur_id=amphur.amphur_id
+left join amphur on tambon.amphur_amphur_id=amphur.amphur_id
 left join donation on coll.donation_donation_id=donation.donation_id
 left join province on amphur.province_province_id=province.province_id
 left join tambon_direct on coll.tambon_direct_tambon_direct_id=tambon_direct.tambon_direct_id

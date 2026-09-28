@@ -14,8 +14,8 @@ function connectdb($hostname, $dbUser, $dbPass, $dbName)
 function lookupthaigeo($long, $lat)
 {
     if ($long && $lat != '') {
-        connectdb("localhost", "mkmorgangling", "nepenthes", "thaigeo");
-        $rjlatlong = "SELECT id_3,name_3 FROM tha_adm3 WHERE ST_Contains(the_geom, ST_MakePoint($long, $lat))";
+        connectdb("localhost", "mkmorgangling", "nepenthes", "newthaigeo");
+        $rjlatlong = "SELECT id_3,adm3_en FROM tha_adm3 WHERE ST_Contains(geom, ST_MakePoint($long, $lat))";
         $rjres     = pg_query($rjlatlong);
         $row       = pg_fetch_array($rjres);
         if ($row != '') {
@@ -37,8 +37,8 @@ function lookuplga($geolocatedtambon = null)
     if (!empty($geolocatedtambon)) {
 
         $rjselect = "SELECT tambon_en,tambon_id,amphur_en,amphur_id,province_en,province_id FROM tambon
- left join amphur on tambon.amphur_amphur_id=amphur.amphur_id
- left join province on amphur.province_province_id=province.province_id ";
+ left join amphur on tambon.amphur_amphur_id = amphur.amphur_id
+ left join province on amphur.province_province_id = province.province_id ";
 
         $rjwhere = "WHERE tambon_id = " . $geolocatedtambon;
 

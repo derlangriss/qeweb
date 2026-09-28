@@ -21,9 +21,10 @@ date("H:i:s");
 
 // DB table to use
 $table = "collection
-left join method on method_id=method_method_id
-left join amphur on amphur_id=amphur_amphur_id
-left join province on province_id = province_province_id";
+left join method on method_id=method_method_id 
+left join tambon on tambon_id = collection.tambon_tambon_id
+left join amphur on amphur_id=	tambon.amphur_amphur_id
+left join province on province_id = amphur.province_province_id";
 
 
 // Table's primary key

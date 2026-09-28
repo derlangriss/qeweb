@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.9.28)  28 SEP 2026 14:57
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.9.28)  28 SEP 2026 14:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./specimensbox.tex
-(specimensbox.tex
+**./speclisteachbox.tex
+(speclisteachbox.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-09-09>
 (C:\Program Files\MiKTeX\tex/latex/base\article.cls
@@ -507,8 +507,8 @@ LaTeX Font Warning: Font shape `TU/THSarabunPSK(0)/m/n' in size <10> not availa
 ble
 (Font)              size <14> substituted on input line 130.
 
-(specimensbox.aux)
-\openout1 = `specimensbox.aux'.
+No file speclisteachbox.aux.
+\openout1 = `speclisteachbox.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
 LaTeX Font Info:    ... okay on input line 130.
@@ -550,4 +550,4 @@ LaTeX Font Info:    Redeclaring math symbol \Delta on input line 130.
 LaTeX Font Info:    Redeclaring math symbol \Theta on input line 130.
 LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 130.
 LaTeX Font Info:    Redeclaring math symbol \Xi on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \Pi on in
+LaTeX Font Info:    Redeclaring ma

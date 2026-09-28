@@ -13,7 +13,7 @@ if (isset($_GET['reporttype'])) {
                    LEFT JOIN owner ON durablelist.m_owner_id = owner.owner_id
                    LEFT JOIN responsible ON owner.responsible_response_id = responsible.response_id
                    LEFT JOIN orgsection ON durablelist.orgsection_orgsection_id = orgsection.orgsection_id
-                   WHERE orgsection_id = 1 and m_status_id = 1 and du_trash = 1 and  room ilike '%ห้อง 230%'
+                   WHERE orgsection_id = 1 and m_status_id = 1 and du_trash = 1 
                    ORDER BY explace_id asc,durablelist_id asc,m_owner_id";
 
         $objQuery = pg_query($strSQL);
@@ -102,7 +102,7 @@ if (isset($_GET['reporttype'])) {
 }
 
 
-// $reporttype = $_GET['reporttype'].".tex"; 
+$reporttype = $_GET['reporttype'].".tex"; 
 
 
 try {

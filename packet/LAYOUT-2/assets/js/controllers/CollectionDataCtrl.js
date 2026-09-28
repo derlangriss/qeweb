@@ -144,14 +144,8 @@ app.controller("CollectionDataCtrl", ["$scope", "ngNotify", "$http", "$timeout",
             $scope.data.collectionlongs = result[0].coll_long_s;
             $scope.data.collectionnorthing = result[0].coll_northing;
             $scope.data.collectioneasting = result[0].coll_easting;
-            $scope.gencoll_code = result[0].collection_code_collection_code_id;
-
-            $scope.gencoll_year = result[0].coll_year;
-
-            
-
-
-
+            $scope.gencoll_code = result[0].collection_code_collection_code_id; 
+            $scope.gencoll_year = result[0].coll_year;  
             $scope.data.collectionutm = result[0].coll_utm;
             $scope.selectMethod = result[0].method_method_id;
             $scope.selectDonate = result[0].donation_donation_id;

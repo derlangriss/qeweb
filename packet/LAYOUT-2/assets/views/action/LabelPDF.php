@@ -37,9 +37,10 @@ if (isset($_GET['labeltype'])) {
 
         $strSQL = " SELECT * FROM label_print_queue
                     LEFT JOIN collection
-                    LEFT JOIN method ON method.method_id=collection.method_method_id
-                    LEFT JOIN amphur ON amphur.amphur_id=collection.amphur_amphur_id
-                    LEFT JOIN province ON province.province_id = collection.province_province_id
+                    LEFT JOIN method ON method.method_id=collection.method_method_id 
+                    LEFT JOIN tambon ON tambon.tambon_id = collection.tambon_tambon_id
+                    LEFT JOIN amphur ON amphur.amphur_id = tambon.amphur_amphur_id
+                    LEFT JOIN province ON province.province_id = amphur.province_province_id
                     WHERE labeltype = '" . $_GET["labeltype"] . "'";
 
     }
@@ -74,7 +75,8 @@ while ($obResult = pg_fetch_array($objQuery)) {
     $strSQL02 .= "LEFT JOIN specimens ON specimens.specimens_id = label_print_queue.label_id_to_print  ";
     $strSQL02 .= "LEFT JOIN collection ON specimens.collection_coll_id = collection.coll_id ";
     $strSQL02 .= "LEFT JOIN method ON method.method_id=collection.method_method_id ";
-    $strSQL02 .= "LEFT JOIN amphur ON amphur.amphur_id=collection.amphur_amphur_id ";
+    $strSQL02 .= "LEFT JOIN tambon ON tambon.tambon_id= collection.tambon_tambon_id ";
+    $strSQL02 .= "LEFT JOIN amphur ON amphur.amphur_id= tambon.amphur_amphur_id ";
     $strSQL02 .= "LEFT JOIN province ON province.province_id = amphur.province_province_id ";
     $strSQL02 .= "LEFT JOIN species ON species.species_id = specimens.species_species_id ";
     $strSQL02 .= "LEFT JOIN genus ON genus.genus_id = species.genus_genus_id ";
